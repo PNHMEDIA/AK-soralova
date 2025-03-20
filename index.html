@@ -3519,6 +3519,889 @@ textarea.form-control {
   align-items: center; /* This vertically centers the child elements */
 }
 
+
+
+/* Location Section Styles */
+.location {
+    position: relative;
+    background-color: var(--white);
+    padding: 100px 0;
+}
+
+.location-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+.location .section-title {
+    color: var(--navy);
+    position: relative;
+}
+
+.location .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.location .section-subtitle {
+    max-width: 700px;
+    margin-top: 30px;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.location-map-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-map-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.location-map {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    display: block;
+}
+
+.location-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.location-info {
+    background-color: var(--off-white);
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.location-info::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.location-info:hover::after {
+    width: 100%;
+}
+
+.location-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.location-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: var(--navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    transition: var(--transition);
+}
+
+.location-icon i {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.location-info-item:hover .location-icon {
+    background-color: var(--gold);
+}
+
+.location-info-item:hover .location-icon i {
+    color: var(--navy);
+}
+
+.location-detail {
+    flex-grow: 1;
+}
+
+.location-info-title {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.location-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 0;
+}
+
+.location-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.location-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    flex: 1;
+}
+
+.location-btn i {
+    font-size: 16px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .location-content {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .location-container {
+        padding: 0 2rem;
+    }
+    
+    .location-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .location-map iframe {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .location {
+        padding: 80px 0;
+    }
+    
+    .location .section-number {
+        font-size: 70px;
+        top: -50px;
+    }
+    
+    .location .section-title {
+        font-size: 30px;
+    }
+    
+    .location-buttons {
+        flex-direction: column;
+    }
+    
+    .location-info {
+        padding: 30px;
+    }
+    
+    .location-map iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .location-container {
+        padding: 0 1.5rem;
+    }
+    
+    .location-info-item {
+        flex-direction: column;
+    }
+    
+    .location-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .location-info:hover,
+    .location-map-container:hover {
+        transform: none;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .location-info:hover::after {
+        width: 0;
+    }
+    
+    .location-info-item:hover .location-icon {
+        background-color: var(--navy);
+    }
+    
+    .location-info-item:hover .location-icon i {
+        color: var(--gold);
+    }
+    
+    .location-btn {
+        padding: 15px 25px;
+    }
+}
+
+/* Pricing Section Styles */
+.pricing {
+    position: relative;
+    background-color: var(--white);
+    padding: 100px 0;
+}
+
+.pricing-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+.pricing .section-title {
+    color: var(--navy);
+    position: relative;
+}
+
+.pricing .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.pricing .section-subtitle {
+    max-width: 700px;
+    margin-top: 30px;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Pricing Tabs */
+.pricing-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.pricing-tab {
+    background-color: transparent;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    color: var(--text);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.pricing-tab:hover,
+.pricing-tab.active {
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold);
+}
+
+/* Pricing Content */
+.pricing-content {
+    display: none;
+}
+
+.pricing-content.active {
+    display: block;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.pricing-card {
+    background-color: var(--off-white);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.pricing-card:hover::after {
+    width: 100%;
+}
+
+.pricing-card.highlighted {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--gold);
+    z-index: 2;
+}
+
+.pricing-card.highlighted:hover {
+    transform: scale(1.03) translateY(-5px);
+}
+
+.pricing-card-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background-color: var(--gold);
+    color: var(--navy);
+    padding: 5px 30px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transform: rotate(45deg);
+    z-index: 3;
+}
+
+/* Pricing Card Header */
+.pricing-card-header {
+    background-color: var(--navy);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.pricing-icon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.pricing-card:hover .pricing-icon {
+    background-color: var(--gold);
+    transform: rotateY(180deg);
+}
+
+.pricing-icon i {
+    color: var(--gold);
+    font-size: 30px;
+    transition: var(--transition);
+}
+
+.pricing-card:hover .pricing-icon i {
+    color: var(--navy);
+    transform: rotateY(180deg);
+}
+
+.pricing-card-title {
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Pricing Card Body */
+.pricing-card-body {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.pricing-value {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--navy);
+}
+
+.pricing-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+}
+
+.pricing-free {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+}
+
+.pricing-custom {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+}
+
+.pricing-duration {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.pricing-features li i {
+    color: var(--gold);
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Pricing Card Footer */
+.pricing-card-footer {
+    padding: 0 30px 30px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.pricing-btn {
+    width: 100%;
+    display: inline-block;
+}
+
+/* Package Info Section */
+.package-info {
+    display: flex;
+    gap: 40px;
+    background-color: var(--off-white);
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.package-icon {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-color: var(--navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.package-icon i {
+    color: var(--gold);
+    font-size: 40px;
+    transition: var(--transition);
+}
+
+.package-info:hover .package-icon {
+    background-color: var(--gold);
+}
+
+.package-info:hover .package-icon i {
+    color: var(--navy);
+}
+
+.package-content {
+    flex-grow: 1;
+}
+
+.package-title {
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.package-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+.package-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+}
+
+.package-features li {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.package-features li i {
+    color: var(--gold);
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.package-btn {
+    display: inline-block;
+}
+
+/* Pricing Examples */
+.pricing-examples {
+    margin-bottom: 50px;
+}
+
+.examples-title {
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.example-item {
+    background-color: var(--off-white);
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.example-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.example-item:hover .example-icon {
+    background-color: var(--gold);
+}
+
+.example-icon i {
+    color: var(--gold);
+    font-size: 24px;
+    transition: var(--transition);
+}
+
+.example-item:hover .example-icon i {
+    color: var(--navy);
+}
+
+.example-title {
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.example-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 0;
+}
+
+/* Pricing Disclaimer */
+.pricing-disclaimer {
+    text-align: center;
+    padding: 15px 30px;
+    background-color: var(--off-white);
+    border-left: 3px solid var(--gold);
+    margin-bottom: 40px;
+}
+
+.pricing-disclaimer p {
+    font-size: 0.9rem;
+    color: var(--text);
+    margin: 0;
+}
+
+.pricing-disclaimer i {
+    color: var(--gold);
+    margin-right: 10px;
+}
+
+/* Pricing CTA */
+.pricing-cta {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.pricing-cta-button {
+    padding: 15px 40px;
+    font-size: 1rem;
+}
+
+/* Bar Association Certification */
+.bar-certification {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    background-color: var(--off-white);
+    margin-top: 60px;
+}
+
+.bar-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.bar-text {
+    flex-grow: 1;
+}
+
+.bar-text p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.bar-text p:last-child {
+    margin-bottom: 0;
+}
+
+.bar-text a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.bar-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .pricing-cards {
+        gap: 20px;
+    }
+    
+    .examples-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .pricing-container {
+        padding: 0 2rem;
+    }
+    
+    .pricing-cards {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto 50px;
+    }
+    
+    .pricing-card.highlighted {
+        transform: scale(1);
+    }
+    
+    .pricing-card.highlighted:hover {
+        transform: translateY(-5px);
+    }
+    
+    .package-info {
+        flex-direction: column;
+    }
+    
+    .package-icon {
+        margin: 0 auto 20px;
+    }
+    
+    .package-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .bar-certification {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .bar-logo {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing {
+        padding: 80px 0;
+    }
+    
+    .pricing .section-number {
+        font-size: 70px;
+        top: -50px;
+    }
+    
+    .pricing .section-title {
+        font-size: 30px;
+    }
+    
+    .pricing-tabs {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .examples-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .pricing-container {
+        padding: 0 1.5rem;
+    }
+    
+    .pricing-card-header {
+        padding: 20px;
+    }
+    
+    .pricing-card-body, 
+    .pricing-card-footer {
+        padding: 20px;
+    }
+    
+    .package-info {
+        padding: 30px 20px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .pricing-card:hover,
+    .package-info:hover,
+    .example-item:hover {
+        transform: none;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .pricing-card.highlighted:hover {
+        transform: scale(1.03);
+    }
+    
+    .pricing-card:hover::after {
+        width: 0;
+    }
+    
+    .pricing-card:hover .pricing-icon,
+    .package-info:hover .package-icon,
+    .example-item:hover .example-icon {
+        background-color: var(--navy);
+        transform: none;
+    }
+    
+    .pricing-card:hover .pricing-icon i,
+    .package-info:hover .package-icon i,
+    .example-item:hover .example-icon i {
+        color: var(--gold);
+        transform: none;
+    }
+    
+    /* Larger touch target for tabs on mobile */
+    .pricing-tab {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+}
+
 /* No need to change the size of your elements or their horizontal layout */
     </style>
 </head>
@@ -4151,13 +5034,239 @@ textarea.form-control {
         </div>
     </section>
 
+
+
+
+
+
+
+
+<!-- Pricing Section -->
+<section class="section pricing" id="pricing">
+    <div class="section-line"></div>
+    <div class="container">
+        <div class="pricing-container">
+            <div class="section-heading fade-up">
+                <div class="section-number">04</div>
+                <h2 class="section-title" data-lang-key="pricing-title">Cenové podmínky</h2>
+                
+            </div>
+            
+           
+            
+            <!-- Hourly Rates Section -->
+            <div class="pricing-content pricing-hourly active">
+                <div class="pricing-cards">
+                    <!-- Initial Consultation Card -->
+                    <div class="pricing-card fade-up">
+                        <div class="pricing-card-header">
+                            <div class="pricing-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3 class="pricing-card-title" data-lang-key="pricing-consultation-title">První konzultace</h3>
+                        </div>
+                        <div class="pricing-card-body">
+                            <div class="pricing-value" data-lang-key="pricing-consultation-value">
+                                <span class="pricing-free">Zdarma</span>
+                            </div>
+                            <div class="pricing-duration" data-lang-key="pricing-consultation-duration">
+                                (30 minut)
+                            </div>
+                            <ul class="pricing-features">
+                                <li data-lang-key="pricing-consultation-feature-1">
+                                    <i class="fas fa-check"></i> Seznámení s případem
+                                </li>
+                                <li data-lang-key="pricing-consultation-feature-2">
+                                    <i class="fas fa-check"></i> Úvodní právní posouzení
+                                </li>
+                                <li data-lang-key="pricing-consultation-feature-3">
+                                    <i class="fas fa-check"></i> Návrh dalšího postupu
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card-footer">
+                            <a href="#contact" class="pricing-btn btn" data-lang-key="pricing-consultation-btn">Rezervovat termín</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Standard Hourly Rate Card -->
+                    <div class="pricing-card highlighted fade-up">
+                        
+                        <div class="pricing-card-header">
+                            <div class="pricing-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="pricing-card-title" data-lang-key="pricing-standard-title">Standardní hodinová sazba</h3>
+                        </div>
+                        <div class="pricing-card-body">
+                            <div class="pricing-value" data-lang-key="pricing-standard-value">
+                                od <span class="pricing-amount">2 000 Kč</span>
+                            </div>
+                            <div class="pricing-duration" data-lang-key="pricing-standard-duration">
+                                za hodinu
+                            </div>
+                            <ul class="pricing-features">
+                                <li data-lang-key="pricing-standard-feature-1">
+                                    <i class="fas fa-check"></i> Právní poradenství
+                                </li>
+                                <li data-lang-key="pricing-standard-feature-2">
+                                    <i class="fas fa-check"></i> Příprava dokumentů
+                                </li>
+                                <li data-lang-key="pricing-standard-feature-3">
+                                    <i class="fas fa-check"></i> Zastupování před úřady
+                                </li>
+                                <li data-lang-key="pricing-standard-feature-4">
+                                    <i class="fas fa-check"></i> Individuální přístup
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card-footer">
+                            <a href="#contact" class="pricing-btn btn-reversed" data-lang-key="pricing-standard-btn">Kontaktujte nás</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Complex Cases Card -->
+                    <div class="pricing-card fade-up">
+                        <div class="pricing-card-header">
+                            <div class="pricing-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="pricing-card-title" data-lang-key="pricing-complex-title">Komplexní případy</h3>
+                        </div>
+                        <div class="pricing-card-body">
+                            <div class="pricing-value" data-lang-key="pricing-complex-value">
+                                <span class="pricing-custom">Individuální cena</span>
+                            </div>
+                            <div class="pricing-duration" data-lang-key="pricing-complex-duration">
+                                dle náročnosti
+                            </div>
+                            <ul class="pricing-features">
+                                <li data-lang-key="pricing-complex-feature-1">
+                                    <i class="fas fa-check"></i> Složité právní případy
+                                </li>
+                                <li data-lang-key="pricing-complex-feature-2">
+                                    <i class="fas fa-check"></i> Rozsáhlá dokumentace
+                                </li>
+                                <li data-lang-key="pricing-complex-feature-3">
+                                    <i class="fas fa-check"></i> Dlouhodobá spolupráce
+                                </li>
+                                <li data-lang-key="pricing-complex-feature-4">
+                                    <i class="fas fa-check"></i> Transparentní kalkulace
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card-footer">
+                            <a href="#contact" class="pricing-btn btn" data-lang-key="pricing-complex-btn">Vyžádat nabídku</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package Rates Section -->
+            <div class="pricing-content pricing-packages">
+                <div class="package-info fade-up">
+                    <div class="package-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="package-content">
+                        <h3 class="package-title" data-lang-key="pricing-packages-title">Paušální balíčky</h3>
+                        <p class="package-text" data-lang-key="pricing-packages-text">
+                            Nabízíme výhodné paušální "balíčky" dle specifických potřeb klienta. Pro více informací nás prosím kontaktujte.
+                        </p>
+                        <ul class="package-features">
+                            <li data-lang-key="pricing-packages-feature-1">
+                                <i class="fas fa-check"></i> Předvídatelné náklady
+                            </li>
+                            <li data-lang-key="pricing-packages-feature-2">
+                                <i class="fas fa-check"></i> Přizpůsobeno vašim potřebám
+                            </li>
+                            <li data-lang-key="pricing-packages-feature-3">
+                                <i class="fas fa-check"></i> Možnost pravidelných konzultací
+                            </li>
+                            <li data-lang-key="pricing-packages-feature-4">
+                                <i class="fas fa-check"></i> Prioritní řešení požadavků
+                            </li>
+                        </ul>
+                        <a href="#contact" class="package-btn btn-reversed" data-lang-key="pricing-packages-btn">Vyžádat individuální nabídku</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-examples fade-up">
+                    <h4 class="examples-title" data-lang-key="pricing-examples-title">Příklady paušálních balíčků</h4>
+                    <div class="examples-grid">
+                        <div class="example-item">
+                            <div class="example-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h5 class="example-title" data-lang-key="pricing-example-1-title">Nemovitostní balíček</h5>
+                            <p class="example-text" data-lang-key="pricing-example-1-text">Právní servis pro realitní kanceláře a developery.</p>
+                        </div>
+                        
+                        <div class="example-item">
+                            <div class="example-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h5 class="example-title" data-lang-key="pricing-example-2-title">Business balíček</h5>
+                            <p class="example-text" data-lang-key="pricing-example-2-text">Kompletní právní služby pro podnikatele a firmy.</p>
+                        </div>
+                        
+                        <div class="example-item">
+                            <div class="example-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h5 class="example-title" data-lang-key="pricing-example-3-title">Litigační balíček</h5>
+                            <p class="example-text" data-lang-key="pricing-example-3-text">Zastupování v soudních a správních řízeních.</p>
+                        </div>
+                        
+                        <div class="example-item">
+                            <div class="example-icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <h5 class="example-title" data-lang-key="pricing-example-4-title">Smluvní balíček</h5>
+                            <p class="example-text" data-lang-key="pricing-example-4-text">Příprava a revize smluv a právních dokumentů.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-disclaimer fade-up">
+                <p data-lang-key="pricing-disclaimer" style="text-align: left; padding-bottom: 4px;">
+                    <i class="fas fa-info-circle"></i> Všechny uvedené ceny jsou bez DPH. Konečná cena se může lišit v závislosti na konkrétních požadavcích a rozsahu poskytnutých služeb.
+                </p>
+                <p data-lang-key="bar-certification-text" style="text-align: left; padding-bottom: 4px;">
+                    <i class="fas fa-info-circle"></i>  Česká advokátní komora byla dne 5.2.2016 pověřena Ministerstvem průmyslu a obchodu ČR mimosoudním řešením spotřebitelských sporů pro oblast sporů mezi advokátem a spotřebitelem ze Smluv o poskytování právních služeb.
+                </p>
+                <p data-lang-key="bar-website" style="text-align: left;">
+                    <i class="fas fa-info-circle"></i>  Internetová stránka tohoto pověřeného subjektu je <a href="https://www.cak.cz" target="_blank" rel="noopener" style="color: #004225;">www.cak.cz</a>.
+                </p>
+            </div>
+            
+           
+            
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials" style="background-color: rgb(255, 255, 255);">
         <div class="section-line"></div>
         <div class="container">
             <div class="testimonials-container">
                 <div class="section-heading fade-up">
-                    <div class="section-number">04</div>
+                    <div class="section-number">05</div>
                     <h2 class="section-title">Reference klientů</h2>
                     <p style="max-width: 600px; margin-top: 20px;">
                         Co o nás říkají naši klienti.
@@ -4239,7 +5348,7 @@ textarea.form-control {
             <div class="contact-container">
                 <div class="contact-content">
                     <div class="section-heading fade-up">
-                        <div class="section-number">05</div>
+                        <div class="section-number">06</div>
                         <h2 class="section-title">Kontaktujte nás</h2>
                     </div>
                     
@@ -4249,14 +5358,7 @@ textarea.form-control {
                     
                     <div class="contact-info">
                         <div class="contact-item fade-up">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-detail">
-                                573/12 Ovocný trh<br>
-                                Praha 1, 110 00<br>
-                                
-                            </div>
+                            
                         </div>
                         
                         <div class="contact-item fade-up">
@@ -4320,6 +5422,107 @@ textarea.form-control {
 
         
     </section>
+
+
+
+
+    <!-- Location Section -->
+<section class="section location" id="location">
+    <div class="section-line"></div>
+    <div class="container">
+        <div class="location-container">
+            <div class="section-heading fade-up">
+                <div class="section-number">07</div>
+                <h2 class="section-title" data-lang-key="location-title">Kde nás najdete</h2>
+                <p class="section-subtitle fade-up" data-lang-key="location-subtitle">
+                    Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.
+                </p>
+            </div>
+            
+            <div class="location-content">
+                <div class="location-map-container fade-up">
+                    <div class="location-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.1026489202486!2d14.42054637678471!3d50.08717117152063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94ec32a6eecd%3A0xb75dc8e5d0d72e29!2sOvocn%C3%BD%20trh%2012%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto!5e0!3m2!1scs!2scz!4v1711042246575!5m2!1scs!2scz" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="location-info-container fade-up">
+                    <div class="location-info">
+                        <div class="location-info-item">
+                            <div class="location-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="location-detail">
+                                <h3 class="location-info-title" data-lang-key="location-address-title">Adresa kanceláře</h3>
+                                <p class="location-text" data-lang-key="location-address">
+                                    Ovocný trh 573/12<br>
+                                    Praha 1, 110 00<br>
+                                    Česká republika
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="location-info-item">
+                            <div class="location-icon">
+                                <i class="fas fa-subway"></i>
+                            </div>
+                            <div class="location-detail">
+                                <h3 class="location-info-title" data-lang-key="location-transport-title">Dopravní spojení</h3>
+                                <p class="location-text" data-lang-key="location-transport">
+                                    <strong>Metro:</strong> Stanice Můstek (linka A, B)<br>
+                                    <strong>Tramvaj:</strong> Zastávka Národní třída<br>
+                                    <strong>Parkování:</strong> Garážový dům Kotva (5 min chůze)
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="location-info-item">
+                            <div class="location-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="location-detail">
+                                <h3 class="location-info-title" data-lang-key="location-hours-title">Otevírací doba</h3>
+                                <p class="location-text" data-lang-key="location-hours">
+                                    <strong>Po-Pá:</strong> 8:00 - 18:00<br>
+                                    <strong>So-Ne:</strong> Zavřeno<br>
+                                    <em>(Schůzky mimo otevírací dobu dle dohody)</em>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="location-buttons">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Ovocný+trh+573/12,+110+00+Praha+1,+Česká+republika" target="_blank" class="location-btn btn" data-lang-key="location-directions-btn">
+                                <i class="fas fa-directions"></i> Navigovat sem
+                            </a>
+                            <a href="#contact" class="location-btn btn-reversed" data-lang-key="location-contact-btn">
+                                <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -4402,7 +5605,7 @@ textarea.form-control {
                 
                 <div class="footer-bottom">
                     <div class="footer-copyright">
-                        © 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.PNHMEDIA.sk" class="footer-link" target="_blank">PNH MEDIA</a>
+                        © 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.PNHMEDIA.com" class="footer-link" target="_blank">PNH MEDIA</a>
                     </div>
                     
                     <div class="footer-legal">
@@ -5045,6 +6248,47 @@ const translations = {
     'cz': 'Klikněte pro více informací',
     'en': 'Click for more information'
 },
+
+'location-title': {
+        'cz': 'Kde nás najdete',
+        'en': 'Where to Find Us'
+    },
+    'location-subtitle': {
+        'cz': 'Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.',
+        'en': 'We are located in the center of Prague in a historic building on Ovocný trh, near Old Town Square.'
+    },
+    'location-address-title': {
+        'cz': 'Adresa kanceláře',
+        'en': 'Office Address'
+    },
+    'location-address': {
+        'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00<br>Česká republika',
+        'en': 'Ovocný trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
+    },
+    'location-transport-title': {
+        'cz': 'Dopravní spojení',
+        'en': 'Transportation'
+    },
+    'location-transport': {
+        'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B)<br><strong>Tramvaj:</strong> Zastávka Národní třída<br><strong>Parkování:</strong> Garážový dům Kotva (5 min chůze)',
+        'en': '<strong>Metro:</strong> Můstek Station (line A, B)<br><strong>Tram:</strong> Národní třída Stop<br><strong>Parking:</strong> Kotva Garage (5 min walk)'
+    },
+    'location-hours-title': {
+        'cz': 'Otevírací doba',
+        'en': 'Opening Hours'
+    },
+    'location-hours': {
+        'cz': '<strong>Po-Pá:</strong> 8:00 - 18:00<br><strong>So-Ne:</strong> Zavřeno<br><em>(Schůzky mimo otevírací dobu dle dohody)</em>',
+        'en': '<strong>Mon-Fri:</strong> 8:00 - 18:00<br><strong>Sat-Sun:</strong> Closed<br><em>(Appointments outside opening hours by arrangement)</em>'
+    },
+    'location-directions-btn': {
+        'cz': '<i class="fas fa-directions"></i> Navigovat sem',
+        'en': '<i class="fas fa-directions"></i> Get Directions'
+    },
+    'location-contact-btn': {
+        'cz': '<i class="fas fa-phone-alt"></i> Kontaktujte nás',
+        'en': '<i class="fas fa-phone-alt"></i> Contact Us'
+    }
 };
 
 // Current language
@@ -6438,6 +7682,387 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// Merge location translations with the main translations object
+document.addEventListener('DOMContentLoaded', function() {
+    // Add location translations to the main translations object
+    Object.assign(translations, locationTranslations);
+    
+    // Initialize animations for the location section
+    function initLocationAnimations() {
+        gsap.utils.toArray('.location .fade-up').forEach((element, index) => {
+            gsap.from(element, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.2 + (index * 0.1),
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 85%',
+                    end: 'bottom 15%',
+                    toggleClass: 'active',
+                    once: true
+                }
+            });
+        });
+    }
+    
+    // Create scroll trigger for location section
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.create({
+            trigger: '.location',
+            start: 'top 80%',
+            onEnter: initLocationAnimations,
+            once: true
+        });
+    } else {
+        // Fallback if ScrollTrigger is not available
+        window.addEventListener('load', initLocationAnimations);
+    }
+    
+    // Update section marker positions to include the new location section
+    const markers = document.querySelectorAll('.section-marker');
+    if (markers.length >= 5) {
+        // If we have a marker for location (section 06), update its position
+        if (markers[5]) {
+            markers[5].style.top = '650vh';
+            markers[5].setAttribute('data-section', 'location');
+        } else {
+            // If we need to create a new marker, we'd do it here
+            // But this would require DOM manipulation that might be better
+            // handled in the main HTML directly
+        }
+    }
+    
+    // Add map interaction enhancements if needed
+    const mapContainer = document.querySelector('.location-map-container');
+    if (mapContainer) {
+        mapContainer.addEventListener('mouseenter', function() {
+            // You could add special effects or behaviors when hovering over the map
+            // For example, showing a small tooltip or changing the appearance
+        });
+        
+        // Make sure map links open in new tab
+        const mapIframe = mapContainer.querySelector('iframe');
+        if (mapIframe && !mapIframe.hasAttribute('target')) {
+            mapIframe.setAttribute('target', '_blank');
+        }
+    }
+});
+
+
+
+// Add pricing section translations
+const pricingTranslations = {
+    // Pricing section title and subtitle
+    'pricing-title': {
+        'cz': 'Cenové podmínky',
+        'en': 'Pricing'
+    },
+    'pricing-subtitle': {
+        'cz': 'Naše služby poskytujeme transparentně s jasnými cenovými podmínkami. Pro konkrétní cenovou kalkulaci nás neváhejte kontaktovat.',
+        'en': 'We provide our services transparently with clear pricing conditions. Do not hesitate to contact us for a specific price calculation.'
+    },
+    
+    // Pricing tabs
+    'pricing-tab-hourly': {
+        'cz': 'Hodinové sazby',
+        'en': 'Hourly Rates'
+    },
+    'pricing-tab-packages': {
+        'cz': 'Paušální balíčky',
+        'en': 'Fixed Packages'
+    },
+    
+    // Initial consultation card
+    'pricing-consultation-title': {
+        'cz': 'První konzultace',
+        'en': 'Initial Consultation'
+    },
+    'pricing-consultation-value': {
+        'cz': '<span class="pricing-free">Zdarma</span>',
+        'en': '<span class="pricing-free">Free</span>'
+    },
+    'pricing-consultation-duration': {
+        'cz': '(30 minut)',
+        'en': '(30 minutes)'
+    },
+    'pricing-consultation-feature-1': {
+        'cz': '<i class="fas fa-check"></i> Seznámení s případem',
+        'en': '<i class="fas fa-check"></i> Case introduction'
+    },
+    'pricing-consultation-feature-2': {
+        'cz': '<i class="fas fa-check"></i> Úvodní právní posouzení',
+        'en': '<i class="fas fa-check"></i> Initial legal assessment'
+    },
+    'pricing-consultation-feature-3': {
+        'cz': '<i class="fas fa-check"></i> Návrh dalšího postupu',
+        'en': '<i class="fas fa-check"></i> Proposed next steps'
+    },
+    'pricing-consultation-btn': {
+        'cz': 'Rezervovat termín',
+        'en': 'Schedule Appointment'
+    },
+    
+    // Standard hourly rate card
+    'pricing-standard-ribbon': {
+        'cz': 'Nejžádanější',
+        'en': 'Most Popular'
+    },
+    'pricing-standard-title': {
+        'cz': 'Standardní hodinová sazba',
+        'en': 'Standard Hourly Rate'
+    },
+    'pricing-standard-value': {
+        'cz': 'od <span class="pricing-amount">2 000 Kč</span>',
+        'en': 'from <span class="pricing-amount">2 000 CZK</span>'
+    },
+    'pricing-standard-duration': {
+        'cz': 'za hodinu',
+        'en': 'per hour'
+    },
+    'pricing-standard-feature-1': {
+        'cz': '<i class="fas fa-check"></i> Právní poradenství',
+        'en': '<i class="fas fa-check"></i> Legal consulting'
+    },
+    'pricing-standard-feature-2': {
+        'cz': '<i class="fas fa-check"></i> Příprava dokumentů',
+        'en': '<i class="fas fa-check"></i> Document preparation'
+    },
+    'pricing-standard-feature-3': {
+        'cz': '<i class="fas fa-check"></i> Zastupování před úřady',
+        'en': '<i class="fas fa-check"></i> Representation before authorities'
+    },
+    'pricing-standard-feature-4': {
+        'cz': '<i class="fas fa-check"></i> Individuální přístup',
+        'en': '<i class="fas fa-check"></i> Individual approach'
+    },
+    'pricing-standard-btn': {
+        'cz': 'Kontaktujte nás',
+        'en': 'Contact Us'
+    },
+    
+    // Complex cases card
+    'pricing-complex-title': {
+        'cz': 'Komplexní případy',
+        'en': 'Complex Cases'
+    },
+    'pricing-complex-value': {
+        'cz': '<span class="pricing-custom">Individuální cena</span>',
+        'en': '<span class="pricing-custom">Individual pricing</span>'
+    },
+    'pricing-complex-duration': {
+        'cz': 'dle náročnosti',
+        'en': 'based on complexity'
+    },
+    'pricing-complex-feature-1': {
+        'cz': '<i class="fas fa-check"></i> Složité právní případy',
+        'en': '<i class="fas fa-check"></i> Complex legal cases'
+    },
+    'pricing-complex-feature-2': {
+        'cz': '<i class="fas fa-check"></i> Rozsáhlá dokumentace',
+        'en': '<i class="fas fa-check"></i> Extensive documentation'
+    },
+    'pricing-complex-feature-3': {
+        'cz': '<i class="fas fa-check"></i> Dlouhodobá spolupráce',
+        'en': '<i class="fas fa-check"></i> Long-term cooperation'
+    },
+    'pricing-complex-feature-4': {
+        'cz': '<i class="fas fa-check"></i> Transparentní kalkulace',
+        'en': '<i class="fas fa-check"></i> Transparent calculation'
+    },
+    'pricing-complex-btn': {
+        'cz': 'Vyžádat nabídku',
+        'en': 'Request Quote'
+    },
+    
+    // Package rates section
+    'pricing-packages-title': {
+        'cz': 'Paušální balíčky',
+        'en': 'Fixed Packages'
+    },
+    'pricing-packages-text': {
+        'cz': 'Nabízíme výhodné paušální "balíčky" dle specifických potřeb klienta. Pro více informací nás prosím kontaktujte.',
+        'en': 'We offer advantageous fixed "packages" according to the specific needs of the client. Please contact us for more information.'
+    },
+    'pricing-packages-feature-1': {
+        'cz': '<i class="fas fa-check"></i> Předvídatelné náklady',
+        'en': '<i class="fas fa-check"></i> Predictable costs'
+    },
+    'pricing-packages-feature-2': {
+        'cz': '<i class="fas fa-check"></i> Přizpůsobeno vašim potřebám',
+        'en': '<i class="fas fa-check"></i> Tailored to your needs'
+    },
+    'pricing-packages-feature-3': {
+        'cz': '<i class="fas fa-check"></i> Možnost pravidelných konzultací',
+        'en': '<i class="fas fa-check"></i> Option for regular consultations'
+    },
+    'pricing-packages-feature-4': {
+        'cz': '<i class="fas fa-check"></i> Prioritní řešení požadavků',
+        'en': '<i class="fas fa-check"></i> Priority request handling'
+    },
+    'pricing-packages-btn': {
+        'cz': 'Vyžádat individuální nabídku',
+        'en': 'Request Custom Quote'
+    },
+    
+    // Package examples
+    'pricing-examples-title': {
+        'cz': 'Příklady paušálních balíčků',
+        'en': 'Examples of Fixed Packages'
+    },
+    'pricing-example-1-title': {
+        'cz': 'Nemovitostní balíček',
+        'en': 'Real Estate Package'
+    },
+    'pricing-example-1-text': {
+        'cz': 'Právní servis pro realitní kanceláře a developery.',
+        'en': 'Legal services for real estate agencies and developers.'
+    },
+    'pricing-example-2-title': {
+        'cz': 'Business balíček',
+        'en': 'Business Package'
+    },
+    'pricing-example-2-text': {
+        'cz': 'Kompletní právní služby pro podnikatele a firmy.',
+        'en': 'Complete legal services for entrepreneurs and companies.'
+    },
+    'pricing-example-3-title': {
+        'cz': 'Litigační balíček',
+        'en': 'Litigation Package'
+    },
+    'pricing-example-3-text': {
+        'cz': 'Zastupování v soudních a správních řízeních.',
+        'en': 'Representation in court and administrative proceedings.'
+    },
+    'pricing-example-4-title': {
+        'cz': 'Smluvní balíček',
+        'en': 'Contract Package'
+    },
+    'pricing-example-4-text': {
+        'cz': 'Příprava a revize smluv a právních dokumentů.',
+        'en': 'Preparation and review of contracts and legal documents.'
+    },
+    
+    // Pricing disclaimer and CTA
+    'pricing-disclaimer': {
+        'cz': '<i class="fas fa-info-circle"></i> Všechny uvedené ceny jsou bez DPH. Konečná cena se může lišit v závislosti na konkrétních požadavcích a rozsahu poskytnutých služeb.',
+        'en': '<i class="fas fa-info-circle"></i> All prices are exclusive of VAT. The final price may vary depending on specific requirements and the scope of services provided.'
+    },
+    'pricing-cta-button': {
+        'cz': 'Kontaktujte nás pro individuální nabídku',
+        'en': 'Contact us for a customized offer'
+    },
+    
+    // Bar Association certification
+    'bar-certification-text': {
+        'cz': 'Česká advokátní komora byla dne 5.2.2016 pověřena Ministerstvem průmyslu a obchodu ČR mimosoudním řešením spotřebitelských sporů pro oblast sporů mezi advokátem a spotřebitelem ze Smluv o poskytování právních služeb.',
+        'en': 'On February 5, 2016, the Czech Bar Association was authorized by the Ministry of Industry and Trade of the Czech Republic to administer out-of-court settlement of consumer disputes between an attorney and consumer arising out of Contracts on provision of legal services (based on Act No. 634/1992 Coll., Consumer Protection Act, as amended).'
+    },
+    'bar-website': {
+        'cz': 'Internetová stránka tohoto pověřeného subjektu je <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.',
+        'en': 'Website of this authorized body is <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.'
+    },
+    
+    // Navigation link
+    'nav-pricing': {
+        'cz': 'Ceník',
+        'en': 'Pricing'
+    }
+};
+
+// Initialize pricing tab functionality and animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Merge pricing translations with the main translations object
+    Object.assign(translations, pricingTranslations);
+    
+    // Initialize pricing tabs
+    const pricingTabs = document.querySelectorAll('.pricing-tab');
+    const pricingContents = document.querySelectorAll('.pricing-content');
+    
+    pricingTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active tab
+            pricingTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding content
+            const tabType = this.getAttribute('data-tab');
+            pricingContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.classList.contains('pricing-' + tabType)) {
+                    content.classList.add('active');
+                }
+            });
+            
+            // Animate content elements
+            animatePricingContent();
+        });
+    });
+    
+    // Function to animate pricing content elements
+    function animatePricingContent() {
+        const activeContent = document.querySelector('.pricing-content.active');
+        
+        if (activeContent) {
+            const fadeElements = activeContent.querySelectorAll('.fade-up');
+            
+            fadeElements.forEach((element, index) => {
+                // Reset animation state
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                
+                // Apply new animation with delay based on index
+                setTimeout(() => {
+                    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        }
+    }
+    
+    // Initialize scroll animations
+    function initPricingAnimations() {
+        gsap.utils.toArray('.pricing .fade-up').forEach((element, index) => {
+            gsap.from(element, {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: 0.2 + (index * 0.1),
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 85%',
+                    end: 'bottom 15%',
+                    toggleClass: 'active',
+                    once: true
+                }
+            });
+        });
+    }
+    
+    // Create scroll trigger for pricing section
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.create({
+            trigger: '.pricing',
+            start: 'top 80%',
+            onEnter: initPricingAnimations,
+            once: true
+        });
+    } else {
+        // Fallback if ScrollTrigger is not available
+        window.addEventListener('load', initPricingAnimations);
+    }
+    
+    // Update section marker positions
+    const markers = document.querySelectorAll('.section-marker');
+    if (markers.length >= 6) {
+        // If we have a marker for pricing (section 07), update its position
+        if (markers[6]) {
+            markers[6].style.top = '750vh';
+            markers[6].setAttribute('data-section', 'pricing');
+        }
+    }
+});
     </script>
     <script src="language-toggle.js"></script>
 </body>
