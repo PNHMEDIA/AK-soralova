@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ŠORALOVÁ | Advokátní kancelář</title>
+    <title>AK ŠORALOVÁ | Advokátní kancelář</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -3406,6 +3406,112 @@ textarea.form-control {
 .mobile-menu.active .mobile-language {
     display: flex;
 }
+
+
+
+.service-card::before {
+    content: attr(data-info-text);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: var(--navy);
+    color: white;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-size: 0.85rem;
+}
+/* Touch Device Overrides */
+@media (hover: none) {
+  /* Disable all hover effects */
+  .btn:hover, 
+  .about-cta:hover, 
+  .service-card:hover, 
+  .feature-item:hover, 
+  .result-card:hover, 
+  .testimonial-button:hover,
+  .contact-item:hover, 
+  .footer-link:hover, 
+  .nav-link:hover::after,
+  .service-more-info:hover, 
+  .footer-social-link:hover,
+  .form-submit:hover,
+  .service-modal-cta:hover,
+  .services-cta-button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Disable all pseudo-element hover transitions */
+  .btn:hover::before, 
+  .about-cta:hover::before, 
+  .service-card:hover::before,
+  .service-more-info:hover::after, 
+  .form-submit:hover::before {
+    transform: none !important;
+    left: -100% !important; 
+    width: 0 !important;
+  }
+  
+  /* Remove hover "click for more information" text on service cards */
+  .service-card::before {
+    display: none;
+  }
+  
+  /* Hide custom cursor on touch devices */
+  .cursor-outer,
+  .cursor-inner {
+    display: none !important;
+  }
+  
+  /* Make buttons larger and more touch-friendly */
+  .btn,
+  .about-cta,
+  .form-submit,
+  .service-modal-cta,
+  .services-cta-button,
+  .testimonial-button {
+    padding: 15px 32px;
+    min-height: 50px;
+  }
+  
+  /* Increase tap target size for navigation */
+  .nav-link,
+  .nav-item {
+    padding: 10px;
+  }
+  
+  /* Make sure modals are easy to close */
+  .service-modal-close {
+    padding: 15px;
+    font-size: 32px;
+  }
+  
+  /* Increase spacing between footer links for easier tapping */
+  .footer-link-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* Additional fixes for small touch screens */
+@media (hover: none) and (max-width: 768px) {
+  /* Increase form field height for better interaction */
+  .form-control {
+    height: 50px;
+  }
+  
+  textarea.form-control {
+    min-height: 120px;
+  }
+  
+  /* Make nav menu items even bigger */
+  .mobile-nav-link {
+    padding: 15px 0;
+    font-size: 24px;
+  }
+}
     </style>
 </head>
 <body>
@@ -3413,7 +3519,7 @@ textarea.form-control {
  
 <div class="page-loader">
     <div class="loader-logo">
-        <div class="logo-name">ŠORALOVÁ</div>
+        <div class="logo-name">AK ŠORALOVÁ</div>
         <div class="logo-tagline" data-lang-key="logo-tagline">Advokátní kancelář</div>
     </div>
     
@@ -3458,7 +3564,7 @@ textarea.form-control {
     <header>
         <a href="#" class="logo">
             <div class="logo-text">
-                <div class="logo-name" style="color: black;">ŠORALOVÁ</div>
+                <div class="logo-name" style="color: black;">AK ŠORALOVÁ</div>
                 <div class="logo-tagline">Advokátní kancelář</div>
             </div>
         </a>
@@ -3653,7 +3759,7 @@ textarea.form-control {
             
             <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="service-card" data-category="property" data-service="1">
+                <div class="service-card" data-category="property" data-service="1" data-info-text="Klikněte pro více informací">
                     <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
@@ -3668,7 +3774,7 @@ textarea.form-control {
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="service-card" data-category="business" data-service="2">
+                <div class="service-card" data-category="business" data-service="2" data-info-text="Klikněte pro více informací">
                     <div class="service-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
@@ -3683,7 +3789,7 @@ textarea.form-control {
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="service-card" data-category="business personal">
+                <div class="service-card" data-category="business personal" data-info-text="Klikněte pro více informací">
                     <div class="service-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
@@ -3697,7 +3803,7 @@ textarea.form-control {
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="service-card" data-category="business personal property">
+                <div class="service-card" data-category="business personal property" data-info-text="Klikněte pro více informací"> 
                     <div class="service-icon">
                         <i class="fas fa-gavel"></i>
                     </div>
@@ -3711,7 +3817,7 @@ textarea.form-control {
                 </div>
                 
                 <!-- Service 5 -->
-                <div class="service-card" data-category="personal">
+                <div class="service-card" data-category="personal" data-info-text="Klikněte pro více informací">
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
@@ -3726,7 +3832,7 @@ textarea.form-control {
                 </div>
                 
                 <!-- Service 6 -->
-                <div class="service-card" data-category="business personal">
+                <div class="service-card" data-category="business personal" data-info-text="Klikněte pro více informací">
                     <div class="service-icon">
                         <i class="fas fa-university"></i>
                     </div>
@@ -3761,26 +3867,25 @@ textarea.form-control {
             <div class="service-modal-icon">
                 <i class="fas fa-building"></i>
             </div>
-            <h3 class="service-modal-title">Nemovitosti</h3>
+            <h3 class="service-modal-title" data-lang-key="modal-1-title">Nemovitosti</h3>
             <button class="service-modal-close">&times;</button>
         </div>
         <div class="service-modal-body">
-            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
             <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> Kupní smlouvy</li>
-                <li><i class="fas fa-check"></i> Nájemní smlouvy</li>
-                <li><i class="fas fa-check"></i> Zástavní práva</li>
-                <li><i class="fas fa-check"></i> Věcná břemena</li>
-                <li><i class="fas fa-check"></i> Úschovu finančních prostředků</li>
-                <li><i class="fas fa-check"></i> Zastupování před katastrem nemovitostí</li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-1">Kupní smlouvy</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-2">Nájemní smlouvy</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-3">Zástavní práva</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-4">Věcná břemena</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-5">Úschovu finančních prostředků</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-6">Zastupování před katastrem nemovitostí</span></li>
             </ul>
-            <p class="service-modal-description">
+            <p class="service-modal-description" data-lang-key="modal-1-description">
                 Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.
             </p>
-             
         </div>
         <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
         </div>
     </div>
 </div>
@@ -3792,25 +3897,25 @@ textarea.form-control {
             <div class="service-modal-icon">
                 <i class="fas fa-briefcase"></i>
             </div>
-            <h3 class="service-modal-title">Obchodní právo</h3>
+            <h3 class="service-modal-title" data-lang-key="modal-2-title">Obchodní právo</h3>
             <button class="service-modal-close">&times;</button>
         </div>
         <div class="service-modal-body">
-            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
             <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> Zakládání společností</li>
-                <li><i class="fas fa-check"></i> Korporátní změny</li>
-                <li><i class="fas fa-check"></i> Obchodní smlouvy</li>
-                <li><i class="fas fa-check"></i> Due diligence</li>
-                <li><i class="fas fa-check"></i> Zastupování ve sporech</li>
-                <li><i class="fas fa-check"></i> Právní audity</li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-1">Zakládání společností</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-2">Korporátní změny</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-3">Obchodní smlouvy</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-4">Due diligence</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-5">Zastupování ve sporech</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-6">Právní audity</span></li>
             </ul>
-            <p class="service-modal-description">
+            <p class="service-modal-description" data-lang-key="modal-2-description">
                 Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.
             </p>
         </div>
         <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
         </div>
     </div>
 </div>
@@ -3822,24 +3927,24 @@ textarea.form-control {
             <div class="service-modal-icon">
                 <i class="fas fa-user-tie"></i>
             </div>
-            <h3 class="service-modal-title">Pracovní právo</h3>
+            <h3 class="service-modal-title" data-lang-key="modal-3-title">Pracovní právo</h3>
             <button class="service-modal-close">&times;</button>
         </div>
         <div class="service-modal-body">
-            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
             <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> Pracovní smlouvy</li>
-                <li><i class="fas fa-check"></i> Ukončení pracovního poměru</li>
-                <li><i class="fas fa-check"></i> Zaměstnanecké spory</li>
-                <li><i class="fas fa-check"></i> BOZP</li>
-                <li><i class="fas fa-check"></i> Změny pracovních podmínek</li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-1">Pracovní smlouvy</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-2">Ukončení pracovního poměru</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-3">Zaměstnanecké spory</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-4">BOZP</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-5">Změny pracovních podmínek</span></li>
             </ul>
-            <p class="service-modal-description">
+            <p class="service-modal-description" data-lang-key="modal-3-description">
                 Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.
             </p>
         </div>
         <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
         </div>
     </div>
 </div>
@@ -3851,24 +3956,24 @@ textarea.form-control {
             <div class="service-modal-icon">
                 <i class="fas fa-gavel"></i>
             </div>
-            <h3 class="service-modal-title">Soudní řízení</h3>
+            <h3 class="service-modal-title" data-lang-key="modal-4-title">Soudní řízení</h3>
             <button class="service-modal-close">&times;</button>
         </div>
         <div class="service-modal-body">
-            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
             <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> Civilní spory</li>
-                <li><i class="fas fa-check"></i> Obchodní spory</li>
-                <li><i class="fas fa-check"></i> Vymáhání pohledávek</li>
-                <li><i class="fas fa-check"></i> Exekuce</li>
-                <li><i class="fas fa-check"></i> Zastupování u soudu</li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-1">Civilní spory</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-2">Obchodní spory</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-3">Vymáhání pohledávek</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-4">Exekuce</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-5">Zastupování u soudu</span></li>
             </ul>
-            <p class="service-modal-description">
+            <p class="service-modal-description" data-lang-key="modal-4-description">
                 Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.
             </p>
         </div>
         <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
         </div>
     </div>
 </div>
@@ -3880,24 +3985,24 @@ textarea.form-control {
             <div class="service-modal-icon">
                 <i class="fas fa-home"></i>
             </div>
-            <h3 class="service-modal-title">Rodinné právo</h3>
+            <h3 class="service-modal-title" data-lang-key="modal-5-title">Rodinné právo</h3>
             <button class="service-modal-close">&times;</button>
         </div>
         <div class="service-modal-body">
-            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
             <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> Rozvod manželství</li>
-                <li><i class="fas fa-check"></i> Výživné</li>
-                <li><i class="fas fa-check"></i> Péče o děti</li>
-                <li><i class="fas fa-check"></i> Majetkové vypořádání</li>
-                <li><i class="fas fa-check"></i> Předmanželské smlouvy</li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-1">Rozvod manželství</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-2">Výživné</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-3">Péče o děti</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-4">Majetkové vypořádání</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-5">Předmanželské smlouvy</span></li>
             </ul>
-            <p class="service-modal-description">
+            <p class="service-modal-description" data-lang-key="modal-5-description">
                 Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.
             </p>
         </div>
         <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
         </div>
     </div>
 </div>
@@ -3909,24 +4014,24 @@ textarea.form-control {
             <div class="service-modal-icon">
                 <i class="fas fa-university"></i>
             </div>
-            <h3 class="service-modal-title">Správní právo</h3>
+            <h3 class="service-modal-title" data-lang-key="modal-6-title">Správní právo</h3>
             <button class="service-modal-close">&times;</button>
         </div>
         <div class="service-modal-body">
-            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
             <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> Stavební řízení</li>
-                <li><i class="fas fa-check"></i> Přestupky</li>
-                <li><i class="fas fa-check"></i> Správní žaloby</li>
-                <li><i class="fas fa-check"></i> Povolení a licence</li>
-                <li><i class="fas fa-check"></i> Zastupování před úřady</li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-1">Stavební řízení</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-2">Přestupky</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-3">Správní žaloby</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-4">Povolení a licence</span></li>
+                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-5">Zastupování před úřady</span></li>
             </ul>
-            <p class="service-modal-description">
+            <p class="service-modal-description" data-lang-key="modal-6-description">
                 Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.
             </p>
         </div>
         <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
         </div>
     </div>
 </div>
@@ -4179,7 +4284,7 @@ textarea.form-control {
                 </div>
                 
                 <div class="contact-form fade-up">
-                    <form>
+                    <form target="_blank" action="https://formsubmit.co/jakub.zitko08@gmail.com" method="POST">
                         <div class="form-group">
                             <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
                             <input type="text" id="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
@@ -4205,6 +4310,9 @@ textarea.form-control {
                 </div>
             </div>
         </div>
+
+
+        
     </section>
 
     <!-- Footer -->
@@ -4214,7 +4322,7 @@ textarea.form-control {
                 <div class="footer-grid">
                     <div class="footer-column">
                         <div class="footer-logo">
-                            <div class="footer-logo-name">ŠORALOVÁ</div>
+                            <div class="footer-logo-name">AK ŠORALOVÁ</div>
                             <div class="footer-logo-tagline">Advokátní kancelář</div>
                         </div>
                         
@@ -4223,15 +4331,9 @@ textarea.form-control {
                         </p>
                         
                         <div class="footer-socials">
-                            <a href="#" class="footer-social-link">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="footer-social-link">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="footer-social-link">
-                                <i class="fab fa-twitter"></i>
-                            </a>
+                            
+                          
+                           
                         </div>
                     </div>
                     
@@ -4239,22 +4341,22 @@ textarea.form-control {
                         <h3 class="footer-heading">Naše služby</h3>
                         <ul class="footer-links">
                             <li class="footer-link-item">
-                                <a href="#" class="footer-link">Nemovitosti</a>
+                                <a href="#services" class="footer-link">Nemovitosti</a>
                             </li>
                             <li class="footer-link-item">
-                                <a href="#" class="footer-link">Obchodní právo</a>
+                                <a href="#services" class="footer-link">Obchodní právo</a>
                             </li>
                             <li class="footer-link-item">
-                                <a href="#" class="footer-link">Pracovní právo</a>
+                                <a href="#services" class="footer-link">Pracovní právo</a>
                             </li>
                             <li class="footer-link-item">
-                                <a href="#" class="footer-link">Soudní řízení</a>
+                                <a href="#services" class="footer-link">Soudní řízení</a>
                             </li>
                             <li class="footer-link-item">
-                                <a href="#" class="footer-link">Rodinné právo</a>
+                                <a href="#services" class="footer-link">Rodinné právo</a>
                             </li>
                             <li class="footer-link-item">
-                                <a href="#" class="footer-link">Správní právo</a>
+                                <a href="#services" class="footer-link">Správní právo</a>
                             </li>
                         </ul>
                     </div>
@@ -4294,7 +4396,7 @@ textarea.form-control {
                 
                 <div class="footer-bottom">
                     <div class="footer-copyright">
-                        © 2025 AK Šoralová. Všechna práva vyhrazena.
+                        © 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.PNHMEDIA.sk" class="footer-link" target="_blank">PNH MEDIA</a>
                     </div>
                     
                     <div class="footer-legal">
@@ -4659,7 +4761,7 @@ const translations = {
     },
     'footer-copyright': {
         'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena.',
-        'en': '© 2025 Šoralová Law Firm. All rights reserved.'
+        'en': '© 2025 AK Šoralová Law Firm. All rights reserved.'
     },
     'footer-terms': {
         'cz': 'Podmínky použití',
@@ -4684,7 +4786,259 @@ const translations = {
     'logo-tagline': {
         'cz': 'Advokátní kancelář',
         'en': 'Law Firm'
-    }
+    },
+
+
+    // Modal 1 - Real Estate
+'modal-1-title': {
+    'cz': 'Nemovitosti',
+    'en': 'Real Estate'
+},
+'modal-includes': {
+    'cz': 'Tato služba zahrnuje:',
+    'en': 'This service includes:'
+},
+'modal-1-feature-1': {
+    'cz': 'Kupní smlouvy',
+    'en': 'Purchase contracts'
+},
+'modal-1-feature-2': {
+    'cz': 'Nájemní smlouvy',
+    'en': 'Lease agreements'
+},
+'modal-1-feature-3': {
+    'cz': 'Zástavní práva',
+    'en': 'Mortgages'
+},
+'modal-1-feature-4': {
+    'cz': 'Věcná břemena',
+    'en': 'Easements'
+},
+'modal-1-feature-5': {
+    'cz': 'Úschovu finančních prostředků',
+    'en': 'Escrow services'
+},
+'modal-1-feature-6': {
+    'cz': 'Zastupování před katastrem nemovitostí',
+    'en': 'Representation before the land registry'
+},
+'modal-1-description': {
+    'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
+    'en': 'Complete legal services in real estate including property transfers, preparation of contractual documentation, and consulting.'
+},
+'modal-contact-btn': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact us'
+
+
+},
+
+// Common modal elements
+'modal-includes': {
+    'cz': 'Tato služba zahrnuje:',
+    'en': 'This service includes:'
+},
+'modal-contact-btn': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact us'
+},
+'service-hover-text': {
+    'cz': 'Klikněte pro více informací',
+    'en': 'Click for more information'
+},
+
+// Modal 1 - Real Estate
+'modal-1-title': {
+    'cz': 'Nemovitosti',
+    'en': 'Real Estate'
+},
+'modal-1-feature-1': {
+    'cz': 'Kupní smlouvy',
+    'en': 'Purchase contracts'
+},
+'modal-1-feature-2': {
+    'cz': 'Nájemní smlouvy',
+    'en': 'Lease agreements'
+},
+'modal-1-feature-3': {
+    'cz': 'Zástavní práva',
+    'en': 'Mortgages'
+},
+'modal-1-feature-4': {
+    'cz': 'Věcná břemena',
+    'en': 'Easements'
+},
+'modal-1-feature-5': {
+    'cz': 'Úschovu finančních prostředků',
+    'en': 'Escrow services'
+},
+'modal-1-feature-6': {
+    'cz': 'Zastupování před katastrem nemovitostí',
+    'en': 'Representation before the land registry'
+},
+'modal-1-description': {
+    'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
+    'en': 'Complete legal services in real estate including property transfers, preparation of contractual documentation, and consulting.'
+},
+
+// Modal 2 - Business Law
+'modal-2-title': {
+    'cz': 'Obchodní právo',
+    'en': 'Business Law'
+},
+'modal-2-feature-1': {
+    'cz': 'Zakládání společností',
+    'en': 'Company formation'
+},
+'modal-2-feature-2': {
+    'cz': 'Korporátní změny',
+    'en': 'Corporate changes'
+},
+'modal-2-feature-3': {
+    'cz': 'Obchodní smlouvy',
+    'en': 'Commercial contracts'
+},
+'modal-2-feature-4': {
+    'cz': 'Due diligence',
+    'en': 'Due diligence'
+},
+'modal-2-feature-5': {
+    'cz': 'Zastupování ve sporech',
+    'en': 'Dispute representation'
+},
+'modal-2-feature-6': {
+    'cz': 'Právní audity',
+    'en': 'Legal audits'
+},
+'modal-2-description': {
+    'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.',
+    'en': 'Comprehensive legal services for entrepreneurs and companies, including company formation, contract law, and legal audit.'
+},
+
+// Modal 3 - Labor Law
+'modal-3-title': {
+    'cz': 'Pracovní právo',
+    'en': 'Labor Law'
+},
+'modal-3-feature-1': {
+    'cz': 'Pracovní smlouvy',
+    'en': 'Employment contracts'
+},
+'modal-3-feature-2': {
+    'cz': 'Ukončení pracovního poměru',
+    'en': 'Employment termination'
+},
+'modal-3-feature-3': {
+    'cz': 'Zaměstnanecké spory',
+    'en': 'Employee disputes'
+},
+'modal-3-feature-4': {
+    'cz': 'BOZP',
+    'en': 'Health & safety at work'
+},
+'modal-3-feature-5': {
+    'cz': 'Změny pracovních podmínek',
+    'en': 'Changes to employment conditions'
+},
+'modal-3-description': {
+    'cz': 'Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.',
+    'en': 'Advice on employment relationships, preparation of employment contracts, resolution of labor disputes.'
+},
+
+// Modal 4 - Litigation
+'modal-4-title': {
+    'cz': 'Soudní řízení',
+    'en': 'Litigation'
+},
+'modal-4-feature-1': {
+    'cz': 'Civilní spory',
+    'en': 'Civil disputes'
+},
+'modal-4-feature-2': {
+    'cz': 'Obchodní spory',
+    'en': 'Commercial disputes'
+},
+'modal-4-feature-3': {
+    'cz': 'Vymáhání pohledávek',
+    'en': 'Debt collection'
+},
+'modal-4-feature-4': {
+    'cz': 'Exekuce',
+    'en': 'Enforcement proceedings'
+},
+'modal-4-feature-5': {
+    'cz': 'Zastupování u soudu',
+    'en': 'Court representation'
+},
+'modal-4-description': {
+    'cz': 'Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.',
+    'en': 'Representing clients in court and administrative proceedings, preparation of submissions, expert legal advice.'
+},
+
+// Modal 5 - Family Law
+'modal-5-title': {
+    'cz': 'Rodinné právo',
+    'en': 'Family Law'
+},
+'modal-5-feature-1': {
+    'cz': 'Rozvod manželství',
+    'en': 'Divorce proceedings'
+},
+'modal-5-feature-2': {
+    'cz': 'Výživné',
+    'en': 'Alimony and child support'
+},
+'modal-5-feature-3': {
+    'cz': 'Péče o děti',
+    'en': 'Child custody'
+},
+'modal-5-feature-4': {
+    'cz': 'Majetkové vypořádání',
+    'en': 'Property settlements'
+},
+'modal-5-feature-5': {
+    'cz': 'Předmanželské smlouvy',
+    'en': 'Prenuptial agreements'
+},
+'modal-5-description': {
+    'cz': 'Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.',
+    'en': 'Comprehensive legal advice in family law, including divorces, alimony, and custody arrangements for minor children.'
+},
+
+// Modal 6 - Administrative Law
+'modal-6-title': {
+    'cz': 'Správní právo',
+    'en': 'Administrative Law'
+},
+'modal-6-feature-1': {
+    'cz': 'Stavební řízení',
+    'en': 'Building permit procedures'
+},
+'modal-6-feature-2': {
+    'cz': 'Přestupky',
+    'en': 'Administrative offenses'
+},
+'modal-6-feature-3': {
+    'cz': 'Správní žaloby',
+    'en': 'Administrative lawsuits'
+},
+'modal-6-feature-4': {
+    'cz': 'Povolení a licence',
+    'en': 'Permits and licenses'
+},
+'modal-6-feature-5': {
+    'cz': 'Zastupování před úřady',
+    'en': 'Representation before authorities'
+},
+'modal-6-description': {
+    'cz': 'Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.',
+    'en': 'Representing clients in administrative proceedings, appeals against decisions of administrative bodies, legal advice.'
+},
+
+'service-hover-text': {
+    'cz': 'Klikněte pro více informací',
+    'en': 'Click for more information'
+},
 };
 
 // Current language
@@ -4719,6 +5073,12 @@ function setLanguage(language) {
         }
     });
     
+    // Update data attributes during language switching
+const cardInfoText = translations['service-card-info'][language];
+document.querySelectorAll('.service-card').forEach(card => {
+    card.setAttribute('data-info-text', cardInfoText);
+});
+
     // Also update mobile language options
     document.querySelectorAll('.mobile-language-option').forEach(option => {
         if (option.getAttribute('data-lang') === language) {
@@ -5867,6 +6227,210 @@ document.addEventListener('DOMContentLoaded', function() {
     // Make the closeModal function available globally if needed
     window.closeServiceModal = closeModal;
 });
+
+// Direct service card to modal connection
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all service cards with data-service attribute
+    const cards = document.querySelectorAll('.service-card[data-service]');
+    
+    // Add click handlers to each card
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            const serviceId = this.getAttribute('data-service');
+            const modal = document.getElementById(`service-modal-${serviceId}`);
+            
+            if (modal) {
+                // Close any open modals first
+                document.querySelectorAll('.service-modal.active').forEach(m => {
+                    m.classList.remove('active');
+                });
+                
+                // Show overlay and modal
+                const overlay = document.querySelector('.service-modal-overlay');
+                overlay.classList.add('active');
+                modal.classList.add('active');
+                
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Make sure close buttons work
+    const closeButtons = document.querySelectorAll('.service-modal-close');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation(); // Important: Prevent event bubbling
+            
+            // Close all modals
+            document.querySelectorAll('.service-modal.active').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            
+            // Hide overlay
+            document.querySelector('.service-modal-overlay').classList.remove('active');
+            
+            // Enable scrolling
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close when clicking overlay
+    const overlay = document.querySelector('.service-modal-overlay');
+    overlay.addEventListener('click', function() {
+        document.querySelectorAll('.service-modal.active').forEach(modal => {
+            modal.classList.remove('active');
+        });
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+});
+
+// Touch Device Detection and Hover Fix
+document.addEventListener('DOMContentLoaded', function() {
+  // Detect if the device is touch-enabled
+  const isTouchDevice = () => {
+    return (('ontouchstart' in window) ||
+      (navigator.maxTouchPoints > 0) ||
+      (navigator.msMaxTouchPoints > 0));
+  };
+
+  // If it's a touch device, add a class to the body element
+  if (isTouchDevice()) {
+    document.body.classList.add('touch-device');
+    
+    // Disable hover animations by making them instant
+    const style = document.createElement('style');
+    style.textContent = `
+      /* Disable transitions and animations on hover for touch devices */
+      .touch-device .btn:hover,
+      .touch-device .about-cta:hover,
+      .touch-device .service-card:hover,
+      .touch-device .feature-item:hover,
+      .touch-device .result-card:hover,
+      .touch-device .testimonial-button:hover,
+      .touch-device .contact-item:hover,
+      .touch-device .footer-link:hover, 
+      .touch-device .nav-link:hover::after,
+      .touch-device .service-more-info:hover,
+      .touch-device .footer-social-link:hover,
+      .touch-device .form-submit:hover,
+      .touch-device .service-modal-cta:hover,
+      .touch-device .services-cta-button:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        transition: none !important;
+      }
+      
+      /* Disable all pseudo-element hover transitions */
+      .touch-device .btn:hover::before,
+      .touch-device .about-cta:hover::before,
+      .touch-device .service-card:hover::before,
+      .touch-device .service-more-info:hover::after,
+      .touch-device .form-submit:hover::before {
+        transform: none !important;
+        left: -100% !important; 
+        width: 0 !important;
+        transition: none !important;
+      }
+      
+      /* Remove hover info text on service cards for touch devices */
+      .touch-device .service-card::before {
+        display: none !important;
+      }
+      
+      /* Make service cards fully clickable without hover effects */
+      .touch-device .service-card {
+        position: relative;
+      }
+    `;
+    
+    document.head.appendChild(style);
+    
+    // Make the entire service card clickable more explicitly for touch devices
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('touchstart', function() {
+        // Add active class to simulate visual feedback without hover
+        this.classList.add('touch-active');
+      });
+      
+      card.addEventListener('touchend', function() {
+        // Remove active class after touch ends
+        this.classList.remove('touch-active');
+        
+        // Get service ID and trigger modal open
+        const serviceLink = this.querySelector('.service-more-info');
+        if (serviceLink) {
+          const serviceId = serviceLink.getAttribute('data-service');
+          
+          // Close any open modals first
+          document.querySelectorAll('.service-modal.active').forEach(modal => {
+            modal.classList.remove('active');
+          });
+          
+          // Open the correct modal
+          const modal = document.getElementById(`service-modal-${serviceId}`);
+          if (modal) {
+            const overlay = document.querySelector('.service-modal-overlay');
+            overlay.classList.add('active');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      });
+    });
+    
+    // Improve touch handling for other interactive elements
+    const touchElements = document.querySelectorAll('.btn, .footer-link, .nav-link, .about-cta, .service-more-info');
+    touchElements.forEach(element => {
+      element.addEventListener('touchstart', function() {
+        this.classList.add('touch-active');
+      });
+      
+      element.addEventListener('touchend', function() {
+        this.classList.remove('touch-active');
+      });
+    });
+  }
+
+  // Add styling for touch-active state
+  const touchActiveStyle = document.createElement('style');
+  touchActiveStyle.textContent = `
+    .touch-device .touch-active {
+      opacity: 0.8 !important;
+    }
+    
+    /* Add specific styles for touch feedback */
+    .touch-device .service-card.touch-active {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    /* Custom style for touch feedback on buttons */
+    .touch-device .btn.touch-active,
+    .touch-device .about-cta.touch-active {
+      background-color: var(--navy);
+      color: var(--white);
+    }
+  `;
+  document.head.appendChild(touchActiveStyle);
+
+  // Add a helper for modal closing on touch devices
+  if (isTouchDevice()) {
+    // Make close buttons larger and easier to tap
+    const modalCloseStyle = document.createElement('style');
+    modalCloseStyle.textContent = `
+      .touch-device .service-modal-close {
+        padding: 15px !important;
+        font-size: 32px !important;
+        width: 50px !important;
+        height: 50px !important;
+      }
+    `;
+    document.head.appendChild(modalCloseStyle);
+  }
+});
+
+
 
     </script>
     <script src="language-toggle.js"></script>
