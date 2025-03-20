@@ -1,0 +1,5874 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ŠORALOVÁ | Advokátní kancelář</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        /* Base Styles */
+        :root {
+            --navy: #004225;
+            --navy-light: #87bc80;
+            --charcoal: #000000;
+            --gold: #c4a86d;
+            --gold-light: #d9c7a1;
+            --white: #ffffff;
+            --off-white: #f8f8f8;
+            --light-gray: #e9e9e9;
+            --text: #2c2c2c;
+            --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--navy);
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn-reversed {
+            background-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-reversed::before {
+            background: var(--navy);
+        }
+
+        .btn-reversed:hover {
+            color: var(--gold);
+            border-color: var(--navy);
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        /* Vertical Line */
+        .vertical-line {
+            position: fixed;
+            top: 0;
+            left: 2rem;
+            width: 1px;
+            height: 100vh;
+            background-color: rgba(196, 168, 109, 0.3);
+            z-index: 10;
+        }
+
+        .vertical-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 0;
+            background-color: var(--gold);
+            transition: height 0.5s ease;
+        }
+
+        .scroll-progress .vertical-line::before {
+            height: var(--scroll-percent);
+        }
+
+        .section-marker {
+            position: absolute;
+            left: -5px;
+            width: 11px;
+            height: 11px;
+            background-color: var(--white);
+            border: 1px solid var(--gold);
+            transform: rotate(45deg);
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .section-marker.active {
+            background-color: var(--gold);
+            opacity: 1;
+        }
+
+        .horizontal-connector {
+            position: absolute;
+            left: 11px;
+            height: 1px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .horizontal-connector.active {
+            transform: scaleX(1);
+        }
+
+         
+/* Header fixed only on hero section */
+header {
+    position: absolute; /* Changed from fixed to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 20px 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: transparent;
+}
+
+/* Remove any hidden class effects */
+header.hidden {
+    transform: none;
+}
+
+/* Glass effect can remain for visual design */
+header.scrolled {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(185, 185, 185, 0.75);
+}
+
+        .logo {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--white);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--gold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .language-switcher {
+            margin-left: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .language-option {
+            color: var(--white);
+            font-size: 0.9rem;
+            opacity: 0.6;
+            margin: 0 5px;
+            transition: var(--transition);
+        }
+
+        .language-option.active,
+        .language-option:hover {
+            opacity: 1;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+       /* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--white);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+    padding: 0 5rem;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    display: block;
+    overflow: hidden;
+}
+
+.hero-title {
+    color: var(--navy);
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+.hero-description {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.hero-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Buttons to match the screenshot */
+.hero-cta-buttons .btn {
+    padding: 12px 32px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    background-color: transparent;
+}
+
+.hero-cta-buttons .btn:hover {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.hero-cta-buttons .btn-reversed {
+    background-color: var(--navy);
+    color: var(--white);
+    border: none;
+}
+
+.hero-cta-buttons .btn-reversed:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+}
+
+/* Hero Image with Diagonal Split */
+/* Hero Image with Diagonal Split */
+.hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 30% 100%); /* Adjusted to start at 20% from the left */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background-color: var(--white);
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 2rem;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        clip-path: none; /* Remove diagonal split on smaller screens */
+    }
+
+    .hero-cta-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+
+    .hero-image {
+        height: 40vh;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+}
+
+        /* Diagonal Line Design Element */
+        .diagonal-line {
+            position: absolute;
+            top: 0;
+            right: 30%;
+            width: 1px;
+            height: 100%;
+            background-color: rgba(196, 168, 109, 0.2);
+            transform: rotate(15deg);
+            transform-origin: top right;
+            z-index: 1;
+        }
+
+        /* About Section */
+        .about {
+            position: relative;
+            background-color: var(--white);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-heading {
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            font-weight: 700;
+            color: rgba(196, 168, 109, 0.1);
+            position: absolute;
+            top: -80px;
+            left: -20px;
+            z-index: 0;
+            line-height: 1;
+        }
+
+        .section-title {
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: var(--navy);
+            z-index: 1;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .about-content {
+            position: relative;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 30px;
+        }
+
+        /* Features Grid */
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: var(--off-white);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(196, 168, 109, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feature-icon {
+            background-color: rgba(196, 168, 109, 0.2);
+            transform: scale(1.05);
+        }
+
+        .feature-icon i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-size: 1.1rem;
+        }
+
+        .feature-text {
+            flex-grow: 1;
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .about-cta {
+            position: relative;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--navy);
+            text-decoration: none;
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            transition: var(--transition);
+        }
+
+        .about-cta:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-image {
+            position: relative;
+            height: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 43, 71, 0.1);
+            z-index: 1;
+        }
+
+        .about-image-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+            transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .about-image.active .about-image-main {
+            transform: scale(1);
+        }
+
+       
+        /* Case Results Section */
+        .case-results {
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-results-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .result-card {
+            display: flex;
+            background-color: var(--off-white);
+            padding: 40px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .result-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .result-card:hover::after {
+            width: 100%;
+        }
+
+        .result-icon {
+            flex-shrink: 0;
+            margin-right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--navy);
+            color: var(--gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+
+        .result-content {
+            flex-grow: 1;
+        }
+
+        .result-title {
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+
+        .result-description {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .result-metrics {
+            display: flex;
+            gap: 30px;
+        }
+
+        .metric {
+            flex-grow: 1;
+        }
+
+        .metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--off-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5rem;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease-out;
+            margin-top: 60px;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .testimonial-card {
+            position: relative;
+            background-color: var(--white);
+            padding: 60px;
+            border-radius: 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 100px;
+            color: rgba(196, 168, 109, 0.1);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--text);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-position {
+            font-size: 14px;
+            color: var(--gold);
+        }
+
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .testimonial-button {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text);
+        }
+
+        .testimonial-button:hover {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--navy);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5rem;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(196, 168, 109, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            background-color: rgba(196, 168, 109, 0.2);
+        }
+
+        .contact-icon i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        .contact-detail {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        .contact-detail a {
+            color: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+        }
+
+        .contact-detail a:hover {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom-color: var(--gold);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        textarea.form-control {
+            height: 120px;
+            resize: none;
+        }
+
+        .form-submit {
+            background-color: var(--gold);
+            color: var(--navy);
+            border: none;
+            padding: 15px 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background-color: var(--gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--navy);
+            padding: 80px 0 30px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .footer-logo-tagline {
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .footer-social-link:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--white);
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link-item {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-link-item::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .footer-link-item:hover::before {
+            left: 5px;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-contact-icon {
+            color: var(--gold);
+            margin-right: 10px;
+        }
+
+        .footer-contact-text a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+
+        .footer-contact-text a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-legal-link {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .footer-legal-link:hover {
+            color: var(--gold);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: var(--navy);
+            z-index: 200;
+            padding: 100px 40px 40px;
+            transition: right 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 190;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+        
+        .mobile-menu-close span {
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            background-color: var(--white);
+        }
+        
+        .mobile-menu-close span:first-child {
+            transform: rotate(45deg);
+        }
+        
+        .mobile-menu-close span:last-child {
+            transform: rotate(-45deg);
+        }
+        
+        .mobile-nav-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        .mobile-nav-item {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--white);
+            padding: 10px 0;
+            transition: var(--transition);
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        
+        .mobile-menu.active .mobile-nav-link {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .mobile-nav-item:nth-child(1) .mobile-nav-link {
+            transition-delay: 0.1s;
+        }
+        
+        .mobile-nav-item:nth-child(2) .mobile-nav-link {
+            transition-delay: 0.2s;
+        }
+        
+        .mobile-nav-item:nth-child(3) .mobile-nav-link {
+            transition-delay: 0.3s;
+        }
+        
+        .mobile-nav-item:nth-child(4) .mobile-nav-link {
+            transition-delay: 0.4s;
+        }
+        
+        .mobile-nav-item:nth-child(5) .mobile-nav-link {
+            transition-delay: 0.5s;
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--gold);
+            padding-left: 10px;
+        }
+        
+        .mobile-contact {
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .mobile-menu.active .mobile-contact {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+        
+        .mobile-contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .mobile-contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--gold);
+            margin-right: 15px;
+        }
+        
+        .mobile-contact-info {
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+        
+        .mobile-contact-info a {
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .mobile-contact-info a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-language {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .mobile-language-option {
+            font-size: 0.9rem;
+            color: var(--white);
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        
+        .mobile-language-option.active,
+        .mobile-language-option:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        /* Animation Classes */
+        .fade-up {
+            opacity: 1 !important;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-up.active,
+        .fade-in.active,
+        .fade-left.active,
+        .fade-right.active {
+            opacity: 1;
+            transform: translate(0);
+        }
+        
+        /* Custom cursor */
+        .cursor-outer {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--gold);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+            opacity: 0;
+        }
+
+        .cursor-inner {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.1s ease, height 0.1s ease;
+            opacity: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-number {
+                font-size: 100px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .vertical-line,
+            .section-line {
+                display: none;
+            }
+            
+            .hero-content,
+            .services-container,
+            .case-results-container,
+            .testimonials-container,
+            .contact-container,
+            .footer-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            .nav-list {
+                display: none;
+            }
+            
+            .language-switcher {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+                width: 30px;
+                height: 20px;
+                position: relative;
+                cursor: pointer;
+            }
+            
+            .menu-toggle span {
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: var(--white);
+                transition: var(--transition);
+            }
+            
+            .menu-toggle span:nth-child(1) {
+                top: 0;
+            }
+            
+            .menu-toggle span:nth-child(2) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .menu-toggle span:nth-child(3) {
+                bottom: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                top: 9px;
+                transform: rotate(45deg);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                bottom: 9px;
+                transform: rotate(-45deg);
+            }
+            
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .services {
+                padding: 80px 0;
+            }
+            
+            .service-description {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            header {
+                padding: 20px 1.5rem;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                padding: 30px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                height: auto;
+                min-height: 100vh;
+                padding-bottom: 80px;
+            }
+            
+            .hero-content {
+                text-align: center;
+                padding-left: 0;
+            }
+            
+            .service-item {
+                flex-direction: column;
+            }
+            
+            .service-number {
+                margin-bottom: 20px;
+            }
+            
+            .result-card {
+                flex-direction: column;
+            }
+            
+            .result-icon {
+                margin-bottom: 20px;
+                margin-right: 0;
+                align-self: flex-start;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+            }
+            
+            .contact-icon {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+
+
+        
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .result-metrics {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .testimonial-controls {
+                justify-content: center;
+            }
+            
+            .section-number {
+                font-size: 80px;
+                top: -50px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+        }
+        /* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero {
+        height: 100vh; /* Full viewport height */
+        padding: 0;
+        margin: 0;
+        position: relative; /* Ensure the container is a positioning context */
+    }
+
+    .hero-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: var(--white);
+        height: 100%;
+        position: relative;
+    }
+
+    .header, .mobile-nav {
+        display: none; /* Hide the header and mobile navigation */
+    }
+
+    .hero-content {
+        position: absolute; /* Position the text over the image */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center vertically */
+        align-items: flex-start; /* Align to the left */
+        padding: 2rem;
+        z-index: 2;
+        text-align: left;
+        color: var(--white); /* Change text color to white for better contrast */
+    }
+
+    .hero-subtitle {
+        color: var(--gold); /* Keep the subtitle gold */
+    }
+
+    .hero-title {
+        color: var(--white); /* White title for contrast */
+    }
+
+    .hero-description {
+        color: var(--white); /* White description for contrast */
+    }
+
+    .hero-cta-buttons .btn {
+        border-color: var(--white); /* White border for buttons */
+        color: var(--white);
+    }
+
+    .hero-cta-buttons .btn:hover {
+        background-color: var(--white);
+        color: var(--navy);
+    }
+
+    .hero-cta-buttons .btn-reversed {
+        background-color: var(--navy);
+        color: var(--white);
+        border: none;
+    }
+
+    .hero-cta-buttons .btn-reversed:hover {
+        background-color: var(--gold);
+        color: var(--navy);
+    }
+
+    .hero-image {
+        position: absolute; /* Ensure the image fills the entire section */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        clip-path: none; /* Remove the diagonal split */
+        z-index: 1;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the area */
+    }
+
+    .hero-cta-buttons {
+        justify-content: flex-start; /* Align buttons to the left */
+    }
+}
+/* Hide mobile menu button on larger screens */
+@media (min-width: 992px) {
+    .menu-toggle {
+        display: none !important;
+    }
+    .mobile-language {
+        display: none;
+    }
+}
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh; /* Ensure full height on smaller screens */
+    }
+
+    .hero-image {
+        height: 100vh; /* Full viewport height */
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Slightly smaller title for smaller screens */
+    }
+
+    .hero-description {
+        font-size: 0.9rem; /* Slightly smaller description */
+    }
+
+    .hero-content {
+        padding: 1.5rem; /* Reduce padding for smaller screens */
+    }
+
+    .about-image {
+        display: none; /* Reduce padding for smaller screens */
+    }
+
+
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+.feature-item:hover .feature-icon {
+    background-color: var(--gold);
+}
+.feature-item:hover .feature-icon i {
+    color: var(--navy);
+}
+.about-cta::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--gold);
+    margin-bottom: 20px;
+}
+.service-number {
+    transition: var(--transition), transform 0.3s ease;
+}
+.service-item:hover .service-number {
+    transform: scale(1.05);
+    color: var(--gold);
+}
+
+
+
+
+
+/* Page Loader Styles */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--navy);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+.loader-logo .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 5px;
+}
+
+.loader-logo .logo-tagline {
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.loader-spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.loader-spinner:before,
+.loader-spinner:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.loader-spinner:before {
+    border-top-color: var(--gold);
+    border-right-color: var(--gold);
+    animation: spin 1.5s linear infinite;
+}
+
+.loader-spinner:after {
+    border-bottom-color: var(--gold-light);
+    border-left-color: var(--gold-light);
+    animation: spin 1s ease-in-out infinite reverse;
+}
+
+.loader-progress {
+    width: 100px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.loader-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: var(--gold);
+    animation: progress 2s ease-in-out forwards;
+}
+
+.loader-text {
+    font-size: 0.8rem;
+    color: var(--white);
+    opacity: 0.7;
+    margin-top: 15px;
+}
+
+/* Language Change Loader */
+.language-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 66, 37, 0.85);
+    z-index: 9998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.language-loader.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.language-loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.language-loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 20px;
+}
+
+.language-loader-text {
+    color: var(--white);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modern Services Section Styles */
+.modern-services {
+    background-color: var(--white);
+    color: var(--text);
+    padding: 100px 0 80px;
+    position: relative;
+}
+
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+
+/* Section Heading */
+.section-heading {
+    margin-bottom: 60px;
+}
+
+.section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    font-weight: 700;
+    color: rgba(196, 168, 109, 0.1);
+    position: absolute;
+    top: -80px;
+    left: -20px;
+    z-index: 0;
+    line-height: 1;
+}
+
+.section-title {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: var(--navy);
+    z-index: 1;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.section-subtitle {
+    max-width: 700px;
+    margin-top: 30px;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Tabs for filtering */
+.services-tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.service-tab {
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.service-tab:hover,
+.service-tab.active {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+/* Service Cards Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Service Card */
+.service-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Service Icon */
+.service-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--navy);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.service-icon i {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+/* Service Content */
+.service-content {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+/* Service Title */
+.service-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--navy);
+}
+
+/* Service Description */
+.service-card-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text);
+    margin: 0;
+}
+
+/* More Info Link */
+.service-more-info {
+    white-space: nowrap;
+    color: var(--navy);
+    font-size: 0.85rem;
+    font-weight: 500;
+    align-self: center;
+    transition: color 0.3s ease;
+}
+
+.service-more-info:hover {
+    color: var(--gold);
+}
+
+/* Bottom CTA Container */
+.services-cta-container {
+    text-align: center;
+    padding: 60px 0 20px;
+}
+
+.services-cta-text {
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 25px;
+}
+
+.services-cta-button {
+    padding: 15px 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--navy);
+    color: var(--white);
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.services-cta-button:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Modal Styles */
+.service-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 80%;
+    max-width: 800px;
+    z-index: 1001;
+    background-color: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.service-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Service Modal Content */
+.service-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Service Modal Header */
+.service-modal-header {
+    background-color: var(--navy);
+    color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.service-modal-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.service-modal-icon i {
+    color: var(--navy);
+    font-size: 18px;
+}
+
+.service-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.service-modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.service-modal-close:hover {
+    color: var(--gold);
+}
+
+/* Service Modal Body */
+.service-modal-body {
+    padding: 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.service-modal-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+    color: var(--navy);
+}
+
+.service-modal-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.service-modal-features li {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.service-modal-features li i {
+    color: var(--gold);
+    margin-right: 10px;
+}
+
+.service-modal-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+}
+
+/* Service Modal Footer */
+.service-modal-footer {
+    padding: 20px 30px;
+    background-color: #f5f5f5;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.service-modal-cta {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--navy);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.service-modal-cta:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal Overlay */
+.service-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.service-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .services-container {
+        padding: 0 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 36px;
+    }
+    
+    .section-number {
+        font-size: 90px;
+    }
+    
+    .service-modal-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-services {
+        padding: 80px 0 60px;
+    }
+    
+    .section-number {
+        font-size: 70px;
+        top: -50px;
+    }
+    
+    .section-title {
+        font-size: 30px;
+    }
+    
+    .service-modal {
+        width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-container {
+        padding: 0 1.5rem;
+    }
+    
+    .services-tabs {
+        justify-content: center;
+    }
+    
+    .service-card {
+        flex-direction: column;
+    }
+    
+    .service-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .service-content {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .service-more-info {
+        align-self: center;
+    }
+}
+/* Modern Service Modal Styles */
+.service-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 85%;
+    max-width: 850px;
+    z-index: 1001;
+    background-color: #fff;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    overflow: hidden;
+}
+
+.service-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Service Modal Content */
+.service-modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
+
+/* Service Modal Header */
+.service-modal-header {
+    background-color: var(--navy);
+    padding: 25px 35px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.service-modal-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 25px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-modal-icon:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.service-modal-icon i {
+    color: var(--navy);
+    font-size: 22px;
+}
+
+.service-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+    color: #fff;
+}
+
+.service-modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Service Modal Body */
+.service-modal-body {
+    padding: 35px;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 60vh;
+}
+
+.service-modal-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 25px;
+    color: var(--navy);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.service-modal-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.service-modal-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service-modal-features li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.service-modal-features li:hover {
+    transform: translateX(5px);
+}
+
+.service-modal-features li i {
+    color: var(--gold);
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.service-modal-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Service Modal Footer */
+.service-modal-footer {
+    padding: 25px 35px;
+    background-color: rgba(0, 0, 0, 0.02);
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.service-modal-cta {
+    padding: 15px 40px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background-color: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-modal-cta:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal Overlay */
+.service-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.service-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Service Card Hover Effect */
+.service-card {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: 'Klikněte pro více informací';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: var(--navy);
+    color: white;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.service-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.service-card:hover::before {
+    transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+    .service-modal-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-modal {
+        width: 95%;
+    }
+    
+    .service-modal-header {
+        padding: 20px 25px;
+    }
+    
+    .service-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .service-modal-body {
+        padding: 25px;
+    }
+}
+/*-----------------------------------------------
+  MODERN BUTTON SYSTEM - GLOBAL OVERRIDE
+------------------------------------------------*/
+
+/* Base Button Style - Universal */
+.btn,
+.about-cta,
+.form-submit,
+.service-modal-cta,
+.services-cta-button,
+.testimonial-button,
+button[type="submit"],
+.footer-social-link,
+.btn-reversed {
+    position: relative;
+    display: inline-block;
+    padding: 12px 32px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Primary Button Variant (filled) */
+.btn-reversed,
+.form-submit,
+.service-modal-cta,
+.services-cta-button {
+    background-color: var(--navy);
+    border-color: var(--navy);
+    color: white;
+}
+
+/* Shadow Effect on Hover for All Buttons */
+.btn:hover,
+.about-cta:hover,
+.form-submit:hover,
+.service-modal-cta:hover,
+.services-cta-button:hover,
+.btn-reversed:hover,
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Focus State */
+.btn:focus,
+.about-cta:focus,
+.form-submit:focus,
+.service-modal-cta:focus,
+.services-cta-button:focus,
+.btn-reversed:focus,
+button[type="submit"]:focus {
+    box-shadow: 0 0 0 3px rgba(196, 168, 109, 0.3);
+    outline: none;
+}
+
+/* Button Active State */
+.btn:active,
+.about-cta:active,
+.form-submit:active,
+.service-modal-cta:active,
+.services-cta-button:active,
+.btn-reversed:active,
+button[type="submit"]:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*-----------------------------------------------
+  MODERN HOVER ANIMATIONS 
+------------------------------------------------*/
+
+/* Animation 1: Slide Fill Effect */
+.btn::before,
+.about-cta::before,
+.service-modal-cta::before,
+.services-cta-button::before,
+.btn-reversed::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--gold);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn:hover::before,
+.about-cta:hover::before,
+.service-modal-cta:hover::before,
+.services-cta-button:hover::before,
+.btn-reversed:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn:hover,
+.about-cta:hover,
+.btn-reversed:hover {
+    color: var(--navy);
+    border-color: var(--gold);
+}
+
+.service-modal-cta:hover,
+.services-cta-button:hover,
+.form-submit:hover {
+    color: var(--navy);
+    border-color: var(--gold);
+}
+
+/* Animation for Form Submit Button */
+.form-submit {
+    background-color: var(--gold);
+    color: var(--navy);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.form-submit:hover::before {
+    left: 100%;
+}
+
+/* Animation for Testimonial Buttons */
+.testimonial-button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.testimonial-button:hover {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for Footer Social Links */
+.footer-social-link {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.footer-social-link:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-5px) rotate(360deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Card Buttons */
+.service-more-info {
+    position: relative;
+    font-weight: 500;
+    color: var(--navy);
+    overflow: hidden;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.service-more-info::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-more-info:hover {
+    color: var(--gold);
+    letter-spacing: 0.5px;
+}
+
+.service-more-info:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Mobile Navigation Button */
+.mobile-menu-close,
+.menu-toggle {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover,
+.menu-toggle:hover {
+    transform: rotate(90deg);
+}
+
+/* Adjustments for CTA buttons container */
+.hero-cta-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Fix for mobile view */
+@media (max-width: 768px) {
+    .btn,
+    .about-cta,
+    .form-submit,
+    .service-modal-cta,
+    .services-cta-button {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+    
+    .hero-cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+
+
+
+
+/* Updated Contact Form Colors and Visibility */
+.contact {
+    background-color: #13203a; /* Dark navy blue to match footer */
+    color: var(--white);
+    position: relative;
+    padding: 100px 0;
+}
+
+.contact .section-title {
+    color: var(--white);
+}
+
+.contact-text {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Form fields with better visibility */
+.form-control {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--gold);
+    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(196, 168, 109, 0.2);
+}
+
+/* Labels with better visibility */
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+/* Make the form stand out from background */
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit button styled to match other sections */
+.form-submit {
+    background-color: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 14px 34px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    background-color: #d9c7a1; /* Lighter gold */
+}
+
+/* Add highlighting effect to the submit button */
+.form-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.form-submit:hover::before {
+    left: 100%;
+}
+
+/* Make sure textarea has proper height */
+textarea.form-control {
+    min-height: 140px;
+}
+
+/* Contact information icons */
+.contact-icon {
+    background-color: rgba(196, 168, 109, 0.15);
+    color: var(--gold);
+}
+
+.contact-icon i {
+    color: var(--gold);
+}
+
+.contact-detail {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-detail a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-detail a:hover {
+    color: var(--gold);
+}
+
+/* Match the numbered section style to results section */
+.contact .section-number {
+    color: rgba(196, 168, 109, 0.1); /* Match the gold with transparency */
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    font-weight: 700;
+    position: absolute;
+    top: -80px;
+    left: -20px;
+    z-index: 0;
+    line-height: 1;
+}
+
+/* Add some spacing to form groups */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Make the form visually match the results cards */
+.contact-form {
+    border-left: 3px solid var(--gold);
+}
+
+/* Make sure the form is properly positioned in the grid */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Ensure responsive form on mobile */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 25px;
+    }
+}
+/* Contact Section - White Background with matching case results style */
+.contact {
+    background-color: var(--white) !important;
+    color: var(--text) !important;
+    position: relative;
+    padding: 100px 0;
+}
+
+/* Match section title style */
+.contact .section-title {
+    color: var(--navy) !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    position: relative;
+    display: inline-block;
+}
+
+.contact .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+/* Section number styling to match */
+.contact .section-number {
+    color: rgba(196, 168, 109, 0.1) !important;
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    font-weight: 700;
+    position: absolute;
+    top: -80px;
+    left: -20px;
+    line-height: 1;
+}
+
+/* Contact text styling */
+.contact-text {
+    color: var(--text) !important;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Form container styling similar to result cards */
+.contact-form {
+    background-color: var(--off-white) !important;
+    padding: 40px !important;
+    border-radius: 0 !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05) !important;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.contact-form:hover::after {
+    width: 100%;
+}
+
+.contact-form:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-5px);
+}
+
+/* Form fields styling */
+.form-control {
+    width: 100%;
+    background-color: var(--white) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 12px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: var(--text) !important;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 2px rgba(196, 168, 109, 0.1);
+}
+
+.form-control::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+textarea.form-control {
+    height: 120px;
+    resize: none;
+}
+
+/* Labels */
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--navy) !important;
+    font-weight: 500;
+}
+
+/* Submit button to match site style */
+.form-submit {
+    background-color: var(--navy) !important;
+    color: var(--white) !important;
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.form-submit:hover {
+    background-color: var(--gold) !important;
+    color: var(--navy) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact item icons */
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--navy) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 25px;
+    transition: var(--transition);
+}
+
+.contact-icon i {
+    color: var(--gold) !important;
+    font-size: 24px;
+}
+
+/* Contact details */
+.contact-detail {
+    font-size: 16px;
+    color: var(--text) !important;
+    line-height: 1.8;
+}
+
+.contact-detail a {
+    color: var(--text) !important;
+    transition: var(--transition);
+}
+
+.contact-detail a:hover {
+    color: var(--gold) !important;
+}
+
+/* Contact items hover effect */
+.contact-item:hover .contact-icon {
+    background-color: var(--gold) !important;
+}
+
+.contact-item:hover .contact-icon i {
+    color: var(--navy) !important;
+}
+
+/* Contact section background */
+.section.contact {
+    background-color: var(--white);
+}
+
+/* Form groups spacing */
+.form-group {
+    margin-bottom: 25px;
+}
+
+
+@media (max-width: 768px) {
+    .hero-image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness by changing the last value */
+        z-index: 1;
+    }
+    
+    /* Make sure content stays above the darkening filter */
+    .hero-content {
+        z-index: 2;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .logo-name {
+        color: white !important; /* Makes the ŠORALOVÁ text white */
+    }
+    
+    .logo-tagline {
+        color: rgba(255, 255, 255, 0.8) !important; /* Makes ADVOKÁTNÍ KANCELÁŘ slightly transparent white */
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Disable all hover animations */
+    .btn:hover, .about-cta:hover, .service-card:hover, 
+    .feature-item:hover, .result-card:hover, .testimonial-button:hover,
+    .contact-item:hover, .footer-link:hover, .nav-link:hover::after,
+    .service-more-info:hover, .footer-social-link:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Disable all pseudo-element hover transitions */
+    .btn:hover::before, .about-cta:hover::before, .service-card:hover::before,
+    .service-more-info:hover::after, .form-submit:hover::before {
+        transform: none !important;
+        left: -100% !important; 
+        width: 0 !important;
+    }
+}
+
+/* Show the language switcher only in desktop view for the header */
+@media (max-width: 992px) {
+    .language-switcher {
+        display: none !important;
+    }
+}
+
+/* Only show the mobile language switcher when the mobile menu is active */
+.mobile-language {
+    display: none;
+}
+
+.mobile-menu.active .mobile-language {
+    display: flex;
+}
+    </style>
+</head>
+<body>
+
+ 
+<div class="page-loader">
+    <div class="loader-logo">
+        <div class="logo-name">ŠORALOVÁ</div>
+        <div class="logo-tagline" data-lang-key="logo-tagline">Advokátní kancelář</div>
+    </div>
+    
+    <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+    </div>
+    <div class="loader-text" id="loader-text">Loading...</div>
+</div>
+
+
+<div class="language-loader">
+    <div class="language-loader-content">
+        <div class="language-loader-spinner"></div>
+        <div class="language-loader-text">Changing language...</div>
+    </div>
+</div>
+    <!-- Custom Cursor -->
+    <div class="cursor-outer"></div>
+    <div class="cursor-inner"></div>
+
+    <!-- Vertical Line with Section Markers -->
+    <div class="vertical-line">
+        
+        
+        <div class="section-marker" style="top: 150vh;" data-section="about"></div>
+         
+        
+        <div class="section-marker" style="top: 250vh;" data-section="services"></div>
+         
+        
+        <div class="section-marker" style="top: 350vh;" data-section="results"></div>
+        
+        
+        <div class="section-marker" style="top: 450vh;" data-section="testimonials"></div>
+        
+        
+        <div class="section-marker" style="top: 550vh;" data-section="contact"></div>
+        
+    </div>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-text">
+                <div class="logo-name" style="color: black;">ŠORALOVÁ</div>
+                <div class="logo-tagline">Advokátní kancelář</div>
+            </div>
+        </a>
+        
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#hero" class="nav-link active" data-lang-key="nav-home">Úvod</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav-about">O nás</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav-services">Služby</a></li>
+                <li class="nav-item"><a href="#results" class="nav-link" data-lang-key="nav-results">Výsledky</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link" data-lang-key="nav-testimonials">Reference</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" data-lang-key="nav-contact">Kontakt</a></li>
+            </ul>
+            
+            <!-- Desktop language switcher -->
+<div class="language-switcher">
+    <a href="#" class="language-option active" data-lang="cz">CZ</a>
+    <span>/</span>
+    <a href="#" class="language-option" data-lang="en">EN</a>
+</div>
+
+<!-- Mobile language switcher -->
+<div class="mobile-language">
+    <a href="#" class="mobile-language-option active" data-lang="cz">CZ</a>
+    <a href="#" class="mobile-language-option" data-lang="en">EN</a>
+</div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-close">
+            <span></span>
+            <span></span>
+        </div>
+        
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item"><a href="#hero" class="mobile-nav-link" data-lang-key="nav-home">Úvod</a></li>
+            <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link" data-lang-key="nav-about">O nás</a></li>
+            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link" data-lang-key="nav-services">Služby</a></li>
+            <li class="mobile-nav-item"><a href="#results" class="mobile-nav-link" data-lang-key="nav-results">Výsledky</a></li>
+            <li class="mobile-nav-item"><a href="#testimonials" class="mobile-nav-link" data-lang-key="nav-testimonials">Reference</a></li>
+            <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link" data-lang-key="nav-contact">Kontakt</a></li>
+        </ul>
+        
+        <div class="mobile-contact">
+            <h3 class="mobile-contact-title">Kontaktujte nás</h3>
+            
+            <div class="mobile-contact-item">
+                <div class="mobile-contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="mobile-contact-info">
+                    Ovocný trh 573/12<br>
+                    Praha 1, 110 00
+                </div>
+            </div>
+            
+            <div class="mobile-contact-item">
+                <div class="mobile-contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="mobile-contact-info">
+                    <a href="tel:+420732958188">+420 732 958 188</a>
+                </div>
+            </div>
+            
+            <div class="mobile-contact-item">
+                <div class="mobile-contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="mobile-contact-info">
+                    <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
+                </div>
+            </div>
+            
+            <div class="mobile-language">
+                <a href="#" class="mobile-language-option active">CZ</a>
+                <a href="#" class="mobile-language-option">EN</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <span class="hero-subtitle" data-lang-key="hero-subtitle">Advokátní kancelář</span>
+            <h1 class="hero-title" data-lang-key="hero-title">Profesionální právní služby</h1>
+            <p class="hero-description" data-lang-key="hero-description">
+                V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta.
+            </p>
+            <div class="hero-cta-buttons">
+                <a href="#services" class="btn" data-lang-key="hero-services-btn">Naše služby</a>
+                <a href="#contact" class="btn btn-reversed" data-lang-key="hero-contact-btn">Kontaktujte nás</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.postimg.cc/fy7mdNsG/pexels-njeromin-15965526.jpg" alt="Legal Services">
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="section-line"></div>
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <div class="section-heading fade-up">
+                        <div class="section-number">01</div>
+                        <h2 class="section-title">O nás</h2>
+                    </div>
+                    
+                    <p class="about-text fade-up">
+                        V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item fade-up">
+                            <div class="feature-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="feature-text">
+                                <div class="feature-title">Profesionální služby</div>
+                                <p>Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item fade-up">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div class="feature-text">
+                                <div class="feature-title">Optimální cena</div>
+                                <p>Nabízíme transparentní a dostupné ceny za profesionální právní služby.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item fade-up">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="feature-text">
+                                <div class="feature-title">Osobní přístup</div>
+                                <p>Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item fade-up">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="feature-text">
+                                <div class="feature-title">Vícejazyčné služby</div>
+                                <p>Právní služby poskytujeme v českém a anglickém jazyce.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="about-cta fade-up">Kontaktujte nás</a>
+                </div>
+                
+                <div class="about-image fade-up">
+                    <img src="https://i.postimg.cc/rmzJtC7Q/pexels-sora-shimazaki-5668802.jpg" class="about-image-main" alt="O nás">
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Services Section with updated design -->
+<section class="services modern-services" id="services">
+    <div class="container">
+        <div class="services-container">
+            <div class="section-heading fade-up">
+                <div class="section-number">02</div>
+                <h2 class="section-title" data-lang-key="services-title">Naše služby</h2>
+                <p class="section-subtitle" data-lang-key="services-subtitle">
+                    Níže uvedený přehled služeb je orientační, proto nás neváhejte kontaktovat s jakýmkoli jinými požadavky.
+                </p>
+            </div>
+            
+          
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-category="property" data-service="1">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-card-title" data-lang-key="service-1-title">Nemovitosti</h3>
+                        <p class="service-card-description" data-lang-key="service-1-description">
+                            Kompletní právní servis v oblasti nemovitostí.
+                        </p>
+                    </div>
+                    <a href="#service-modal-1" class="service-more-info" data-lang-key="service-more-info" data-service="1"> </a>
+                   
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card" data-category="business" data-service="2">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-card-title" data-lang-key="service-2-title">Obchodní právo</h3>
+                        <p class="service-card-description" data-lang-key="service-2-description">
+                            Komplexní právní služby pro podnikatele a obchodní společnosti.
+                        </p>
+                    </div>
+                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="2"></a>
+                    
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" data-category="business personal">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-card-title" data-lang-key="service-3-title">Pracovní právo</h3>
+                        <p class="service-card-description" data-lang-key="service-3-description">
+                            Poradenství v oblasti pracovněprávních vztahů a sporů.
+                        </p>
+                    </div>
+                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="3"></a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" data-category="business personal property">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-card-title" data-lang-key="service-4-title">Soudní řízení</h3>
+                        <p class="service-card-description" data-lang-key="service-4-description">
+                            Zastupování klientů v soudních a správních řízeních.
+                        </p>
+                    </div>
+                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="4"></a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" data-category="personal">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-card-title" data-lang-key="service-5-title">Rodinné právo</h3>
+                        <p class="service-card-description" data-lang-key="service-5-description">
+                            Komplexní právní poradenství v rodinném právu.
+                        </p>
+                    </div>
+                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="5"></a>
+                     
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card" data-category="business personal">
+                    <div class="service-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-card-title" data-lang-key="service-6-title">Správní právo</h3>
+                        <p class="service-card-description" data-lang-key="service-6-description">
+                            Zastupování klientů ve správních řízeních.
+                        </p>
+                    </div>
+                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="5"></a>
+                     
+                </div>
+            </div>
+            
+            <div class="services-cta-container">
+                <p class="services-cta-text" data-lang-key="services-cta-text">
+                    Potřebujete právní služby v jiné oblasti? Neváhejte nás kontaktovat.
+                </p>
+                <a href="#contact" class="services-cta-button" data-lang-key="services-cta-button">
+                    NEZÁVAZNÁ KONZULTACE
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Detail Modals -->
+<!-- Modal 1 - Nemovitosti -->
+<div id="service-modal-1" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="service-modal-icon">
+                <i class="fas fa-building"></i>
+            </div>
+            <h3 class="service-modal-title">Nemovitosti</h3>
+            <button class="service-modal-close">&times;</button>
+        </div>
+        <div class="service-modal-body">
+            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <ul class="service-modal-features">
+                <li><i class="fas fa-check"></i> Kupní smlouvy</li>
+                <li><i class="fas fa-check"></i> Nájemní smlouvy</li>
+                <li><i class="fas fa-check"></i> Zástavní práva</li>
+                <li><i class="fas fa-check"></i> Věcná břemena</li>
+                <li><i class="fas fa-check"></i> Úschovu finančních prostředků</li>
+                <li><i class="fas fa-check"></i> Zastupování před katastrem nemovitostí</li>
+            </ul>
+            <p class="service-modal-description">
+                Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.
+            </p>
+             
+        </div>
+        <div class="service-modal-footer">
+            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 2 - Obchodní právo -->
+<div id="service-modal-2" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="service-modal-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h3 class="service-modal-title">Obchodní právo</h3>
+            <button class="service-modal-close">&times;</button>
+        </div>
+        <div class="service-modal-body">
+            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <ul class="service-modal-features">
+                <li><i class="fas fa-check"></i> Zakládání společností</li>
+                <li><i class="fas fa-check"></i> Korporátní změny</li>
+                <li><i class="fas fa-check"></i> Obchodní smlouvy</li>
+                <li><i class="fas fa-check"></i> Due diligence</li>
+                <li><i class="fas fa-check"></i> Zastupování ve sporech</li>
+                <li><i class="fas fa-check"></i> Právní audity</li>
+            </ul>
+            <p class="service-modal-description">
+                Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.
+            </p>
+        </div>
+        <div class="service-modal-footer">
+            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 3 - Pracovní právo -->
+<div id="service-modal-3" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="service-modal-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h3 class="service-modal-title">Pracovní právo</h3>
+            <button class="service-modal-close">&times;</button>
+        </div>
+        <div class="service-modal-body">
+            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <ul class="service-modal-features">
+                <li><i class="fas fa-check"></i> Pracovní smlouvy</li>
+                <li><i class="fas fa-check"></i> Ukončení pracovního poměru</li>
+                <li><i class="fas fa-check"></i> Zaměstnanecké spory</li>
+                <li><i class="fas fa-check"></i> BOZP</li>
+                <li><i class="fas fa-check"></i> Změny pracovních podmínek</li>
+            </ul>
+            <p class="service-modal-description">
+                Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.
+            </p>
+        </div>
+        <div class="service-modal-footer">
+            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 4 - Soudní řízení -->
+<div id="service-modal-4" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="service-modal-icon">
+                <i class="fas fa-gavel"></i>
+            </div>
+            <h3 class="service-modal-title">Soudní řízení</h3>
+            <button class="service-modal-close">&times;</button>
+        </div>
+        <div class="service-modal-body">
+            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <ul class="service-modal-features">
+                <li><i class="fas fa-check"></i> Civilní spory</li>
+                <li><i class="fas fa-check"></i> Obchodní spory</li>
+                <li><i class="fas fa-check"></i> Vymáhání pohledávek</li>
+                <li><i class="fas fa-check"></i> Exekuce</li>
+                <li><i class="fas fa-check"></i> Zastupování u soudu</li>
+            </ul>
+            <p class="service-modal-description">
+                Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.
+            </p>
+        </div>
+        <div class="service-modal-footer">
+            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 5 - Rodinné právo -->
+<div id="service-modal-5" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="service-modal-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <h3 class="service-modal-title">Rodinné právo</h3>
+            <button class="service-modal-close">&times;</button>
+        </div>
+        <div class="service-modal-body">
+            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <ul class="service-modal-features">
+                <li><i class="fas fa-check"></i> Rozvod manželství</li>
+                <li><i class="fas fa-check"></i> Výživné</li>
+                <li><i class="fas fa-check"></i> Péče o děti</li>
+                <li><i class="fas fa-check"></i> Majetkové vypořádání</li>
+                <li><i class="fas fa-check"></i> Předmanželské smlouvy</li>
+            </ul>
+            <p class="service-modal-description">
+                Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.
+            </p>
+        </div>
+        <div class="service-modal-footer">
+            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 6 - Správní právo -->
+<div id="service-modal-6" class="service-modal">
+    <div class="service-modal-content">
+        <div class="service-modal-header">
+            <div class="service-modal-icon">
+                <i class="fas fa-university"></i>
+            </div>
+            <h3 class="service-modal-title">Správní právo</h3>
+            <button class="service-modal-close">&times;</button>
+        </div>
+        <div class="service-modal-body">
+            <h4 class="service-modal-subtitle">Tato služba zahrnuje:</h4>
+            <ul class="service-modal-features">
+                <li><i class="fas fa-check"></i> Stavební řízení</li>
+                <li><i class="fas fa-check"></i> Přestupky</li>
+                <li><i class="fas fa-check"></i> Správní žaloby</li>
+                <li><i class="fas fa-check"></i> Povolení a licence</li>
+                <li><i class="fas fa-check"></i> Zastupování před úřady</li>
+            </ul>
+            <p class="service-modal-description">
+                Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.
+            </p>
+        </div>
+        <div class="service-modal-footer">
+            <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+        </div>
+    </div>
+</div>
+
+<!-- Service Modal Overlay -->
+<div class="service-modal-overlay"></div>
+
+    <!-- Case Results Section -->
+    <section class="case-results section" id="results">
+        <div class="section-line"></div>
+        <div class="container">
+            <div class="case-results-container">
+                <div class="section-heading fade-up">
+                    <div class="section-number">03</div>
+                    <h2 class="section-title">Výsledky případů</h2>
+                    <p style="max-width: 600px; margin-top: 20px;">
+                        Podívejte se na některé z našich nedávných případů a výsledků.
+                    </p>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card fade-up">
+                        <div class="result-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3 class="result-title">Úspěšná akvizice nemovitosti</h3>
+                            <p class="result-description">
+                                Zastupování klienta při komplexní akvizici komerční nemovitosti v hodnotě 150 milionů Kč včetně due diligence, přípravy smluvní dokumentace a úspěšného dokončení transakce.
+                            </p>
+                            <div class="result-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">150M</div>
+                                    <div class="metric-label">Hodnota transakce</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">3</div>
+                                    <div class="metric-label">Měsíce k dokončení</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card fade-up">
+                        <div class="result-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3 class="result-title">Vyhraný soudní spor</h3>
+                            <p class="result-description">
+                                Úspěšná obhajoba klienta v komplexním obchodněprávním sporu s potenciální škodou přes 20 milionů Kč. Dosažení zamítnutí žaloby a přiznání náhrady nákladů řízení.
+                            </p>
+                            <div class="result-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">20M</div>
+                                    <div class="metric-label">Hodnota sporu</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">100%</div>
+                                    <div class="metric-label">Úspěšnost</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card fade-up">
+                        <div class="result-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3 class="result-title">Restrukturalizace společnosti</h3>
+                            <p class="result-description">
+                                Komplexní právní poradenství při restrukturalizaci středně velké společnosti včetně změny vlastnické struktury, pracovněprávních vztahů a smluvní dokumentace.
+                            </p>
+                            <div class="result-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">45M</div>
+                                    <div class="metric-label">Obrat společnosti</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">6</div>
+                                    <div class="metric-label">Měsíců k implementaci</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card fade-up">
+                        <div class="result-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div class="result-content">
+                            <h3 class="result-title">Komplexní právní audit</h3>
+                            <p class="result-description">
+                                Provedení důkladného právního auditu pro mezinárodní společnost vstupující na český trh. Identifikace a eliminace potenciálních právních rizik a nastavení vhodné struktury pro působení v ČR.
+                            </p>
+                            <div class="result-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">250+</div>
+                                    <div class="metric-label">Prověřených dokumentů</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">4</div>
+                                    <div class="metric-label">Týdny k dokončení</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials" style="background-color: rgb(255, 255, 255);">
+        <div class="section-line"></div>
+        <div class="container">
+            <div class="testimonials-container">
+                <div class="section-heading fade-up">
+                    <div class="section-number">04</div>
+                    <h2 class="section-title">Reference klientů</h2>
+                    <p style="max-width: 600px; margin-top: 20px;">
+                        Co o nás říkají naši klienti.
+                    </p>
+                </div>
+                
+                <div class="testimonials-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <p class="testimonial-text">
+                                Advokátní kancelář Šoralová mi poskytla vynikající právní služby při koupi nemovitosti. Oceňuji jejich profesionalitu, odbornost a osobní přístup. Vřele doporučuji.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="#" alt="Client">
+                                </div>
+                                <div class="testimonial-info">
+                                    <div class="testimonial-name">Jan Novák</div>
+                                    <div class="testimonial-position">Praha</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <p class="testimonial-text">
+                                S advokátní kanceláří Šoralová spolupracuji již několik let. Vždy mi poskytli kvalitní právní služby a poradenství. Jejich přístup je velmi profesionální a vstřícný.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src=" #" alt="Client">
+                                </div>
+                                <div class="testimonial-info">
+                                    <div class="testimonial-name">Petr Svoboda</div>
+                                    <div class="testimonial-position">Jednatel společnosti</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-quote">"</div>
+                            <p class="testimonial-text">
+                                Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src=" #ą" alt="Client">
+                                </div>
+                                <div class="testimonial-info">
+                                    <div class="testimonial-name">Michaela Dvořáková</div>
+                                    <div class="testimonial-position">HR manažerka</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="testimonial-button prev-testimonial">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button class="testimonial-button next-testimonial">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact" style="background-color: #fff;">
+        <div class="section-line"></div>
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-content">
+                    <div class="section-heading fade-up">
+                        <div class="section-number">05</div>
+                        <h2 class="section-title">Kontaktujte nás</h2>
+                    </div>
+                    
+                    <p class="contact-text fade-up">
+                        Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.
+                    </p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item fade-up">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-detail">
+                                573/12 Ovocný trh<br>
+                                Praha 1, 110 00<br>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-up">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-detail">
+                                <a href="tel:+420732958188">+420 732 958 188</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-up">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-detail">
+                                <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item fade-up">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-detail">
+                                Po-Pá: 8:00 - 18:00<br>
+                                So-Ne: Zavřeno
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-up">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
+                            <input type="text" id="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
+                            <input type="email" id="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
+                            <input type="tel" id="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
+                            <textarea id="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <div class="footer-logo-name">ŠORALOVÁ</div>
+                            <div class="footer-logo-tagline">Advokátní kancelář</div>
+                        </div>
+                        
+                        <p class="footer-text">
+                            V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup a flexibilitu.
+                        </p>
+                        
+                        <div class="footer-socials">
+                            <a href="#" class="footer-social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="footer-social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="footer-social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Naše služby</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">Nemovitosti</a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">Obchodní právo</a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">Pracovní právo</a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">Soudní řízení</a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">Rodinné právo</a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">Správní právo</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-heading">Kontaktní údaje</h3>
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="footer-contact-text">
+                                Ovocný trh 573/12<br>
+                                Praha 1, 110 00<br>
+                                 
+                            </div>
+                        </div>
+                        
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="footer-contact-text">
+                                <a href="tel:+420732958188">+420 732 958 188</a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-contact-item">
+                            <div class="footer-contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="footer-contact-text">
+                                <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © 2025 AK Šoralová. Všechna práva vyhrazena.
+                    </div>
+                    
+                    <div class="footer-legal">
+                        <a href="#" class="footer-legal-link">Podmínky použití</a>
+                        <a href="#" class="footer-legal-link">Ochrana osobních údajů</a>
+                        <a href="#" class="footer-legal-link">Zásady cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+
+ 
+
+        // Language translations object
+const translations = {
+    // Navigation
+    'nav-home': {
+        'cz': 'Úvod',
+        'en': 'Home'
+    },
+    'nav-about': {
+        'cz': 'O nás',
+        'en': 'About'
+    },
+    'nav-services': {
+        'cz': 'Služby',
+        'en': 'Services'
+    },
+    'nav-results': {
+        'cz': 'Výsledky',
+        'en': 'Results'
+    },
+    'nav-testimonials': {
+        'cz': 'Reference',
+        'en': 'Testimonials'
+    },
+    'nav-contact': {
+        'cz': 'Kontakt',
+        'en': 'Contact'
+    },
+
+    // Hero Section
+    'hero-subtitle': {
+        'cz': 'Advokátní kancelář',
+        'en': 'Law Firm'
+    },
+    'hero-title': {
+        'cz': 'Profesionální právní služby',
+        'en': 'Professional Legal Services'
+    },
+    'hero-description': {
+        'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta.',
+        'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation.'
+    },
+    'hero-services-btn': {
+        'cz': 'Naše služby',
+        'en': 'Our Services'
+    },
+    'hero-contact-btn': {
+        'cz': 'Kontaktujte nás',
+        'en': 'Contact Us'
+    },
+
+    // About Section
+    'about-title': {
+        'cz': 'O nás',
+        'en': 'About Us'
+    },
+    'about-text': {
+        'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.',
+        'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation. We aim to maximize the protection of the client\'s rights and their satisfaction.'
+    },
+    'feature-1-title': {
+        'cz': 'Profesionální služby',
+        'en': 'Professional Services'
+    },
+    'feature-1-text': {
+        'cz': 'Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.',
+        'en': 'We provide high-quality legal services with an emphasis on detail and precision.'
+    },
+    'feature-2-title': {
+        'cz': 'Optimální cena',
+        'en': 'Optimal Price'
+    },
+    'feature-2-text': {
+        'cz': 'Nabízíme transparentní a dostupné ceny za profesionální právní služby.',
+        'en': 'We offer transparent and affordable prices for professional legal services.'
+    },
+    'feature-3-title': {
+        'cz': 'Osobní přístup',
+        'en': 'Personal Approach'
+    },
+    'feature-3-text': {
+        'cz': 'Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.',
+        'en': 'We approach each client individually with respect to their specific situation.'
+    },
+    'feature-4-title': {
+        'cz': 'Vícejazyčné služby',
+        'en': 'Multilingual Services'
+    },
+    'feature-4-text': {
+        'cz': 'Právní služby poskytujeme v českém a anglickém jazyce.',
+        'en': 'We provide legal services in Czech and English.'
+    },
+    'about-contact-btn': {
+        'cz': 'Kontaktujte nás',
+        'en': 'Contact Us'
+    },
+
+    // Services Section
+    'services-title': {
+        'cz': 'Naše služby',
+        'en': 'Our Services'
+    },
+    'services-subtitle': {
+        'cz': 'Níže uvedený přehled služeb je orientační, proto nás neváhejte kontaktovat s jakýmkoli jinými požadavky.',
+        'en': 'The overview of services below is indicative, so please do not hesitate to contact us with any other requirements.'
+    },
+    'service-1-title': {
+        'cz': 'Nemovitosti',
+        'en': 'Real Estate'
+    },
+    'service-1-description': {
+        'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
+        'en': 'Complete legal service in the field of real estate, including property transfers, preparation of contractual documentation, and consulting.'
+    },
+    'service-2-title': {
+        'cz': 'Obchodní právo',
+        'en': 'Business Law'
+    },
+    'service-2-description': {
+        'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.',
+        'en': 'Comprehensive legal services for entrepreneurs and companies, including company formation, contract law, and legal audit.'
+    },
+    'service-3-title': {
+        'cz': 'Pracovní právo',
+        'en': 'Labor Law'
+    },
+    'service-3-description': {
+        'cz': 'Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.',
+        'en': 'Advice on employment relationships, preparation of employment contracts, resolution of labor disputes.'
+    },
+    'service-4-title': {
+        'cz': 'Soudní řízení',
+        'en': 'Litigation'
+    },
+    'service-4-description': {
+        'cz': 'Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.',
+        'en': 'Representing clients in court and administrative proceedings, preparation of submissions, expert legal advice.'
+    },
+    'service-5-title': {
+        'cz': 'Rodinné právo',
+        'en': 'Family Law'
+    },
+    'service-5-description': {
+        'cz': 'Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.',
+        'en': 'Comprehensive legal advice in family law, including divorces, alimony, adjustment of relations to minor children.'
+    },
+    'service-6-title': {
+        'cz': 'Správní právo',
+        'en': 'Administrative Law'
+    },
+    'service-6-description': {
+        'cz': 'Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.',
+        'en': 'Representing clients in administrative proceedings, appeals against decisions of administrative bodies, legal advice.'
+    },
+    'service-more-btn': {
+        'cz': 'Zjistit více',
+        'en': 'Learn More'
+    },
+
+    // Results Section
+    'results-title': {
+        'cz': 'Výsledky případů',
+        'en': 'Case Results'
+    },
+    'results-subtitle': {
+        'cz': 'Podívejte se na některé z našich nedávných případů a výsledků.',
+        'en': 'Take a look at some of our recent cases and results.'
+    },
+    'result-1-title': {
+        'cz': 'Úspěšná akvizice nemovitosti',
+        'en': 'Successful Real Estate Acquisition'
+    },
+    'result-1-description': {
+        'cz': 'Zastupování klienta při komplexní akvizici komerční nemovitosti v hodnotě 150 milionů Kč včetně due diligence, přípravy smluvní dokumentace a úspěšného dokončení transakce.',
+        'en': 'Representing a client in a complex acquisition of a commercial property worth 150 million CZK, including due diligence, preparation of contractual documentation, and successful completion of the transaction.'
+    },
+    'result-1-metric-1-label': {
+        'cz': 'Hodnota transakce',
+        'en': 'Transaction Value'
+    },
+    'result-1-metric-2-label': {
+        'cz': 'Měsíce k dokončení',
+        'en': 'Months to Complete'
+    },
+    'result-2-title': {
+        'cz': 'Vyhraný soudní spor',
+        'en': 'Won Litigation Case'
+    },
+    'result-2-description': {
+        'cz': 'Úspěšná obhajoba klienta v komplexním obchodněprávním sporu s potenciální škodou přes 20 milionů Kč. Dosažení zamítnutí žaloby a přiznání náhrady nákladů řízení.',
+        'en': 'Successful defense of a client in a complex commercial litigation with potential damages of over 20 million CZK. Achieved dismissal of the lawsuit and award of legal costs.'
+    },
+    'result-2-metric-1-label': {
+        'cz': 'Hodnota sporu',
+        'en': 'Dispute Value'
+    },
+    'result-2-metric-2-label': {
+        'cz': 'Úspěšnost',
+        'en': 'Success Rate'
+    },
+    'result-3-title': {
+        'cz': 'Restrukturalizace společnosti',
+        'en': 'Company Restructuring'
+    },
+    'result-3-description': {
+        'cz': 'Komplexní právní poradenství při restrukturalizaci středně velké společnosti včetně změny vlastnické struktury, pracovněprávních vztahů a smluvní dokumentace.',
+        'en': 'Comprehensive legal advice on the restructuring of a medium-sized company, including changes in ownership structure, employment relationships, and contractual documentation.'
+    },
+    'result-3-metric-1-label': {
+        'cz': 'Obrat společnosti',
+        'en': 'Company Turnover'
+    },
+    'result-3-metric-2-label': {
+        'cz': 'Měsíců k implementaci',
+        'en': 'Months to Implement'
+    },
+    'result-4-title': {
+        'cz': 'Komplexní právní audit',
+        'en': 'Comprehensive Legal Audit'
+    },
+    'result-4-description': {
+        'cz': 'Provedení důkladného právního auditu pro mezinárodní společnost vstupující na český trh. Identifikace a eliminace potenciálních právních rizik a nastavení vhodné struktury pro působení v ČR.',
+        'en': 'Conducting a thorough legal audit for an international company entering the Czech market. Identification and elimination of potential legal risks and setting up an appropriate structure for operations in the Czech Republic.'
+    },
+    'result-4-metric-1-label': {
+        'cz': 'Prověřených dokumentů',
+        'en': 'Documents Reviewed'
+    },
+    'result-4-metric-2-label': {
+        'cz': 'Týdny k dokončení',
+        'en': 'Weeks to Complete'
+    },
+
+    // Testimonials Section
+    'testimonials-title': {
+        'cz': 'Reference klientů',
+        'en': 'Client Testimonials'
+    },
+    'testimonials-subtitle': {
+        'cz': 'Co o nás říkají naši klienti.',
+        'en': 'What our clients say about us.'
+    },
+    'testimonial-1-text': {
+        'cz': 'Advokátní kancelář Šoralová mi poskytla vynikající právní služby při koupi nemovitosti. Oceňuji jejich profesionalitu, odbornost a osobní přístup. Vřele doporučuji.',
+        'en': 'Šoralová Law Firm provided me with excellent legal services when buying a property. I appreciate their professionalism, expertise, and personal approach. I highly recommend them.'
+    },
+    'testimonial-1-name': {
+        'cz': 'Jan Novák',
+        'en': 'Jan Novak'
+    },
+    'testimonial-1-position': {
+        'cz': 'Praha',
+        'en': 'Prague'
+    },
+    'testimonial-2-text': {
+        'cz': 'S advokátní kanceláří Šoralová spolupracuji již několik let. Vždy mi poskytli kvalitní právní služby a poradenství. Jejich přístup je velmi profesionální a vstřícný.',
+        'en': 'I have been working with Šoralová Law Firm for several years. They have always provided me with quality legal services and advice. Their approach is very professional and accommodating.'
+    },
+    'testimonial-2-name': {
+        'cz': 'Petr Svoboda',
+        'en': 'Petr Svoboda'
+    },
+    'testimonial-2-position': {
+        'cz': 'Jednatel společnosti',
+        'en': 'Company Director'
+    },
+    'testimonial-3-text': {
+        'cz': 'Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.',
+        'en': 'Mgr. Lucia Šoralová helped me resolve a complex employment dispute. Thanks to her experience and expertise, we achieved a very good result. I recommend her services.'
+    },
+    'testimonial-3-name': {
+        'cz': 'Michaela Dvořáková',
+        'en': 'Michaela Dvorakova'
+    },
+    'testimonial-3-position': {
+        'cz': 'HR manažerka',
+        'en': 'HR Manager'
+    },
+
+    // Contact Section
+    'contact-title': {
+        'cz': 'Kontaktujte nás',
+        'en': 'Contact Us'
+    },
+    'contact-text': {
+        'cz': 'Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.',
+        'en': 'Do not hesitate to contact us with any questions or requirements. We are ready to provide you with quality legal services and advice.'
+    },
+    'contact-address-label': {
+        'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00<br>Česká republika',
+        'en': 'Ovocny trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
+    },
+    'contact-hours-label': {
+        'cz': 'Po-Pá: 8:00 - 18:00<br>So-Ne: Zavřeno',
+        'en': 'Mon-Fri: 8:00 - 18:00<br>Sat-Sun: Closed'
+    },
+    'contact-form-name': {
+        'cz': 'Jméno a příjmení',
+        'en': 'Full Name'
+    },
+    'contact-form-email': {
+        'cz': 'E-mail',
+        'en': 'Email'
+    },
+    'contact-form-phone': {
+        'cz': 'Telefon',
+        'en': 'Phone'
+    },
+    'contact-form-message': {
+        'cz': 'Zpráva',
+        'en': 'Message'
+    },
+    'contact-form-submit': {
+        'cz': 'Odeslat',
+        'en': 'Submit'
+    },
+    'contact-form-name-placeholder': {
+        'cz': 'Vaše jméno a příjmení',
+        'en': 'Your full name'
+    },
+    'contact-form-email-placeholder': {
+        'cz': 'Váš e-mail',
+        'en': 'Your email'
+    },
+    'contact-form-phone-placeholder': {
+        'cz': 'Váš telefon',
+        'en': 'Your phone'
+    },
+    'contact-form-message-placeholder': {
+        'cz': 'Vaše zpráva',
+        'en': 'Your message'
+    },
+
+    // Footer
+    'footer-description': {
+        'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup a flexibilitu.',
+        'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, and flexibility.'
+    },
+    'footer-services-title': {
+        'cz': 'Naše služby',
+        'en': 'Our Services'
+    },
+    'footer-contact-title': {
+        'cz': 'Kontaktní údaje',
+        'en': 'Contact Details'
+    },
+    'footer-copyright': {
+        'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena.',
+        'en': '© 2025 Šoralová Law Firm. All rights reserved.'
+    },
+    'footer-terms': {
+        'cz': 'Podmínky použití',
+        'en': 'Terms of Use'
+    },
+    'footer-privacy': {
+        'cz': 'Ochrana osobních údajů',
+        'en': 'Privacy Policy'
+    },
+    'footer-cookies': {
+        'cz': 'Zásady cookies',
+        'en': 'Cookie Policy'
+    },
+    
+    // Mobile Menu
+    'mobile-menu-contact-title': {
+        'cz': 'Kontaktujte nás',
+        'en': 'Contact Us'
+    },
+    
+    // Logo
+    'logo-tagline': {
+        'cz': 'Advokátní kancelář',
+        'en': 'Law Firm'
+    }
+};
+
+// Current language
+let currentLanguage = 'cz';
+
+// Function to set the language
+function setLanguage(language) {
+    currentLanguage = language;
+    
+    // Update all elements with data-lang attribute
+    document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[key] && translations[key][language]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                if (element.placeholder) {
+                    element.placeholder = translations[key][language];
+                } else {
+                    element.value = translations[key][language];
+                }
+            } else {
+                element.innerHTML = translations[key][language];
+            }
+        }
+    });
+    
+    // Update language switcher active states
+    document.querySelectorAll('.language-option').forEach(option => {
+        if (option.getAttribute('data-lang') === language) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
+    
+    // Also update mobile language options
+    document.querySelectorAll('.mobile-language-option').forEach(option => {
+        if (option.getAttribute('data-lang') === language) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
+}
+
+// Initialize the language toggle event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Desktop language switcher
+    document.querySelectorAll('.language-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+    
+    // Mobile language switcher
+    document.querySelectorAll('.mobile-language-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+    
+    // Set initial language
+    setLanguage('cz');
+});
+        // Register GSAP ScrollTrigger Plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Vertical Line Progress
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            
+            document.documentElement.style.setProperty('--scroll-percent', `${scrollProgress}%`);
+            document.body.classList.add('scroll-progress');
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Section Markers
+        const sections = document.querySelectorAll('section');
+        const sectionMarkers = document.querySelectorAll('.section-marker');
+        const horizontalConnectors = document.querySelectorAll('.horizontal-connector');
+        
+        function updateSectionMarkers() {
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const scrollPosition = window.scrollY + window.innerHeight / 2;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
+                    sectionMarkers.forEach(marker => marker.classList.remove('active'));
+                    horizontalConnectors.forEach(connector => connector.classList.remove('active'));
+                    
+                    if (sectionMarkers[index]) {
+                        sectionMarkers[index].classList.add('active');
+                        horizontalConnectors[index].classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateSectionMarkers);
+        
+       
+
+
+ 
+
+ 
+
+         
+                
+        // Mobile Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        function closeMobileMenu() {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    document.querySelector(`.nav-link[href="${this.getAttribute('href')}"]`).classList.add('active');
+                }
+            });
+        });
+        
+        // Hero Section Animations
+      // Hero Section Animations
+      gsap.from('.hero-subtitle', { y: 30, opacity: 0, duration: 1, delay: 0.5, ease: 'power3.out' });
+        gsap.from('.hero-title', { y: 50, opacity: 0, duration: 1, delay: 0.7, ease: 'power3.out' });
+        gsap.to('.hero-description', { y: 0, opacity: 1, duration: 1, delay: 1.1, ease: 'power3.out' });
+        gsap.to('.hero-cta-buttons', { y: 0, opacity: 1, duration: 1, delay: 1.3, ease: 'power3.out' });
+
+        gsap.to('.hero-image img', {
+            y: 50,
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+
+        gsap.to('.hero-cta-buttons', {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            delay: 1.3,
+            ease: 'power3.out'
+        });
+                
+        // Scroll Animations
+        function createScrollAnimations() {
+            // Fade Up Animations
+            gsap.utils.toArray('.fade-up').forEach(element => {
+                gsap.from(element, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        end: 'bottom 15%',
+                        toggleClass: 'active',
+                        once: true
+                    }
+                });
+            });
+            
+            // Fade In Animations
+            gsap.utils.toArray('.fade-in').forEach(element => {
+                gsap.from(element, {
+                    opacity: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        end: 'bottom 15%',
+                        toggleClass: 'active',
+                        once: true
+                    }
+                });
+            });
+
+            
+            
+            // Fade Left Animations
+            gsap.utils.toArray('.fade-left').forEach(element => {
+                gsap.from(element, {
+                    x: -50,
+                    opacity: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        end: 'bottom 15%',
+                        toggleClass: 'active',
+                        once: true
+                    }
+                });
+            });
+            
+            // Fade Right Animations
+            gsap.utils.toArray('.fade-right').forEach(element => {
+                gsap.from(element, {
+                    x: 50,
+                    opacity: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        end: 'bottom 15%',
+                        toggleClass: 'active',
+                        once: true
+                    }
+                });
+            });
+            
+            // Service Card Animations
+            // Service Card Animations
+               
+            // Result Card Animations
+            gsap.utils.toArray('.result-card').forEach((card, index) => {
+                gsap.from(card, {
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: index * 0.1,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        end: 'bottom 15%',
+                        once: true
+                    }
+                });
+                
+                // Animate metric values
+                const metricValues = card.querySelectorAll('.metric-value');
+                metricValues.forEach((metric) => {
+                    let value = metric.textContent;
+                    let suffix = '';
+                    
+                    if (value.includes('M')) {
+                        value = value.replace('M', '');
+                        suffix = 'M';
+                    } else if (value.includes('%')) {
+                        value = value.replace('%', '');
+                        suffix = '%';
+                    } else if (value.includes('+')) {
+                        value = value.replace('+', '');
+                        suffix = '+';
+                    }
+                    
+                    const duration = 1.5;
+                    const ease = 'power2.out';
+                    
+                    metric.textContent = '0';
+                    
+                    ScrollTrigger.create({
+                        trigger: card,
+                        start: 'top 85%',
+                        onEnter: () => {
+                            gsap.to(metric, {
+                                duration: duration,
+                                ease: ease,
+                                onUpdate: function() {
+                                    const progress = this.progress();
+                                    const currentValue = Math.round(progress * parseFloat(value));
+                                    metric.textContent = currentValue + suffix;
+                                },
+                                onComplete: function() {
+                                    metric.textContent = value + suffix;
+                                }
+                            });
+                        },
+                        once: true
+                    });
+                });
+            });
+            
+            // About Image Animation
+            ScrollTrigger.create({
+                trigger: '.about-image',
+                start: 'top 85%',
+                end: 'bottom 15%',
+                toggleClass: {className: 'active', targets: '.about-image'},
+                once: true
+            });
+        }
+        
+        // Execute scroll animations
+        createScrollAnimations();
+        
+        // Custom Cursor
+        const cursorOuter = document.querySelector('.cursor-outer');
+        const cursorInner = document.querySelector('.cursor-inner');
+        
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursorOuter, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            gsap.to(cursorInner, {
+                x: e.clientX,
+                y: e.clientY,
+                duration: 0.1
+            });
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            gsap.to([cursorOuter, cursorInner], {
+                opacity: 1,
+                duration: 0.3
+            });
+        });
+        
+        document.addEventListener('mouseleave', () => {
+            gsap.to([cursorOuter, cursorInner], {
+                opacity: 0,
+                duration: 0.3
+            });
+        });
+        
+        // Cursor hover effect for interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .service-card, .feature-item, .result-card');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                gsap.to(cursorOuter, {
+                    width: 50,
+                    height: 50,
+                    duration: 0.3
+                });
+                
+                gsap.to(cursorInner, {
+                    width: 10,
+                    height: 10,
+                    duration: 0.3
+                });
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                gsap.to(cursorOuter, {
+                    width: 30,
+                    height: 30,
+                    duration: 0.3
+                });
+                
+                gsap.to(cursorInner, {
+                    width: 6,
+                    height: 6,
+                    duration: 0.3
+                });
+            });
+        });
+        
+        // Form validation and submission
+        const contactForm = document.querySelector('.contact-form form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simple form validation
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const message = document.getElementById('message');
+                
+                if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
+                    alert('Prosím vyplňte všechna povinná pole.');
+                    return;
+                }
+                
+                // Here you would normally send the form data to a server
+                
+                // Show success message
+                const formSubmit = contactForm.querySelector('.form-submit');
+                const originalText = formSubmit.textContent;
+                
+                formSubmit.textContent = 'Odesláno!';
+                formSubmit.style.backgroundColor = 'var(--gold-light)';
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    contactForm.reset();
+                    formSubmit.textContent = originalText;
+                    formSubmit.style.backgroundColor = '';
+                }, 2000);
+            });
+        }
+        
+        // Testimonial Slider
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const prevButton = document.querySelector('.prev-testimonial');
+        const nextButton = document.querySelector('.next-testimonial');
+        const testimonialTrack = document.querySelector('.testimonials-track');
+        
+        if (slides.length > 0 && prevButton && nextButton && testimonialTrack) {
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Initially hide all slides except the first
+            slides.forEach((slide, index) => {
+                if (index !== 0) {
+                    slide.style.display = 'none';
+                }
+            });
+            
+            function updateSlider() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.style.display = 'block';
+                        gsap.fromTo(slide, 
+                            { opacity: 0, y: 20 },
+                            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+                        );
+                    } else {
+                        slide.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Navigation buttons
+            prevButton.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlider();
+            });
+            
+            nextButton.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            });
+            
+            // Auto slide
+            let slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlider();
+            }, 6000);
+            
+            // Pause on hover
+            testimonialTrack.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            testimonialTrack.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slideCount;
+                    updateSlider();
+                }, 6000);
+            });
+        }
+
+        function updateHeader() {
+     
+     
+
+     
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}
+        
+        // Update active navigation link on scroll
+        function updateActiveLink() {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    
+                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveLink);
+        
+        // Initialize the page
+        window.addEventListener('load', () => {
+            // Update markers on load
+            updateSectionMarkers();
+            
+            
+            // Update scroll progress on load
+            updateScrollProgress();
+            
+            // Update active link on load
+            updateActiveLink();
+        });
+
+        
+      // Page Loader
+document.addEventListener('DOMContentLoaded', function() {
+    const pageLoader = document.querySelector('.page-loader');
+    const loaderText = document.getElementById('loader-text');
+    
+    // Loader text translations
+    const loaderTranslations = {
+        'cz': 'Načítání...',
+        'en': 'Loading...'
+    };
+    
+    // Always set initial loader text to Czech
+    loaderText.textContent = loaderTranslations['cz'];
+    
+    // Hide loader when page is fully loaded
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            pageLoader.classList.add('hidden');
+            // Enable scrolling after loader is hidden
+            document.body.style.overflow = '';
+        }, 1000);
+    });
+    
+    // Disable scrolling while loader is visible
+    document.body.style.overflow = 'hidden';
+    
+    // Update the language loader text when language changes
+    function updateLoaderLanguage(lang) {
+        loaderText.textContent = loaderTranslations[lang] || loaderTranslations['en'];
+    }
+    
+    // Attach to window for external access
+    window.updateLoaderLanguage = updateLoaderLanguage;
+});
+
+// Enhanced Language Toggle
+function setLanguage(language) {
+    const languageLoader = document.querySelector('.language-loader');
+    
+    // Only show the language loader if we're changing languages, not on initial load
+    if (currentLanguage !== language) {
+        // Show language loader
+        languageLoader.classList.add('active');
+        
+        // Update loader text based on language
+        const loaderText = languageLoader.querySelector('.language-loader-text');
+        if (language === 'cz') {
+            loaderText.textContent = 'Přepínání jazyka...';
+        } else {
+            loaderText.textContent = 'Changing language...';
+        }
+        
+        // Update current language for next time
+        currentLanguage = language;
+        
+        // After a short delay, update all text elements
+        setTimeout(function() {
+            // Update all elements with data-lang attribute
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[key] && translations[key][language]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        if (element.getAttribute('placeholder')) {
+                            element.setAttribute('placeholder', translations[key][language]);
+                        } else {
+                            element.value = translations[key][language];
+                        }
+                    } else {
+                        element.innerHTML = translations[key][language];
+                    }
+                }
+            });
+            
+            // Update language switcher active states
+            document.querySelectorAll('.language-option').forEach(option => {
+                if (option.getAttribute('data-lang') === language) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            
+            // Also update mobile language options
+            document.querySelectorAll('.mobile-language-option').forEach(option => {
+                if (option.getAttribute('data-lang') === language) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            
+            // Hide language loader after translation is complete
+            setTimeout(function() {
+                languageLoader.classList.remove('active');
+            }, 300);
+        }, 700);
+    } else {
+        // If it's the same language, just update without showing loader
+        updateLanguageElements(language);
+    }
+}
+
+// Helper function to update language elements without animation
+function updateLanguageElements(language) {
+    document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[key] && translations[key][language]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                if (element.getAttribute('placeholder')) {
+                    element.setAttribute('placeholder', translations[key][language]);
+                } else {
+                    element.value = translations[key][language];
+                }
+            } else {
+                element.innerHTML = translations[key][language];
+            }
+        }
+    });
+    
+    // Update language switcher active states
+    document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
+        if (option.getAttribute('data-lang') === language) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
+}
+
+// Initialize the language toggle event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Desktop language switcher
+    document.querySelectorAll('.language-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+            
+            // Also update the page loader text
+            if (window.updateLoaderLanguage) {
+                window.updateLoaderLanguage(lang);
+            }
+        });
+    });
+    
+    // Mobile language switcher
+    document.querySelectorAll('.mobile-language-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+            
+            // Also update the page loader text
+            if (window.updateLoaderLanguage) {
+                window.updateLoaderLanguage(lang);
+            }
+            
+            // Close mobile menu when switching language
+            if (typeof closeMobileMenu === 'function') {
+                closeMobileMenu();
+            }
+        });
+    });
+    
+    // Always use Czech as the default language
+    const initialLang = 'cz';
+    
+    // Set initial language without animation
+    currentLanguage = initialLang;
+    updateLanguageElements(initialLang);
+});
+
+
+// Services Section Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Service tabs functionality
+    const serviceTabs = document.querySelectorAll('.service-tab');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const body = document.body;
+    
+    // Create overlay for detail box
+    const detailOverlay = document.createElement('div');
+    detailOverlay.className = 'detail-overlay';
+    body.appendChild(detailOverlay);
+    
+    // Detail box functionality
+    const moreInfoButtons = document.querySelectorAll('.service-more-btn');
+    const detailBoxes = document.querySelectorAll('.service-detail-box');
+    const closeButtons = document.querySelectorAll('.service-detail-close');
+    
+    // Open detail box when clicking "More Info" button
+    moreInfoButtons.forEach((button, index) => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDetailBox(index);
+        });
+    });
+    
+    // Function to open detail box
+    function openDetailBox(index) {
+        // Close any open detail boxes first
+        closeAllDetailBoxes();
+        
+        // Show overlay
+        detailOverlay.classList.add('active');
+        
+        // Show the selected detail box
+        if (detailBoxes[index]) {
+            detailBoxes[index].classList.add('active');
+            
+            // Prevent background scrolling
+            body.style.overflow = 'hidden';
+        }
+    }
+    
+    // Close detail box when clicking close button
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closeAllDetailBoxes);
+    });
+    
+    // Close detail box when clicking overlay
+    detailOverlay.addEventListener('click', closeAllDetailBoxes);
+    
+    // Close all detail boxes
+    function closeAllDetailBoxes() {
+        detailBoxes.forEach(box => {
+            box.classList.remove('active');
+        });
+        
+        detailOverlay.classList.remove('active');
+        
+        // Re-enable scrolling
+        body.style.overflow = '';
+    }
+    
+    // Close detail box with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllDetailBoxes();
+        }
+    });
+    
+    // Tabs functionality
+    serviceTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active tab
+            serviceTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-tab');
+            
+            // Filter services
+            if (category === 'all') {
+                // Show all services
+                serviceCards.forEach(card => {
+                    card.style.display = 'flex';
+                    animateServiceCard(card);
+                });
+            } else {
+                // Filter services by category
+                serviceCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    
+                    if (cardCategories.includes(category)) {
+                        card.style.display = 'flex';
+                        animateServiceCard(card);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Close any open detail boxes when switching tabs
+            closeAllDetailBoxes();
+        });
+    });
+    
+    // Animate service cards when they come into view
+    function animateServiceCard(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 10);
+    }
+    
+    // Initialize services with animation
+    function initServices() {
+        serviceCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100 + (index * 100)); // Staggered animation
+        });
+    }
+    
+    // Create scroll trigger for services section
+    function initServiceScrollTrigger() {
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.create({
+                trigger: '.modern-services',
+                start: 'top 80%',
+                onEnter: initServices,
+                once: true
+            });
+        } else {
+            // Fallback if ScrollTrigger is not available
+            window.addEventListener('load', initServices);
+        }
+    }
+    
+    // Initialize the scroll trigger
+    initServiceScrollTrigger();
+    
+    // Position detail boxes in the center of viewport
+    function positionDetailBoxes() {
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        
+        detailBoxes.forEach(box => {
+            // Position box in center when active
+            if (box.classList.contains('active')) {
+                const boxHeight = box.offsetHeight;
+                const boxWidth = box.offsetWidth;
+                
+                // Only reposition if needed on small screens
+                if (windowWidth <= 768) {
+                    box.style.top = Math.max(windowHeight / 2, boxHeight / 2) + 'px';
+                }
+            }
+        });
+    }
+    
+    // Adjust positions on window resize
+    window.addEventListener('resize', positionDetailBoxes);
+});
+
+// Add these to your language translations object
+const serviceTranslations = {
+    'services-overline': {
+        'cz': 'PRÁVNÍ PORADENSTVÍ',
+        'en': 'LEGAL ADVISORY'
+    },
+    'services-cta-text': {
+        'cz': 'Potřebujete právní služby v jiné oblasti? Neváhejte nás kontaktovat.',
+        'en': 'Need legal services in another area? Do not hesitate to contact us.'
+    },
+    'services-cta-button': {
+        'cz': 'Nezávazná konzultace',
+        'en': 'Free Consultation'
+    },
+    'service-1-short': {
+        'cz': 'Kompletní právní servis v oblasti nemovitostí.',
+        'en': 'Complete legal service in the field of real estate.'
+    },
+    'service-2-short': {
+        'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti.',
+        'en': 'Comprehensive legal services for entrepreneurs and companies.'
+    },
+    'service-3-short': {
+        'cz': 'Poradenství v oblasti pracovněprávních vztahů a sporů.',
+        'en': 'Advice on employment relationships and disputes.'
+    },
+    'service-4-short': {
+        'cz': 'Zastupování klientů v soudních a správních řízeních.',
+        'en': 'Representing clients in court and administrative proceedings.'
+    },
+    'service-5-short': {
+        'cz': 'Komplexní právní poradenství v rodinném právu.',
+        'en': 'Comprehensive legal advice in family law.'
+    },
+    'service-6-short': {
+        'cz': 'Zastupování klientů ve správních řízeních.',
+        'en': 'Representing clients in administrative proceedings.'
+    }
+};
+
+
+// Service Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements needed
+    const serviceLinks = document.querySelectorAll('.service-more-info');
+    const modals = document.querySelectorAll('.service-modal');
+    const closeButtons = document.querySelectorAll('.service-modal-close');
+    const overlay = document.querySelector('.service-modal-overlay');
+    
+    // Service filtering tabs
+    const serviceTabs = document.querySelectorAll('.service-tab');
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    // Open modal when clicking "Více informací"
+    serviceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const serviceId = this.getAttribute('data-service');
+            const modal = document.getElementById(`service-modal-${serviceId}`);
+            
+            // Show modal and overlay
+            if (modal) {
+                modal.classList.add('active');
+                overlay.classList.add('active');
+                
+                // Prevent background scrolling when modal is open
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    // Close modal when clicking close button
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closeModal);
+    });
+    
+    // Close modal when clicking overlay
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
+    
+    // Close modal function
+    function closeModal() {
+        modals.forEach(modal => {
+            modal.classList.remove('active');
+        });
+        
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+        
+        // Re-enable scrolling
+        document.body.style.overflow = '';
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+    
+    // Service filtering tabs functionality
+    serviceTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active tab
+            serviceTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            const category = this.getAttribute('data-tab');
+            
+            // Filter services
+            if (category === 'all') {
+                // Show all services
+                serviceCards.forEach(card => {
+                    card.style.display = 'flex';
+                    animateServiceCard(card);
+                });
+            } else {
+                // Filter services by category
+                serviceCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    
+                    if (cardCategories && cardCategories.includes(category)) {
+                        card.style.display = 'flex';
+                        animateServiceCard(card);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+    
+    // Animate service cards when they come into view
+    function animateServiceCard(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 10);
+    }
+    
+    // Initialize services with animation
+    function initServices() {
+        serviceCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100 + (index * 100)); // Staggered animation
+        });
+    }
+    
+    // Create scroll trigger for services section
+    function initServiceScrollTrigger() {
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.create({
+                trigger: '.modern-services',
+                start: 'top 80%',
+                onEnter: initServices,
+                once: true
+            });
+        } else {
+            // Fallback if ScrollTrigger is not available
+            window.addEventListener('load', initServices);
+        }
+    }
+    
+    // Initialize the scroll trigger
+    initServiceScrollTrigger();
+});
+
+
+
+
+
+// Service Modal Functionality with Hover Effect and Contact Redirect Handling
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all elements needed
+    const serviceCards = document.querySelectorAll('.service-card');
+    const modals = document.querySelectorAll('.service-modal');
+    const closeButtons = document.querySelectorAll('.service-modal-close');
+    const overlay = document.querySelector('.service-modal-overlay');
+    
+    let hoverTimer;
+    let activeModal = null;
+    
+    // Open modal when hovering or clicking on service card
+    serviceCards.forEach(card => {
+        const serviceId = card.querySelector('.service-more-info').getAttribute('data-service');
+        
+        // Make entire card clickable
+        card.style.cursor = 'pointer';
+      
+        // Clear timer if mouse leaves before delay completes
+        card.addEventListener('mouseleave', function() {
+            clearTimeout(hoverTimer);
+        });
+        
+        // Click effect to open modal immediately
+        card.addEventListener('click', function(e) {
+            // Only trigger if not clicking on the existing "More Info" link
+            if (!e.target.classList.contains('service-more-info')) {
+                clearTimeout(hoverTimer); // Clear any pending hover timer
+                openModal(serviceId);
+            }
+        });
+    });
+    
+    // Keep original "More Info" links functionality
+    document.querySelectorAll('.service-more-info').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const serviceId = this.getAttribute('data-service');
+            openModal(serviceId);
+        });
+    });
+    
+    // Handle all links to contact section
+    document.querySelectorAll('a[href="#contact"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Close any open modal when clicking a contact link
+            closeModal();
+        });
+    });
+    
+    // Also handle modal contact buttons specifically
+    document.querySelectorAll('.service-modal-cta').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Close the modal when modal's contact button is clicked
+            closeModal();
+        });
+    });
+    
+    // Function to open modal
+    function openModal(serviceId) {
+        const modal = document.getElementById(`service-modal-${serviceId}`);
+        
+        // Show modal and overlay
+        if (modal) {
+            // Close any open modal first
+            closeModal();
+            
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            activeModal = modal;
+            
+            // Prevent background scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    // Close modal when clicking close button
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent click from bubbling up
+            closeModal();
+        });
+    });
+    
+    // Close modal when clicking overlay
+    if (overlay) {
+        overlay.addEventListener('click', closeModal);
+    }
+    
+    // Close modal function
+    function closeModal() {
+        modals.forEach(modal => {
+            modal.classList.remove('active');
+        });
+        
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+        
+        activeModal = null;
+        
+        // Re-enable scrolling
+        document.body.style.overflow = '';
+    }
+    
+    // Close modal with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+    
+    // Make the closeModal function available globally if needed
+    window.closeServiceModal = closeModal;
+});
+
+    </script>
+    <script src="language-toggle.js"></script>
+</body>
+</html>
