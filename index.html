@@ -424,6 +424,7 @@ header.scrolled {
     position: absolute;
     top: 0;
     left: 0;
+    
 }
 
 /* Responsive Adjustments */
@@ -1760,7 +1761,7 @@ header.scrolled {
     .hero-image img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ensure the image covers the area */
+        object-fit: cover;/* Ensure the image covers the area */
     }
 
     .hero-cta-buttons {
@@ -3512,6 +3513,13 @@ textarea.form-control {
     font-size: 24px;
   }
 }
+
+.contact-item {
+  display: flex;
+  align-items: center; /* This vertically centers the child elements */
+}
+
+/* No need to change the size of your elements or their horizontal layout */
     </style>
 </head>
 <body>
@@ -3536,9 +3544,7 @@ textarea.form-control {
         <div class="language-loader-text">Changing language...</div>
     </div>
 </div>
-    <!-- Custom Cursor -->
-    <div class="cursor-outer"></div>
-    <div class="cursor-inner"></div>
+   
 
     <!-- Vertical Line with Section Markers -->
     <div class="vertical-line">
