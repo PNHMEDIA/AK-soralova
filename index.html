@@ -13,14 +13,14 @@
     <style>
         /* Base Styles */
         :root {
-            --navy: #004225;
+            --navy: #6db26c;
             --navy-light: #87bc80;
             --charcoal: #000000;
-            --gold: #c4a86d;
-            --gold-light: #d9c7a1;
+            --gold: #174f12;
+            --gold-light: #979797;
             --white: #ffffff;
             --off-white: #f8f8f8;
-            --light-gray: #e9e9e9;
+            --light-gray: #8e3131;
             --text: #2c2c2c;
             --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
@@ -203,7 +203,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 20px 10px 40px;
+    padding: 20px 20px 10px 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -263,11 +263,12 @@ header.scrolled {
 
         .nav-item {
             margin: 0 15px;
-            position: relative;
+            position: relative; 
+           
         }
 
         .nav-link {
-            color: var(--white);
+            color: var(--charcoal);
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -564,8 +565,8 @@ header.scrolled {
             gap: 15px;
             align-items: flex-start;
             padding: 20px;
-            background-color: var(--off-white);
-            transition: var(--transition);
+            background-color: transparent;
+            
         }
 
         .feature-item:hover {
@@ -576,7 +577,7 @@ header.scrolled {
         .feature-icon {
             width: 60px;
             height: 60px;
-            background-color: rgba(196, 168, 109, 0.1);
+            background-color: transparent;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -590,7 +591,7 @@ header.scrolled {
         }
 
         .feature-icon i {
-            color: var(--gold);
+            color: var(--navy);
             font-size: 24px;
         }
 
@@ -636,7 +637,7 @@ header.scrolled {
 
         .about-image {
             position: relative;
-            height: 600px;
+            height: 800px;
             width: 100%;
             overflow: hidden;
         }
@@ -760,7 +761,7 @@ header.scrolled {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-weight: 700;
-            color: var(--gold);
+            color: var(--navy);
             margin-bottom: 5px;
         }
 
@@ -4402,6 +4403,451 @@ textarea.form-control {
     }
 }
 
+
+/* Ensure touch-specific styles have higher specificity */
+@media (hover: none) and (max-width: 768px) {
+  .btn,
+  .about-cta,
+  .service-modal-cta,
+  .services-cta-button,
+  .form-submit {
+    /* Clear existing hover transitions for touch devices */
+    transition: background-color 0.3s ease !important;
+    margin-bottom: 15px;
+  }
+  
+  /* Provide clear visual feedback on tap */
+  .btn:active,
+  .about-cta:active,
+  .service-modal-cta:active,
+  .services-cta-button:active,
+  .form-submit:active {
+    background-color: var(--gold) !important;
+    color: var(--navy) !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Add this to your existing CSS */
+@media (max-width: 768px) {
+  .btn,
+  .about-cta,
+  .form-submit,
+  .service-modal-cta,
+  .services-cta-button {
+    min-height: 44px; /* Recommended minimum touch target size */
+    padding: 12px 30px;
+    font-size: 16px; /* Larger text for better readability */
+  }
+  
+  /* Fix for hero buttons on mobile */
+  .hero-cta-buttons {
+    width: 100%;
+  }
+  
+  .hero-cta-buttons .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+  }
+}
+
+
+/* Form Animation Styles */
+.form-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-animation.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading Animation */
+.animation-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(196, 168, 109, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--gold);
+  animation: spin 1s infinite linear;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success and Error Icons */
+.animation-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: pop-in 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.success-icon {
+  color: var(--gold);
+}
+
+.error-icon {
+  color: #e74c3c;
+}
+
+/* Animation Title */
+.animation-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--navy);
+  animation: fade-in 0.5s ease 0.2s both;
+}
+
+/* Animation Message */
+.animation-message {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 25px;
+  max-width: 80%;
+  line-height: 1.6;
+  animation: fade-in 0.5s ease 0.4s both;
+}
+
+/* Animation Button */
+.animation-button {
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fade-in 0.5s ease 0.6s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.animation-button:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.animation-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  z-index: -1;
+  transform: skewX(-15deg);
+  transition: all 0.5s ease;
+}
+
+.animation-button:hover::before {
+  left: 0;
+}
+
+/* Animation Keyframes */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make loading animation visible immediately */
+.form-animation.loading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Make sure the form animation container is visible in all cases */
+.contact-form form {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form-animation {
+    min-height: 350px;
+    padding: 30px 20px;
+  }
+  
+  .animation-icon {
+    font-size: 60px;
+  }
+  
+  .animation-title {
+    font-size: 1.7rem;
+  }
+  
+  .animation-message {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* Touch optimizations */
+@media (hover: none) {
+  .animation-button {
+    padding: 15px 30px;
+    min-height: 44px;
+  }
+}
+/* Form Animation Styles */
+.form-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  padding: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-animation.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading Animation */
+.animation-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(196, 168, 109, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--gold);
+  animation: spin 1s infinite linear;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success and Error Icons */
+.animation-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: pop-in 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.success-icon {
+  color: var(--gold);
+}
+
+.error-icon {
+  color: #e74c3c;
+}
+
+/* Animation Title */
+.animation-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--navy);
+  animation: fade-in 0.5s ease 0.2s both;
+}
+
+/* Animation Message */
+.animation-message {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 25px;
+  max-width: 80%;
+  line-height: 1.6;
+  animation: fade-in 0.5s ease 0.4s both;
+}
+
+/* Animation Button */
+.animation-button {
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fade-in 0.5s ease 0.6s both;
+  position: relative;
+  overflow: hidden;
+}
+
+.animation-button:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.animation-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  z-index: -1;
+  transform: skewX(-15deg);
+  transition: all 0.5s ease;
+}
+
+.animation-button:hover::before {
+  left: 0;
+}
+
+/* Animation Keyframes */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Make loading animation visible immediately */
+.form-animation.loading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Make sure the form animation container is visible in all cases */
+.contact-form form {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form-animation {
+    min-height: 350px;
+    padding: 30px 20px;
+  }
+  
+  .animation-icon {
+    font-size: 60px;
+  }
+  
+  .animation-title {
+    font-size: 1.7rem;
+  }
+  
+  .animation-message {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* Touch optimizations */
+@media (hover: none) {
+  .animation-button {
+    padding: 15px 30px;
+    min-height: 44px;
+  }
+}
+
+/* Adjust the breakpoint to start showing hamburger menu at a larger size */
+@media (max-width: 1200px) { /* Increased from typical 992px to catch your current view size */
+  /* Hide the standard navigation links */
+  .nav-list {
+    display: none;
+  }
+  
+  /* Show the hamburger menu toggle button */
+  .menu-toggle {
+    display: block;
+  }
+  
+  /* Logo adjustments for medium screens */
+  .logo {
+    padding-left: 0;
+  }
+  
+  /* Container padding adjustments */
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* Change this media query in your CSS */
+@media (max-width: 1400px) {
+  /* Hide standard navigation */
+  
+  
+  /* Show hamburger menu toggle */
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
 /* No need to change the size of your elements or their horizontal layout */
     </style>
 </head>
@@ -4451,11 +4897,8 @@ textarea.form-control {
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo">
-            <div class="logo-text">
-                <div class="logo-name" style="color: black;">AK ŠORALOVÁ</div>
-                <div class="logo-tagline">Advokátní kancelář</div>
-            </div>
+        <a href="#hero" class="logo">
+           <img src="https://i.postimg.cc/d1y62gvz/Screenshot-2025-03-21-at-19-53-43-removebg-preview.png" style="height: 4rem; padding-top: 0;">
         </a>
         
         <nav>
@@ -4477,8 +4920,9 @@ textarea.form-control {
 
 <!-- Mobile language switcher -->
 <div class="mobile-language">
-    <a href="#" class="mobile-language-option active" data-lang="cz">CZ</a>
-    <a href="#" class="mobile-language-option" data-lang="en">EN</a>
+    <a href="#" class="language-option active" data-lang="cz">CZ</a>
+    <span>/</span>
+    <a href="#" class="language-option" data-lang="en">EN</a>
 </div>
             
             <div class="menu-toggle">
@@ -4538,8 +4982,9 @@ textarea.form-control {
             </div>
             
             <div class="mobile-language">
-                <a href="#" class="mobile-language-option active">CZ</a>
-                <a href="#" class="mobile-language-option">EN</a>
+                <a href="#" class="language-option active" data-lang="cz">CZ</a>
+                <span>/</span>
+                <a href="#" class="language-option" data-lang="en">EN</a>
             </div>
         </div>
     </div>
@@ -4560,77 +5005,78 @@ textarea.form-control {
             </div>
         </div>
         <div class="hero-image">
-            <img src="https://i.postimg.cc/fy7mdNsG/pexels-njeromin-15965526.jpg" alt="Legal Services">
+            <img src="/ak-img/hero-img.jpg" alt="Legal Services">
+            
         </div>
     </div>
 </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="section-line"></div>
-        <div class="container">
-            <div class="about-container">
-                <div class="about-content">
-                    <div class="section-heading fade-up">
-                        <div class="section-number">01</div>
-                        <h2 class="section-title">O nás</h2>
-                    </div>
-                    
-                    <p class="about-text fade-up">
-                        V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.
-                    </p>
-                    
-                    <div class="about-features">
-                        <div class="feature-item fade-up">
-                            <div class="feature-icon">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <div class="feature-text">
-                                <div class="feature-title">Profesionální služby</div>
-                                <p>Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item fade-up">
-                            <div class="feature-icon">
-                                <i class="fas fa-hand-holding-usd"></i>
-                            </div>
-                            <div class="feature-text">
-                                <div class="feature-title">Optimální cena</div>
-                                <p>Nabízíme transparentní a dostupné ceny za profesionální právní služby.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item fade-up">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="feature-text">
-                                <div class="feature-title">Osobní přístup</div>
-                                <p>Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item fade-up">
-                            <div class="feature-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="feature-text">
-                                <div class="feature-title">Vícejazyčné služby</div>
-                                <p>Právní služby poskytujeme v českém a anglickém jazyce.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="#contact" class="about-cta fade-up">Kontaktujte nás</a>
+   <!-- About Section with data-lang-key attributes -->
+<section class="section about" id="about">
+    <div class="section-line"></div>
+    <div class="container">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="section-heading fade-up">
+                    <div class="section-number">01</div>
+                    <h2 class="section-title" data-lang-key="about-main-title">O nás</h2>
                 </div>
                 
-                <div class="about-image fade-up">
-                    <img src="https://i.postimg.cc/rmzJtC7Q/pexels-sora-shimazaki-5668802.jpg" class="about-image-main" alt="O nás">
+                <p class="about-text fade-up" data-lang-key="about-main-paragraph">
+                    V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.
+                </p>
+                
+                <div class="about-features">
+                    <div class="feature-item fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="about-feature-1-title">Profesionální služby</div>
+                            <p data-lang-key="about-feature-1-text">Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="about-feature-2-title">Optimální cena</div>
+                            <p data-lang-key="about-feature-2-text">Nabízíme transparentní a dostupné ceny za profesionální právní služby.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="about-feature-3-title">Osobní přístup</div>
+                            <p data-lang-key="about-feature-3-text">Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="about-feature-4-title">Vícejazyčné služby</div>
+                            <p data-lang-key="about-feature-4-text">Právní služby poskytujeme v českém a anglickém jazyce.</p>
+                        </div>
+                    </div>
                 </div>
+                
+                <a href="#contact" class="about-cta fade-up" data-lang-key="about-contact-btn">KONTAKTUJTE NÁS</a>
+            </div>
+            
+            <div class="about-image fade-up">
+                <img src="https://i.postimg.cc/P59xJNVd/00008613.jpg" class="about-image-main" alt="O nás">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
   <!-- Services Section with updated design -->
 <section class="services modern-services" id="services">
@@ -5349,10 +5795,10 @@ textarea.form-control {
                 <div class="contact-content">
                     <div class="section-heading fade-up">
                         <div class="section-number">06</div>
-                        <h2 class="section-title">Kontaktujte nás</h2>
+                        <h2 class="section-title" data-lang-key="contact-heading">Kontaktujte nás</h2>
                     </div>
                     
-                    <p class="contact-text fade-up">
+                    <p class="contact-text fade-up" data-lang-key="contact-intro-text">
                         Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.
                     </p>
                     
@@ -5391,31 +5837,35 @@ textarea.form-control {
                     </div>
                 </div>
                 
-                <div class="contact-form fade-up">
-                    <form target="_blank" action="https://formsubmit.co/jakub.zitko08@gmail.com" method="POST">
-                        <div class="form-group">
-                            <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
-                            <input type="text" id="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
-                            <input type="email" id="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
-                            <input type="tel" id="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
-                            <textarea id="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
-                    </form>
-                </div>
+                <!-- Contact Form Section -->
+<div class="contact-form fade-up">
+    <form id="contactForm" action="https://submit-form.com/4mFZTeMSc">
+      <!-- Include the redirect field but keep it on the same page -->
+      <input type="hidden" name="_redirect" value="false">
+      
+      <div class="form-group">
+        <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
+        <input type="text" id="name" name="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
+        <input type="email" id="email" name="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
+        <input type="tel" id="phone" name="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
+      </div>
+      
+      <div class="form-group">
+        <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
+        <textarea id="message" name="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
+      </div>
+      
+      <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
+    </form>
+  </div>
             </div>
         </div>
 
@@ -5540,38 +5990,38 @@ textarea.form-control {
                         </p>
                         
                         <div class="footer-socials">
-                            
-                          
-                           
+                            <a href="https://www.linkedin.com/in/your-profile"  target="_blank" aria-label="LinkedIn" data-lang-key="footer-linkedin-aria">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="footer-column">
-                        <h3 class="footer-heading">Naše služby</h3>
+                        <h3 class="footer-heading" data-lang-key="footer-services-heading">Naše služby</h3>
                         <ul class="footer-links">
-                            <li class="footer-link-item">
-                                <a href="#services" class="footer-link">Nemovitosti</a>
-                            </li>
-                            <li class="footer-link-item">
-                                <a href="#services" class="footer-link">Obchodní právo</a>
-                            </li>
-                            <li class="footer-link-item">
-                                <a href="#services" class="footer-link">Pracovní právo</a>
-                            </li>
-                            <li class="footer-link-item">
-                                <a href="#services" class="footer-link">Soudní řízení</a>
-                            </li>
-                            <li class="footer-link-item">
-                                <a href="#services" class="footer-link">Rodinné právo</a>
-                            </li>
-                            <li class="footer-link-item">
-                                <a href="#services" class="footer-link">Správní právo</a>
-                            </li>
+                          <li class="footer-link-item">
+                            <a href="#services" class="footer-link" data-lang-key="service-link-real-estate">Nemovitosti</a>
+                          </li>
+                          <li class="footer-link-item">
+                            <a href="#services" class="footer-link" data-lang-key="service-link-business">Obchodní právo</a>
+                          </li>
+                          <li class="footer-link-item">
+                            <a href="#services" class="footer-link" data-lang-key="service-link-labor">Pracovní právo</a>
+                          </li>
+                          <li class="footer-link-item">
+                            <a href="#services" class="footer-link" data-lang-key="service-link-litigation">Soudní řízení</a>
+                          </li>
+                          <li class="footer-link-item">
+                            <a href="#services" class="footer-link" data-lang-key="service-link-family">Rodinné právo</a>
+                          </li>
+                          <li class="footer-link-item">
+                            <a href="#services" class="footer-link" data-lang-key="service-link-administrative">Správní právo</a>
+                          </li>
                         </ul>
-                    </div>
+                      </div>
                     
                     <div class="footer-column">
-                        <h3 class="footer-heading">Kontaktní údaje</h3>
+                        <h3 class="footer-heading" data-lang-key="footer-contact-heading">Kontaktní údaje</h3>
                         <div class="footer-contact-item">
                             <div class="footer-contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -5604,14 +6054,14 @@ textarea.form-control {
                 </div>
                 
                 <div class="footer-bottom">
-                    <div class="footer-copyright">
+                    <div class="footer-copyright" data-lang-key="footer-copyright">
                         © 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.PNHMEDIA.com" class="footer-link" target="_blank">PNH MEDIA</a>
                     </div>
                     
                     <div class="footer-legal">
-                        <a href="#" class="footer-legal-link">Podmínky použití</a>
-                        <a href="#" class="footer-legal-link">Ochrana osobních údajů</a>
-                        <a href="#" class="footer-legal-link">Zásady cookies</a>
+                        <a href="#" class="footer-legal-link" data-lang-key="footer-terms">Podmínky použití</a>
+                        <a href="#" class="footer-legal-link" data-lang-key="footer-privacy">Ochrana osobních údajů</a>
+                        <a href="#" class="footer-legal-link" data-lang-key="footer-cookies">Zásady cookies</a>
                     </div>
                 </div>
             </div>
@@ -5620,1939 +6070,2535 @@ textarea.form-control {
 
     <script>
 
+/**
+ * AK ŠORALOVÁ Law Firm Website JavaScript
+ * Comprehensive script with translations and interactive features
+ * © 2025 AK Šoralová
+ */
+
 
  
+// Wait for DOM content to be fully loaded before initializing
+document.addEventListener('DOMContentLoaded', initializeWebsite);
 
-        // Language translations object
+/**
+ * Main initialization function
+ */
+function initializeWebsite() {
+  // Initialize global objects
+  window.siteConfig = {
+    currentLanguage: 'cz',
+    isMobile: window.innerWidth <= 768,
+    isTouchDevice: ('ontouchstart' in window) || navigator.maxTouchPoints > 0,
+    isScrolling: false,
+    lastScrollTop: 0
+  };
+
+  // Initialize components in correct order
+  initializePageLoader();
+  initializeTranslations();
+  initializeLanguageSwitcher();
+  initializeNavigation();
+  initializeMobileMenu();
+  initializeAnimations();
+  initializeScrollEffects();
+  initializeServiceModals();
+  initializeTestimonialSlider();
+  initializeContactForm();
+  initializeTouchOptimizations();
+}
+
+/**
+ * ==============================================
+ * TRANSLATIONS
+ * ==============================================
+ */
+
+
+/**
+ * Complete translations object for all website content
+ */
 const translations = {
-    // Navigation
-    'nav-home': {
-        'cz': 'Úvod',
-        'en': 'Home'
-    },
-    'nav-about': {
-        'cz': 'O nás',
-        'en': 'About'
-    },
-    'nav-services': {
-        'cz': 'Služby',
-        'en': 'Services'
-    },
-    'nav-results': {
-        'cz': 'Výsledky',
-        'en': 'Results'
-    },
-    'nav-testimonials': {
-        'cz': 'Reference',
-        'en': 'Testimonials'
-    },
-    'nav-contact': {
-        'cz': 'Kontakt',
-        'en': 'Contact'
-    },
 
-    // Hero Section
-    'hero-subtitle': {
-        'cz': 'Advokátní kancelář',
-        'en': 'Law Firm'
-    },
-    'hero-title': {
-        'cz': 'Profesionální právní služby',
-        'en': 'Professional Legal Services'
-    },
-    'hero-description': {
-        'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta.',
-        'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation.'
-    },
-    'hero-services-btn': {
-        'cz': 'Naše služby',
-        'en': 'Our Services'
-    },
-    'hero-contact-btn': {
-        'cz': 'Kontaktujte nás',
-        'en': 'Contact Us'
-    },
+    // Footer section headings
+'footer-services-heading': {
+  'cz': 'Naše služby',
+  'en': 'Our Services'
+},
+'footer-contact-heading': {
+  'cz': 'Kontaktní údaje',
+  'en': 'Contact Details'
+},
 
-    // About Section
-    'about-title': {
-        'cz': 'O nás',
-        'en': 'About Us'
-    },
-    'about-text': {
-        'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.',
-        'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation. We aim to maximize the protection of the client\'s rights and their satisfaction.'
-    },
-    'feature-1-title': {
-        'cz': 'Profesionální služby',
-        'en': 'Professional Services'
-    },
-    'feature-1-text': {
-        'cz': 'Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.',
-        'en': 'We provide high-quality legal services with an emphasis on detail and precision.'
-    },
-    'feature-2-title': {
-        'cz': 'Optimální cena',
-        'en': 'Optimal Price'
-    },
-    'feature-2-text': {
-        'cz': 'Nabízíme transparentní a dostupné ceny za profesionální právní služby.',
-        'en': 'We offer transparent and affordable prices for professional legal services.'
-    },
-    'feature-3-title': {
-        'cz': 'Osobní přístup',
-        'en': 'Personal Approach'
-    },
-    'feature-3-text': {
-        'cz': 'Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.',
-        'en': 'We approach each client individually with respect to their specific situation.'
-    },
-    'feature-4-title': {
-        'cz': 'Vícejazyčné služby',
-        'en': 'Multilingual Services'
-    },
-    'feature-4-text': {
-        'cz': 'Právní služby poskytujeme v českém a anglickém jazyce.',
-        'en': 'We provide legal services in Czech and English.'
-    },
-    'about-contact-btn': {
-        'cz': 'Kontaktujte nás',
-        'en': 'Contact Us'
-    },
+// Services links
+'service-link-real-estate': {
+  'cz': 'Nemovitosti',
+  'en': 'Real Estate'
+},
+'service-link-business': {
+  'cz': 'Obchodní právo',
+  'en': 'Business Law'
+},
+'service-link-labor': {
+  'cz': 'Pracovní právo',
+  'en': 'Labor Law'
+},
+'service-link-litigation': {
+  'cz': 'Soudní řízení',
+  'en': 'Litigation'
+},
+'service-link-family': {
+  'cz': 'Rodinné právo',
+  'en': 'Family Law'
+},
+'service-link-administrative': {
+  'cz': 'Správní právo',
+  'en': 'Administrative Law'
+},
 
-    // Services Section
-    'services-title': {
-        'cz': 'Naše služby',
-        'en': 'Our Services'
-    },
-    'services-subtitle': {
-        'cz': 'Níže uvedený přehled služeb je orientační, proto nás neváhejte kontaktovat s jakýmkoli jinými požadavky.',
-        'en': 'The overview of services below is indicative, so please do not hesitate to contact us with any other requirements.'
-    },
-    'service-1-title': {
-        'cz': 'Nemovitosti',
-        'en': 'Real Estate'
-    },
-    'service-1-description': {
-        'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
-        'en': 'Complete legal service in the field of real estate, including property transfers, preparation of contractual documentation, and consulting.'
-    },
-    'service-2-title': {
-        'cz': 'Obchodní právo',
-        'en': 'Business Law'
-    },
-    'service-2-description': {
-        'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.',
-        'en': 'Comprehensive legal services for entrepreneurs and companies, including company formation, contract law, and legal audit.'
-    },
-    'service-3-title': {
-        'cz': 'Pracovní právo',
-        'en': 'Labor Law'
-    },
-    'service-3-description': {
-        'cz': 'Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.',
-        'en': 'Advice on employment relationships, preparation of employment contracts, resolution of labor disputes.'
-    },
-    'service-4-title': {
-        'cz': 'Soudní řízení',
-        'en': 'Litigation'
-    },
-    'service-4-description': {
-        'cz': 'Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.',
-        'en': 'Representing clients in court and administrative proceedings, preparation of submissions, expert legal advice.'
-    },
-    'service-5-title': {
-        'cz': 'Rodinné právo',
-        'en': 'Family Law'
-    },
-    'service-5-description': {
-        'cz': 'Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.',
-        'en': 'Comprehensive legal advice in family law, including divorces, alimony, adjustment of relations to minor children.'
-    },
-    'service-6-title': {
-        'cz': 'Správní právo',
-        'en': 'Administrative Law'
-    },
-    'service-6-description': {
-        'cz': 'Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.',
-        'en': 'Representing clients in administrative proceedings, appeals against decisions of administrative bodies, legal advice.'
-    },
-    'service-more-btn': {
-        'cz': 'Zjistit více',
-        'en': 'Learn More'
-    },
+// Footer copyright and links
+'footer-copyright': {
+  'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma',
+  'en': '© 2025 AK Šoralová. All rights reserved. Created by'
+},
+'footer-terms': {
+  'cz': 'Podmínky použití',
+  'en': 'Terms of Use'
+},
+'footer-privacy': {
+  'cz': 'Ochrana osobních údajů',
+  'en': 'Privacy Policy'
+},
+'footer-cookies': {
+  'cz': 'Zásady cookies',
+  'en': 'Cookie Policy'
+},
 
-    // Results Section
-    'results-title': {
-        'cz': 'Výsledky případů',
-        'en': 'Case Results'
-    },
-    'results-subtitle': {
-        'cz': 'Podívejte se na některé z našich nedávných případů a výsledků.',
-        'en': 'Take a look at some of our recent cases and results.'
-    },
-    'result-1-title': {
-        'cz': 'Úspěšná akvizice nemovitosti',
-        'en': 'Successful Real Estate Acquisition'
-    },
-    'result-1-description': {
-        'cz': 'Zastupování klienta při komplexní akvizici komerční nemovitosti v hodnotě 150 milionů Kč včetně due diligence, přípravy smluvní dokumentace a úspěšného dokončení transakce.',
-        'en': 'Representing a client in a complex acquisition of a commercial property worth 150 million CZK, including due diligence, preparation of contractual documentation, and successful completion of the transaction.'
-    },
-    'result-1-metric-1-label': {
-        'cz': 'Hodnota transakce',
-        'en': 'Transaction Value'
-    },
-    'result-1-metric-2-label': {
-        'cz': 'Měsíce k dokončení',
-        'en': 'Months to Complete'
-    },
-    'result-2-title': {
-        'cz': 'Vyhraný soudní spor',
-        'en': 'Won Litigation Case'
-    },
-    'result-2-description': {
-        'cz': 'Úspěšná obhajoba klienta v komplexním obchodněprávním sporu s potenciální škodou přes 20 milionů Kč. Dosažení zamítnutí žaloby a přiznání náhrady nákladů řízení.',
-        'en': 'Successful defense of a client in a complex commercial litigation with potential damages of over 20 million CZK. Achieved dismissal of the lawsuit and award of legal costs.'
-    },
-    'result-2-metric-1-label': {
-        'cz': 'Hodnota sporu',
-        'en': 'Dispute Value'
-    },
-    'result-2-metric-2-label': {
-        'cz': 'Úspěšnost',
-        'en': 'Success Rate'
-    },
-    'result-3-title': {
-        'cz': 'Restrukturalizace společnosti',
-        'en': 'Company Restructuring'
-    },
-    'result-3-description': {
-        'cz': 'Komplexní právní poradenství při restrukturalizaci středně velké společnosti včetně změny vlastnické struktury, pracovněprávních vztahů a smluvní dokumentace.',
-        'en': 'Comprehensive legal advice on the restructuring of a medium-sized company, including changes in ownership structure, employment relationships, and contractual documentation.'
-    },
-    'result-3-metric-1-label': {
-        'cz': 'Obrat společnosti',
-        'en': 'Company Turnover'
-    },
-    'result-3-metric-2-label': {
-        'cz': 'Měsíců k implementaci',
-        'en': 'Months to Implement'
-    },
-    'result-4-title': {
-        'cz': 'Komplexní právní audit',
-        'en': 'Comprehensive Legal Audit'
-    },
-    'result-4-description': {
-        'cz': 'Provedení důkladného právního auditu pro mezinárodní společnost vstupující na český trh. Identifikace a eliminace potenciálních právních rizik a nastavení vhodné struktury pro působení v ČR.',
-        'en': 'Conducting a thorough legal audit for an international company entering the Czech market. Identification and elimination of potential legal risks and setting up an appropriate structure for operations in the Czech Republic.'
-    },
-    'result-4-metric-1-label': {
-        'cz': 'Prověřených dokumentů',
-        'en': 'Documents Reviewed'
-    },
-    'result-4-metric-2-label': {
-        'cz': 'Týdny k dokončení',
-        'en': 'Weeks to Complete'
-    },
+// Location section
+'location-opening-hours': {
+  'cz': 'Opening Hours',
+  'en': 'Opening Hours'
+},
+'location-mon-fri': {
+  'cz': 'Mon-Fri: 8:00 - 18:00',
+  'en': 'Mon-Fri: 8:00 - 18:00'
+},
+'location-sat-sun': {
+  'cz': 'Sat-Sun: Closed',
+  'en': 'Sat-Sun: Closed'
+},
+'location-appointments': {
+  'cz': '(Appointments outside opening hours by arrangement)',
+  'en': '(Appointments outside opening hours by arrangement)'
+},
+'location-get-directions': {
+  'cz': 'GET DIRECTIONS',
+  'en': 'GET DIRECTIONS'
+},
+'location-contact-us': {
+  'cz': 'CONTACT US',
+  'en': 'CONTACT US'
+},
+'location-parking': {
+  'cz': 'Parking: Kotva Garage (5 min walk)',
+  'en': 'Parking: Kotva Garage (5 min walk)'
+},
 
-    // Testimonials Section
-    'testimonials-title': {
-        'cz': 'Reference klientů',
-        'en': 'Client Testimonials'
-    },
-    'testimonials-subtitle': {
-        'cz': 'Co o nás říkají naši klienti.',
-        'en': 'What our clients say about us.'
-    },
-    'testimonial-1-text': {
-        'cz': 'Advokátní kancelář Šoralová mi poskytla vynikající právní služby při koupi nemovitosti. Oceňuji jejich profesionalitu, odbornost a osobní přístup. Vřele doporučuji.',
-        'en': 'Šoralová Law Firm provided me with excellent legal services when buying a property. I appreciate their professionalism, expertise, and personal approach. I highly recommend them.'
-    },
-    'testimonial-1-name': {
-        'cz': 'Jan Novák',
-        'en': 'Jan Novak'
-    },
-    'testimonial-1-position': {
-        'cz': 'Praha',
-        'en': 'Prague'
-    },
-    'testimonial-2-text': {
-        'cz': 'S advokátní kanceláří Šoralová spolupracuji již několik let. Vždy mi poskytli kvalitní právní služby a poradenství. Jejich přístup je velmi profesionální a vstřícný.',
-        'en': 'I have been working with Šoralová Law Firm for several years. They have always provided me with quality legal services and advice. Their approach is very professional and accommodating.'
-    },
-    'testimonial-2-name': {
-        'cz': 'Petr Svoboda',
-        'en': 'Petr Svoboda'
-    },
-    'testimonial-2-position': {
-        'cz': 'Jednatel společnosti',
-        'en': 'Company Director'
-    },
-    'testimonial-3-text': {
-        'cz': 'Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.',
-        'en': 'Mgr. Lucia Šoralová helped me resolve a complex employment dispute. Thanks to her experience and expertise, we achieved a very good result. I recommend her services.'
-    },
-    'testimonial-3-name': {
-        'cz': 'Michaela Dvořáková',
-        'en': 'Michaela Dvorakova'
-    },
-    'testimonial-3-position': {
-        'cz': 'HR manažerka',
-        'en': 'HR Manager'
-    },
+// Address
+'footer-address': {
+  'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00',
+  'en': 'Ovocny trh 573/12<br>Prague 1, 110 00'
+},
 
-    // Contact Section
-    'contact-title': {
-        'cz': 'Kontaktujte nás',
-        'en': 'Contact Us'
-    },
-    'contact-text': {
-        'cz': 'Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.',
-        'en': 'Do not hesitate to contact us with any questions or requirements. We are ready to provide you with quality legal services and advice.'
-    },
-    'contact-address-label': {
-        'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00<br>Česká republika',
-        'en': 'Ovocny trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
-    },
-    'contact-hours-label': {
-        'cz': 'Po-Pá: 8:00 - 18:00<br>So-Ne: Zavřeno',
-        'en': 'Mon-Fri: 8:00 - 18:00<br>Sat-Sun: Closed'
-    },
-    'contact-form-name': {
-        'cz': 'Jméno a příjmení',
-        'en': 'Full Name'
-    },
-    'contact-form-email': {
-        'cz': 'E-mail',
-        'en': 'Email'
-    },
-    'contact-form-phone': {
-        'cz': 'Telefon',
-        'en': 'Phone'
-    },
-    'contact-form-message': {
-        'cz': 'Zpráva',
-        'en': 'Message'
-    },
-    'contact-form-submit': {
-        'cz': 'Odeslat',
-        'en': 'Submit'
-    },
-    'contact-form-name-placeholder': {
-        'cz': 'Vaše jméno a příjmení',
-        'en': 'Your full name'
-    },
-    'contact-form-email-placeholder': {
-        'cz': 'Váš e-mail',
-        'en': 'Your email'
-    },
-    'contact-form-phone-placeholder': {
-        'cz': 'Váš telefon',
-        'en': 'Your phone'
-    },
-    'contact-form-message-placeholder': {
-        'cz': 'Vaše zpráva',
-        'en': 'Your message'
-    },
+// Footer about text
+'footer-about-text': {
+  'cz': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, and flexibility.',
+  'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, and flexibility.'
+},
+    // Add these entries to your translations object
 
-    // Footer
-    'footer-description': {
-        'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup a flexibilitu.',
-        'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, and flexibility.'
-    },
-    'footer-services-title': {
-        'cz': 'Naše služby',
-        'en': 'Our Services'
-    },
-    'footer-contact-title': {
-        'cz': 'Kontaktní údaje',
-        'en': 'Contact Details'
-    },
-    'footer-copyright': {
-        'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena.',
-        'en': '© 2025 AK Šoralová Law Firm. All rights reserved.'
-    },
-    'footer-terms': {
-        'cz': 'Podmínky použití',
-        'en': 'Terms of Use'
-    },
-    'footer-privacy': {
-        'cz': 'Ochrana osobních údajů',
-        'en': 'Privacy Policy'
-    },
-    'footer-cookies': {
-        'cz': 'Zásady cookies',
-        'en': 'Cookie Policy'
-    },
-    
-    // Mobile Menu
-    'mobile-menu-contact-title': {
-        'cz': 'Kontaktujte nás',
-        'en': 'Contact Us'
-    },
-    
-    // Logo
-    'logo-tagline': {
-        'cz': 'Advokátní kancelář',
-        'en': 'Law Firm'
-    },
+// Feature headings
+'about-feature-1-title': {
+  'cz': 'Profesionální služby',
+  'en': 'Professional Services'
+},
+'about-feature-1-text': {
+  'cz': 'Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.',
+  'en': 'We provide high-quality legal services with emphasis on detail and precision.'
+},
+'about-feature-2-title': {
+  'cz': 'Optimální cena',
+  'en': 'Optimal Price'
+},
+'about-feature-2-text': {
+  'cz': 'Nabízíme transparentní a dostupné ceny za profesionální právní služby.',
+  'en': 'We offer transparent and affordable prices for professional legal services.'
+},
+'about-feature-3-title': {
+  'cz': 'Osobní přístup',
+  'en': 'Personal Approach'
+},
+'about-feature-3-text': {
+  'cz': 'Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.',
+  'en': 'We approach each client individually with respect to their specific situation.'
+},
+'about-feature-4-title': {
+  'cz': 'Vícejazyčné služby',
+  'en': 'Multilingual Services'
+},
+'about-feature-4-text': {
+  'cz': 'Právní služby poskytujeme v českém a anglickém jazyce.',
+  'en': 'We provide legal services in Czech and English language.'
+},
 
+// Contact button
+'about-contact-btn': {
+  'cz': 'KONTAKTUJTE NÁS',
+  'en': 'CONTACT US'
+},
+  // Navigation
+  'nav-home': {
+    'cz': 'Úvod',
+    'en': 'Home'
+  },
+  'nav-about': {
+    'cz': 'O nás',
+    'en': 'About'
+  },
+  'nav-services': {
+    'cz': 'Služby',
+    'en': 'Services'
+  },
+  'nav-results': {
+    'cz': 'Výsledky',
+    'en': 'Results'
+  },
+  'nav-testimonials': {
+    'cz': 'Reference',
+    'en': 'Testimonials'
+  },
+  'nav-contact': {
+    'cz': 'Kontakt',
+    'en': 'Contact'
+  },
+  'nav-pricing': {
+    'cz': 'Ceník',
+    'en': 'Pricing'
+  },
 
-    // Modal 1 - Real Estate
-'modal-1-title': {
+  // Hero Section
+  'hero-subtitle': {
+    'cz': 'Advokátní kancelář',
+    'en': 'Law Firm'
+  },
+  'hero-title': {
+    'cz': 'Profesionální právní služby',
+    'en': 'Professional Legal Services'
+  },
+  'hero-description': {
+    'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta.',
+    'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation.'
+  },
+  'hero-services-btn': {
+    'cz': 'Naše služby',
+    'en': 'Our Services'
+  },
+  'hero-contact-btn': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact Us'
+  },
+
+  // Contact page translations
+'contact-heading': {
+  'cz': 'Kontaktujte nás',
+  'en': 'Contact Us'
+},
+'contact-intro-text': {
+  'cz': 'Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.',
+  'en': 'Do not hesitate to contact us with any questions or requirements. We are ready to provide you with quality legal services and advice.'
+},
+'contact-form-fullname': {
+  'cz': 'Full Name',
+  'en': 'Full Name'
+},
+'contact-form-email': {
+  'cz': 'Email',
+  'en': 'Email'
+},
+'contact-form-phone': {
+  'cz': 'Phone',
+  'en': 'Phone'
+},
+'contact-form-message': {
+  'cz': 'Message',
+  'en': 'Message'
+},
+'contact-form-submit': {
+  'cz': 'SUBMIT',
+  'en': 'SUBMIT'
+},
+'contact-form-fullname-placeholder': {
+  'cz': 'Your full name',
+  'en': 'Your full name'
+},
+'contact-form-email-placeholder': {
+  'cz': 'Your email',
+  'en': 'Your email'
+},
+'contact-form-phone-placeholder': {
+  'cz': 'Your phone',
+  'en': 'Your phone'
+},
+'contact-form-message-placeholder': {
+  'cz': 'Your message',
+  'en': 'Your message'
+},
+'contact-hours': {
+  'cz': 'Po-Pá: 8:00 - 18:00<br>So-Ne: Zavřeno',
+  'en': 'Mon-Fri: 8:00 - 18:00<br>Sat-Sun: Closed'
+},
+  // Add these to your translations object
+'about-main-title': {
+  'cz': 'O nás',
+  'en': 'About Us'
+},
+'about-main-paragraph': {
+  'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.',
+  'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation. We aim to maximize the protection of the client\'s rights and their satisfaction.'
+},
+'contact-title': {
+  'cz': 'Kontaktujte nás',
+  'en': 'Contact Us'
+},
+'contact-intro-text': {
+  'cz': 'Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.',
+  'en': 'Do not hesitate to contact us with any questions or requirements. We are ready to provide you with quality legal services and advice.'
+},
+'form-full-name': {
+  'cz': 'Jméno a příjmení',
+  'en': 'Full Name'
+},
+'form-email': {
+  'cz': 'Email',
+  'en': 'Email'
+},
+'form-phone': {
+  'cz': 'Telefon',
+  'en': 'Phone'
+},
+'form-message': {
+  'cz': 'Zpráva',
+  'en': 'Message'
+},
+'form-submit': {
+  'cz': 'Odeslat',
+  'en': 'Submit'
+},
+'form-name-placeholder': {
+  'cz': 'Vaše jméno a příjmení',
+  'en': 'Your full name'
+},
+'form-email-placeholder': {
+  'cz': 'Váš email',
+  'en': 'Your email'
+},
+'form-phone-placeholder': {
+  'cz': 'Váš telefon',
+  'en': 'Your phone'
+},
+'form-message-placeholder': {
+  'cz': 'Vaše zpráva',
+  'en': 'Your message'
+},
+
+  // Services Section
+  'services-title': {
+    'cz': 'Naše služby',
+    'en': 'Our Services'
+  },
+  'services-subtitle': {
+    'cz': 'Níže uvedený přehled služeb je orientační, proto nás neváhejte kontaktovat s jakýmkoli jinými požadavky.',
+    'en': 'The overview of services below is indicative, so please do not hesitate to contact us with any other requirements.'
+  },
+  'services-overline': {
+    'cz': 'PRÁVNÍ PORADENSTVÍ',
+    'en': 'LEGAL ADVISORY'
+  },
+  'services-cta-text': {
+    'cz': 'Potřebujete právní služby v jiné oblasti? Neváhejte nás kontaktovat.',
+    'en': 'Need legal services in another area? Do not hesitate to contact us.'
+  },
+  'services-cta-button': {
+    'cz': 'NEZÁVAZNÁ KONZULTACE',
+    'en': 'FREE CONSULTATION'
+  },
+  'service-1-title': {
     'cz': 'Nemovitosti',
     'en': 'Real Estate'
-},
-'modal-includes': {
-    'cz': 'Tato služba zahrnuje:',
-    'en': 'This service includes:'
-},
-'modal-1-feature-1': {
-    'cz': 'Kupní smlouvy',
-    'en': 'Purchase contracts'
-},
-'modal-1-feature-2': {
-    'cz': 'Nájemní smlouvy',
-    'en': 'Lease agreements'
-},
-'modal-1-feature-3': {
-    'cz': 'Zástavní práva',
-    'en': 'Mortgages'
-},
-'modal-1-feature-4': {
-    'cz': 'Věcná břemena',
-    'en': 'Easements'
-},
-'modal-1-feature-5': {
-    'cz': 'Úschovu finančních prostředků',
-    'en': 'Escrow services'
-},
-'modal-1-feature-6': {
-    'cz': 'Zastupování před katastrem nemovitostí',
-    'en': 'Representation before the land registry'
-},
-'modal-1-description': {
-    'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
-    'en': 'Complete legal services in real estate including property transfers, preparation of contractual documentation, and consulting.'
-},
-'modal-contact-btn': {
-    'cz': 'Kontaktujte nás',
-    'en': 'Contact us'
-
-
-},
-
-// Common modal elements
-'modal-includes': {
-    'cz': 'Tato služba zahrnuje:',
-    'en': 'This service includes:'
-},
-'modal-contact-btn': {
-    'cz': 'Kontaktujte nás',
-    'en': 'Contact us'
-},
-'service-hover-text': {
-    'cz': 'Klikněte pro více informací',
-    'en': 'Click for more information'
-},
-
-// Modal 1 - Real Estate
-'modal-1-title': {
-    'cz': 'Nemovitosti',
-    'en': 'Real Estate'
-},
-'modal-1-feature-1': {
-    'cz': 'Kupní smlouvy',
-    'en': 'Purchase contracts'
-},
-'modal-1-feature-2': {
-    'cz': 'Nájemní smlouvy',
-    'en': 'Lease agreements'
-},
-'modal-1-feature-3': {
-    'cz': 'Zástavní práva',
-    'en': 'Mortgages'
-},
-'modal-1-feature-4': {
-    'cz': 'Věcná břemena',
-    'en': 'Easements'
-},
-'modal-1-feature-5': {
-    'cz': 'Úschovu finančních prostředků',
-    'en': 'Escrow services'
-},
-'modal-1-feature-6': {
-    'cz': 'Zastupování před katastrem nemovitostí',
-    'en': 'Representation before the land registry'
-},
-'modal-1-description': {
-    'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
-    'en': 'Complete legal services in real estate including property transfers, preparation of contractual documentation, and consulting.'
-},
-
-// Modal 2 - Business Law
-'modal-2-title': {
+  },
+  'service-1-description': {
+    'cz': 'Kompletní právní servis v oblasti nemovitostí.',
+    'en': 'Complete legal service in the field of real estate.'
+  },
+  'service-1-short': {
+    'cz': 'Kompletní právní servis v oblasti nemovitostí.',
+    'en': 'Complete legal service in the field of real estate.'
+  },
+  'service-2-title': {
     'cz': 'Obchodní právo',
     'en': 'Business Law'
-},
-'modal-2-feature-1': {
-    'cz': 'Zakládání společností',
-    'en': 'Company formation'
-},
-'modal-2-feature-2': {
-    'cz': 'Korporátní změny',
-    'en': 'Corporate changes'
-},
-'modal-2-feature-3': {
-    'cz': 'Obchodní smlouvy',
-    'en': 'Commercial contracts'
-},
-'modal-2-feature-4': {
-    'cz': 'Due diligence',
-    'en': 'Due diligence'
-},
-'modal-2-feature-5': {
-    'cz': 'Zastupování ve sporech',
-    'en': 'Dispute representation'
-},
-'modal-2-feature-6': {
-    'cz': 'Právní audity',
-    'en': 'Legal audits'
-},
-'modal-2-description': {
-    'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.',
-    'en': 'Comprehensive legal services for entrepreneurs and companies, including company formation, contract law, and legal audit.'
-},
-
-// Modal 3 - Labor Law
-'modal-3-title': {
+  },
+  'service-2-description': {
+    'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti.',
+    'en': 'Comprehensive legal services for entrepreneurs and companies.'
+  },
+  'service-2-short': {
+    'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti.',
+    'en': 'Comprehensive legal services for entrepreneurs and companies.'
+  },
+  'service-3-title': {
     'cz': 'Pracovní právo',
     'en': 'Labor Law'
-},
-'modal-3-feature-1': {
-    'cz': 'Pracovní smlouvy',
-    'en': 'Employment contracts'
-},
-'modal-3-feature-2': {
-    'cz': 'Ukončení pracovního poměru',
-    'en': 'Employment termination'
-},
-'modal-3-feature-3': {
-    'cz': 'Zaměstnanecké spory',
-    'en': 'Employee disputes'
-},
-'modal-3-feature-4': {
-    'cz': 'BOZP',
-    'en': 'Health & safety at work'
-},
-'modal-3-feature-5': {
-    'cz': 'Změny pracovních podmínek',
-    'en': 'Changes to employment conditions'
-},
-'modal-3-description': {
-    'cz': 'Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.',
-    'en': 'Advice on employment relationships, preparation of employment contracts, resolution of labor disputes.'
-},
-
-// Modal 4 - Litigation
-'modal-4-title': {
+  },
+  'service-3-description': {
+    'cz': 'Poradenství v oblasti pracovněprávních vztahů a sporů.',
+    'en': 'Advice on employment relationships and disputes.'
+  },
+  'service-3-short': {
+    'cz': 'Poradenství v oblasti pracovněprávních vztahů a sporů.',
+    'en': 'Advice on employment relationships and disputes.'
+  },
+  'service-4-title': {
     'cz': 'Soudní řízení',
     'en': 'Litigation'
-},
-'modal-4-feature-1': {
-    'cz': 'Civilní spory',
-    'en': 'Civil disputes'
-},
-'modal-4-feature-2': {
-    'cz': 'Obchodní spory',
-    'en': 'Commercial disputes'
-},
-'modal-4-feature-3': {
-    'cz': 'Vymáhání pohledávek',
-    'en': 'Debt collection'
-},
-'modal-4-feature-4': {
-    'cz': 'Exekuce',
-    'en': 'Enforcement proceedings'
-},
-'modal-4-feature-5': {
-    'cz': 'Zastupování u soudu',
-    'en': 'Court representation'
-},
-'modal-4-description': {
-    'cz': 'Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.',
-    'en': 'Representing clients in court and administrative proceedings, preparation of submissions, expert legal advice.'
-},
-
-// Modal 5 - Family Law
-'modal-5-title': {
+  },
+  'service-4-description': {
+    'cz': 'Zastupování klientů v soudních a správních řízeních.',
+    'en': 'Representing clients in court and administrative proceedings.'
+  },
+  'service-4-short': {
+    'cz': 'Zastupování klientů v soudních a správních řízeních.',
+    'en': 'Representing clients in court and administrative proceedings.'
+  },
+  'service-5-title': {
     'cz': 'Rodinné právo',
     'en': 'Family Law'
-},
-'modal-5-feature-1': {
-    'cz': 'Rozvod manželství',
-    'en': 'Divorce proceedings'
-},
-'modal-5-feature-2': {
-    'cz': 'Výživné',
-    'en': 'Alimony and child support'
-},
-'modal-5-feature-3': {
-    'cz': 'Péče o děti',
-    'en': 'Child custody'
-},
-'modal-5-feature-4': {
-    'cz': 'Majetkové vypořádání',
-    'en': 'Property settlements'
-},
-'modal-5-feature-5': {
-    'cz': 'Předmanželské smlouvy',
-    'en': 'Prenuptial agreements'
-},
-'modal-5-description': {
-    'cz': 'Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.',
-    'en': 'Comprehensive legal advice in family law, including divorces, alimony, and custody arrangements for minor children.'
-},
-
-// Modal 6 - Administrative Law
-'modal-6-title': {
+  },
+  'service-5-description': {
+    'cz': 'Komplexní právní poradenství v rodinném právu.',
+    'en': 'Comprehensive legal advice in family law.'
+  },
+  'service-5-short': {
+    'cz': 'Komplexní právní poradenství v rodinném právu.',
+    'en': 'Comprehensive legal advice in family law.'
+  },
+  'service-6-title': {
     'cz': 'Správní právo',
     'en': 'Administrative Law'
-},
-'modal-6-feature-1': {
-    'cz': 'Stavební řízení',
-    'en': 'Building permit procedures'
-},
-'modal-6-feature-2': {
-    'cz': 'Přestupky',
-    'en': 'Administrative offenses'
-},
-'modal-6-feature-3': {
-    'cz': 'Správní žaloby',
-    'en': 'Administrative lawsuits'
-},
-'modal-6-feature-4': {
-    'cz': 'Povolení a licence',
-    'en': 'Permits and licenses'
-},
-'modal-6-feature-5': {
-    'cz': 'Zastupování před úřady',
-    'en': 'Representation before authorities'
-},
-'modal-6-description': {
-    'cz': 'Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.',
-    'en': 'Representing clients in administrative proceedings, appeals against decisions of administrative bodies, legal advice.'
-},
-
-'service-hover-text': {
+  },
+  'service-6-description': {
+    'cz': 'Zastupování klientů ve správních řízeních.',
+    'en': 'Representing clients in administrative proceedings.'
+  },
+  'service-6-short': {
+    'cz': 'Zastupování klientů ve správních řízeních.',
+    'en': 'Representing clients in administrative proceedings.'
+  },
+  'service-more-info': {
+    'cz': '',
+    'en': ''
+  },
+  'service-hover-text': {
     'cz': 'Klikněte pro více informací',
     'en': 'Click for more information'
-},
+  },
 
-'location-title': {
-        'cz': 'Kde nás najdete',
-        'en': 'Where to Find Us'
-    },
-    'location-subtitle': {
-        'cz': 'Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.',
-        'en': 'We are located in the center of Prague in a historic building on Ovocný trh, near Old Town Square.'
-    },
-    'location-address-title': {
-        'cz': 'Adresa kanceláře',
-        'en': 'Office Address'
-    },
-    'location-address': {
-        'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00<br>Česká republika',
-        'en': 'Ovocný trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
-    },
-    'location-transport-title': {
-        'cz': 'Dopravní spojení',
-        'en': 'Transportation'
-    },
-    'location-transport': {
-        'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B)<br><strong>Tramvaj:</strong> Zastávka Národní třída<br><strong>Parkování:</strong> Garážový dům Kotva (5 min chůze)',
-        'en': '<strong>Metro:</strong> Můstek Station (line A, B)<br><strong>Tram:</strong> Národní třída Stop<br><strong>Parking:</strong> Kotva Garage (5 min walk)'
-    },
-    'location-hours-title': {
-        'cz': 'Otevírací doba',
-        'en': 'Opening Hours'
-    },
-    'location-hours': {
-        'cz': '<strong>Po-Pá:</strong> 8:00 - 18:00<br><strong>So-Ne:</strong> Zavřeno<br><em>(Schůzky mimo otevírací dobu dle dohody)</em>',
-        'en': '<strong>Mon-Fri:</strong> 8:00 - 18:00<br><strong>Sat-Sun:</strong> Closed<br><em>(Appointments outside opening hours by arrangement)</em>'
-    },
-    'location-directions-btn': {
-        'cz': '<i class="fas fa-directions"></i> Navigovat sem',
-        'en': '<i class="fas fa-directions"></i> Get Directions'
-    },
-    'location-contact-btn': {
-        'cz': '<i class="fas fa-phone-alt"></i> Kontaktujte nás',
-        'en': '<i class="fas fa-phone-alt"></i> Contact Us'
-    }
+  // Results Section
+  'results-title': {
+    'cz': 'Výsledky případů',
+    'en': 'Case Results'
+  },
+  'results-subtitle': {
+    'cz': 'Podívejte se na některé z našich nedávných případů a výsledků.',
+    'en': 'Take a look at some of our recent cases and results.'
+  },
+  'result-1-title': {
+    'cz': 'Úspěšná akvizice nemovitosti',
+    'en': 'Successful Real Estate Acquisition'
+  },
+  'result-1-description': {
+    'cz': 'Zastupování klienta při komplexní akvizici komerční nemovitosti v hodnotě 150 milionů Kč včetně due diligence, přípravy smluvní dokumentace a úspěšného dokončení transakce.',
+    'en': 'Representing a client in a complex acquisition of a commercial property worth 150 million CZK, including due diligence, preparation of contractual documentation, and successful completion of the transaction.'
+  },
+  'result-1-metric-1-label': {
+    'cz': 'Hodnota transakce',
+    'en': 'Transaction Value'
+  },
+  'result-1-metric-2-label': {
+    'cz': 'Měsíce k dokončení',
+    'en': 'Months to Complete'
+  },
+  'result-2-title': {
+    'cz': 'Vyhraný soudní spor',
+    'en': 'Won Litigation Case'
+  },
+  'result-2-description': {
+    'cz': 'Úspěšná obhajoba klienta v komplexním obchodněprávním sporu s potenciální škodou přes 20 milionů Kč. Dosažení zamítnutí žaloby a přiznání náhrady nákladů řízení.',
+    'en': 'Successful defense of a client in a complex commercial litigation with potential damages of over 20 million CZK. Achieved dismissal of the lawsuit and award of legal costs.'
+  },
+  'result-2-metric-1-label': {
+    'cz': 'Hodnota sporu',
+    'en': 'Dispute Value'
+  },
+  'result-2-metric-2-label': {
+    'cz': 'Úspěšnost',
+    'en': 'Success Rate'
+  },
+  'result-3-title': {
+    'cz': 'Restrukturalizace společnosti',
+    'en': 'Company Restructuring'
+  },
+  'result-3-description': {
+    'cz': 'Komplexní právní poradenství při restrukturalizaci středně velké společnosti včetně změny vlastnické struktury, pracovněprávních vztahů a smluvní dokumentace.',
+    'en': 'Comprehensive legal advice on the restructuring of a medium-sized company, including changes in ownership structure, employment relationships, and contractual documentation.'
+  },
+  'result-3-metric-1-label': {
+    'cz': 'Obrat společnosti',
+    'en': 'Company Turnover'
+  },
+  'result-3-metric-2-label': {
+    'cz': 'Měsíců k implementaci',
+    'en': 'Months to Implement'
+  },
+  'result-4-title': {
+    'cz': 'Komplexní právní audit',
+    'en': 'Comprehensive Legal Audit'
+  },
+  'result-4-description': {
+    'cz': 'Provedení důkladného právního auditu pro mezinárodní společnost vstupující na český trh. Identifikace a eliminace potenciálních právních rizik a nastavení vhodné struktury pro působení v ČR.',
+    'en': 'Conducting a thorough legal audit for an international company entering the Czech market. Identification and elimination of potential legal risks and setting up an appropriate structure for operations in the Czech Republic.'
+  },
+  'result-4-metric-1-label': {
+    'cz': 'Prověřených dokumentů',
+    'en': 'Documents Reviewed'
+  },
+  'result-4-metric-2-label': {
+    'cz': 'Týdny k dokončení',
+    'en': 'Weeks to Complete'
+  },
+
+  // Testimonials Section
+  'testimonials-title': {
+    'cz': 'Reference klientů',
+    'en': 'Client Testimonials'
+  },
+  'testimonials-subtitle': {
+    'cz': 'Co o nás říkají naši klienti.',
+    'en': 'What our clients say about us.'
+  },
+  'testimonial-1-text': {
+    'cz': 'Advokátní kancelář Šoralová mi poskytla vynikající právní služby při koupi nemovitosti. Oceňuji jejich profesionalitu, odbornost a osobní přístup. Vřele doporučuji.',
+    'en': 'Šoralová Law Firm provided me with excellent legal services when buying a property. I appreciate their professionalism, expertise, and personal approach. I highly recommend them.'
+  },
+  'testimonial-1-name': {
+    'cz': 'Jan Novák',
+    'en': 'Jan Novak'
+  },
+  'testimonial-1-position': {
+    'cz': 'Praha',
+    'en': 'Prague'
+  },
+  'testimonial-2-text': {
+    'cz': 'S advokátní kanceláří Šoralová spolupracuji již několik let. Vždy mi poskytli kvalitní právní služby a poradenství. Jejich přístup je velmi profesionální a vstřícný.',
+    'en': 'I have been working with Šoralová Law Firm for several years. They have always provided me with quality legal services and advice. Their approach is very professional and accommodating.'
+  },
+  'testimonial-2-name': {
+    'cz': 'Petr Svoboda',
+    'en': 'Petr Svoboda'
+  },
+  'testimonial-2-position': {
+    'cz': 'Jednatel společnosti',
+    'en': 'Company Director'
+  },
+  'testimonial-3-text': {
+    'cz': 'Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.',
+    'en': 'Mgr. Lucia Šoralová helped me resolve a complex employment dispute. Thanks to her experience and expertise, we achieved a very good result. I recommend her services.'
+  },
+  'testimonial-3-name': {
+    'cz': 'Michaela Dvořáková',
+    'en': 'Michaela Dvorakova'
+  },
+  'testimonial-3-position': {
+    'cz': 'HR manažerka',
+    'en': 'HR Manager'
+  },
+
+  // Contact Section
+  'contact-title': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact Us'
+  },
+  'contact-text': {
+    'cz': 'Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.',
+    'en': 'Do not hesitate to contact us with any questions or requirements. We are ready to provide you with quality legal services and advice.'
+  },
+  'contact-address-label': {
+    'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00<br>Česká republika',
+    'en': 'Ovocny trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
+  },
+  'contact-hours-label': {
+    'cz': 'Po-Pá: 8:00 - 18:00<br>So-Ne: Zavřeno',
+    'en': 'Mon-Fri: 8:00 - 18:00<br>Sat-Sun: Closed'
+  },
+  'contact-form-name': {
+    'cz': 'Jméno a příjmení',
+    'en': 'Full Name'
+  },
+  'contact-form-email': {
+    'cz': 'E-mail',
+    'en': 'Email'
+  },
+  'contact-form-phone': {
+    'cz': 'Telefon',
+    'en': 'Phone'
+  },
+  'contact-form-message': {
+    'cz': 'Zpráva',
+    'en': 'Message'
+  },
+  'contact-form-submit': {
+    'cz': 'Odeslat',
+    'en': 'Submit'
+  },
+  'contact-form-name-placeholder': {
+    'cz': 'Vaše jméno a příjmení',
+    'en': 'Your full name'
+  },
+  'contact-form-email-placeholder': {
+    'cz': 'Váš e-mail',
+    'en': 'Your email'
+  },
+  'contact-form-phone-placeholder': {
+    'cz': 'Váš telefon',
+    'en': 'Your phone'
+  },
+  'contact-form-message-placeholder': {
+    'cz': 'Vaše zpráva',
+    'en': 'Your message'
+  },
+
+  // Footer
+  'footer-text': {
+    'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup a flexibilitu.',
+    'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, and flexibility.'
+  },
+  'footer-services-title': {
+    'cz': 'Naše služby',
+    'en': 'Our Services'
+  },
+  'footer-contact-title': {
+    'cz': 'Kontaktní údaje',
+    'en': 'Contact Details'
+  },
+  'footer-copyright': {
+    'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.pnhmedia.com">PNH MEIDA</a>',
+    'en': '© 2025 AK Šoralová Law Firm. All rights reserved. Created by PNH MEDIA'
+  },
+  'footer-terms': {
+    'cz': 'Podmínky použití',
+    'en': 'Terms of Use'
+  },
+  'footer-privacy': {
+    'cz': 'Ochrana osobních údajů',
+    'en': 'Privacy Policy'
+  },
+  'footer-cookies': {
+    'cz': 'Zásady cookies',
+    'en': 'Cookie Policy'
+  },
+  
+  // Mobile Menu
+  'mobile-menu-contact-title': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact Us'
+  },
+  
+  // Logo
+  'logo-tagline': {
+    'cz': 'Advokátní kancelář',
+    'en': 'Law Firm'
+  },
+
+  // Service Modal Translations
+  'modal-includes': {
+    'cz': 'Tato služba zahrnuje:',
+    'en': 'This service includes:'
+  },
+  'modal-contact-btn': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact us'
+  },
+
+  // Modal 1 - Real Estate
+  'modal-1-title': {
+    'cz': 'Nemovitosti',
+    'en': 'Real Estate'
+  },
+  'modal-1-feature-1': {
+    'cz': 'Kupní smlouvy',
+    'en': 'Purchase contracts'
+  },
+  'modal-1-feature-2': {
+    'cz': 'Nájemní smlouvy',
+    'en': 'Lease agreements'
+  },
+  'modal-1-feature-3': {
+    'cz': 'Zástavní práva',
+    'en': 'Mortgages'
+  },
+  'modal-1-feature-4': {
+    'cz': 'Věcná břemena',
+    'en': 'Easements'
+  },
+  'modal-1-feature-5': {
+    'cz': 'Úschovu finančních prostředků',
+    'en': 'Escrow services'
+  },
+  'modal-1-feature-6': {
+    'cz': 'Zastupování před katastrem nemovitostí',
+    'en': 'Representation before the land registry'
+  },
+  'modal-1-description': {
+    'cz': 'Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.',
+    'en': 'Complete legal services in real estate including property transfers, preparation of contractual documentation, and consulting.'
+  },
+
+  // Modal 2 - Business Law
+  'modal-2-title': {
+    'cz': 'Obchodní právo',
+    'en': 'Business Law'
+  },
+  'modal-2-feature-1': {
+    'cz': 'Zakládání společností',
+    'en': 'Company formation'
+  },
+  'modal-2-feature-2': {
+    'cz': 'Korporátní změny',
+    'en': 'Corporate changes'
+  },
+  'modal-2-feature-3': {
+    'cz': 'Obchodní smlouvy',
+    'en': 'Commercial contracts'
+  },
+  'modal-2-feature-4': {
+    'cz': 'Due diligence',
+    'en': 'Due diligence'
+  },
+  'modal-2-feature-5': {
+    'cz': 'Zastupování ve sporech',
+    'en': 'Dispute representation'
+  },
+  'modal-2-feature-6': {
+    'cz': 'Právní audity',
+    'en': 'Legal audits'
+  },
+  'modal-2-description': {
+    'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.',
+    'en': 'Comprehensive legal services for entrepreneurs and companies, including company formation, contract law, and legal audit.'
+  },
+
+  // Modal 3 - Labor Law
+  'modal-3-title': {
+    'cz': 'Pracovní právo',
+    'en': 'Labor Law'
+  },
+  'modal-3-feature-1': {
+    'cz': 'Pracovní smlouvy',
+    'en': 'Employment contracts'
+  },
+  'modal-3-feature-2': {
+    'cz': 'Ukončení pracovního poměru',
+    'en': 'Employment termination'
+  },
+  'modal-3-feature-3': {
+    'cz': 'Zaměstnanecké spory',
+    'en': 'Employee disputes'
+  },
+  'modal-3-feature-4': {
+    'cz': 'BOZP',
+    'en': 'Health & safety at work'
+  },
+  'modal-3-feature-5': {
+    'cz': 'Změny pracovních podmínek',
+    'en': 'Changes to employment conditions'
+  },
+  'modal-3-description': {
+    'cz': 'Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.',
+    'en': 'Advice on employment relationships, preparation of employment contracts, resolution of labor disputes.'
+  },
+
+  // Modal 4 - Litigation
+  'modal-4-title': {
+    'cz': 'Soudní řízení',
+    'en': 'Litigation'
+  },
+  'modal-4-feature-1': {
+    'cz': 'Civilní spory',
+    'en': 'Civil disputes'
+  },
+  'modal-4-feature-2': {
+    'cz': 'Obchodní spory',
+    'en': 'Commercial disputes'
+  },
+  'modal-4-feature-3': {
+    'cz': 'Vymáhání pohledávek',
+    'en': 'Debt collection'
+  },
+  'modal-4-feature-4': {
+    'cz': 'Exekuce',
+    'en': 'Enforcement proceedings'
+  },
+  'modal-4-feature-5': {
+    'cz': 'Zastupování u soudu',
+    'en': 'Court representation'
+  },
+  'modal-4-description': {
+    'cz': 'Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.',
+    'en': 'Representing clients in court and administrative proceedings, preparation of submissions, expert legal advice.'
+  },
+
+  // Modal 5 - Family Law
+  'modal-5-title': {
+    'cz': 'Rodinné právo',
+    'en': 'Family Law'
+  },
+  'modal-5-feature-1': {
+    'cz': 'Rozvod manželství',
+    'en': 'Divorce proceedings'
+  },
+  'modal-5-feature-2': {
+    'cz': 'Výživné',
+    'en': 'Alimony and child support'
+  },
+  'modal-5-feature-3': {
+    'cz': 'Péče o děti',
+    'en': 'Child custody'
+  },
+  'modal-5-feature-4': {
+    'cz': 'Majetkové vypořádání',
+    'en': 'Property settlements'
+  },
+  'modal-5-feature-5': {
+    'cz': 'Předmanželské smlouvy',
+    'en': 'Prenuptial agreements'
+  },
+  'modal-5-description': {
+    'cz': 'Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.',
+    'en': 'Comprehensive legal advice in family law, including divorces, alimony, and custody arrangements for minor children.'
+  },
+
+  // Modal 6 - Administrative Law
+  'modal-6-title': {
+    'cz': 'Správní právo',
+    'en': 'Administrative Law'
+  },
+  'modal-6-feature-1': {
+    'cz': 'Stavební řízení',
+    'en': 'Building permit procedures'
+  },
+  'modal-6-feature-2': {
+    'cz': 'Přestupky',
+    'en': 'Administrative offenses'
+  },
+  'modal-6-feature-3': {
+    'cz': 'Správní žaloby',
+    'en': 'Administrative lawsuits'
+  },
+  'modal-6-feature-4': {
+    'cz': 'Povolení a licence',
+    'en': 'Permits and licenses'
+  },
+  'modal-6-feature-5': {
+    'cz': 'Zastupování před úřady',
+    'en': 'Representation before authorities'
+  },
+  'modal-6-description': {
+    'cz': 'Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.',
+    'en': 'Representing clients in administrative proceedings, appeals against decisions of administrative bodies, legal advice.'
+  },
+
+  // Location Section
+  'location-title': {
+    'cz': 'Kde nás najdete',
+    'en': 'Where to Find Us'
+  },
+  'location-subtitle': {
+    'cz': 'Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.',
+    'en': 'We are located in the center of Prague in a historic building on Ovocný trh, near Old Town Square.'
+  },
+  'location-address-title': {
+    'cz': 'Adresa kanceláře',
+    'en': 'Office Address'
+  },
+  'location-address': {
+    'cz': 'Ovocný trh 573/12<br>Praha 1, 110 00<br>Česká republika',
+    'en': 'Ovocný trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
+  },
+  'location-transport-title': {
+    'cz': 'Dopravní spojení',
+    'en': 'Transportation'
+  },
+  'location-transport': {
+    'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B)<br><strong>Tramvaj:</strong> Zastávka Národní třída<br><strong>Parkování:</strong> Garážový dům Kotva (5 min chůze)',
+    'en': '<strong>Metro:</strong> Můstek Station (line A, B)<br><strong>Tram:</strong> Národní třída Stop<br><strong>Parking:</strong> Kotva Garage (5 min walk)'
+  },
+  'location-hours-title': {
+    'cz': 'Otevírací doba',
+    'en': 'Opening Hours'
+  },
+  'location-hours': {
+    'cz': '<strong>Po-Pá:</strong> 8:00 - 18:00<br><strong>So-Ne:</strong> Zavřeno<br><em>(Schůzky mimo otevírací dobu dle dohody)</em>',
+    'en': '<strong>Mon-Fri:</strong> 8:00 - 18:00<br><strong>Sat-Sun:</strong> Closed<br><em>(Appointments outside opening hours by arrangement)</em>'
+  },
+  'location-directions-btn': {
+    'cz': '<i class="fas fa-directions"></i> Navigovat sem',
+    'en': '<i class="fas fa-directions"></i> Get Directions'
+  },
+  'location-contact-btn': {
+    'cz': '<i class="fas fa-phone-alt"></i> Kontaktujte nás',
+    'en': '<i class="fas fa-phone-alt"></i> Contact Us'
+  },
+
+  // Pricing Section
+  'pricing-title': {
+    'cz': 'Cenové podmínky',
+    'en': 'Pricing'
+  },
+  'pricing-subtitle': {
+    'cz': 'Naše služby poskytujeme transparentně s jasnými cenovými podmínkami. Pro konkrétní cenovou kalkulaci nás neváhejte kontaktovat.',
+    'en': 'We provide our services transparently with clear pricing conditions. Do not hesitate to contact us for a specific price calculation.'
+  },
+  
+  // Pricing tabs
+  'pricing-tab-hourly': {
+    'cz': 'Hodinové sazby',
+    'en': 'Hourly Rates'
+  },
+  'pricing-tab-packages': {
+    'cz': 'Paušální balíčky',
+    'en': 'Fixed Packages'
+  },
+  
+  // Initial consultation card
+  'pricing-consultation-title': {
+    'cz': 'První konzultace',
+    'en': 'Initial Consultation'
+  },
+  'pricing-consultation-value': {
+    'cz': '<span class="pricing-free">Zdarma</span>',
+    'en': '<span class="pricing-free">Free</span>'
+  },
+  'pricing-consultation-duration': {
+    'cz': '(30 minut)',
+    'en': '(30 minutes)'
+  },
+  'pricing-consultation-feature-1': {
+    'cz': '<i class="fas fa-check"></i> Seznámení s případem',
+    'en': '<i class="fas fa-check"></i> Case introduction'
+  },
+  'pricing-consultation-feature-2': {
+    'cz': '<i class="fas fa-check"></i> Úvodní právní posouzení',
+    'en': '<i class="fas fa-check"></i> Initial legal assessment'
+  },
+  'pricing-consultation-feature-3': {
+    'cz': '<i class="fas fa-check"></i> Návrh dalšího postupu',
+    'en': '<i class="fas fa-check"></i> Proposed next steps'
+  },
+  'pricing-consultation-btn': {
+    'cz': 'Rezervovat termín',
+    'en': 'Schedule Appointment'
+  },
+  
+  // Standard hourly rate card
+  'pricing-standard-ribbon': {
+    'cz': 'Nejžádanější',
+    'en': 'Most Popular'
+  },
+  'pricing-standard-title': {
+    'cz': 'Standardní hodinová sazba',
+    'en': 'Standard Hourly Rate'
+  },
+  'pricing-standard-value': {
+    'cz': 'od <span class="pricing-amount">2 000 Kč</span>',
+    'en': 'from <span class="pricing-amount">2 000 CZK</span>'
+  },
+  'pricing-standard-duration': {
+    'cz': 'za hodinu',
+    'en': 'per hour'
+  },
+  'pricing-standard-feature-1': {
+    'cz': '<i class="fas fa-check"></i> Právní poradenství',
+    'en': '<i class="fas fa-check"></i> Legal consulting'
+  },
+  'pricing-standard-feature-2': {
+    'cz': '<i class="fas fa-check"></i> Příprava dokumentů',
+    'en': '<i class="fas fa-check"></i> Document preparation'
+  },
+  'pricing-standard-feature-3': {
+    'cz': '<i class="fas fa-check"></i> Zastupování před úřady',
+    'en': '<i class="fas fa-check"></i> Representation before authorities'
+  },
+  'pricing-standard-feature-4': {
+    'cz': '<i class="fas fa-check"></i> Individuální přístup',
+    'en': '<i class="fas fa-check"></i> Individual approach'
+  },
+  'pricing-standard-btn': {
+    'cz': 'Kontaktujte nás',
+    'en': 'Contact Us'
+  },
+  
+  // Complex cases card
+  'pricing-complex-title': {
+    'cz': 'Komplexní případy',
+    'en': 'Complex Cases'
+  },
+  'pricing-complex-value': {
+    'cz': '<span class="pricing-custom">Individuální cena</span>',
+    'en': '<span class="pricing-custom">Individual pricing</span>'
+  },
+  'pricing-complex-duration': {
+    'cz': 'dle náročnosti',
+    'en': 'based on complexity'
+  },
+  'pricing-complex-feature-1': {
+    'cz': '<i class="fas fa-check"></i> Složité právní případy',
+    'en': '<i class="fas fa-check"></i> Complex legal cases'
+  },
+  'pricing-complex-feature-2': {
+    'cz': '<i class="fas fa-check"></i> Rozsáhlá dokumentace',
+    'en': '<i class="fas fa-check"></i> Extensive documentation'
+  },
+  'pricing-complex-feature-3': {
+    'cz': '<i class="fas fa-check"></i> Dlouhodobá spolupráce',
+    'en': '<i class="fas fa-check"></i> Long-term cooperation'
+  },
+  'pricing-complex-feature-4': {
+    'cz': '<i class="fas fa-check"></i> Transparentní kalkulace',
+    'en': '<i class="fas fa-check"></i> Transparent calculation'
+  },
+  'pricing-complex-btn': {
+    'cz': 'Vyžádat nabídku',
+    'en': 'Request Quote'
+  },
+  
+  // Package rates section
+  'pricing-packages-title': {
+    'cz': 'Paušální balíčky',
+    'en': 'Fixed Packages'
+  },
+  'pricing-packages-text': {
+    'cz': 'Nabízíme výhodné paušální "balíčky" dle specifických potřeb klienta. Pro více informací nás prosím kontaktujte.',
+    'en': 'We offer advantageous fixed "packages" according to the specific needs of the client. Please contact us for more information.'
+  },
+  'pricing-packages-feature-1': {
+    'cz': '<i class="fas fa-check"></i> Předvídatelné náklady',
+    'en': '<i class="fas fa-check"></i> Predictable costs'
+  },
+  'pricing-packages-feature-2': {
+    'cz': '<i class="fas fa-check"></i> Přizpůsobeno vašim potřebám',
+    'en': '<i class="fas fa-check"></i> Tailored to your needs'
+  },
+  'pricing-packages-feature-3': {
+    'cz': '<i class="fas fa-check"></i> Možnost pravidelných konzultací',
+    'en': '<i class="fas fa-check"></i> Option for regular consultations'
+  },
+  'pricing-packages-feature-4': {
+    'cz': '<i class="fas fa-check"></i> Prioritní řešení požadavků',
+    'en': '<i class="fas fa-check"></i> Priority request handling'
+  },
+  'pricing-packages-btn': {
+    'cz': 'Vyžádat individuální nabídku',
+    'en': 'Request Custom Quote'
+  },
+  
+  // Package examples
+  'pricing-examples-title': {
+    'cz': 'Příklady paušálních balíčků',
+    'en': 'Examples of Fixed Packages'
+  },
+  'pricing-example-1-title': {
+    'cz': 'Nemovitostní balíček',
+    'en': 'Real Estate Package'
+  },
+  'pricing-example-1-text': {
+    'cz': 'Právní servis pro realitní kanceláře a developery.',
+    'en': 'Legal services for real estate agencies and developers.'
+  },
+  'pricing-example-2-title': {
+    'cz': 'Business balíček',
+    'en': 'Business Package'
+  },
+  'pricing-example-2-text': {
+    'cz': 'Kompletní právní služby pro podnikatele a firmy.',
+    'en': 'Complete legal services for entrepreneurs and companies.'
+  },
+  'pricing-example-3-title': {
+    'cz': 'Litigační balíček',
+    'en': 'Litigation Package'
+  },
+  'pricing-example-3-text': {
+    'cz': 'Zastupování v soudních a správních řízeních.',
+    'en': 'Representation in court and administrative proceedings.'
+  },
+  'pricing-example-4-title': {
+    'cz': 'Smluvní balíček',
+    'en': 'Contract Package'
+  },
+  'pricing-example-4-text': {
+    'cz': 'Příprava a revize smluv a právních dokumentů.',
+    'en': 'Preparation and review of contracts and legal documents.'
+  },
+  
+  // Pricing disclaimer and CTA
+  'pricing-disclaimer': {
+    'cz': '<i class="fas fa-info-circle"></i> Všechny uvedené ceny jsou bez DPH. Konečná cena se může lišit v závislosti na konkrétních požadavcích a rozsahu poskytnutých služeb.',
+    'en': '<i class="fas fa-info-circle"></i> All prices are exclusive of VAT. The final price may vary depending on specific requirements and the scope of services provided.'
+  },
+  'pricing-cta-button': {
+    'cz': 'Kontaktujte nás pro individuální nabídku',
+    'en': 'Contact us for a customized offer'
+  },
+  
+  // Bar Association certification
+  'bar-certification-text': {
+    'cz': 'Česká advokátní komora byla dne 5.2.2016 pověřena Ministerstvem průmyslu a obchodu ČR mimosoudním řešením spotřebitelských sporů pro oblast sporů mezi advokátem a spotřebitelem ze Smluv o poskytování právních služeb.',
+    'en': 'On February 5, 2016, the Czech Bar Association was authorized by the Ministry of Industry and Trade of the Czech Republic to administer out-of-court settlement of consumer disputes between an attorney and consumer arising out of Contracts on provision of legal services (based on Act No. 634/1992 Coll., Consumer Protection Act, as amended).'
+  },
+  'bar-website': {
+    'cz': 'Internetová stránka tohoto pověřeného subjektu je <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.',
+    'en': 'Website of this authorized body is <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.'
+  },
+
+  // Loader texts
+  'loader-text': {
+    'cz': 'Načítání...',
+    'en': 'Loading...'
+  },
+  'language-loader-text': {
+    'cz': 'Přepínání jazyka...',
+    'en': 'Changing language...'
+  }
 };
 
-// Current language
-let currentLanguage = 'cz';
-
-// Function to set the language
-function setLanguage(language) {
-    currentLanguage = language;
-    
-    // Update all elements with data-lang attribute
-    document.querySelectorAll('[data-lang-key]').forEach(element => {
-        const key = element.getAttribute('data-lang-key');
-        if (translations[key] && translations[key][language]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                if (element.placeholder) {
-                    element.placeholder = translations[key][language];
-                } else {
-                    element.value = translations[key][language];
-                }
-            } else {
-                element.innerHTML = translations[key][language];
-            }
-        }
-    });
-    
-    // Update language switcher active states
-    document.querySelectorAll('.language-option').forEach(option => {
-        if (option.getAttribute('data-lang') === language) {
-            option.classList.add('active');
-        } else {
-            option.classList.remove('active');
-        }
-    });
-    
-    // Update data attributes during language switching
-const cardInfoText = translations['service-card-info'][language];
-document.querySelectorAll('.service-card').forEach(card => {
-    card.setAttribute('data-info-text', cardInfoText);
-});
-
-    // Also update mobile language options
-    document.querySelectorAll('.mobile-language-option').forEach(option => {
-        if (option.getAttribute('data-lang') === language) {
-            option.classList.add('active');
-        } else {
-            option.classList.remove('active');
-        }
-    });
+/**
+ * Initialize translations functionality
+ */
+function initializeTranslations() {
+  // Add data-lang-key attributes to elements that need it
+  addMissingLangKeys();
+  
+  // Set initial language
+  setLanguage(window.siteConfig.currentLanguage);
+  
+  console.log('Translations initialized successfully');
 }
 
-// Initialize the language toggle event listeners
-document.addEventListener('DOMContentLoaded', function() {
-    // Desktop language switcher
-    document.querySelectorAll('.language-option').forEach(option => {
-        option.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
-        });
-    });
+
+// 1. Add this function to your script to find elements missing translation keys
+function findMissingTranslations() {
+  // Get all text-containing elements
+  const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, a, button, label, span, div');
+  
+  textElements.forEach(el => {
+    // Skip elements that already have a data-lang-key or are empty/whitespace only
+    if (el.hasAttribute('data-lang-key') || !el.textContent.trim()) return;
+    // Skip elements that only contain other elements (no direct text)
+    if (!Array.from(el.childNodes).some(node => node.nodeType === 3 && node.textContent.trim())) return;
     
-    // Mobile language switcher
-    document.querySelectorAll('.mobile-language-option').forEach(option => {
-        option.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
-        });
-    });
-    
-    // Set initial language
-    setLanguage('cz');
-});
-        // Register GSAP ScrollTrigger Plugin
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Vertical Line Progress
-        function updateScrollProgress() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollProgress = (scrollTop / scrollHeight) * 100;
-            
-            document.documentElement.style.setProperty('--scroll-percent', `${scrollProgress}%`);
-            document.body.classList.add('scroll-progress');
-        }
-
-        window.addEventListener('scroll', updateScrollProgress);
-        
-        // Section Markers
-        const sections = document.querySelectorAll('section');
-        const sectionMarkers = document.querySelectorAll('.section-marker');
-        const horizontalConnectors = document.querySelectorAll('.horizontal-connector');
-        
-        function updateSectionMarkers() {
-            sections.forEach((section, index) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const scrollPosition = window.scrollY + window.innerHeight / 2;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
-                    sectionMarkers.forEach(marker => marker.classList.remove('active'));
-                    horizontalConnectors.forEach(connector => connector.classList.remove('active'));
-                    
-                    if (sectionMarkers[index]) {
-                        sectionMarkers[index].classList.add('active');
-                        horizontalConnectors[index].classList.add('active');
-                    }
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', updateSectionMarkers);
-        
-       
-
-
- 
-
- 
-
-         
-                
-        // Mobile Menu
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
-        const mobileMenuClose = document.querySelector('.mobile-menu-close');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            mobileMenuOverlay.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        mobileMenuClose.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-        
-        function closeMobileMenu() {
-            menuToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        // Smooth Scroll for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    document.querySelector(`.nav-link[href="${this.getAttribute('href')}"]`).classList.add('active');
-                }
-            });
-        });
-        
-        // Hero Section Animations
-      // Hero Section Animations
-      gsap.from('.hero-subtitle', { y: 30, opacity: 0, duration: 1, delay: 0.5, ease: 'power3.out' });
-        gsap.from('.hero-title', { y: 50, opacity: 0, duration: 1, delay: 0.7, ease: 'power3.out' });
-        gsap.to('.hero-description', { y: 0, opacity: 1, duration: 1, delay: 1.1, ease: 'power3.out' });
-        gsap.to('.hero-cta-buttons', { y: 0, opacity: 1, duration: 1, delay: 1.3, ease: 'power3.out' });
-
-        gsap.to('.hero-image img', {
-            y: 50,
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
-
-        gsap.to('.hero-cta-buttons', {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            delay: 1.3,
-            ease: 'power3.out'
-        });
-                
-        // Scroll Animations
-        function createScrollAnimations() {
-            // Fade Up Animations
-            gsap.utils.toArray('.fade-up').forEach(element => {
-                gsap.from(element, {
-                    y: 50,
-                    opacity: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 85%',
-                        end: 'bottom 15%',
-                        toggleClass: 'active',
-                        once: true
-                    }
-                });
-            });
-            
-            // Fade In Animations
-            gsap.utils.toArray('.fade-in').forEach(element => {
-                gsap.from(element, {
-                    opacity: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 85%',
-                        end: 'bottom 15%',
-                        toggleClass: 'active',
-                        once: true
-                    }
-                });
-            });
-
-            
-            
-            // Fade Left Animations
-            gsap.utils.toArray('.fade-left').forEach(element => {
-                gsap.from(element, {
-                    x: -50,
-                    opacity: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 85%',
-                        end: 'bottom 15%',
-                        toggleClass: 'active',
-                        once: true
-                    }
-                });
-            });
-            
-            // Fade Right Animations
-            gsap.utils.toArray('.fade-right').forEach(element => {
-                gsap.from(element, {
-                    x: 50,
-                    opacity: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 85%',
-                        end: 'bottom 15%',
-                        toggleClass: 'active',
-                        once: true
-                    }
-                });
-            });
-            
-            // Service Card Animations
-            // Service Card Animations
-               
-            // Result Card Animations
-            gsap.utils.toArray('.result-card').forEach((card, index) => {
-                gsap.from(card, {
-                    y: 50,
-                    opacity: 0,
-                    duration: 0.8,
-                    delay: index * 0.1,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 85%',
-                        end: 'bottom 15%',
-                        once: true
-                    }
-                });
-                
-                // Animate metric values
-                const metricValues = card.querySelectorAll('.metric-value');
-                metricValues.forEach((metric) => {
-                    let value = metric.textContent;
-                    let suffix = '';
-                    
-                    if (value.includes('M')) {
-                        value = value.replace('M', '');
-                        suffix = 'M';
-                    } else if (value.includes('%')) {
-                        value = value.replace('%', '');
-                        suffix = '%';
-                    } else if (value.includes('+')) {
-                        value = value.replace('+', '');
-                        suffix = '+';
-                    }
-                    
-                    const duration = 1.5;
-                    const ease = 'power2.out';
-                    
-                    metric.textContent = '0';
-                    
-                    ScrollTrigger.create({
-                        trigger: card,
-                        start: 'top 85%',
-                        onEnter: () => {
-                            gsap.to(metric, {
-                                duration: duration,
-                                ease: ease,
-                                onUpdate: function() {
-                                    const progress = this.progress();
-                                    const currentValue = Math.round(progress * parseFloat(value));
-                                    metric.textContent = currentValue + suffix;
-                                },
-                                onComplete: function() {
-                                    metric.textContent = value + suffix;
-                                }
-                            });
-                        },
-                        once: true
-                    });
-                });
-            });
-            
-            // About Image Animation
-            ScrollTrigger.create({
-                trigger: '.about-image',
-                start: 'top 85%',
-                end: 'bottom 15%',
-                toggleClass: {className: 'active', targets: '.about-image'},
-                once: true
-            });
-        }
-        
-        // Execute scroll animations
-        createScrollAnimations();
-        
-        // Custom Cursor
-        const cursorOuter = document.querySelector('.cursor-outer');
-        const cursorInner = document.querySelector('.cursor-inner');
-        
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursorOuter, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0.3,
-                ease: 'power2.out'
-            });
-            
-            gsap.to(cursorInner, {
-                x: e.clientX,
-                y: e.clientY,
-                duration: 0.1
-            });
-        });
-        
-        document.addEventListener('mouseenter', () => {
-            gsap.to([cursorOuter, cursorInner], {
-                opacity: 1,
-                duration: 0.3
-            });
-        });
-        
-        document.addEventListener('mouseleave', () => {
-            gsap.to([cursorOuter, cursorInner], {
-                opacity: 0,
-                duration: 0.3
-            });
-        });
-        
-        // Cursor hover effect for interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .service-card, .feature-item, .result-card');
-        
-        interactiveElements.forEach(element => {
-            element.addEventListener('mouseenter', () => {
-                gsap.to(cursorOuter, {
-                    width: 50,
-                    height: 50,
-                    duration: 0.3
-                });
-                
-                gsap.to(cursorInner, {
-                    width: 10,
-                    height: 10,
-                    duration: 0.3
-                });
-            });
-            
-            element.addEventListener('mouseleave', () => {
-                gsap.to(cursorOuter, {
-                    width: 30,
-                    height: 30,
-                    duration: 0.3
-                });
-                
-                gsap.to(cursorInner, {
-                    width: 6,
-                    height: 6,
-                    duration: 0.3
-                });
-            });
-        });
-        
-        // Form validation and submission
-        const contactForm = document.querySelector('.contact-form form');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Simple form validation
-                const name = document.getElementById('name');
-                const email = document.getElementById('email');
-                const message = document.getElementById('message');
-                
-                if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
-                    alert('Prosím vyplňte všechna povinná pole.');
-                    return;
-                }
-                
-                // Here you would normally send the form data to a server
-                
-                // Show success message
-                const formSubmit = contactForm.querySelector('.form-submit');
-                const originalText = formSubmit.textContent;
-                
-                formSubmit.textContent = 'Odesláno!';
-                formSubmit.style.backgroundColor = 'var(--gold-light)';
-                
-                // Reset form after delay
-                setTimeout(() => {
-                    contactForm.reset();
-                    formSubmit.textContent = originalText;
-                    formSubmit.style.backgroundColor = '';
-                }, 2000);
-            });
-        }
-        
-        // Testimonial Slider
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const prevButton = document.querySelector('.prev-testimonial');
-        const nextButton = document.querySelector('.next-testimonial');
-        const testimonialTrack = document.querySelector('.testimonials-track');
-        
-        if (slides.length > 0 && prevButton && nextButton && testimonialTrack) {
-            let currentSlide = 0;
-            const slideCount = slides.length;
-            
-            // Initially hide all slides except the first
-            slides.forEach((slide, index) => {
-                if (index !== 0) {
-                    slide.style.display = 'none';
-                }
-            });
-            
-            function updateSlider() {
-                slides.forEach((slide, index) => {
-                    if (index === currentSlide) {
-                        slide.style.display = 'block';
-                        gsap.fromTo(slide, 
-                            { opacity: 0, y: 20 },
-                            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
-                        );
-                    } else {
-                        slide.style.display = 'none';
-                    }
-                });
-            }
-            
-            // Navigation buttons
-            prevButton.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-                updateSlider();
-            });
-            
-            nextButton.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slideCount;
-                updateSlider();
-            });
-            
-            // Auto slide
-            let slideInterval = setInterval(() => {
-                currentSlide = (currentSlide + 1) % slideCount;
-                updateSlider();
-            }, 6000);
-            
-            // Pause on hover
-            testimonialTrack.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            testimonialTrack.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(() => {
-                    currentSlide = (currentSlide + 1) % slideCount;
-                    updateSlider();
-                }, 6000);
-            });
-        }
-
-        function updateHeader() {
-     
-     
-
-     
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    console.log('Element missing translation key:', el.textContent, el);
+  });
 }
-        
-        // Update active navigation link on scroll
-        function updateActiveLink() {
-            const scrollPosition = window.scrollY + window.innerHeight / 2;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    
-                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', updateActiveLink);
-        
-        // Initialize the page
-        window.addEventListener('load', () => {
-            // Update markers on load
-            updateSectionMarkers();
-            
-            
-            // Update scroll progress on load
-            updateScrollProgress();
-            
-            // Update active link on load
-            updateActiveLink();
-        });
 
-        
-      // Page Loader
-document.addEventListener('DOMContentLoaded', function() {
-    const pageLoader = document.querySelector('.page-loader');
-    const loaderText = document.getElementById('loader-text');
+// 2. Improve the language switching function to better handle missing translations
+function improvedSetLanguage(language) {
+  document.querySelectorAll('[data-lang-key]').forEach(element => {
+    const key = element.getAttribute('data-lang-key');
     
-    // Loader text translations
-    const loaderTranslations = {
-        'cz': 'Načítání...',
-        'en': 'Loading...'
-    };
-    
-    // Always set initial loader text to Czech
-    loaderText.textContent = loaderTranslations['cz'];
-    
-    // Hide loader when page is fully loaded
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            pageLoader.classList.add('hidden');
-            // Enable scrolling after loader is hidden
-            document.body.style.overflow = '';
-        }, 1000);
-    });
-    
-    // Disable scrolling while loader is visible
-    document.body.style.overflow = 'hidden';
-    
-    // Update the language loader text when language changes
-    function updateLoaderLanguage(lang) {
-        loaderText.textContent = loaderTranslations[lang] || loaderTranslations['en'];
+    // Check if translation exists
+    if (!translations[key] || !translations[key][language]) {
+      console.warn(`Missing translation for key: "${key}" in language: "${language}"`);
+      return;
     }
     
-    // Attach to window for external access
-    window.updateLoaderLanguage = updateLoaderLanguage;
-});
+    // Apply translation based on element type
+    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      if (element.placeholder) {
+        element.placeholder = translations[key][language];
+      } else {
+        element.value = translations[key][language];
+      }
+    } else {
+      element.innerHTML = translations[key][language];
+    }
+  });
+}
+/**
+ * 
+ * 
+ * Add missing data-lang-key attributes to elements that need translation
+ */
+function addMissingLangKeys() {
+  try {
+    // Testimonials
+    const testimonialsTitle = document.querySelector('.testimonials .section-title');
+    if (testimonialsTitle && !testimonialsTitle.hasAttribute('data-lang-key')) {
+      testimonialsTitle.setAttribute('data-lang-key', 'testimonials-title');
+    }
+    
+    const testimonialSubtitle = document.querySelector('.testimonials .section-heading p');
+    if (testimonialSubtitle && !testimonialSubtitle.hasAttribute('data-lang-key')) {
+      testimonialSubtitle.setAttribute('data-lang-key', 'testimonials-subtitle');
+    }
+    
+    // Find all testimonial text elements and add data-lang-key attributes
+    const testimonialTexts = document.querySelectorAll('.testimonial-text');
+    testimonialTexts.forEach((text, index) => {
+      if (!text.hasAttribute('data-lang-key')) {
+        text.setAttribute('data-lang-key', `testimonial-${index + 1}-text`);
+      }
+    });
+    
+    // Results section
+    const resultsTitle = document.querySelector('.case-results .section-title');
+    if (resultsTitle && !resultsTitle.hasAttribute('data-lang-key')) {
+      resultsTitle.setAttribute('data-lang-key', 'results-title');
+    }
+    
+    const resultsSubtitle = document.querySelector('.case-results .section-heading p');
+    if (resultsSubtitle && !resultsSubtitle.hasAttribute('data-lang-key')) {
+      resultsSubtitle.setAttribute('data-lang-key', 'results-subtitle');
+    }
+    
+    // Find all result card titles and descriptions
+    const resultCards = document.querySelectorAll('.result-card');
+    resultCards.forEach((card, index) => {
+      const title = card.querySelector('.result-title');
+      const description = card.querySelector('.result-description');
+      
+      if (title && !title.hasAttribute('data-lang-key')) {
+        title.setAttribute('data-lang-key', `result-${index + 1}-title`);
+      }
+      
+      if (description && !description.hasAttribute('data-lang-key')) {
+        description.setAttribute('data-lang-key', `result-${index + 1}-description`);
+      }
+    });
+    
+    // Service hover text
+    document.querySelectorAll('.service-card').forEach(card => {
+      if (!card.hasAttribute('data-info-text') && translations['service-hover-text']) {
+        card.setAttribute('data-info-text', translations['service-hover-text'][window.siteConfig.currentLanguage]);
+      }
+    });
+    
+    // Contact form elements
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+      const formElements = contactForm.querySelectorAll('input, textarea, button');
+      formElements.forEach(element => {
+        if (!element.hasAttribute('data-lang-key')) {
+          // Try to determine the appropriate key based on element ID or type
+          if (element.id === 'name') {
+            element.setAttribute('data-lang-key', 'contact-form-name-placeholder');
+          } else if (element.id === 'email') {
+            element.setAttribute('data-lang-key', 'contact-form-email-placeholder');
+          } else if (element.id === 'phone') {
+            element.setAttribute('data-lang-key', 'contact-form-phone-placeholder');
+          } else if (element.id === 'message') {
+            element.setAttribute('data-lang-key', 'contact-form-message-placeholder');
+          } else if (element.type === 'submit') {
+            element.setAttribute('data-lang-key', 'contact-form-submit');
+          }
+        }
+      });
+    }
+    
+    // Footer elements
+    const footerText = document.querySelector('.footer-text');
+    if (footerText && !footerText.hasAttribute('data-lang-key')) {
+      footerText.setAttribute('data-lang-key', 'footer-text');
+    }
+  } catch (error) {
+    console.error('Error adding missing language keys:', error);
+  }
+}
 
-// Enhanced Language Toggle
+/**
+ * Switch language for all translatable elements
+ * @param {string} language - Language code ('cz' or 'en')
+ */
 function setLanguage(language) {
+  try {
     const languageLoader = document.querySelector('.language-loader');
     
     // Only show the language loader if we're changing languages, not on initial load
-    if (currentLanguage !== language) {
-        // Show language loader
+    if (window.siteConfig.currentLanguage !== language && window.siteConfig.initialized) {
+      // Show language loader
+      if (languageLoader) {
         languageLoader.classList.add('active');
         
         // Update loader text based on language
         const loaderText = languageLoader.querySelector('.language-loader-text');
-        if (language === 'cz') {
-            loaderText.textContent = 'Přepínání jazyka...';
-        } else {
-            loaderText.textContent = 'Changing language...';
+        if (loaderText) {
+          loaderText.textContent = language === 'cz' ? 'Přepínání jazyka...' : 'Changing language...';
         }
-        
-        // Update current language for next time
-        currentLanguage = language;
-        
-        // After a short delay, update all text elements
-        setTimeout(function() {
-            // Update all elements with data-lang attribute
-            document.querySelectorAll('[data-lang-key]').forEach(element => {
-                const key = element.getAttribute('data-lang-key');
-                if (translations[key] && translations[key][language]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        if (element.getAttribute('placeholder')) {
-                            element.setAttribute('placeholder', translations[key][language]);
-                        } else {
-                            element.value = translations[key][language];
-                        }
-                    } else {
-                        element.innerHTML = translations[key][language];
-                    }
-                }
-            });
-            
-            // Update language switcher active states
-            document.querySelectorAll('.language-option').forEach(option => {
-                if (option.getAttribute('data-lang') === language) {
-                    option.classList.add('active');
-                } else {
-                    option.classList.remove('active');
-                }
-            });
-            
-            // Also update mobile language options
-            document.querySelectorAll('.mobile-language-option').forEach(option => {
-                if (option.getAttribute('data-lang') === language) {
-                    option.classList.add('active');
-                } else {
-                    option.classList.remove('active');
-                }
-            });
-            
-            // Hide language loader after translation is complete
-            setTimeout(function() {
-                languageLoader.classList.remove('active');
-            }, 300);
-        }, 700);
-    } else {
-        // If it's the same language, just update without showing loader
-        updateLanguageElements(language);
+      }
     }
-}
-
-// Helper function to update language elements without animation
-function updateLanguageElements(language) {
-    document.querySelectorAll('[data-lang-key]').forEach(element => {
+    
+    // Update current language for next time
+    window.siteConfig.currentLanguage = language;
+    
+    // Use a brief timeout to ensure the loader is visible before processing
+    setTimeout(function() {
+      // Apply translations to all elements with data-lang-key
+      document.querySelectorAll('[data-lang-key]').forEach(element => {
         const key = element.getAttribute('data-lang-key');
         if (translations[key] && translations[key][language]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                if (element.getAttribute('placeholder')) {
-                    element.setAttribute('placeholder', translations[key][language]);
-                } else {
-                    element.value = translations[key][language];
-                }
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            if (element.placeholder) {
+              element.placeholder = translations[key][language];
             } else {
-                element.innerHTML = translations[key][language];
+              element.value = translations[key][language];
             }
+          } else {
+            element.innerHTML = translations[key][language];
+          }
         }
-    });
-    
-    // Update language switcher active states
-    document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
+      });
+      
+      // Update service card hover text
+      if (translations['service-hover-text'] && translations['service-hover-text'][language]) {
+        const hoverText = translations['service-hover-text'][language];
+        document.querySelectorAll('.service-card').forEach(card => {
+          card.setAttribute('data-info-text', hoverText);
+        });
+      }
+      
+      // Update language switcher active states
+      document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
         if (option.getAttribute('data-lang') === language) {
-            option.classList.add('active');
+          option.classList.add('active');
         } else {
-            option.classList.remove('active');
+          option.classList.remove('active');
         }
-    });
+      });
+      
+      // Hide language loader after translation is complete
+      if (languageLoader && languageLoader.classList.contains('active')) {
+        setTimeout(function() {
+          languageLoader.classList.remove('active');
+        }, 300);
+      }
+      
+      // Update page loader text if visible
+      const pageLoaderText = document.getElementById('loader-text');
+      if (pageLoaderText && translations['loader-text'] && translations['loader-text'][language]) {
+        pageLoaderText.textContent = translations['loader-text'][language];
+      }
+      
+      console.log('Language switched to:', language);
+    }, window.siteConfig.initialized ? 400 : 0);
+    
+    // Set initialized flag
+    window.siteConfig.initialized = true;
+  } catch (error) {
+    console.error('Error switching language:', error);
+    
+    // Hide loader in case of error
+    const languageLoader = document.querySelector('.language-loader');
+    if (languageLoader) {
+      languageLoader.classList.remove('active');
+    }
+  }
 }
 
-// Initialize the language toggle event listeners
-document.addEventListener('DOMContentLoaded', function() {
-    // Desktop language switcher
-    document.querySelectorAll('.language-option').forEach(option => {
-        option.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
-            
-            // Also update the page loader text
-            if (window.updateLoaderLanguage) {
-                window.updateLoaderLanguage(lang);
-            }
-        });
+/**
+ * Initialize language switcher functionality
+ */
+function initializeLanguageSwitcher() {
+  // Desktop language switcher
+  document.querySelectorAll('.language-option').forEach(option => {
+    option.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      setLanguage(lang);
     });
-    
-    // Mobile language switcher
-    document.querySelectorAll('.mobile-language-option').forEach(option => {
-        option.addEventListener('click', function(e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
-            
-            // Also update the page loader text
-            if (window.updateLoaderLanguage) {
-                window.updateLoaderLanguage(lang);
-            }
-            
-            // Close mobile menu when switching language
-            if (typeof closeMobileMenu === 'function') {
-                closeMobileMenu();
-            }
-        });
-    });
-    
-    // Always use Czech as the default language
-    const initialLang = 'cz';
-    
-    // Set initial language without animation
-    currentLanguage = initialLang;
-    updateLanguageElements(initialLang);
-});
-
-
-// Services Section Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Service tabs functionality
-    const serviceTabs = document.querySelectorAll('.service-tab');
-    const serviceCards = document.querySelectorAll('.service-card');
-    const body = document.body;
-    
-    // Create overlay for detail box
-    const detailOverlay = document.createElement('div');
-    detailOverlay.className = 'detail-overlay';
-    body.appendChild(detailOverlay);
-    
-    // Detail box functionality
-    const moreInfoButtons = document.querySelectorAll('.service-more-btn');
-    const detailBoxes = document.querySelectorAll('.service-detail-box');
-    const closeButtons = document.querySelectorAll('.service-detail-close');
-    
-    // Open detail box when clicking "More Info" button
-    moreInfoButtons.forEach((button, index) => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            openDetailBox(index);
-        });
-    });
-    
-    // Function to open detail box
-    function openDetailBox(index) {
-        // Close any open detail boxes first
-        closeAllDetailBoxes();
-        
-        // Show overlay
-        detailOverlay.classList.add('active');
-        
-        // Show the selected detail box
-        if (detailBoxes[index]) {
-            detailBoxes[index].classList.add('active');
-            
-            // Prevent background scrolling
-            body.style.overflow = 'hidden';
-        }
-    }
-    
-    // Close detail box when clicking close button
-    closeButtons.forEach(button => {
-        button.addEventListener('click', closeAllDetailBoxes);
-    });
-    
-    // Close detail box when clicking overlay
-    detailOverlay.addEventListener('click', closeAllDetailBoxes);
-    
-    // Close all detail boxes
-    function closeAllDetailBoxes() {
-        detailBoxes.forEach(box => {
-            box.classList.remove('active');
-        });
-        
-        detailOverlay.classList.remove('active');
-        
-        // Re-enable scrolling
-        body.style.overflow = '';
-    }
-    
-    // Close detail box with ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeAllDetailBoxes();
-        }
-    });
-    
-    // Tabs functionality
-    serviceTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Update active tab
-            serviceTabs.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            
-            const category = this.getAttribute('data-tab');
-            
-            // Filter services
-            if (category === 'all') {
-                // Show all services
-                serviceCards.forEach(card => {
-                    card.style.display = 'flex';
-                    animateServiceCard(card);
-                });
-            } else {
-                // Filter services by category
-                serviceCards.forEach(card => {
-                    const cardCategories = card.getAttribute('data-category');
-                    
-                    if (cardCategories.includes(category)) {
-                        card.style.display = 'flex';
-                        animateServiceCard(card);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-            
-            // Close any open detail boxes when switching tabs
-            closeAllDetailBoxes();
-        });
-    });
-    
-    // Animate service cards when they come into view
-    function animateServiceCard(card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 10);
-    }
-    
-    // Initialize services with animation
-    function initServices() {
-        serviceCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 100 + (index * 100)); // Staggered animation
-        });
-    }
-    
-    // Create scroll trigger for services section
-    function initServiceScrollTrigger() {
-        if (typeof ScrollTrigger !== 'undefined') {
-            ScrollTrigger.create({
-                trigger: '.modern-services',
-                start: 'top 80%',
-                onEnter: initServices,
-                once: true
-            });
-        } else {
-            // Fallback if ScrollTrigger is not available
-            window.addEventListener('load', initServices);
-        }
-    }
-    
-    // Initialize the scroll trigger
-    initServiceScrollTrigger();
-    
-    // Position detail boxes in the center of viewport
-    function positionDetailBoxes() {
-        const windowHeight = window.innerHeight;
-        const windowWidth = window.innerWidth;
-        
-        detailBoxes.forEach(box => {
-            // Position box in center when active
-            if (box.classList.contains('active')) {
-                const boxHeight = box.offsetHeight;
-                const boxWidth = box.offsetWidth;
-                
-                // Only reposition if needed on small screens
-                if (windowWidth <= 768) {
-                    box.style.top = Math.max(windowHeight / 2, boxHeight / 2) + 'px';
-                }
-            }
-        });
-    }
-    
-    // Adjust positions on window resize
-    window.addEventListener('resize', positionDetailBoxes);
-});
-
-// Add these to your language translations object
-const serviceTranslations = {
-    'services-overline': {
-        'cz': 'PRÁVNÍ PORADENSTVÍ',
-        'en': 'LEGAL ADVISORY'
-    },
-    'services-cta-text': {
-        'cz': 'Potřebujete právní služby v jiné oblasti? Neváhejte nás kontaktovat.',
-        'en': 'Need legal services in another area? Do not hesitate to contact us.'
-    },
-    'services-cta-button': {
-        'cz': 'Nezávazná konzultace',
-        'en': 'Free Consultation'
-    },
-    'service-1-short': {
-        'cz': 'Kompletní právní servis v oblasti nemovitostí.',
-        'en': 'Complete legal service in the field of real estate.'
-    },
-    'service-2-short': {
-        'cz': 'Komplexní právní služby pro podnikatele a obchodní společnosti.',
-        'en': 'Comprehensive legal services for entrepreneurs and companies.'
-    },
-    'service-3-short': {
-        'cz': 'Poradenství v oblasti pracovněprávních vztahů a sporů.',
-        'en': 'Advice on employment relationships and disputes.'
-    },
-    'service-4-short': {
-        'cz': 'Zastupování klientů v soudních a správních řízeních.',
-        'en': 'Representing clients in court and administrative proceedings.'
-    },
-    'service-5-short': {
-        'cz': 'Komplexní právní poradenství v rodinném právu.',
-        'en': 'Comprehensive legal advice in family law.'
-    },
-    'service-6-short': {
-        'cz': 'Zastupování klientů ve správních řízeních.',
-        'en': 'Representing clients in administrative proceedings.'
-    }
-};
-
-
-// Service Modal Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all elements needed
-    const serviceLinks = document.querySelectorAll('.service-more-info');
-    const modals = document.querySelectorAll('.service-modal');
-    const closeButtons = document.querySelectorAll('.service-modal-close');
-    const overlay = document.querySelector('.service-modal-overlay');
-    
-    // Service filtering tabs
-    const serviceTabs = document.querySelectorAll('.service-tab');
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    // Open modal when clicking "Více informací"
-    serviceLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const serviceId = this.getAttribute('data-service');
-            const modal = document.getElementById(`service-modal-${serviceId}`);
-            
-            // Show modal and overlay
-            if (modal) {
-                modal.classList.add('active');
-                overlay.classList.add('active');
-                
-                // Prevent background scrolling when modal is open
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-    
-    // Close modal when clicking close button
-    closeButtons.forEach(button => {
-        button.addEventListener('click', closeModal);
-    });
-    
-    // Close modal when clicking overlay
-    if (overlay) {
-        overlay.addEventListener('click', closeModal);
-    }
-    
-    // Close modal function
-    function closeModal() {
-        modals.forEach(modal => {
-            modal.classList.remove('active');
-        });
-        
-        if (overlay) {
-            overlay.classList.remove('active');
-        }
-        
-        // Re-enable scrolling
-        document.body.style.overflow = '';
-    }
-    
-    // Close modal with ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-    
-    // Service filtering tabs functionality
-    serviceTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Update active tab
-            serviceTabs.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            
-            const category = this.getAttribute('data-tab');
-            
-            // Filter services
-            if (category === 'all') {
-                // Show all services
-                serviceCards.forEach(card => {
-                    card.style.display = 'flex';
-                    animateServiceCard(card);
-                });
-            } else {
-                // Filter services by category
-                serviceCards.forEach(card => {
-                    const cardCategories = card.getAttribute('data-category');
-                    
-                    if (cardCategories && cardCategories.includes(category)) {
-                        card.style.display = 'flex';
-                        animateServiceCard(card);
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-        });
-    });
-    
-    // Animate service cards when they come into view
-    function animateServiceCard(card) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        
-        setTimeout(() => {
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 10);
-    }
-    
-    // Initialize services with animation
-    function initServices() {
-        serviceCards.forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 100 + (index * 100)); // Staggered animation
-        });
-    }
-    
-    // Create scroll trigger for services section
-    function initServiceScrollTrigger() {
-        if (typeof ScrollTrigger !== 'undefined') {
-            ScrollTrigger.create({
-                trigger: '.modern-services',
-                start: 'top 80%',
-                onEnter: initServices,
-                once: true
-            });
-        } else {
-            // Fallback if ScrollTrigger is not available
-            window.addEventListener('load', initServices);
-        }
-    }
-    
-    // Initialize the scroll trigger
-    initServiceScrollTrigger();
-});
-
-
-
-
-
-// Service Modal Functionality with Hover Effect and Contact Redirect Handling
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all elements needed
-    const serviceCards = document.querySelectorAll('.service-card');
-    const modals = document.querySelectorAll('.service-modal');
-    const closeButtons = document.querySelectorAll('.service-modal-close');
-    const overlay = document.querySelector('.service-modal-overlay');
-    
-    let hoverTimer;
-    let activeModal = null;
-    
-    // Open modal when hovering or clicking on service card
-    serviceCards.forEach(card => {
-        const serviceId = card.querySelector('.service-more-info').getAttribute('data-service');
-        
-        // Make entire card clickable
-        card.style.cursor = 'pointer';
+  });
+  
+  // Mobile language switcher
+  document.querySelectorAll('.mobile-language-option').forEach(option => {
+    option.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      setLanguage(lang);
       
-        // Clear timer if mouse leaves before delay completes
-        card.addEventListener('mouseleave', function() {
-            clearTimeout(hoverTimer);
-        });
-        
-        // Click effect to open modal immediately
-        card.addEventListener('click', function(e) {
-            // Only trigger if not clicking on the existing "More Info" link
-            if (!e.target.classList.contains('service-more-info')) {
-                clearTimeout(hoverTimer); // Clear any pending hover timer
-                openModal(serviceId);
-            }
-        });
+      // Close mobile menu when switching language
+      if (typeof closeMobileMenu === 'function') {
+        closeMobileMenu();
+      }
     });
-    
-    // Keep original "More Info" links functionality
-    document.querySelectorAll('.service-more-info').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const serviceId = this.getAttribute('data-service');
-            openModal(serviceId);
-        });
-    });
-    
-    // Handle all links to contact section
-    document.querySelectorAll('a[href="#contact"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Close any open modal when clicking a contact link
-            closeModal();
-        });
-    });
-    
-    // Also handle modal contact buttons specifically
-    document.querySelectorAll('.service-modal-cta').forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Close the modal when modal's contact button is clicked
-            closeModal();
-        });
-    });
-    
-    // Function to open modal
-    function openModal(serviceId) {
-        const modal = document.getElementById(`service-modal-${serviceId}`);
-        
-        // Show modal and overlay
-        if (modal) {
-            // Close any open modal first
-            closeModal();
-            
-            modal.classList.add('active');
-            overlay.classList.add('active');
-            activeModal = modal;
-            
-            // Prevent background scrolling when modal is open
-            document.body.style.overflow = 'hidden';
-        }
-    }
-    
-    // Close modal when clicking close button
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation(); // Prevent click from bubbling up
-            closeModal();
-        });
-    });
-    
-    // Close modal when clicking overlay
-    if (overlay) {
-        overlay.addEventListener('click', closeModal);
-    }
-    
-    // Close modal function
-    function closeModal() {
-        modals.forEach(modal => {
-            modal.classList.remove('active');
-        });
-        
-        if (overlay) {
-            overlay.classList.remove('active');
-        }
-        
-        activeModal = null;
-        
-        // Re-enable scrolling
-        document.body.style.overflow = '';
-    }
-    
-    // Close modal with ESC key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
-    });
-    
-    // Make the closeModal function available globally if needed
-    window.closeServiceModal = closeModal;
-});
+  });
+}
 
-// Direct service card to modal connection
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all service cards with data-service attribute
-    const cards = document.querySelectorAll('.service-card[data-service]');
-    
-    // Add click handlers to each card
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            const serviceId = this.getAttribute('data-service');
-            const modal = document.getElementById(`service-modal-${serviceId}`);
-            
-            if (modal) {
-                // Close any open modals first
-                document.querySelectorAll('.service-modal.active').forEach(m => {
-                    m.classList.remove('active');
-                });
-                
-                // Show overlay and modal
-                const overlay = document.querySelector('.service-modal-overlay');
-                overlay.classList.add('active');
-                modal.classList.add('active');
-                
-                // Prevent background scrolling
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    });
-    
-    // Make sure close buttons work
-    const closeButtons = document.querySelectorAll('.service-modal-close');
-    closeButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation(); // Important: Prevent event bubbling
-            
-            // Close all modals
-            document.querySelectorAll('.service-modal.active').forEach(modal => {
-                modal.classList.remove('active');
-            });
-            
-            // Hide overlay
-            document.querySelector('.service-modal-overlay').classList.remove('active');
-            
-            // Enable scrolling
-            document.body.style.overflow = '';
-        });
-    });
-    
-    // Close when clicking overlay
-    const overlay = document.querySelector('.service-modal-overlay');
-    overlay.addEventListener('click', function() {
-        document.querySelectorAll('.service-modal.active').forEach(modal => {
-            modal.classList.remove('active');
-        });
-        this.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-});
+/**
+ * ==============================================
+ * PAGE LOADER
+ * ==============================================
+ */
 
-// Touch Device Detection and Hover Fix
-document.addEventListener('DOMContentLoaded', function() {
-  // Detect if the device is touch-enabled
-  const isTouchDevice = () => {
-    return (('ontouchstart' in window) ||
-      (navigator.maxTouchPoints > 0) ||
-      (navigator.msMaxTouchPoints > 0));
+/**
+ * Initialize page loader functionality
+ */
+function initializePageLoader() {
+  const pageLoader = document.querySelector('.page-loader');
+  const loaderText = document.getElementById('loader-text');
+  
+  if (!pageLoader) return;
+  
+  // Disable scrolling while loader is visible
+  document.body.style.overflow = 'hidden';
+  
+  // Set initial loader text
+  if (loaderText) {
+    loaderText.textContent = 'Načítání...';
+  }
+  
+  // Hide loader when page is fully loaded
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      pageLoader.classList.add('hidden');
+      // Enable scrolling after loader is hidden
+      document.body.style.overflow = '';
+    }, 1000);
+  });
+  
+  // Handle simulated progress for better UX
+  simulateLoaderProgress();
+}
+
+/**
+ * Simulate loader progress for better user experience
+ */
+function simulateLoaderProgress() {
+  const progressBar = document.querySelector('.loader-progress-bar');
+  if (!progressBar) return;
+  
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 5;
+    
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+    }
+    
+    progressBar.style.width = `${progress}%`;
+  }, 100);
+}
+
+/**
+ * ==============================================
+ * NAVIGATION
+ * ==============================================
+ */
+
+/**
+ * Initialize navigation functionality
+ */
+function initializeNavigation() {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      
+      if (target) {
+        e.preventDefault();
+        
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // Update active nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        const activeLink = document.querySelector(`.nav-link[href="${this.getAttribute('href')}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  });
+  
+  // Listen for scroll events to update active navigation link
+  window.addEventListener('scroll', updateActiveNavigationLink);
+  
+  // Initialize vertical line with section markers
+  initVerticalLineNav();
+}
+
+/**
+ * Update active navigation link based on scroll position
+ */
+function updateActiveNavigationLink() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPosition = window.scrollY + window.innerHeight / 2;
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+    }
+  });
+}
+
+/**
+ * Initialize vertical line navigation with section markers
+ */
+function initVerticalLineNav() {
+  const verticalLine = document.querySelector('.vertical-line');
+  const sections = document.querySelectorAll('section[id]');
+  const sectionMarkers = document.querySelectorAll('.section-marker');
+  
+  if (!verticalLine) return;
+  
+  // Update scroll progress indicator
+  function updateScrollProgress() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = (scrollTop / scrollHeight) * 100;
+    
+    document.documentElement.style.setProperty('--scroll-percent', `${scrollProgress}%`);
+    document.body.classList.add('scroll-progress');
+  }
+  
+  // Update active section marker
+  function updateSectionMarkers() {
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      
+      if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight)) {
+        sectionMarkers.forEach(marker => marker.classList.remove('active'));
+        
+        if (sectionMarkers[index]) {
+          sectionMarkers[index].classList.add('active');
+        }
+      }
+    });
+  }
+  
+  // Setup event listeners
+  window.addEventListener('scroll', updateScrollProgress);
+  window.addEventListener('scroll', updateSectionMarkers);
+  window.addEventListener('resize', updateSectionMarkers);
+  
+  // Initial call
+  updateScrollProgress();
+  updateSectionMarkers();
+}
+
+/**
+ * ==============================================
+ * MOBILE MENU
+ * ==============================================
+ */
+
+/**
+ * Initialize mobile menu functionality
+ */
+function initializeMobileMenu() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+  const mobileMenuClose = document.querySelector('.mobile-menu-close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  
+  if (!menuToggle || !mobileMenu || !mobileMenuOverlay) return;
+  
+  // Toggle mobile menu
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    mobileMenuOverlay.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  });
+  
+  // Close mobile menu
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+  
+  // Close mobile menu when clicking nav links
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Make closeMobileMenu function globally available
+  window.closeMobileMenu = closeMobileMenu;
+  
+  /**
+   * Close mobile menu and restore body scrolling
+   */
+  function closeMobileMenu() {
+    menuToggle.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    mobileMenuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+/**
+ * ==============================================
+ * ANIMATIONS
+ * ==============================================
+ */
+
+/**
+ * Initialize animations using GSAP
+ */
+function initializeAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    console.warn('GSAP or ScrollTrigger not loaded. Animations disabled.');
+    return;
+  }
+  
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Hero section animations
+  animateHeroSection();
+  
+  // Scroll-triggered animations for sections
+  initializeScrollAnimations();
+  
+  // Results section metric counters
+  initializeMetricCounters();
+  
+  // About image parallax effect
+  initializeAboutImageParallax();
+}
+
+/**
+ * Animate hero section elements
+ */
+function animateHeroSection() {
+  // Ensure elements exist
+  const heroElements = {
+    subtitle: document.querySelector('.hero-subtitle'),
+    title: document.querySelector('.hero-title'),
+    description: document.querySelector('.hero-description'),
+    ctaButtons: document.querySelector('.hero-cta-buttons'),
+    image: document.querySelector('.hero-image img')
   };
+  
+  // Check if elements exist before animating
+  if (heroElements.subtitle) {
+    gsap.from(heroElements.subtitle, { 
+      y: 30, 
+      opacity: 0, 
+      duration: 1, 
+      delay: 0.5, 
+      ease: 'power3.out' 
+    });
+  }
+  
+  if (heroElements.title) {
+    gsap.from(heroElements.title, { 
+      y: 50, 
+      opacity: 0, 
+      duration: 1, 
+      delay: 0.7, 
+      ease: 'power3.out' 
+    });
+  }
+  
+  if (heroElements.description) {
+    gsap.to(heroElements.description, { 
+      y: 0, 
+      opacity: 1, 
+      duration: 1, 
+      delay: 1.1, 
+      ease: 'power3.out' 
+    });
+  }
+  
+  if (heroElements.ctaButtons) {
+    gsap.to(heroElements.ctaButtons, { 
+      y: 0, 
+      opacity: 1, 
+      duration: 1, 
+      delay: 1.3, 
+      ease: 'power3.out' 
+    });
+  }
+  
+  // Parallax effect on hero image
+  if (heroElements.image) {
+    gsap.to(heroElements.image, {
+      y: 50,
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }
+}
 
-  // If it's a touch device, add a class to the body element
+/**
+ * Initialize all scroll-triggered animations
+ */
+function initializeScrollAnimations() {
+  // Fade Up Animations
+  gsap.utils.toArray('.fade-up').forEach(element => {
+    gsap.from(element, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleClass: 'active',
+        once: true
+      }
+    });
+  });
+  
+  // Fade In Animations
+  gsap.utils.toArray('.fade-in').forEach(element => {
+    gsap.from(element, {
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleClass: 'active',
+        once: true
+      }
+    });
+  });
+  
+  // Fade Left Animations
+  gsap.utils.toArray('.fade-left').forEach(element => {
+    gsap.from(element, {
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleClass: 'active',
+        once: true
+      }
+    });
+  });
+  
+  // Fade Right Animations
+  gsap.utils.toArray('.fade-right').forEach(element => {
+    gsap.from(element, {
+      x: 50,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleClass: 'active',
+        once: true
+      }
+    });
+  });
+}
+
+/**
+ * Initialize counter animations for result metrics
+ */
+function initializeMetricCounters() {
+  // Result Card Animations
+  gsap.utils.toArray('.result-card').forEach((card, index) => {
+    gsap.from(card, {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      delay: index * 0.1,
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        once: true
+      }
+    });
+    
+    // Animate metric values
+    const metricValues = card.querySelectorAll('.metric-value');
+    metricValues.forEach((metric) => {
+      let originalText = metric.textContent;
+      let value = originalText;
+      let suffix = '';
+      
+      // Extract number and suffix
+      if (value.includes('M')) {
+        value = value.replace('M', '');
+        suffix = 'M';
+      } else if (value.includes('%')) {
+        value = value.replace('%', '');
+        suffix = '%';
+      } else if (value.includes('+')) {
+        value = value.replace('+', '');
+        suffix = '+';
+      }
+      
+      // Create counter animation
+      const duration = 1.5;
+      const ease = 'power2.out';
+      
+      // Set initial value to 0
+      metric.textContent = '0' + suffix;
+      
+      // Create scroll trigger for counter animation
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 85%',
+        onEnter: () => {
+          const targetValue = parseFloat(value);
+          
+          gsap.to({value: 0}, {
+            value: targetValue,
+            duration: duration,
+            ease: ease,
+            onUpdate: function() {
+              const currentValue = Math.round(this.targets()[0].value);
+              metric.textContent = currentValue + suffix;
+            },
+            onComplete: function() {
+              metric.textContent = originalText;
+            }
+          });
+        },
+        once: true
+      });
+    });
+  });
+}
+
+/**
+ * Initialize parallax effect for about section image
+ */
+function initializeAboutImageParallax() {
+  const aboutImage = document.querySelector('.about-image');
+  if (aboutImage) {
+    ScrollTrigger.create({
+      trigger: '.about-image',
+      start: 'top 85%',
+      end: 'bottom 15%',
+      toggleClass: {className: 'active', targets: '.about-image'},
+      once: true
+    });
+  }
+}
+
+/**
+ * ==============================================
+ * SCROLL EFFECTS
+ * ==============================================
+ */
+
+/**
+ * Initialize scroll effects for the website
+ */
+function initializeScrollEffects() {
+  // Header scroll effect (show/hide on scroll)
+  initializeHeaderScroll();
+  
+  // Custom cursor
+  if (!window.siteConfig.isMobile && !window.siteConfig.isTouchDevice) {
+    initializeCustomCursor();
+  }
+}
+
+/**
+ * Initialize header scroll effects
+ */
+function initializeHeaderScroll() {
+  const header = document.querySelector('header');
+  if (!header) return;
+  
+  let lastScrollTop = 0;
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add 'scrolled' class when scrolling down
+    if (scrollTop > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    // Hide header when scrolling down, show when scrolling up
+    if (scrollTop > lastScrollTop && scrollTop > 300) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+}
+
+/**
+ * Initialize custom cursor effect for desktop
+ */
+function initializeCustomCursor() {
+  const cursorOuter = document.createElement('div');
+  cursorOuter.className = 'cursor-outer';
+  document.body.appendChild(cursorOuter);
+  
+  const cursorInner = document.createElement('div');
+  cursorInner.className = 'cursor-inner';
+  document.body.appendChild(cursorInner);
+  
+  // Move cursor with mouse
+  document.addEventListener('mousemove', (e) => {
+    gsap.to(cursorOuter, {
+      x: e.clientX,
+      y: e.clientY,
+      duration: 0.3,
+      ease: 'power2.out'
+    });
+    
+    gsap.to(cursorInner, {
+      x: e.clientX,
+      y: e.clientY,
+      duration: 0.1
+    });
+  });
+  
+  // Show/hide cursor
+  document.addEventListener('mouseenter', () => {
+    gsap.to([cursorOuter, cursorInner], {
+      opacity: 1,
+      duration: 0.3
+    });
+  });
+  
+  document.addEventListener('mouseleave', () => {
+    gsap.to([cursorOuter, cursorInner], {
+      opacity: 0,
+      duration: 0.3
+    });
+  });
+  
+  // Interactive element effects
+  const interactiveElements = document.querySelectorAll('a, button, .service-card, .feature-item, .result-card');
+  
+  interactiveElements.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      gsap.to(cursorOuter, {
+        width: 50,
+        height: 50,
+        duration: 0.3
+      });
+      
+      gsap.to(cursorInner, {
+        width: 10,
+        height: 10,
+        duration: 0.3
+      });
+    });
+    
+    element.addEventListener('mouseleave', () => {
+      gsap.to(cursorOuter, {
+        width: 30,
+        height: 30,
+        duration: 0.3
+      });
+      
+      gsap.to(cursorInner, {
+        width: 6,
+        height: 6,
+        duration: 0.3
+      });
+    });
+  });
+}
+
+/**
+ * ==============================================
+ * SERVICE MODALS
+ * ==============================================
+ */
+
+/**
+ * Initialize service modals functionality
+ */
+function initializeServiceModals() {
+  const serviceCards = document.querySelectorAll('.service-card');
+  const modals = document.querySelectorAll('.service-modal');
+  const closeButtons = document.querySelectorAll('.service-modal-close');
+  const overlay = document.querySelector('.service-modal-overlay');
+  
+  if (serviceCards.length === 0 || modals.length === 0 || !overlay) return;
+  
+  // Make service cards clickable
+  serviceCards.forEach(card => {
+    const serviceLink = card.querySelector('.service-more-info');
+    if (serviceLink) {
+      const serviceId = serviceLink.getAttribute('data-service');
+      
+      // Make entire card clickable
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function(e) {
+        // Only trigger if not clicking on the existing link
+        if (!e.target.classList.contains('service-more-info')) {
+          openServiceModal(serviceId);
+        }
+      });
+      
+      // Keep original link functionality
+      serviceLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openServiceModal(serviceId);
+      });
+    }
+  });
+  
+  // Close modal functionality
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAllServiceModals();
+    });
+  });
+  
+  // Close on overlay click
+  overlay.addEventListener('click', closeAllServiceModals);
+  
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeAllServiceModals();
+    }
+  });
+  
+  // Make functions globally available
+  window.openServiceModal = openServiceModal;
+  window.closeAllServiceModals = closeAllServiceModals;
+  
+  /**
+   * Open service modal by ID
+   * @param {string} serviceId - Service ID to open modal for
+   */
+  function openServiceModal(serviceId) {
+    // Close any open modals first
+    closeAllServiceModals();
+    
+    // Find and open the correct modal
+    const modal = document.getElementById(`service-modal-${serviceId}`);
+    if (modal) {
+      modal.classList.add('active');
+      overlay.classList.add('active');
+      
+      // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  /**
+   * Close all service modals
+   */
+  function closeAllServiceModals() {
+    modals.forEach(modal => {
+      modal.classList.remove('active');
+    });
+    
+    overlay.classList.remove('active');
+    
+    // Re-enable scrolling
+    document.body.style.overflow = '';
+  }
+}
+
+/**
+ * ==============================================
+ * TESTIMONIAL SLIDER
+ * ==============================================
+ */
+
+/**
+ * Initialize testimonial slider functionality
+ */
+function initializeTestimonialSlider() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevButton = document.querySelector('.prev-testimonial');
+  const nextButton = document.querySelector('.next-testimonial');
+  const testimonialTrack = document.querySelector('.testimonials-track');
+  
+  if (slides.length === 0 || !prevButton || !nextButton || !testimonialTrack) return;
+  
+  let currentSlide = 0;
+  const slideCount = slides.length;
+  let slideInterval = null;
+  
+  // Initially hide all slides except the first
+  slides.forEach((slide, index) => {
+    if (index !== 0) {
+      slide.style.display = 'none';
+    }
+  });
+  
+  // Update slider to show current slide
+  function updateSlider() {
+    slides.forEach((slide, index) => {
+      if (index === currentSlide) {
+        slide.style.display = 'block';
+        gsap.fromTo(slide, 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+        );
+      } else {
+        slide.style.display = 'none';
+      }
+    });
+  }
+  
+  // Navigation buttons
+  prevButton.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+    updateSlider();
+    resetAutoSlide();
+  });
+  
+  nextButton.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slideCount;
+    updateSlider();
+    resetAutoSlide();
+  });
+  
+  // Auto-advancing slides
+  function startAutoSlide() {
+    slideInterval = setInterval(() => {
+      currentSlide = (currentSlide + 1) % slideCount;
+      updateSlider();
+    }, 6000);
+  }
+  
+  // Reset auto slide timer
+  function resetAutoSlide() {
+    clearInterval(slideInterval);
+    startAutoSlide();
+  }
+  
+  // Pause on hover
+  testimonialTrack.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+  });
+  
+  testimonialTrack.addEventListener('mouseleave', () => {
+    startAutoSlide();
+  });
+  
+  // Start auto-advancing
+  startAutoSlide();
+}
+
+/**
+ * ==============================================
+ * CONTACT FORM
+ * ==============================================
+ */
+
+// Form Animation Script with Redirect
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the contact form
+  const contactForm = document.querySelector('.contact-form form');
+  
+  if (contactForm) {
+    // Add submit event listener
+    contactForm.addEventListener('submit', handleFormSubmit);
+  }
+
+  /**
+   * Handle form submission with animation and redirect
+   * @param {Event} e - Form submit event
+   */
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    
+    // Save form action (where it will redirect)
+    const formAction = contactForm.getAttribute('action');
+    
+    // Save form in case we need to restore it
+    const originalFormHTML = contactForm.innerHTML;
+    
+    // Show loading animation
+    showLoadingAnimation();
+    
+    // Submit form data via AJAX
+    fetch(formAction, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // Show success animation for 2 seconds before redirecting
+        setTimeout(() => {
+          showSuccessAnimation();
+          
+          // Redirect after showing success message for 2 seconds
+          setTimeout(() => {
+            // Redirect to the form's action URL or a specific thank you page
+            window.location.href = formAction;
+          }, 2000);
+        }, 1000);
+      } else {
+        // Show error animation if there's a problem
+        setTimeout(() => {
+          showErrorAnimation();
+          
+          // Restore form after 3 seconds
+          setTimeout(() => {
+            contactForm.innerHTML = originalFormHTML;
+            
+            // Re-add submit event listener
+            contactForm.addEventListener('submit', handleFormSubmit);
+          }, 3000);
+        }, 1000);
+      }
+    })
+    .catch(error => {
+      console.error('Form submission error:', error);
+      
+      // Show error animation
+      setTimeout(() => {
+        showErrorAnimation();
+        
+        // Restore form after 3 seconds
+        setTimeout(() => {
+          contactForm.innerHTML = originalFormHTML;
+          
+          // Re-add submit event listener
+          contactForm.addEventListener('submit', handleFormSubmit);
+        }, 3000);
+      }, 1000);
+    });
+  }
+
+  /**
+   * Show loading animation
+   */
+  function showLoadingAnimation() {
+    // Get current language for the messages
+    const currentLanguage = window.siteConfig && window.siteConfig.currentLanguage ? window.siteConfig.currentLanguage : 'cz';
+    
+    // Create loading animation container
+    const loadingContainer = document.createElement('div');
+    loadingContainer.className = 'form-animation loading';
+    
+    // Loading spinner with message
+    loadingContainer.innerHTML = `
+      <div class="animation-spinner"></div>
+      <p class="animation-message">${currentLanguage === 'cz' ? 'Odesílání...' : 'Sending...'}</p>
+    `;
+    
+    // Replace form with loading animation
+    contactForm.innerHTML = '';
+    contactForm.appendChild(loadingContainer);
+  }
+
+  /**
+   * Show success animation
+   */
+  function showSuccessAnimation() {
+    // Get current language for the messages
+    const currentLanguage = window.siteConfig && window.siteConfig.currentLanguage ? window.siteConfig.currentLanguage : 'cz';
+    
+    // Create success animation container
+    const successContainer = document.createElement('div');
+    successContainer.className = 'form-animation success';
+    
+    // Success message with checkmark icon
+    successContainer.innerHTML = `
+      <div class="animation-icon success-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3 class="animation-title">${currentLanguage === 'cz' ? 'Odesláno!' : 'Sent!'}</h3>
+      <p class="animation-message">
+        ${currentLanguage === 'cz' 
+          ? 'Děkujeme za Vaši zprávu. Přesměrováváme Vás...' 
+          : 'Thank you for your message. Redirecting...'}
+      </p>
+    `;
+    
+    // Replace loading animation with success animation
+    contactForm.innerHTML = '';
+    contactForm.appendChild(successContainer);
+    
+    // Add animation class
+    setTimeout(() => {
+      successContainer.classList.add('animate');
+    }, 100);
+  }
+
+  /**
+   * Show error animation
+   */
+  function showErrorAnimation() {
+    // Get current language for the messages
+    const currentLanguage = window.siteConfig && window.siteConfig.currentLanguage ? window.siteConfig.currentLanguage : 'cz';
+    
+    // Create error animation container
+    const errorContainer = document.createElement('div');
+    errorContainer.className = 'form-animation error';
+    
+    // Error message with icon
+    errorContainer.innerHTML = `
+      <div class="animation-icon error-icon">
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <h3 class="animation-title">${currentLanguage === 'cz' ? 'Něco se pokazilo' : 'Something went wrong'}</h3>
+      <p class="animation-message">
+        ${currentLanguage === 'cz' 
+          ? 'Prosím zkuste to znovu nebo nás kontaktujte telefonicky.' 
+          : 'Please try again or contact us by phone.'}
+      </p>
+    `;
+    
+    // Replace loading animation with error animation
+    contactForm.innerHTML = '';
+    contactForm.appendChild(errorContainer);
+    
+    // Add animation class
+    setTimeout(() => {
+      errorContainer.classList.add('animate');
+    }, 100);
+  }
+});
+/**
+ * ==============================================
+ * TOUCH OPTIMIZATIONS
+ * ==============================================
+ */
+
+/**
+ * Initialize optimizations for touch devices
+ */
+function initializeTouchOptimizations() {
+  if (!window.siteConfig.isTouchDevice) return;
+  
+  // Add touch-device class to body
+  document.body.classList.add('touch-device');
+  
+  // Remove hover effect from service cards
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('touchstart', function() {
+      this.classList.add('touch-active');
+    });
+    
+    card.addEventListener('touchend', function() {
+      this.classList.remove('touch-active');
+      
+      // Get service ID and trigger modal open
+      const serviceLink = this.querySelector('.service-more-info');
+      if (serviceLink) {
+        const serviceId = serviceLink.getAttribute('data-service');
+        if (window.openServiceModal) {
+          window.openServiceModal(serviceId);
+        }
+      }
+    });
+  });
+  
+  // Add touch feedback for buttons
+  const touchElements = document.querySelectorAll('.btn, .footer-link, .nav-link, .about-cta, .service-more-info');
+  touchElements.forEach(element => {
+    element.addEventListener('touchstart', function() {
+      this.classList.add('touch-active');
+    });
+    
+    element.addEventListener('touchend', function() {
+      this.classList.remove('touch-active');
+    });
+  });
+  
+  // Add touch-specific styles
+  addTouchStyles();
+}
+
+/**
+ * Add touch-specific styles to document
+ */
+function addTouchStyles() {
+  const style = document.createElement('style');
+  style.textContent = `
+    /* Disable hover effects on touch devices */
+    .touch-device .btn:hover,
+    .touch-device .about-cta:hover,
+    .touch-device .service-card:hover,
+    .touch-device .feature-item:hover,
+    .touch-device .result-card:hover,
+    .touch-device .testimonial-button:hover,
+    .touch-device .contact-item:hover,
+    .touch-device .footer-link:hover, 
+    .touch-device .nav-link:hover::after,
+    .touch-device .service-more-info:hover,
+    .touch-device .footer-social-link:hover,
+    .touch-device .form-submit:hover,
+    .touch-device .service-modal-cta:hover,
+    .touch-device .services-cta-button:hover {
+      transform: none !important;
+      box-shadow: none !important;
+      transition: none !important;
+    }
+    
+    /* Disable pseudo-element hover effects */
+    .touch-device .btn:hover::before,
+    .touch-device .about-cta:hover::before,
+    .touch-device .service-card:hover::before,
+    .touch-device .service-more-info:hover::after,
+    .touch-device .form-submit:hover::before {
+      transform: none !important;
+      left: -100% !important; 
+      width: 0 !important;
+      transition: none !important;
+    }
+    
+    /* Hide hover info text on service cards */
+    .touch-device .service-card::before {
+      display: none !important;
+    }
+    
+    /* Touch active state styling */
+    .touch-device .touch-active {
+      opacity: 0.8 !important;
+    }
+    
+    .touch-device .service-card.touch-active {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    
+    .touch-device .btn.touch-active,
+    .touch-device .about-cta.touch-active {
+      background-color: var(--navy);
+      color: var(--white);
+    }
+    
+    /* Larger touch targets */
+    .touch-device .service-modal-close {
+      padding: 15px !important;
+      font-size: 32px !important;
+      width: 50px !important;
+      height: 50px !important;
+    }
+    
+    .touch-device .btn,
+    .touch-device .about-cta,
+    .touch-device .form-submit,
+    .touch-device .service-modal-cta,
+    .touch-device .services-cta-button {
+      min-height: 44px;
+      padding: 12px 30px;
+      font-size: 16px;
+    }
+    
+    /* Fix for hero buttons on mobile */
+    @media (max-width: 768px) {
+      .hero-cta-buttons {
+        width: 100%;
+      }
+      
+      .hero-cta-buttons .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        display: block;
+        text-align: center;
+      }
+    }
+  `;
+  
+  document.head.appendChild(style);
+}
+
+/**
+ * JavaScript solution to detect touch devices and disable hover effects
+ * This provides a more dynamic approach and works even on browsers 
+ * that might not fully support the CSS hover media query
+ */
+
+// Execute when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to detect if device is touch-capable
+  function isTouchDevice() {
+    return (
+      ('ontouchstart' in window) ||
+      (navigator.maxTouchPoints > 0) ||
+      (navigator.msMaxTouchPoints > 0)
+    );
+  }
+
+  // Add a class to the body if it's a touch device
   if (isTouchDevice()) {
     document.body.classList.add('touch-device');
     
-    // Disable hover animations by making them instant
+    // Disable hover state on service cards and other interactive elements
+    const interactiveElements = document.querySelectorAll(
+      '.btn, .about-cta, .service-card, .feature-item, .result-card, ' +
+      '.testimonial-button, .contact-item, .footer-link, .nav-link, ' +
+      '.service-more-info, .footer-social-link, .form-submit, ' +
+      '.service-modal-cta, .services-cta-button'
+    );
+    
+    // For each interactive element, prevent default hover behavior
+    interactiveElements.forEach(element => {
+      // Cancel hover state by adding and removing a dummy class
+      element.addEventListener('touchstart', function() {
+        this.classList.add('touch-active');
+      });
+      
+      element.addEventListener('touchend', function() {
+        this.classList.remove('touch-active');
+      });
+    });
+    
+    // Create a style element to add touch-specific CSS
     const style = document.createElement('style');
     style.textContent = `
-      /* Disable transitions and animations on hover for touch devices */
+      /* Disable all hover effects on touch devices */
       .touch-device .btn:hover,
       .touch-device .about-cta:hover,
       .touch-device .service-card:hover,
@@ -7560,7 +8606,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .touch-device .result-card:hover,
       .touch-device .testimonial-button:hover,
       .touch-device .contact-item:hover,
-      .touch-device .footer-link:hover, 
+      .touch-device .footer-link:hover,
       .touch-device .nav-link:hover::after,
       .touch-device .service-more-info:hover,
       .touch-device .footer-social-link:hover,
@@ -7572,7 +8618,7 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: none !important;
       }
       
-      /* Disable all pseudo-element hover transitions */
+      /* Disable pseudo-element hover effects */
       .touch-device .btn:hover::before,
       .touch-device .about-cta:hover::before,
       .touch-device .service-card:hover::before,
@@ -7584,485 +8630,36 @@ document.addEventListener('DOMContentLoaded', function() {
         transition: none !important;
       }
       
-      /* Remove hover info text on service cards for touch devices */
+      /* Hide hover info text on service cards */
       .touch-device .service-card::before {
         display: none !important;
       }
       
-      /* Make service cards fully clickable without hover effects */
-      .touch-device .service-card {
-        position: relative;
+      /* Touch active state styling */
+      .touch-device .touch-active {
+        opacity: 0.8 !important;
       }
     `;
     
+    // Add the style element to the head
     document.head.appendChild(style);
     
-    // Make the entire service card clickable more explicitly for touch devices
+    // Add visual feedback for touch on service cards
     document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('touchstart', function() {
-        // Add active class to simulate visual feedback without hover
-        this.classList.add('touch-active');
+        this.style.backgroundColor = 'rgba(0, 0, 0, 0.02)';
       });
       
       card.addEventListener('touchend', function() {
-        // Remove active class after touch ends
-        this.classList.remove('touch-active');
-        
-        // Get service ID and trigger modal open
-        const serviceLink = this.querySelector('.service-more-info');
-        if (serviceLink) {
-          const serviceId = serviceLink.getAttribute('data-service');
-          
-          // Close any open modals first
-          document.querySelectorAll('.service-modal.active').forEach(modal => {
-            modal.classList.remove('active');
-          });
-          
-          // Open the correct modal
-          const modal = document.getElementById(`service-modal-${serviceId}`);
-          if (modal) {
-            const overlay = document.querySelector('.service-modal-overlay');
-            overlay.classList.add('active');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-          }
-        }
-      });
-    });
-    
-    // Improve touch handling for other interactive elements
-    const touchElements = document.querySelectorAll('.btn, .footer-link, .nav-link, .about-cta, .service-more-info');
-    touchElements.forEach(element => {
-      element.addEventListener('touchstart', function() {
-        this.classList.add('touch-active');
-      });
-      
-      element.addEventListener('touchend', function() {
-        this.classList.remove('touch-active');
+        // Delay reset to provide visual feedback
+        setTimeout(() => {
+          this.style.backgroundColor = '';
+        }, 300);
       });
     });
   }
-
-  // Add styling for touch-active state
-  const touchActiveStyle = document.createElement('style');
-  touchActiveStyle.textContent = `
-    .touch-device .touch-active {
-      opacity: 0.8 !important;
-    }
-    
-    /* Add specific styles for touch feedback */
-    .touch-device .service-card.touch-active {
-      background-color: rgba(0, 0, 0, 0.02);
-    }
-    
-    /* Custom style for touch feedback on buttons */
-    .touch-device .btn.touch-active,
-    .touch-device .about-cta.touch-active {
-      background-color: var(--navy);
-      color: var(--white);
-    }
-  `;
-  document.head.appendChild(touchActiveStyle);
-
-  // Add a helper for modal closing on touch devices
-  if (isTouchDevice()) {
-    // Make close buttons larger and easier to tap
-    const modalCloseStyle = document.createElement('style');
-    modalCloseStyle.textContent = `
-      .touch-device .service-modal-close {
-        padding: 15px !important;
-        font-size: 32px !important;
-        width: 50px !important;
-        height: 50px !important;
-      }
-    `;
-    document.head.appendChild(modalCloseStyle);
-  }
 });
-
-
-
-// Merge location translations with the main translations object
-document.addEventListener('DOMContentLoaded', function() {
-    // Add location translations to the main translations object
-    Object.assign(translations, locationTranslations);
-    
-    // Initialize animations for the location section
-    function initLocationAnimations() {
-        gsap.utils.toArray('.location .fade-up').forEach((element, index) => {
-            gsap.from(element, {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                delay: 0.2 + (index * 0.1),
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 85%',
-                    end: 'bottom 15%',
-                    toggleClass: 'active',
-                    once: true
-                }
-            });
-        });
-    }
-    
-    // Create scroll trigger for location section
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.create({
-            trigger: '.location',
-            start: 'top 80%',
-            onEnter: initLocationAnimations,
-            once: true
-        });
-    } else {
-        // Fallback if ScrollTrigger is not available
-        window.addEventListener('load', initLocationAnimations);
-    }
-    
-    // Update section marker positions to include the new location section
-    const markers = document.querySelectorAll('.section-marker');
-    if (markers.length >= 5) {
-        // If we have a marker for location (section 06), update its position
-        if (markers[5]) {
-            markers[5].style.top = '650vh';
-            markers[5].setAttribute('data-section', 'location');
-        } else {
-            // If we need to create a new marker, we'd do it here
-            // But this would require DOM manipulation that might be better
-            // handled in the main HTML directly
-        }
-    }
-    
-    // Add map interaction enhancements if needed
-    const mapContainer = document.querySelector('.location-map-container');
-    if (mapContainer) {
-        mapContainer.addEventListener('mouseenter', function() {
-            // You could add special effects or behaviors when hovering over the map
-            // For example, showing a small tooltip or changing the appearance
-        });
-        
-        // Make sure map links open in new tab
-        const mapIframe = mapContainer.querySelector('iframe');
-        if (mapIframe && !mapIframe.hasAttribute('target')) {
-            mapIframe.setAttribute('target', '_blank');
-        }
-    }
-});
-
-
-
-// Add pricing section translations
-const pricingTranslations = {
-    // Pricing section title and subtitle
-    'pricing-title': {
-        'cz': 'Cenové podmínky',
-        'en': 'Pricing'
-    },
-    'pricing-subtitle': {
-        'cz': 'Naše služby poskytujeme transparentně s jasnými cenovými podmínkami. Pro konkrétní cenovou kalkulaci nás neváhejte kontaktovat.',
-        'en': 'We provide our services transparently with clear pricing conditions. Do not hesitate to contact us for a specific price calculation.'
-    },
-    
-    // Pricing tabs
-    'pricing-tab-hourly': {
-        'cz': 'Hodinové sazby',
-        'en': 'Hourly Rates'
-    },
-    'pricing-tab-packages': {
-        'cz': 'Paušální balíčky',
-        'en': 'Fixed Packages'
-    },
-    
-    // Initial consultation card
-    'pricing-consultation-title': {
-        'cz': 'První konzultace',
-        'en': 'Initial Consultation'
-    },
-    'pricing-consultation-value': {
-        'cz': '<span class="pricing-free">Zdarma</span>',
-        'en': '<span class="pricing-free">Free</span>'
-    },
-    'pricing-consultation-duration': {
-        'cz': '(30 minut)',
-        'en': '(30 minutes)'
-    },
-    'pricing-consultation-feature-1': {
-        'cz': '<i class="fas fa-check"></i> Seznámení s případem',
-        'en': '<i class="fas fa-check"></i> Case introduction'
-    },
-    'pricing-consultation-feature-2': {
-        'cz': '<i class="fas fa-check"></i> Úvodní právní posouzení',
-        'en': '<i class="fas fa-check"></i> Initial legal assessment'
-    },
-    'pricing-consultation-feature-3': {
-        'cz': '<i class="fas fa-check"></i> Návrh dalšího postupu',
-        'en': '<i class="fas fa-check"></i> Proposed next steps'
-    },
-    'pricing-consultation-btn': {
-        'cz': 'Rezervovat termín',
-        'en': 'Schedule Appointment'
-    },
-    
-    // Standard hourly rate card
-    'pricing-standard-ribbon': {
-        'cz': 'Nejžádanější',
-        'en': 'Most Popular'
-    },
-    'pricing-standard-title': {
-        'cz': 'Standardní hodinová sazba',
-        'en': 'Standard Hourly Rate'
-    },
-    'pricing-standard-value': {
-        'cz': 'od <span class="pricing-amount">2 000 Kč</span>',
-        'en': 'from <span class="pricing-amount">2 000 CZK</span>'
-    },
-    'pricing-standard-duration': {
-        'cz': 'za hodinu',
-        'en': 'per hour'
-    },
-    'pricing-standard-feature-1': {
-        'cz': '<i class="fas fa-check"></i> Právní poradenství',
-        'en': '<i class="fas fa-check"></i> Legal consulting'
-    },
-    'pricing-standard-feature-2': {
-        'cz': '<i class="fas fa-check"></i> Příprava dokumentů',
-        'en': '<i class="fas fa-check"></i> Document preparation'
-    },
-    'pricing-standard-feature-3': {
-        'cz': '<i class="fas fa-check"></i> Zastupování před úřady',
-        'en': '<i class="fas fa-check"></i> Representation before authorities'
-    },
-    'pricing-standard-feature-4': {
-        'cz': '<i class="fas fa-check"></i> Individuální přístup',
-        'en': '<i class="fas fa-check"></i> Individual approach'
-    },
-    'pricing-standard-btn': {
-        'cz': 'Kontaktujte nás',
-        'en': 'Contact Us'
-    },
-    
-    // Complex cases card
-    'pricing-complex-title': {
-        'cz': 'Komplexní případy',
-        'en': 'Complex Cases'
-    },
-    'pricing-complex-value': {
-        'cz': '<span class="pricing-custom">Individuální cena</span>',
-        'en': '<span class="pricing-custom">Individual pricing</span>'
-    },
-    'pricing-complex-duration': {
-        'cz': 'dle náročnosti',
-        'en': 'based on complexity'
-    },
-    'pricing-complex-feature-1': {
-        'cz': '<i class="fas fa-check"></i> Složité právní případy',
-        'en': '<i class="fas fa-check"></i> Complex legal cases'
-    },
-    'pricing-complex-feature-2': {
-        'cz': '<i class="fas fa-check"></i> Rozsáhlá dokumentace',
-        'en': '<i class="fas fa-check"></i> Extensive documentation'
-    },
-    'pricing-complex-feature-3': {
-        'cz': '<i class="fas fa-check"></i> Dlouhodobá spolupráce',
-        'en': '<i class="fas fa-check"></i> Long-term cooperation'
-    },
-    'pricing-complex-feature-4': {
-        'cz': '<i class="fas fa-check"></i> Transparentní kalkulace',
-        'en': '<i class="fas fa-check"></i> Transparent calculation'
-    },
-    'pricing-complex-btn': {
-        'cz': 'Vyžádat nabídku',
-        'en': 'Request Quote'
-    },
-    
-    // Package rates section
-    'pricing-packages-title': {
-        'cz': 'Paušální balíčky',
-        'en': 'Fixed Packages'
-    },
-    'pricing-packages-text': {
-        'cz': 'Nabízíme výhodné paušální "balíčky" dle specifických potřeb klienta. Pro více informací nás prosím kontaktujte.',
-        'en': 'We offer advantageous fixed "packages" according to the specific needs of the client. Please contact us for more information.'
-    },
-    'pricing-packages-feature-1': {
-        'cz': '<i class="fas fa-check"></i> Předvídatelné náklady',
-        'en': '<i class="fas fa-check"></i> Predictable costs'
-    },
-    'pricing-packages-feature-2': {
-        'cz': '<i class="fas fa-check"></i> Přizpůsobeno vašim potřebám',
-        'en': '<i class="fas fa-check"></i> Tailored to your needs'
-    },
-    'pricing-packages-feature-3': {
-        'cz': '<i class="fas fa-check"></i> Možnost pravidelných konzultací',
-        'en': '<i class="fas fa-check"></i> Option for regular consultations'
-    },
-    'pricing-packages-feature-4': {
-        'cz': '<i class="fas fa-check"></i> Prioritní řešení požadavků',
-        'en': '<i class="fas fa-check"></i> Priority request handling'
-    },
-    'pricing-packages-btn': {
-        'cz': 'Vyžádat individuální nabídku',
-        'en': 'Request Custom Quote'
-    },
-    
-    // Package examples
-    'pricing-examples-title': {
-        'cz': 'Příklady paušálních balíčků',
-        'en': 'Examples of Fixed Packages'
-    },
-    'pricing-example-1-title': {
-        'cz': 'Nemovitostní balíček',
-        'en': 'Real Estate Package'
-    },
-    'pricing-example-1-text': {
-        'cz': 'Právní servis pro realitní kanceláře a developery.',
-        'en': 'Legal services for real estate agencies and developers.'
-    },
-    'pricing-example-2-title': {
-        'cz': 'Business balíček',
-        'en': 'Business Package'
-    },
-    'pricing-example-2-text': {
-        'cz': 'Kompletní právní služby pro podnikatele a firmy.',
-        'en': 'Complete legal services for entrepreneurs and companies.'
-    },
-    'pricing-example-3-title': {
-        'cz': 'Litigační balíček',
-        'en': 'Litigation Package'
-    },
-    'pricing-example-3-text': {
-        'cz': 'Zastupování v soudních a správních řízeních.',
-        'en': 'Representation in court and administrative proceedings.'
-    },
-    'pricing-example-4-title': {
-        'cz': 'Smluvní balíček',
-        'en': 'Contract Package'
-    },
-    'pricing-example-4-text': {
-        'cz': 'Příprava a revize smluv a právních dokumentů.',
-        'en': 'Preparation and review of contracts and legal documents.'
-    },
-    
-    // Pricing disclaimer and CTA
-    'pricing-disclaimer': {
-        'cz': '<i class="fas fa-info-circle"></i> Všechny uvedené ceny jsou bez DPH. Konečná cena se může lišit v závislosti na konkrétních požadavcích a rozsahu poskytnutých služeb.',
-        'en': '<i class="fas fa-info-circle"></i> All prices are exclusive of VAT. The final price may vary depending on specific requirements and the scope of services provided.'
-    },
-    'pricing-cta-button': {
-        'cz': 'Kontaktujte nás pro individuální nabídku',
-        'en': 'Contact us for a customized offer'
-    },
-    
-    // Bar Association certification
-    'bar-certification-text': {
-        'cz': 'Česká advokátní komora byla dne 5.2.2016 pověřena Ministerstvem průmyslu a obchodu ČR mimosoudním řešením spotřebitelských sporů pro oblast sporů mezi advokátem a spotřebitelem ze Smluv o poskytování právních služeb.',
-        'en': 'On February 5, 2016, the Czech Bar Association was authorized by the Ministry of Industry and Trade of the Czech Republic to administer out-of-court settlement of consumer disputes between an attorney and consumer arising out of Contracts on provision of legal services (based on Act No. 634/1992 Coll., Consumer Protection Act, as amended).'
-    },
-    'bar-website': {
-        'cz': 'Internetová stránka tohoto pověřeného subjektu je <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.',
-        'en': 'Website of this authorized body is <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.'
-    },
-    
-    // Navigation link
-    'nav-pricing': {
-        'cz': 'Ceník',
-        'en': 'Pricing'
-    }
-};
-
-// Initialize pricing tab functionality and animations
-document.addEventListener('DOMContentLoaded', function() {
-    // Merge pricing translations with the main translations object
-    Object.assign(translations, pricingTranslations);
-    
-    // Initialize pricing tabs
-    const pricingTabs = document.querySelectorAll('.pricing-tab');
-    const pricingContents = document.querySelectorAll('.pricing-content');
-    
-    pricingTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Update active tab
-            pricingTabs.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Show corresponding content
-            const tabType = this.getAttribute('data-tab');
-            pricingContents.forEach(content => {
-                content.classList.remove('active');
-                if (content.classList.contains('pricing-' + tabType)) {
-                    content.classList.add('active');
-                }
-            });
-            
-            // Animate content elements
-            animatePricingContent();
-        });
-    });
-    
-    // Function to animate pricing content elements
-    function animatePricingContent() {
-        const activeContent = document.querySelector('.pricing-content.active');
-        
-        if (activeContent) {
-            const fadeElements = activeContent.querySelectorAll('.fade-up');
-            
-            fadeElements.forEach((element, index) => {
-                // Reset animation state
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                
-                // Apply new animation with delay based on index
-                setTimeout(() => {
-                    element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, 100 + (index * 100));
-            });
-        }
-    }
-    
-    // Initialize scroll animations
-    function initPricingAnimations() {
-        gsap.utils.toArray('.pricing .fade-up').forEach((element, index) => {
-            gsap.from(element, {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                delay: 0.2 + (index * 0.1),
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 85%',
-                    end: 'bottom 15%',
-                    toggleClass: 'active',
-                    once: true
-                }
-            });
-        });
-    }
-    
-    // Create scroll trigger for pricing section
-    if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.create({
-            trigger: '.pricing',
-            start: 'top 80%',
-            onEnter: initPricingAnimations,
-            once: true
-        });
-    } else {
-        // Fallback if ScrollTrigger is not available
-        window.addEventListener('load', initPricingAnimations);
-    }
-    
-    // Update section marker positions
-    const markers = document.querySelectorAll('.section-marker');
-    if (markers.length >= 6) {
-        // If we have a marker for pricing (section 07), update its position
-        if (markers[6]) {
-            markers[6].style.top = '750vh';
-            markers[6].setAttribute('data-section', 'pricing');
-        }
-    }
-});
+ 
     </script>
     <script src="language-toggle.js"></script>
 </body>
