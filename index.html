@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <meta name="description" content="AK ŠORALOVÁ - Advokátní kancelář nabízející profesionální právní služby v oblasti nemovitostí, obchodního, pracovního a rodinného práva. Služby v češtině i angličtině.">
+    <meta name="keywords" content="advokátní kancelář, právní služby, Praha, nemovitosti, obchodní právo, pracovní právo, rodinné právo, právník, advokát">
+    <link rel="icon" href="https://i.postimg.cc/d1y62gvz/Screenshot-2025-03-21-at-19-53-43-removebg-preview.png" type="image/png">  
     <style>
         /* Base Styles */
         :root {
@@ -513,7 +516,7 @@ header.scrolled {
             font-family: 'Playfair Display', serif;
             font-size: 120px;
             font-weight: 700;
-            color: rgba(196, 168, 109, 0.1);
+            color: rgba(0, 0, 0, 0.1);
             position: absolute;
             top: -80px;
             left: -20px;
@@ -1805,7 +1808,7 @@ header.scrolled {
     }
 
     .about-image {
-        display: none; /* Reduce padding for smaller screens */
+        height: 600px;/* Reduce padding for smaller screens */
     }
 
 
@@ -2036,7 +2039,7 @@ header.scrolled {
     font-family: 'Playfair Display', serif;
     font-size: 120px;
     font-weight: 700;
-    color: rgba(196, 168, 109, 0.1);
+    color: rgba(0, 0, 0, 0.1);
     position: absolute;
     top: -80px;
     left: -20px;
@@ -4846,6 +4849,191 @@ textarea.form-control {
     display: block;
   }
 }
+/* Improved Responsive Design */
+@media (max-width: 992px) {
+  .nav-list {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .hero-image {
+    clip-path: none;
+  }
+  
+  .hero-cta-buttons {
+    justify-content: center;
+  }
+  
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fix for showing mobile menu at proper breakpoint */
+@media (min-width: 993px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  
+  .nav-list {
+    display: flex !important;
+  }
+}
+/* Add this to your CSS file or in the <style> section in the <head> */
+  @media (max-width: 768px) {
+    .logo img {
+        filter: brightness(0) invert(1);
+    }
+}
+@media (max-width: 768px) {
+    /* For SVG logo */
+    .logo svg path,
+    .logo svg text {
+        fill: #ffffff !important;
+    }
+    
+    /* For image-based logo */
+    .logo img {
+        filter: brightness(0) invert(1);
+    }
+}
+@media (max-width: 768px) {
+    /* For SVG logo */
+    .logo svg path,
+    .logo svg text {
+        fill: #ffffff !important;
+    }
+    
+    /* For image-based logo */
+    .logo img {
+        filter: brightness(0) invert(1);
+    }
+}
+/* Modern Contact Section Styles */
+.contact-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #2a6b41;
+  position: relative;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-title:after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #2a6b41;
+  margin: 15px auto 0;
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #538d4e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.contact-icon i {
+  color: white;
+  font-size: 20px;
+}
+
+.contact-info {
+  flex-grow: 1;
+}
+
+.contact-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.contact-info a, .contact-info p {
+  color: #555;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.contact-info a:hover {
+  color: #2a6b41;
+}
+
+.cta-button {
+  display: block;
+  background-color: #2a6b41;
+  color: white;
+  text-align: center;
+  padding: 15px 25px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(42,107,65,0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.cta-button:hover {
+  background-color: #538d4e;
+  transform: translateY(-2px);
+}
+
+/* Make sure Font Awesome is included */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 
 
 /* No need to change the size of your elements or their horizontal layout */
@@ -4853,1223 +5041,1082 @@ textarea.form-control {
 </head>
 <body>
 
- 
-<div class="page-loader">
-    <div class="loader-logo">
-        <div class="logo-name">AK ŠORALOVÁ</div>
-        <div class="logo-tagline" data-lang-key="logo-tagline">Advokátní kancelář</div>
-    </div>
-    
-    <div class="loader-progress">
-        <div class="loader-progress-bar"></div>
-    </div>
-    <div class="loader-text" id="loader-text">Loading...</div>
-</div>
-
-
-<div class="language-loader">
-    <div class="language-loader-content">
-        <div class="language-loader-spinner"></div>
-        <div class="language-loader-text">Changing language...</div>
-    </div>
-</div>
-   
-
-    <!-- Vertical Line with Section Markers -->
-    <div class="vertical-line">
-        
-        
-        <div class="section-marker" style="top: 150vh;" data-section="about"></div>
-         
-        
-        <div class="section-marker" style="top: 250vh;" data-section="services"></div>
-         
-        
-        <div class="section-marker" style="top: 350vh;" data-section="results"></div>
-        
-        
-        <div class="section-marker" style="top: 450vh;" data-section="testimonials"></div>
-        
-        
-        <div class="section-marker" style="top: 550vh;" data-section="contact"></div>
-        
-    </div>
-
-    <!-- Header -->
-    <header>
-        <a href="#hero" class="logo">
-           <img src="https://i.postimg.cc/d1y62gvz/Screenshot-2025-03-21-at-19-53-43-removebg-preview.png" style="height: 4rem; padding-top: 0;">
-        </a>
-        
-        <nav>
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#hero" class="nav-link active" data-lang-key="nav-home">Úvod</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav-about">O nás</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav-services">Služby</a></li>
-                <li class="nav-item"><a href="#results" class="nav-link" data-lang-key="nav-results">Výsledky</a></li>
-                <li class="nav-item"><a href="#testimonials" class="nav-link" data-lang-key="nav-testimonials">Reference</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link" data-lang-key="nav-contact">Kontakt</a></li>
-            </ul>
-            
-            <!-- Desktop language switcher -->
-<div class="language-switcher">
-    <a href="#" class="language-option active" data-lang="cz">CZ</a>
-    <span>/</span>
-    <a href="#" class="language-option" data-lang="en">EN</a>
-</div>
-
-<!-- Mobile language switcher -->
-<div class="mobile-language">
-    <a href="#" class="language-option active" data-lang="cz">CZ</a>
-    <span>/</span>
-    <a href="#" class="language-option" data-lang="en">EN</a>
-</div>
-            
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay"></div>
-    <div class="mobile-menu">
-        <div class="mobile-menu-close">
-            <span></span>
-            <span></span>
-        </div>
-        
-        <ul class="mobile-nav-list">
-            <li class="mobile-nav-item"><a href="#hero" class="mobile-nav-link" data-lang-key="nav-home">Úvod</a></li>
-            <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link" data-lang-key="nav-about">O nás</a></li>
-            <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link" data-lang-key="nav-services">Služby</a></li>
-            <li class="mobile-nav-item"><a href="#results" class="mobile-nav-link" data-lang-key="nav-results">Výsledky</a></li>
-            <li class="mobile-nav-item"><a href="#testimonials" class="mobile-nav-link" data-lang-key="nav-testimonials">Reference</a></li>
-            <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link" data-lang-key="nav-contact">Kontakt</a></li>
-        </ul>
-        
-        <div class="mobile-contact">
-            <h3 class="mobile-contact-title">Kontaktujte nás</h3>
-            
-            <div class="mobile-contact-item">
-                <div class="mobile-contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="mobile-contact-info">
-                    Ovocný trh 573/12<br>
-                    Praha 1, 110 00
-                </div>
-            </div>
-            
-            <div class="mobile-contact-item">
-                <div class="mobile-contact-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <div class="mobile-contact-info">
-                    <a href="tel:+420732958188">+420 732 958 188</a>
-                </div>
-            </div>
-            
-            <div class="mobile-contact-item">
-                <div class="mobile-contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="mobile-contact-info">
-                    <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
-                </div>
-            </div>
-            
-            <div class="mobile-language">
-                <a href="#" class="language-option active" data-lang="cz">CZ</a>
-                <span>/</span>
-                <a href="#" class="language-option" data-lang="en">EN</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="hero" id="hero">
-    <div class="hero-container">
-        <div class="hero-content">
-            <span class="hero-subtitle" data-lang-key="hero-subtitle">Advokátní kancelář</span>
-            <h1 class="hero-title" data-lang-key="hero-title">Profesionální právní služby</h1>
-            <p class="hero-description" data-lang-key="hero-description">
-                V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta.
-            </p>
-            <div class="hero-cta-buttons">
-                <a href="#services" class="btn" data-lang-key="hero-services-btn">Naše služby</a>
-                <a href="#contact" class="btn btn-reversed" data-lang-key="hero-contact-btn">Kontaktujte nás</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="/hero-img.jpg" alt="Legal Services">
-            
-        </div>
-    </div>
-</section>
-
-   <!-- About Section with data-lang-key attributes -->
-<section class="section about" id="about">
-    <div class="section-line"></div>
-    <div class="container">
-        <div class="about-container">
-            <div class="about-content">
-                <div class="section-heading fade-up">
-                    <div class="section-number">01</div>
-                    <h2 class="section-title" data-lang-key="about-main-title">O nás</h2>
-                </div>
-                
-                <p class="about-text fade-up" data-lang-key="about-main-paragraph">
-                    V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.
-                </p>
-                
-                <div class="about-features">
-                    <div class="feature-item fade-up">
-                        <div class="feature-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title" data-lang-key="about-feature-1-title">Profesionální služby</div>
-                            <p data-lang-key="about-feature-1-text">Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item fade-up">
-                        <div class="feature-icon">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title" data-lang-key="about-feature-2-title">Optimální cena</div>
-                            <p data-lang-key="about-feature-2-text">Nabízíme transparentní a dostupné ceny za profesionální právní služby.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item fade-up">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title" data-lang-key="about-feature-3-title">Osobní přístup</div>
-                            <p data-lang-key="about-feature-3-text">Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item fade-up">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title" data-lang-key="about-feature-4-title">Vícejazyčné služby</div>
-                            <p data-lang-key="about-feature-4-text">Právní služby poskytujeme v českém a anglickém jazyce.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="#contact" class="about-cta fade-up" data-lang-key="about-contact-btn">KONTAKTUJTE NÁS</a>
-            </div>
-            
-            <div class="about-image fade-up">
+  
+  <!-- Page Loader -->
+  <div class="page-loader">
+      <div class="loader-logo">
+          <div class="logo-name">AK ŠORALOVÁ</div>
+          <div class="logo-tagline" data-lang-key="logo-tagline">Advokátní kancelář</div>
+      </div>
+      
+      <div class="loader-progress">
+          <div class="loader-progress-bar"></div>
+      </div>
+      <div class="loader-text" id="loader-text">Loading...</div>
+  </div>
+  
+  <!-- Language Loader -->
+  <div class="language-loader">
+      <div class="language-loader-content">
+          <div class="language-loader-spinner"></div>
+          <div class="language-loader-text">Changing language...</div>
+      </div>
+  </div>
+     
+  <!-- Vertical Line with Section Markers -->
+  <div class="vertical-line">
+      <div class="section-marker" style="top: 150vh;" data-section="about"></div>
+      <div class="section-marker" style="top: 250vh;" data-section="services"></div>
+      <div class="section-marker" style="top: 350vh;" data-section="results"></div>
+      <div class="section-marker" style="top: 450vh;" data-section="testimonials"></div>
+      <div class="section-marker" style="top: 550vh;" data-section="contact"></div>
+  </div>
+  
+  <!-- Header -->
+  <header>
+      <a href="#hero" class="logo">
+         <img src="https://i.postimg.cc/d1y62gvz/Screenshot-2025-03-21-at-19-53-43-removebg-preview.png" style="height: 4rem; padding-top: 0;">
+      </a>
+      
+      <nav>
+          <ul class="nav-list">
+              <li class="nav-item"><a href="#hero" class="nav-link active" data-lang-key="nav-home">Úvod</a></li>
+              <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav-about">O nás</a></li>
+              <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav-services">Služby</a></li>
+              <li class="nav-item"><a href="#results" class="nav-link" data-lang-key="nav-results">Výsledky</a></li>
+              <li class="nav-item"><a href="#testimonials" class="nav-link" data-lang-key="nav-testimonials">Reference</a></li>
+              <li class="nav-item"><a href="#contact" class="nav-link" data-lang-key="nav-contact">Kontakt</a></li>
+          </ul>
+          
+          <!-- Desktop language switcher -->
+          <div class="language-switcher">
+              <a href="#" class="language-option active" data-lang="cz">CZ</a>
+              <span>/</span>
+              <a href="#" class="language-option" data-lang="en">EN</a>
+          </div>
+  
+          <!-- Mobile language switcher -->
+          <div class="mobile-language">
+              <a href="#" class="language-option active" data-lang="cz">CZ</a>
+              <span>/</span>
+              <a href="#" class="language-option" data-lang="en">EN</a>
+          </div>
+          
+          <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+      </nav>
+  </header>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay"></div>
+  <div class="mobile-menu">
+      <div class="mobile-menu-close">
+          <span></span>
+          <span></span>
+      </div>
+      
+      <ul class="mobile-nav-list">
+          <li class="mobile-nav-item"><a href="#hero" class="mobile-nav-link" data-lang-key="nav-home">Úvod</a></li>
+          <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link" data-lang-key="nav-about">O nás</a></li>
+          <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link" data-lang-key="nav-services">Služby</a></li>
+          <li class="mobile-nav-item"><a href="#results" class="mobile-nav-link" data-lang-key="nav-results">Výsledky</a></li>
+          <li class="mobile-nav-item"><a href="#testimonials" class="mobile-nav-link" data-lang-key="nav-testimonials">Reference</a></li>
+          <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link" data-lang-key="nav-contact">Kontakt</a></li>
+      </ul>
+      
+      <div class="mobile-contact">
+          <h3 class="mobile-contact-title">Kontaktujte nás</h3>
+          
+          <div class="mobile-contact-item">
+              <div class="mobile-contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="mobile-contact-info">
+                  Ovocný trh 573/12<br>
+                  Praha 1, 110 00
+              </div>
+          </div>
+          
+          <div class="mobile-contact-item">
+              <div class="mobile-contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="mobile-contact-info">
+                  <a href="tel:+420732958188">+420 732 958 188</a>
+              </div>
+          </div>
+          
+          <div class="mobile-contact-item">
+              <div class="mobile-contact-icon">
+                  <i class="fas fa-envelope"></i>
+              </div>
+              <div class="mobile-contact-info">
+                  <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
+              </div>
+          </div>
+          
+          <div class="mobile-language">
+              <a href="#" class="language-option active" data-lang="cz">CZ</a>
+              <span>/</span>
+              <a href="#" class="language-option" data-lang="en">EN</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+      <div class="hero-container">
+          <div class="hero-content">
+              <span class="hero-subtitle" data-lang-key="hero-subtitle">Advokátní kancelář</span>
+              <h1 class="hero-title" data-lang-key="hero-title">Profesionální právní služby</h1>
+              <p class="hero-description" data-lang-key="hero-description">
+                  V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta.
+              </p>
+              <div class="hero-cta-buttons">
+                  <a href="#services" class="btn" data-lang-key="hero-services-btn">Naše služby</a>
+                  <a href="#contact" class="btn btn-reversed" data-lang-key="hero-contact-btn">Kontaktujte nás</a>
+              </div>
+          </div>
+          <div class="hero-image">
+              <img src="hero-img.jpg" alt="Legal Services">
+          </div>
+      </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="section about" id="about">
+      <div class="section-line"></div>
+      <div class="container">
+          <div class="about-container">
+              <div class="about-content">
+                  <div class="section-heading fade-up">
+                      <div class="section-number">01</div>
+                      <h2 class="section-title" data-lang-key="about-main-title">O nás</h2>
+                  </div>
+                  
+                  <p class="about-text fade-up" data-lang-key="about-main-paragraph">
+                      V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.
+                  </p>
+                  
+                  <div class="about-features">
+                      <div class="feature-item fade-up">
+                          <div class="feature-icon">
+                              <i class="fas fa-balance-scale"></i>
+                          </div>
+                          <div class="feature-text">
+                              <div class="feature-title" data-lang-key="about-feature-1-title">Profesionální služby</div>
+                              <p data-lang-key="about-feature-1-text">Poskytujeme vysoce kvalitní právní služby s důrazem na detail a preciznost.</p>
+                          </div>
+                      </div>
+                      
+                      <div class="feature-item fade-up">
+                          <div class="feature-icon">
+                              <i class="fas fa-hand-holding-usd"></i>
+                          </div>
+                          <div class="feature-text">
+                              <div class="feature-title" data-lang-key="about-feature-2-title">Optimální cena</div>
+                              <p data-lang-key="about-feature-2-text">Nabízíme transparentní a dostupné ceny za profesionální právní služby.</p>
+                          </div>
+                      </div>
+                      
+                      <div class="feature-item fade-up">
+                          <div class="feature-icon">
+                              <i class="fas fa-user-tie"></i>
+                          </div>
+                          <div class="feature-text">
+                              <div class="feature-title" data-lang-key="about-feature-3-title">Osobní přístup</div>
+                              <p data-lang-key="about-feature-3-text">Ke každému klientovi přistupujeme individuálně s respektem k jeho specifické situaci.</p>
+                          </div>
+                      </div>
+                      
+                      <div class="feature-item fade-up">
+                          <div class="feature-icon">
+                              <i class="fas fa-globe"></i>
+                          </div>
+                          <div class="feature-text">
+                              <div class="feature-title" data-lang-key="about-feature-4-title">Vícejazyčné služby</div>
+                              <p data-lang-key="about-feature-4-text">Právní služby poskytujeme v českém a anglickém jazyce.</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <a href="#contact" class="about-cta fade-up" data-lang-key="about-contact-btn">KONTAKTUJTE NÁS</a>
+              </div>
+              
+              <div class="about-image fade-up">
                 <img src="https://i.postimg.cc/P59xJNVd/00008613.jpg" class="about-image-main" alt="O nás">
             </div>
-        </div>
-    </div>
-</section>
-
-  <!-- Services Section with updated design -->
-<section class="services modern-services" id="services">
-    <div class="container">
-        <div class="services-container">
-            <div class="section-heading fade-up">
-                <div class="section-number">02</div>
-                <h2 class="section-title" data-lang-key="services-title">Naše služby</h2>
-                <p class="section-subtitle" data-lang-key="services-subtitle">
-                    Níže uvedený přehled služeb je orientační, proto nás neváhejte kontaktovat s jakýmkoli jinými požadavky.
-                </p>
-            </div>
-            
-          
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card" data-category="property" data-service="1" data-info-text="Klikněte pro více informací">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-card-title" data-lang-key="service-1-title">Nemovitosti</h3>
-                        <p class="service-card-description" data-lang-key="service-1-description">
-                            Kompletní právní servis v oblasti nemovitostí.
-                        </p>
-                    </div>
-                    <a href="#service-modal-1" class="service-more-info" data-lang-key="service-more-info" data-service="1"> </a>
-                   
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card" data-category="business" data-service="2" data-info-text="Klikněte pro více informací">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-card-title" data-lang-key="service-2-title">Obchodní právo</h3>
-                        <p class="service-card-description" data-lang-key="service-2-description">
-                            Komplexní právní služby pro podnikatele a obchodní společnosti.
-                        </p>
-                    </div>
-                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="2"></a>
-                    
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card" data-category="business personal" data-info-text="Klikněte pro více informací">
-                    <div class="service-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-card-title" data-lang-key="service-3-title">Pracovní právo</h3>
-                        <p class="service-card-description" data-lang-key="service-3-description">
-                            Poradenství v oblasti pracovněprávních vztahů a sporů.
-                        </p>
-                    </div>
-                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="3"></a>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card" data-category="business personal property" data-info-text="Klikněte pro více informací"> 
-                    <div class="service-icon">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-card-title" data-lang-key="service-4-title">Soudní řízení</h3>
-                        <p class="service-card-description" data-lang-key="service-4-description">
-                            Zastupování klientů v soudních a správních řízeních.
-                        </p>
-                    </div>
-                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="4"></a>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card" data-category="personal" data-info-text="Klikněte pro více informací">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-card-title" data-lang-key="service-5-title">Rodinné právo</h3>
-                        <p class="service-card-description" data-lang-key="service-5-description">
-                            Komplexní právní poradenství v rodinném právu.
-                        </p>
-                    </div>
-                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="5"></a>
-                     
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card" data-category="business personal" data-info-text="Klikněte pro více informací">
-                    <div class="service-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-card-title" data-lang-key="service-6-title">Správní právo</h3>
-                        <p class="service-card-description" data-lang-key="service-6-description">
-                            Zastupování klientů ve správních řízeních.
-                        </p>
-                    </div>
-                    <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="5"></a>
-                     
-                </div>
-            </div>
-            
-            <div class="services-cta-container">
-                <p class="services-cta-text" data-lang-key="services-cta-text">
-                    Potřebujete právní služby v jiné oblasti? Neváhejte nás kontaktovat.
-                </p>
-                <a href="#contact" class="services-cta-button" data-lang-key="services-cta-button">
-                    NEZÁVAZNÁ KONZULTACE
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Service Detail Modals -->
-<!-- Modal 1 - Nemovitosti -->
-<div id="service-modal-1" class="service-modal">
-    <div class="service-modal-content">
-        <div class="service-modal-header">
-            <div class="service-modal-icon">
-                <i class="fas fa-building"></i>
-            </div>
-            <h3 class="service-modal-title" data-lang-key="modal-1-title">Nemovitosti</h3>
-            <button class="service-modal-close">&times;</button>
-        </div>
-        <div class="service-modal-body">
-            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
-            <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-1">Kupní smlouvy</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-2">Nájemní smlouvy</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-3">Zástavní práva</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-4">Věcná břemena</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-5">Úschovu finančních prostředků</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-6">Zastupování před katastrem nemovitostí</span></li>
-            </ul>
-            <p class="service-modal-description" data-lang-key="modal-1-description">
-                Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.
-            </p>
-        </div>
-        <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 2 - Obchodní právo -->
-<div id="service-modal-2" class="service-modal">
-    <div class="service-modal-content">
-        <div class="service-modal-header">
-            <div class="service-modal-icon">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <h3 class="service-modal-title" data-lang-key="modal-2-title">Obchodní právo</h3>
-            <button class="service-modal-close">&times;</button>
-        </div>
-        <div class="service-modal-body">
-            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
-            <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-1">Zakládání společností</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-2">Korporátní změny</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-3">Obchodní smlouvy</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-4">Due diligence</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-5">Zastupování ve sporech</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-6">Právní audity</span></li>
-            </ul>
-            <p class="service-modal-description" data-lang-key="modal-2-description">
-                Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.
-            </p>
-        </div>
-        <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 3 - Pracovní právo -->
-<div id="service-modal-3" class="service-modal">
-    <div class="service-modal-content">
-        <div class="service-modal-header">
-            <div class="service-modal-icon">
-                <i class="fas fa-user-tie"></i>
-            </div>
-            <h3 class="service-modal-title" data-lang-key="modal-3-title">Pracovní právo</h3>
-            <button class="service-modal-close">&times;</button>
-        </div>
-        <div class="service-modal-body">
-            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
-            <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-1">Pracovní smlouvy</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-2">Ukončení pracovního poměru</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-3">Zaměstnanecké spory</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-4">BOZP</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-5">Změny pracovních podmínek</span></li>
-            </ul>
-            <p class="service-modal-description" data-lang-key="modal-3-description">
-                Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.
-            </p>
-        </div>
-        <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 4 - Soudní řízení -->
-<div id="service-modal-4" class="service-modal">
-    <div class="service-modal-content">
-        <div class="service-modal-header">
-            <div class="service-modal-icon">
-                <i class="fas fa-gavel"></i>
-            </div>
-            <h3 class="service-modal-title" data-lang-key="modal-4-title">Soudní řízení</h3>
-            <button class="service-modal-close">&times;</button>
-        </div>
-        <div class="service-modal-body">
-            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
-            <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-1">Civilní spory</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-2">Obchodní spory</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-3">Vymáhání pohledávek</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-4">Exekuce</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-5">Zastupování u soudu</span></li>
-            </ul>
-            <p class="service-modal-description" data-lang-key="modal-4-description">
-                Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.
-            </p>
-        </div>
-        <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 5 - Rodinné právo -->
-<div id="service-modal-5" class="service-modal">
-    <div class="service-modal-content">
-        <div class="service-modal-header">
-            <div class="service-modal-icon">
-                <i class="fas fa-home"></i>
-            </div>
-            <h3 class="service-modal-title" data-lang-key="modal-5-title">Rodinné právo</h3>
-            <button class="service-modal-close">&times;</button>
-        </div>
-        <div class="service-modal-body">
-            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
-            <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-1">Rozvod manželství</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-2">Výživné</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-3">Péče o děti</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-4">Majetkové vypořádání</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-5">Předmanželské smlouvy</span></li>
-            </ul>
-            <p class="service-modal-description" data-lang-key="modal-5-description">
-                Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.
-            </p>
-        </div>
-        <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 6 - Správní právo -->
-<div id="service-modal-6" class="service-modal">
-    <div class="service-modal-content">
-        <div class="service-modal-header">
-            <div class="service-modal-icon">
-                <i class="fas fa-university"></i>
-            </div>
-            <h3 class="service-modal-title" data-lang-key="modal-6-title">Správní právo</h3>
-            <button class="service-modal-close">&times;</button>
-        </div>
-        <div class="service-modal-body">
-            <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
-            <ul class="service-modal-features">
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-1">Stavební řízení</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-2">Přestupky</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-3">Správní žaloby</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-4">Povolení a licence</span></li>
-                <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-5">Zastupování před úřady</span></li>
-            </ul>
-            <p class="service-modal-description" data-lang-key="modal-6-description">
-                Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.
-            </p>
-        </div>
-        <div class="service-modal-footer">
-            <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
-        </div>
-    </div>
-</div>
-
-<!-- Service Modal Overlay -->
-<div class="service-modal-overlay"></div>
-
-    <!-- Case Results Section -->
-    <section class="case-results section" id="results">
-        <div class="section-line"></div>
-        <div class="container">
-            <div class="case-results-container">
-                <div class="section-heading fade-up">
-                    <div class="section-number">03</div>
-                    <h2 class="section-title">Výsledky případů</h2>
-                    <p style="max-width: 600px; margin-top: 20px;">
-                        Podívejte se na některé z našich nedávných případů a výsledků.
-                    </p>
-                </div>
-                
-                <div class="results-grid">
-                    <div class="result-card fade-up">
-                        <div class="result-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <div class="result-content">
-                            <h3 class="result-title">Úspěšná akvizice nemovitosti</h3>
-                            <p class="result-description">
-                                Zastupování klienta při komplexní akvizici komerční nemovitosti v hodnotě 150 milionů Kč včetně due diligence, přípravy smluvní dokumentace a úspěšného dokončení transakce.
-                            </p>
-                            <div class="result-metrics">
-                                <div class="metric">
-                                    <div class="metric-value">150M</div>
-                                    <div class="metric-label">Hodnota transakce</div>
-                                </div>
-                                <div class="metric">
-                                    <div class="metric-value">3</div>
-                                    <div class="metric-label">Měsíce k dokončení</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-card fade-up">
-                        <div class="result-icon">
-                            <i class="fas fa-gavel"></i>
-                        </div>
-                        <div class="result-content">
-                            <h3 class="result-title">Vyhraný soudní spor</h3>
-                            <p class="result-description">
-                                Úspěšná obhajoba klienta v komplexním obchodněprávním sporu s potenciální škodou přes 20 milionů Kč. Dosažení zamítnutí žaloby a přiznání náhrady nákladů řízení.
-                            </p>
-                            <div class="result-metrics">
-                                <div class="metric">
-                                    <div class="metric-value">20M</div>
-                                    <div class="metric-label">Hodnota sporu</div>
-                                </div>
-                                <div class="metric">
-                                    <div class="metric-value">100%</div>
-                                    <div class="metric-label">Úspěšnost</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-card fade-up">
-                        <div class="result-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="result-content">
-                            <h3 class="result-title">Restrukturalizace společnosti</h3>
-                            <p class="result-description">
-                                Komplexní právní poradenství při restrukturalizaci středně velké společnosti včetně změny vlastnické struktury, pracovněprávních vztahů a smluvní dokumentace.
-                            </p>
-                            <div class="result-metrics">
-                                <div class="metric">
-                                    <div class="metric-value">45M</div>
-                                    <div class="metric-label">Obrat společnosti</div>
-                                </div>
-                                <div class="metric">
-                                    <div class="metric-value">6</div>
-                                    <div class="metric-label">Měsíců k implementaci</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="result-card fade-up">
-                        <div class="result-icon">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
-                        <div class="result-content">
-                            <h3 class="result-title">Komplexní právní audit</h3>
-                            <p class="result-description">
-                                Provedení důkladného právního auditu pro mezinárodní společnost vstupující na český trh. Identifikace a eliminace potenciálních právních rizik a nastavení vhodné struktury pro působení v ČR.
-                            </p>
-                            <div class="result-metrics">
-                                <div class="metric">
-                                    <div class="metric-value">250+</div>
-                                    <div class="metric-label">Prověřených dokumentů</div>
-                                </div>
-                                <div class="metric">
-                                    <div class="metric-value">4</div>
-                                    <div class="metric-label">Týdny k dokončení</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-<!-- Pricing Section -->
-<section class="section pricing" id="pricing">
-    <div class="section-line"></div>
-    <div class="container">
-        <div class="pricing-container">
-            <div class="section-heading fade-up">
-                <div class="section-number">04</div>
-                <h2 class="section-title" data-lang-key="pricing-title">Cenové podmínky</h2>
-                
-            </div>
-            
-           
-            
-            <!-- Hourly Rates Section -->
-            <div class="pricing-content pricing-hourly active">
-                <div class="pricing-cards">
-                    <!-- Initial Consultation Card -->
-                    <div class="pricing-card fade-up">
-                        <div class="pricing-card-header">
-                            <div class="pricing-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h3 class="pricing-card-title" data-lang-key="pricing-consultation-title">První konzultace</h3>
-                        </div>
-                        <div class="pricing-card-body">
-                            <div class="pricing-value" data-lang-key="pricing-consultation-value">
-                                <span class="pricing-free">Zdarma</span>
-                            </div>
-                            <div class="pricing-duration" data-lang-key="pricing-consultation-duration">
-                                (30 minut)
-                            </div>
-                            <ul class="pricing-features">
-                                <li data-lang-key="pricing-consultation-feature-1">
-                                    <i class="fas fa-check"></i> Seznámení s případem
-                                </li>
-                                <li data-lang-key="pricing-consultation-feature-2">
-                                    <i class="fas fa-check"></i> Úvodní právní posouzení
-                                </li>
-                                <li data-lang-key="pricing-consultation-feature-3">
-                                    <i class="fas fa-check"></i> Návrh dalšího postupu
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pricing-card-footer">
-                            <a href="#contact" class="pricing-btn btn" data-lang-key="pricing-consultation-btn">Rezervovat termín</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Standard Hourly Rate Card -->
-                    <div class="pricing-card highlighted fade-up">
-                        
-                        <div class="pricing-card-header">
-                            <div class="pricing-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3 class="pricing-card-title" data-lang-key="pricing-standard-title">Standardní hodinová sazba</h3>
-                        </div>
-                        <div class="pricing-card-body">
-                            <div class="pricing-value" data-lang-key="pricing-standard-value">
-                                od <span class="pricing-amount">2 000 Kč</span>
-                            </div>
-                            <div class="pricing-duration" data-lang-key="pricing-standard-duration">
-                                za hodinu
-                            </div>
-                            <ul class="pricing-features">
-                                <li data-lang-key="pricing-standard-feature-1">
-                                    <i class="fas fa-check"></i> Právní poradenství
-                                </li>
-                                <li data-lang-key="pricing-standard-feature-2">
-                                    <i class="fas fa-check"></i> Příprava dokumentů
-                                </li>
-                                <li data-lang-key="pricing-standard-feature-3">
-                                    <i class="fas fa-check"></i> Zastupování před úřady
-                                </li>
-                                <li data-lang-key="pricing-standard-feature-4">
-                                    <i class="fas fa-check"></i> Individuální přístup
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pricing-card-footer">
-                            <a href="#contact" class="pricing-btn btn-reversed" data-lang-key="pricing-standard-btn">Kontaktujte nás</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Complex Cases Card -->
-                    <div class="pricing-card fade-up">
-                        <div class="pricing-card-header">
-                            <div class="pricing-icon">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                            <h3 class="pricing-card-title" data-lang-key="pricing-complex-title">Komplexní případy</h3>
-                        </div>
-                        <div class="pricing-card-body">
-                            <div class="pricing-value" data-lang-key="pricing-complex-value">
-                                <span class="pricing-custom">Individuální cena</span>
-                            </div>
-                            <div class="pricing-duration" data-lang-key="pricing-complex-duration">
-                                dle náročnosti
-                            </div>
-                            <ul class="pricing-features">
-                                <li data-lang-key="pricing-complex-feature-1">
-                                    <i class="fas fa-check"></i> Složité právní případy
-                                </li>
-                                <li data-lang-key="pricing-complex-feature-2">
-                                    <i class="fas fa-check"></i> Rozsáhlá dokumentace
-                                </li>
-                                <li data-lang-key="pricing-complex-feature-3">
-                                    <i class="fas fa-check"></i> Dlouhodobá spolupráce
-                                </li>
-                                <li data-lang-key="pricing-complex-feature-4">
-                                    <i class="fas fa-check"></i> Transparentní kalkulace
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="pricing-card-footer">
-                            <a href="#contact" class="pricing-btn btn" data-lang-key="pricing-complex-btn">Vyžádat nabídku</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Package Rates Section -->
-            <div class="pricing-content pricing-packages">
-                <div class="package-info fade-up">
-                    <div class="package-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <div class="package-content">
-                        <h3 class="package-title" data-lang-key="pricing-packages-title">Paušální balíčky</h3>
-                        <p class="package-text" data-lang-key="pricing-packages-text">
-                            Nabízíme výhodné paušální "balíčky" dle specifických potřeb klienta. Pro více informací nás prosím kontaktujte.
-                        </p>
-                        <ul class="package-features">
-                            <li data-lang-key="pricing-packages-feature-1">
-                                <i class="fas fa-check"></i> Předvídatelné náklady
-                            </li>
-                            <li data-lang-key="pricing-packages-feature-2">
-                                <i class="fas fa-check"></i> Přizpůsobeno vašim potřebám
-                            </li>
-                            <li data-lang-key="pricing-packages-feature-3">
-                                <i class="fas fa-check"></i> Možnost pravidelných konzultací
-                            </li>
-                            <li data-lang-key="pricing-packages-feature-4">
-                                <i class="fas fa-check"></i> Prioritní řešení požadavků
-                            </li>
-                        </ul>
-                        <a href="#contact" class="package-btn btn-reversed" data-lang-key="pricing-packages-btn">Vyžádat individuální nabídku</a>
-                    </div>
-                </div>
-                
-                <div class="pricing-examples fade-up">
-                    <h4 class="examples-title" data-lang-key="pricing-examples-title">Příklady paušálních balíčků</h4>
-                    <div class="examples-grid">
-                        <div class="example-item">
-                            <div class="example-icon">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <h5 class="example-title" data-lang-key="pricing-example-1-title">Nemovitostní balíček</h5>
-                            <p class="example-text" data-lang-key="pricing-example-1-text">Právní servis pro realitní kanceláře a developery.</p>
-                        </div>
-                        
-                        <div class="example-item">
-                            <div class="example-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <h5 class="example-title" data-lang-key="pricing-example-2-title">Business balíček</h5>
-                            <p class="example-text" data-lang-key="pricing-example-2-text">Kompletní právní služby pro podnikatele a firmy.</p>
-                        </div>
-                        
-                        <div class="example-item">
-                            <div class="example-icon">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <h5 class="example-title" data-lang-key="pricing-example-3-title">Litigační balíček</h5>
-                            <p class="example-text" data-lang-key="pricing-example-3-text">Zastupování v soudních a správních řízeních.</p>
-                        </div>
-                        
-                        <div class="example-item">
-                            <div class="example-icon">
-                                <i class="fas fa-file-signature"></i>
-                            </div>
-                            <h5 class="example-title" data-lang-key="pricing-example-4-title">Smluvní balíček</h5>
-                            <p class="example-text" data-lang-key="pricing-example-4-text">Příprava a revize smluv a právních dokumentů.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pricing-disclaimer fade-up">
-                <p data-lang-key="pricing-disclaimer" style="text-align: left; padding-bottom: 4px;">
-                    <i class="fas fa-info-circle"></i> Všechny uvedené ceny jsou bez DPH. Konečná cena se může lišit v závislosti na konkrétních požadavcích a rozsahu poskytnutých služeb.
-                </p>
-                <p data-lang-key="bar-certification-text" style="text-align: left; padding-bottom: 4px;">
-                    <i class="fas fa-info-circle"></i>  Česká advokátní komora byla dne 5.2.2016 pověřena Ministerstvem průmyslu a obchodu ČR mimosoudním řešením spotřebitelských sporů pro oblast sporů mezi advokátem a spotřebitelem ze Smluv o poskytování právních služeb.
-                </p>
-                <p data-lang-key="bar-website" style="text-align: left;">
-                    <i class="fas fa-info-circle"></i>  Internetová stránka tohoto pověřeného subjektu je <a href="https://www.cak.cz" target="_blank" rel="noopener" style="color: #004225;">www.cak.cz</a>.
-                </p>
-            </div>
-            
-           
-            
-            
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Testimonials Section -->
-    <section class="section testimonials" id="testimonials" style="background-color: rgb(255, 255, 255);">
-        <div class="section-line"></div>
-        <div class="container">
-            <div class="testimonials-container">
-                <div class="section-heading fade-up">
-                    <div class="section-number">05</div>
-                    <h2 class="section-title">Reference klientů</h2>
-                    <p style="max-width: 600px; margin-top: 20px;">
-                        Co o nás říkají naši klienti.
-                    </p>
-                </div>
-                
-                <div class="testimonials-track">
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <p class="testimonial-text">
-                                Advokátní kancelář Šoralová mi poskytla vynikající právní služby při koupi nemovitosti. Oceňuji jejich profesionalitu, odbornost a osobní přístup. Vřele doporučuji.
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">
-                                    <img src="#" alt="Client">
-                                </div>
-                                <div class="testimonial-info">
-                                    <div class="testimonial-name">Jan Novák</div>
-                                    <div class="testimonial-position">Praha</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <p class="testimonial-text">
-                                S advokátní kanceláří Šoralová spolupracuji již několik let. Vždy mi poskytli kvalitní právní služby a poradenství. Jejich přístup je velmi profesionální a vstřícný.
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">
-                                    <img src=" #" alt="Client">
-                                </div>
-                                <div class="testimonial-info">
-                                    <div class="testimonial-name">Petr Svoboda</div>
-                                    <div class="testimonial-position">Jednatel společnosti</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-quote">"</div>
-                            <p class="testimonial-text">
-                                Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="testimonial-avatar">
-                                    <img src=" #ą" alt="Client">
-                                </div>
-                                <div class="testimonial-info">
-                                    <div class="testimonial-name">Michaela Dvořáková</div>
-                                    <div class="testimonial-position">HR manažerka</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-controls">
-                    <button class="testimonial-button prev-testimonial">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <button class="testimonial-button next-testimonial">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact" style="background-color: #fff;">
-        <div class="section-line"></div>
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-content">
-                    <div class="section-heading fade-up">
-                        <div class="section-number">06</div>
-                        <h2 class="section-title" data-lang-key="contact-heading">Kontaktujte nás</h2>
-                    </div>
-                    
-                    <p class="contact-text fade-up" data-lang-key="contact-intro-text">
-                        Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.
-                    </p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item fade-up">
-                            
-                        </div>
-                        
-                        <div class="contact-item fade-up">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-detail">
-                                <a href="tel:+420732958188">+420 732 958 188</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item fade-up">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-detail">
-                                <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item fade-up">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-detail">
-                                Po-Pá: 8:00 - 18:00<br>
-                                So-Ne: Zavřeno
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Form Section -->
-<div class="contact-form fade-up">
-    <form id="contactForm" action="https://submit-form.com/4mFZTeMSc">
-      <!-- Include the redirect field but keep it on the same page -->
-      <input type="hidden" name="_redirect" value="false">
-      
-      <div class="form-group">
-        <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
-        <input type="text" id="name" name="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
+          </div>
       </div>
-      
-      <div class="form-group">
-        <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
-        <input type="email" id="email" name="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
-        <input type="tel" id="phone" name="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
-      </div>
-      
-      <div class="form-group">
-        <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
-        <textarea id="message" name="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
-      </div>
-      
-      <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
-    </form>
-  </div>
-            </div>
-        </div>
-
-
-        
-    </section>
-
-
-
-
-    <!-- Location Section -->
-<section class="section location" id="location">
-    <div class="section-line"></div>
-    <div class="container">
-        <div class="location-container">
-            <div class="section-heading fade-up">
-                <div class="section-number">07</div>
-                <h2 class="section-title" data-lang-key="location-title">Kde nás najdete</h2>
-                <p class="section-subtitle fade-up" data-lang-key="location-subtitle">
-                    Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.
-                </p>
-            </div>
-            
-            <div class="location-content">
-                <div class="location-map-container fade-up">
-                    <div class="location-map">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.1026489202486!2d14.42054637678471!3d50.08717117152063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94ec32a6eecd%3A0xb75dc8e5d0d72e29!2sOvocn%C3%BD%20trh%2012%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto!5e0!3m2!1scs!2scz!4v1711042246575!5m2!1scs!2scz" 
-                            width="100%" 
-                            height="450" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-                
-                <div class="location-info-container fade-up">
-                    <div class="location-info">
-                        <div class="location-info-item">
-                            <div class="location-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="location-detail">
-                                <h3 class="location-info-title" data-lang-key="location-address-title">Adresa kanceláře</h3>
-                                <p class="location-text" data-lang-key="location-address">
-                                    Ovocný trh 573/12<br>
-                                    Praha 1, 110 00<br>
-                                    Česká republika
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="location-info-item">
-                            <div class="location-icon">
-                                <i class="fas fa-subway"></i>
-                            </div>
-                            <div class="location-detail">
-                                <h3 class="location-info-title" data-lang-key="location-transport-title">Dopravní spojení</h3>
-                                <p class="location-text" data-lang-key="location-transport">
-                                    <strong>Metro:</strong> Stanice Můstek (linka A, B)<br>
-                                    <strong>Tramvaj:</strong> Zastávka Národní třída<br>
-                                    <strong>Parkování:</strong> Garážový dům Kotva (5 min chůze)
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="location-info-item">
-                            <div class="location-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="location-detail">
-                                <h3 class="location-info-title" data-lang-key="location-hours-title">Otevírací doba</h3>
-                                <p class="location-text" data-lang-key="location-hours">
-                                    <strong>Po-Pá:</strong> 8:00 - 18:00<br>
-                                    <strong>So-Ne:</strong> Zavřeno<br>
-                                    <em>(Schůzky mimo otevírací dobu dle dohody)</em>
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="location-buttons">
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=Ovocný+trh+573/12,+110+00+Praha+1,+Česká+republika" target="_blank" class="location-btn btn" data-lang-key="location-directions-btn">
-                                <i class="fas fa-directions"></i> Navigovat sem
-                            </a>
-                            <a href="#contact" class="location-btn btn-reversed" data-lang-key="location-contact-btn">
-                                <i class="fas fa-phone-alt"></i> Kontaktujte nás
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-grid">
-                    <div class="footer-column">
-                        <div class="footer-logo">
-                            <div class="footer-logo-name">AK ŠORALOVÁ</div>
-                            <div class="footer-logo-tagline">Advokátní kancelář</div>
-                        </div>
-                        
-                        <p class="footer-text">
-                            V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup a flexibilitu.
-                        </p>
-                        
-                        <div class="footer-socials">
-                            <a href="https://www.linkedin.com/in/your-profile"  target="_blank" aria-label="LinkedIn" data-lang-key="footer-linkedin-aria">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3 class="footer-heading" data-lang-key="footer-services-heading">Naše služby</h3>
-                        <ul class="footer-links">
-                          <li class="footer-link-item">
-                            <a href="#services" class="footer-link" data-lang-key="service-link-real-estate">Nemovitosti</a>
-                          </li>
-                          <li class="footer-link-item">
-                            <a href="#services" class="footer-link" data-lang-key="service-link-business">Obchodní právo</a>
-                          </li>
-                          <li class="footer-link-item">
-                            <a href="#services" class="footer-link" data-lang-key="service-link-labor">Pracovní právo</a>
-                          </li>
-                          <li class="footer-link-item">
-                            <a href="#services" class="footer-link" data-lang-key="service-link-litigation">Soudní řízení</a>
-                          </li>
-                          <li class="footer-link-item">
-                            <a href="#services" class="footer-link" data-lang-key="service-link-family">Rodinné právo</a>
-                          </li>
-                          <li class="footer-link-item">
-                            <a href="#services" class="footer-link" data-lang-key="service-link-administrative">Správní právo</a>
-                          </li>
-                        </ul>
+  </section>
+  
+  <!-- Services Section -->
+  <section class="services modern-services" id="services">
+      <div class="container">
+          <div class="services-container">
+              <div class="section-heading fade-up">
+                  <div class="section-number">02</div>
+                  <h2 class="section-title" data-lang-key="services-title">Naše služby</h2>
+                  <p class="section-subtitle" data-lang-key="services-subtitle">
+                      Níže uvedený přehled služeb je orientační, proto nás neváhejte kontaktovat s jakýmkoli jinými požadavky.
+                  </p>
+              </div>
+              
+              <div class="services-grid">
+                  <!-- Service 1 -->
+                  <div class="service-card" data-category="property" data-service="1" data-info-text="Klikněte pro více informací">
+                      <div class="service-icon">
+                          <i class="fas fa-building"></i>
                       </div>
+                      <div class="service-content">
+                          <h3 class="service-card-title" data-lang-key="service-1-title">Nemovitosti</h3>
+                          <p class="service-card-description" data-lang-key="service-1-description">
+                              Kompletní právní servis v oblasti nemovitostí.
+                          </p>
+                      </div>
+                      <a href="#service-modal-1" class="service-more-info" data-lang-key="service-more-info" data-service="1"> </a>
+                  </div>
+                  
+                  <!-- Service 2 -->
+                  <div class="service-card" data-category="business" data-service="2" data-info-text="Klikněte pro více informací">
+                      <div class="service-icon">
+                          <i class="fas fa-briefcase"></i>
+                      </div>
+                      <div class="service-content">
+                          <h3 class="service-card-title" data-lang-key="service-2-title">Obchodní právo</h3>
+                          <p class="service-card-description" data-lang-key="service-2-description">
+                              Komplexní právní služby pro podnikatele a obchodní společnosti.
+                          </p>
+                      </div>
+                      <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="2"></a>
+                  </div>
+                  
+                  <!-- Service 3 -->
+                  <div class="service-card" data-category="business personal" data-info-text="Klikněte pro více informací">
+                      <div class="service-icon">
+                          <i class="fas fa-user-tie"></i>
+                      </div>
+                      <div class="service-content">
+                          <h3 class="service-card-title" data-lang-key="service-3-title">Pracovní právo</h3>
+                          <p class="service-card-description" data-lang-key="service-3-description">
+                              Poradenství v oblasti pracovněprávních vztahů a sporů.
+                          </p>
+                      </div>
+                      <a href="#service-modal-3" class="service-more-info" data-lang-key="service-more-info" data-service="3"></a>
+                  </div>
+                  
+                  <!-- Service 4 -->
+                  <div class="service-card" data-category="business personal property" data-info-text="Klikněte pro více informací"> 
+                      <div class="service-icon">
+                          <i class="fas fa-gavel"></i>
+                      </div>
+                      <div class="service-content">
+                          <h3 class="service-card-title" data-lang-key="service-4-title">Soudní řízení</h3>
+                          <p class="service-card-description" data-lang-key="service-4-description">
+                              Zastupování klientů v soudních a správních řízeních.
+                          </p>
+                      </div>
+                      <a href="#service-modal-4" class="service-more-info" data-lang-key="service-more-info" data-service="4"></a>
+                  </div>
+                  
+                  <!-- Service 5 -->
+                  <div class="service-card" data-category="personal" data-info-text="Klikněte pro více informací">
+                      <div class="service-icon">
+                          <i class="fas fa-home"></i>
+                      </div>
+                      <div class="service-content">
+                          <h3 class="service-card-title" data-lang-key="service-5-title">Rodinné právo</h3>
+                          <p class="service-card-description" data-lang-key="service-5-description">
+                              Komplexní právní poradenství v rodinném právu.
+                          </p>
+                      </div>
+                      <a href="#service-modal-5" class="service-more-info" data-lang-key="service-more-info" data-service="5"></a>
+                  </div>
+                  
+                  <!-- Service 6 -->
+                  <div class="service-card" data-category="business personal" data-info-text="Klikněte pro více informací">
+                      <div class="service-icon">
+                          <i class="fas fa-university"></i>
+                      </div>
+                      <div class="service-content">
+                          <h3 class="service-card-title" data-lang-key="service-6-title">Správní právo</h3>
+                          <p class="service-card-description" data-lang-key="service-6-description">
+                              Zastupování klientů ve správních řízeních.
+                          </p>
+                      </div>
+                      <a href="#service-modal-6" class="service-more-info" data-lang-key="service-more-info" data-service="6"></a>
+                  </div>
+              </div>
+              
+              <div class="services-cta-container">
+                  <p class="services-cta-text" data-lang-key="services-cta-text">
+                      Potřebujete právní služby v jiné oblasti? Neváhejte nás kontaktovat.
+                  </p>
+                  <a href="#contact" class="services-cta-button" data-lang-key="services-cta-button">
+                      NEZÁVAZNÁ KONZULTACE
+                  </a>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Case Results Section - Updated Version -->
+  <section class="case-results section" id="results">
+      <div class="section-line"></div>
+      <div class="container">
+          <div class="case-results-container">
+              <div class="section-heading fade-up">
+                  <div class="section-number">03</div>
+                  <h2 class="section-title">Výsledky případů</h2>
+                  <p style="max-width: 600px; margin-top: 20px;">
+                      Podívejte se na některé z našich nedávných případů a výsledků.
+                  </p>
+              </div>
+              
+              <div class="results-grid">
+                  <!-- Case Result 1 -->
+                  <div class="result-card fade-up" data-result="1" data-info-text="Klikněte pro více informací">
+                      <div class="result-icon">
+                          <i class="fas fa-gavel"></i>
+                      </div>
+                      <div class="result-content">
+                          <h3 class="result-title">Výkon práva, který odpovídá zákonu, může být v rozporu s dobrými mravy</h3>
+                          <p class="result-description">
+                              Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20 judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy.
+                          </p>
+                          <a href="#result-modal-1" class="result-more-info" data-result="1">Více informací</a>
+                      </div>
+                  </div>
+                  
+                  <!-- Case Result 2 -->
+                  <div class="result-card fade-up" data-result="2" data-info-text="Klikněte pro více informací">
+                      <div class="result-icon">
+                          <i class="fas fa-balance-scale"></i>
+                      </div>
+                      <div class="result-content">
+                          <h3 class="result-title">Dohoda o vypořádání společného jmění manželů v režimu rozvodu podle ust. § 757 NOZ a odstoupení od ní</h3>
+                          <p class="result-description">
+                              Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. § 757 NOZ.
+                          </p>
+                          <a href="#result-modal-2" class="result-more-info" data-result="2">Více informací</a>
+                      </div>
+                  </div>
+                  
+                  <!-- Case Result 3 -->
+                  <div class="result-card fade-up" data-result="3" data-info-text="Klikněte pro více informací">
+                      <div class="result-icon">
+                          <i class="fas fa-file-invoice-dollar"></i>
+                      </div>
+                      <div class="result-content">
+                          <h3 class="result-title">Zahájení insolvenčního řízení nebrání podání žaloby o nových pohledávkách</h3>
+                          <p class="result-description">
+                              Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek.
+                          </p>
+                          <a href="#result-modal-3" class="result-more-info" data-result="3">Více informací</a>
+                      </div>
+                  </div>
+                  
+                  <!-- Case Result 4 -->
+                  <div class="result-card fade-up" data-result="4" data-info-text="Klikněte pro více informací">
+                      <div class="result-icon">
+                          <i class="fas fa-user-tie"></i>
+                      </div>
+                      <div class="result-content">
+                          <h3 class="result-title">Rozhodnutí o organizační změně učiněné zástupcem zaměstnavatele</h3>
+                          <p class="result-description">
+                              V posuzované věci se jednalo o situaci, kdy byla zaměstnanci udělena výpověď podle ust. § 52 písm. c) zákoníku práce, přičemž předmětnou organizační změnu nepřijal statutární orgán společnosti.
+                          </p>
+                          <a href="#result-modal-4" class="result-more-info" data-result="4">(Více informací)</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="section testimonials" id="testimonials" style="background-color: rgb(255, 255, 255);">
+      <div class="section-line"></div>
+      <div class="container">
+          <div class="testimonials-container">
+              <div class="section-heading fade-up">
+                  <div class="section-number">04</div>
+                  <h2 class="section-title">Reference klientů</h2>
+                  <p style="max-width: 600px; margin-top: 20px;">
+                      Co o nás říkají naši klienti.
+                  </p>
+              </div>
+              
+              <div class="testimonials-track">
+                  <div class="testimonial-slide">
+                      <div class="testimonial-card">
+                          <div class="testimonial-quote">"</div>
+                          <p class="testimonial-text">
+                            Lucia mi vylepšila dohodu o ukončení pracovního poměru, což mi přineslo značné výhody. Její komunikace byla skvělá – angličtina bezchybná a odpovídala vždy velmi rychle. Zastupovala mě i při jednáních se společností, což mi dodalo sebevědomí ohledně mého případu. Vřele ji doporučuji každému, kdo potřebuje právní pomoc.
+                          </p>
+                          
+                      </div>
+                  </div>
+                  
+                  <div class="testimonial-slide">
+                      <div class="testimonial-card">
+                          <div class="testimonial-quote">"</div>
+                          <p class="testimonial-text">
+                            Lucia pro mě opravdu udělala maximum, když jsem nedávno kupoval byt a potřeboval jsem za rozumnou cenu zkontrolovat smlouvy. Kládala přesně ty otázky, které by se mi ani nenapadly, a upozornila mě na věci, na které jsem nevěděl, že je třeba se zeptat. Díky jejím hlubokým znalostem českého práva jsem se cítil naprosto v bezpečí. Určitě bych se na ni opět obrátil.
+                          </p>
+                          
+                      </div>
+                  </div>
+                  
+                  <div class="testimonial-slide">
+                      <div class="testimonial-card">
+                          <div class="testimonial-quote">"</div>
+                          <p class="testimonial-text">
+                            Lucia mi pomohla vypovědět nájemní smlouvu, když můj pronajímatel trval na tom, že to není možné. Vysvětlila mi všechny podrobnosti smlouvy, které jsem potřeboval znát.
+                          </p>
+                          
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="testimonial-controls">
+                  <button class="testimonial-button prev-testimonial">
+                      <i class="fas fa-arrow-left"></i>
+                  </button>
+                  <button class="testimonial-button next-testimonial">
+                      <i class="fas fa-arrow-right"></i>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="section contact" id="contact" style="background-color: #fff;">
+      <div class="section-line"></div>
+      <div class="container">
+          <div class="contact-container">
+              <div class="contact-content">
+                  <div class="section-heading fade-up">
+                      <div class="section-number">05</div>
+                      <h2 class="section-title" data-lang-key="contact-heading">Kontaktujte nás</h2>
+                  </div>
+                  
+                  <p class="contact-text fade-up" data-lang-key="contact-intro-text">
+                      Neváhejte nás kontaktovat s jakýmikoliv dotazy nebo požadavky. Jsme připraveni vám poskytnout kvalitní právní služby a poradenství.
+                  </p>
+                  
+                  <div class="contact-info">
+                      <div class="contact-item fade-up">
+                          
+                      </div>
+                      
+                      <div class="contact-item fade-up">
+                          <div class="contact-icon">
+                              <i class="fas fa-phone-alt"></i>
+                          </div>
+                          <div class="contact-detail">
+                              <a href="tel:+420732958188">+420 732 958 188</a>
+                          </div>
+                      </div>
+                      
+                      <div class="contact-item fade-up">
+                          <div class="contact-icon">
+                              <i class="fas fa-envelope"></i>
+                          </div>
+                          <div class="contact-detail">
+                              <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
+                          </div>
+                      </div>
+                      
+                      <div class="contact-item fade-up">
+                          <div class="contact-icon">
+                              <i class="fas fa-clock"></i>
+                          </div>
+                          <div class="contact-detail">
+                              Po-Pá: 9:00 - 17:00<br>
+                              So-Ne: Zavřeno
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Contact Form Section -->
+              <div class="contact-form fade-up">
+                  <form id="contactForm" action="https://submit-form.com/4mFZTeMSc">
+                    <!-- Include the redirect field but keep it on the same page -->
+                    <input type="hidden" name="_redirect" value="false">
                     
-                    <div class="footer-column">
-                        <h3 class="footer-heading" data-lang-key="footer-contact-heading">Kontaktní údaje</h3>
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="footer-contact-text">
-                                Ovocný trh 573/12<br>
-                                Praha 1, 110 00<br>
-                                 
-                            </div>
-                        </div>
-                        
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="footer-contact-text">
-                                <a href="tel:+420732958188">+420 732 958 188</a>
-                            </div>
-                        </div>
-                        
-                        <div class="footer-contact-item">
-                            <div class="footer-contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="footer-contact-text">
-                                <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <div class="footer-copyright" data-lang-key="footer-copyright">
-                        © 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.PNHMEDIA.com" class="footer-link" target="_blank">PNH MEDIA</a>
+                    <div class="form-group">
+                      <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
+                      <input type="text" id="name" name="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
                     </div>
                     
-                    <div class="footer-legal">
-                        <a href="#" class="footer-legal-link" data-lang-key="footer-terms">Podmínky použití</a>
-                        <a href="#" class="footer-legal-link" data-lang-key="footer-privacy">Ochrana osobních údajů</a>
-                        <a href="#" class="footer-legal-link" data-lang-key="footer-cookies">Zásady cookies</a>
+                    <div class="form-group">
+                      <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
+                      <input type="email" id="email" name="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
                     </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+                    
+                    <div class="form-group">
+                      <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
+                      <input type="tel" id="phone" name="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
+                      <textarea id="message" name="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Location Section -->
+  <section class="section location" id="location">
+      <div class="section-line"></div>
+      <div class="container">
+          <div class="location-container">
+              <div class="section-heading fade-up">
+                  <div class="section-number">06</div>
+                  <h2 class="section-title" data-lang-key="location-title">Kde nás najdete</h2>
+                  <p class="section-subtitle fade-up" data-lang-key="location-subtitle">
+                      Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.
+                  </p>
+              </div>
+              
+              <div class="location-content">
+                  <div class="location-map-container fade-up">
+                      <div class="location-map">
+                          <iframe 
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.1026489202486!2d14.42054637678471!3d50.08717117152063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94ec32a6eecd%3A0xb75dc8e5d0d72e29!2sOvocn%C3%BD%20trh%2012%2C%20110%2000%20Star%C3%A9%20M%C4%9Bsto!5e0!3m2!1scs!2scz!4v1711042246575!5m2!1scs!2scz" 
+                              width="100%" 
+                              height="450" 
+                              style="border:0;" 
+                              allowfullscreen="" 
+                              loading="lazy" 
+                              referrerpolicy="no-referrer-when-downgrade">
+                          </iframe>
+                      </div>
+                  </div>
+                  
+                  <div class="location-info-container fade-up">
+                      <div class="location-info">
+                          <div class="location-info-item">
+                              <div class="location-icon">
+                                  <i class="fas fa-map-marker-alt"></i>
+                              </div>
+                              <div class="location-detail">
+                                  <h3 class="location-info-title" data-lang-key="location-address-title">Adresa kanceláře</h3>
+                                  <p class="location-text" data-lang-key="location-address">
+                                      Ovocný trh 573/12<br>
+                                      Praha 1, 110 00<br>
+                                      Česká republika
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="location-info-item">
+                              <div class="location-icon">
+                                  <i class="fas fa-subway"></i>
+                              </div>
+                              <div class="location-detail">
+                                  <h3 class="location-info-title" data-lang-key="location-transport-title">Dopravní spojení</h3>
+                                  <p class="location-text" data-lang-key="location-transport">
+                                      <strong>Metro:</strong> Stanice Můstek (linka A, B) / Náměstí Republiky (linka B)<br>
+                                      <strong>Tramvaj:</strong> Zastávka Náměstí Republiky<br>
+                                      <strong>Parkování:</strong> Garáže Palladium (7 min chůze)
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="location-info-item">
+                              <div class="location-icon">
+                                  <i class="fas fa-clock"></i>
+                              </div>
+                              <div class="location-detail">
+                                  <h3 class="location-info-title" data-lang-key="location-hours-title">Otevírací doba</h3>
+                                  <p class="location-text" data-lang-key="location-hours">
+                                      <strong>Po-Pá:</strong> 8:00 - 18:00<br>
+                                      <strong>So-Ne:</strong> Zavřeno<br>
+                                      <em>(Schůzky mimo otevírací dobu dle dohody)</em>
+                                  </p>
+                              </div>
+                          </div>
+                          
+                          <div class="location-buttons">
+                              <a href="https://www.google.com/maps/dir/?api=1&destination=Ovocný+trh+573/12,+110+00+Praha+1,+Česká+republika" target="_blank" class="location-btn btn" data-lang-key="location-directions-btn">
+                                  <i class="fas fa-directions"></i> Navigovat sem
+                              </a>
+                              <a href="#contact" class="location-btn btn-reversed" data-lang-key="location-contact-btn">
+                                  <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  
+  
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+          <div class="footer-container">
+              <div class="footer-grid">
+                  <div class="footer-column">
+                      <div class="footer-logo">
+                          <div class="footer-logo-name">AK ŠORALOVÁ</div>
+                          <div class="footer-logo-tagline">Advokátní kancelář</div>
+                      </div>
+                      
+                      <p class="footer-text">
+                          V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup a flexibilitu.
+                      </p>
+                      
+                      <div class="footer-socials">
+                          <a href="https://www.linkedin.com/in/lucia-šoralová-0b66b54a"  target="_blank" aria-label="LinkedIn" data-lang-key="footer-linkedin-aria">
+                              <i class="fab fa-linkedin-in"></i>
+                          </a>
+                      </div>
+                  </div>
+                  
+                  <div class="footer-column">
+                      <h3 class="footer-heading" data-lang-key="footer-services-heading">Naše služby</h3>
+                      <ul class="footer-links">
+                        <li class="footer-link-item">
+                          <a href="#services" class="footer-link" data-lang-key="service-link-real-estate">Nemovitosti</a>
+                        </li>
+                        <li class="footer-link-item">
+                          <a href="#services" class="footer-link" data-lang-key="service-link-business">Obchodní právo</a>
+                        </li>
+                        <li class="footer-link-item">
+                          <a href="#services" class="footer-link" data-lang-key="service-link-labor">Pracovní právo</a>
+                        </li>
+                        <li class="footer-link-item">
+                          <a href="#services" class="footer-link" data-lang-key="service-link-litigation">Soudní řízení</a>
+                        </li>
+                        <li class="footer-link-item">
+                          <a href="#services" class="footer-link" data-lang-key="service-link-family">Rodinné právo</a>
+                        </li>
+                        <li class="footer-link-item">
+                          <a href="#services" class="footer-link" data-lang-key="service-link-administrative">Správní právo</a>
+                        </li>
+                      </ul>
+                    </div>
+                  
+                  <div class="footer-column">
+                      <h3 class="footer-heading" data-lang-key="footer-contact-heading">Kontaktní údaje</h3>
+                      <div class="footer-contact-item">
+                          <div class="footer-contact-icon">
+                              <i class="fas fa-map-marker-alt"></i>
+                          </div>
+                          <div class="footer-contact-text">
+                              Ovocný trh 573/12<br>
+                              Praha 1, 110 00<br>
+                               
+                          </div>
+                      </div>
+                      
+                      <div class="footer-contact-item">
+                          <div class="footer-contact-icon">
+                              <i class="fas fa-phone-alt"></i>
+                          </div>
+                          <div class="footer-contact-text">
+                              <a href="tel:+420732958188">+420 732 958 188</a>
+                          </div>
+                      </div>
+                      
+                      <div class="footer-contact-item">
+                          <div class="footer-contact-icon">
+                              <i class="fas fa-envelope"></i>
+                          </div>
+                          <div class="footer-contact-text">
+                              <a href="mailto:soralova@ak-soralova.cz">soralova@ak-soralova.cz</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="footer-bottom">
+                  <div class="footer-copyright" data-lang-key="footer-copyright">
+                      © 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.PNHMEDIA.com" class="footer-link" target="_blank">PNH MEDIA</a>
+                  </div>
+                  
+                  <div class="footer-legal">
+                      <a href="#" class="footer-legal-link" data-lang-key="footer-terms">Podmínky použití</a>
+                      <a href="#" class="footer-legal-link" data-lang-key="footer-privacy">Ochrana osobních údajů</a>
+                      <a href="#" class="footer-legal-link" data-lang-key="footer-cookies">Zásady cookies</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+  <!-- Service Detail Modals -->
+  <!-- Modal 1 - Nemovitosti -->
+  <div id="service-modal-1" class="service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-building"></i>
+              </div>
+              <h3 class="service-modal-title" data-lang-key="modal-1-title">Nemovitosti</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              <ul class="service-modal-features">
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-1">Kupní smlouvy</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-2">Nájemní smlouvy</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-3">Zástavní práva</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-4">Věcná břemena</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-5">Úschovu finančních prostředků</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-1-feature-6">Zastupování před katastrem nemovitostí</span></li>
+              </ul>
+              <p class="service-modal-description" data-lang-key="modal-1-description">
+                  Kompletní právní servis v oblasti nemovitostí včetně převodů nemovitostí, přípravy smluvní dokumentace a poradenství.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 2 - Obchodní právo -->
+  <div id="service-modal-2" class="service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-briefcase"></i>
+              </div>
+              <h3 class="service-modal-title" data-lang-key="modal-2-title">Obchodní právo</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              <ul class="service-modal-features">
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-1">Zakládání společností</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-2">Korporátní změny</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-3">Obchodní smlouvy</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-4">Due diligence</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-5">Zastupování ve sporech</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-2-feature-6">Právní audity</span></li>
+              </ul>
+              <p class="service-modal-description" data-lang-key="modal-2-description">
+                  Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 3 - Pracovní právo -->
+  <div id="service-modal-3" class="service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-user-tie"></i>
+              </div>
+              <h3 class="service-modal-title" data-lang-key="modal-3-title">Pracovní právo</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              <ul class="service-modal-features">
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-1">Pracovní smlouvy</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-2">Ukončení pracovního poměru</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-3">Zaměstnanecké spory</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-4">BOZP</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-3-feature-5">Změny pracovních podmínek</span></li>
+              </ul>
+              <p class="service-modal-description" data-lang-key="modal-3-description">
+                  Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 4 - Soudní řízení -->
+  <div id="service-modal-4" class="service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-gavel"></i>
+              </div>
+              <h3 class="service-modal-title" data-lang-key="modal-4-title">Soudní řízení</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              <ul class="service-modal-features">
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-1">Civilní spory</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-2">Obchodní spory</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-3">Vymáhání pohledávek</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-4">Exekuce</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-4-feature-5">Zastupování u soudu</span></li>
+              </ul>
+              <p class="service-modal-description" data-lang-key="modal-4-description">
+                  Zastupování klientů v soudních a správních řízeních, příprava podání, odborné právní poradenství.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 5 - Rodinné právo -->
+  <div id="service-modal-5" class="service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-home"></i>
+              </div>
+              <h3 class="service-modal-title" data-lang-key="modal-5-title">Rodinné právo</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              <ul class="service-modal-features">
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-1">Rozvod manželství</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-2">Výživné</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-3">Péče o děti</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-4">Majetkové vypořádání</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-5-feature-5">Předmanželské smlouvy</span></li>
+              </ul>
+              <p class="service-modal-description" data-lang-key="modal-5-description">
+                  Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 6 - Správní právo -->
+  <div id="service-modal-6" class="service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-university"></i>
+              </div>
+              <h3 class="service-modal-title" data-lang-key="modal-6-title">Správní právo</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              <ul class="service-modal-features">
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-1">Stavební řízení</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-2">Přestupky</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-3">Správní žaloby</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-4">Povolení a licence</span></li>
+                  <li><i class="fas fa-check"></i> <span data-lang-key="modal-6-feature-5">Zastupování před úřady</span></li>
+              </ul>
+              <p class="service-modal-description" data-lang-key="modal-6-description">
+                  Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta" data-lang-key="modal-contact-btn">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Case Results Modals -->
+  <!-- Modal 1 -->
+  <div id="result-modal-1" class="result-modal service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-gavel"></i>
+              </div>
+              <h3 class="service-modal-title">Výkon práva, který odpovídá zákonu, může být v rozporu s dobrými mravy</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <p class="service-modal-description">
+                  Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20
+                  judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy.
+                  Senát Ústavního soudu v této věci uzavřel, že:
+              </p>
+              <p class="service-modal-description">
+                  „Korektiv dobrých mravů považuje za souhrn etických, obecně uznávaných a zachovávaných zásad,
+                  jejichž dodržování je mnohdy zajišťováno i právními normami tak, aby každé jednání bylo v souladu s
+                  obecnými morálními zásadami demokratické společnosti.
+              </p>
+              <p class="service-modal-description">
+                  Přitom není vyloučeno, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s
+                  dobrými mravy a že mu proto bude soudem odepřena právní ochrana, a to zejména tehdy, je-li
+                  zřejmé, že výkon práva vede k nepřijatelným důsledkům projevujícím se jak mezi účastníky, tak na
+                  postavení některého z nich navenek."
+              </p>
+              <p class="service-modal-description">
+                  Podstatou posuzované věci bylo odstoupení od kupní smlouvy, to však po více něž šesti letech od
+                  data jejího uzavření, ze strany prodávající a domáhání se určení vlastnického práva k převedené
+                  jednotce, a to z důvodu údajné neplatnosti smlouvy o nájmu bytu (uzavřené v návaznosti na
+                  předmětnou kupní smlouvu, kdy se prodávající dostala do finančních problémů, exekucí a hrozilo, že
+                  přijde i o byt, přičemž stěžovatelka od ní byt odkoupila za cenu stanovenou znaleckým posudkem
+                  s tím, že uhradila dluhy prodávající a na zbytek kupní ceny sjednala s prodávající jakožto nájemcem
+                  smlouvu o nájmu k předmětnému bytu).
+              </p>
+              <p class="service-modal-description">
+                  Ústavní soud ČR na rozdíl od obecných soudů shledal toto jednání prodávající, v předmětné věci
+                  žalobkyně, účelovým a odporujícím dobrým mravům. Odstoupení od kupní smlouvy, i když jinak
+                  splňující požadavky zákona, tak dle názoru Ústavního soudu představuje výkon práva, který vede
+                  k nepřijatelným důsledkům projevujícím se jak mezi účastníky, tak v postavení některého z nich
+                  navenek a je tedy v rozporu s dobrými mravy.
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 2 -->
+  <div id="result-modal-2" class="result-modal service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-balance-scale"></i>
+              </div>
+              <h3 class="service-modal-title">Dohoda o vypořádání společného jmění manželů v režimu rozvodu podle ust. § 757 NOZ a odstoupení od ní</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <p class="service-modal-description">
+                  Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je
+                  dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. §
+                  757 NOZ.
+              </p>
+              <p class="service-modal-description">
+                  Již judikatura v režimu zákona o rodině se ustálila na závěru, že pokud je v dohodě podle ust. § 24a
+                  již zrušeného zákona o rodině (nyní § 757 NOZ) uvedeno, že se jedná o dohodu podle ust. § 24a ZOR,
+                  je nutno z tohoto vycházet a dohodu považovat za platnou a účinnou pouze v případě rozvodu bez
+                  zjišťování příčin rozvratu manželství. Jinými slovy, pokud by z jakéhokoliv důvodu došlo k odstoupení
+                  od dohody upravující pro dobu po rozvodu jejich majetkové poměry, bydlení a případně výživné
+                  jedním z manželů, případně oběma manžely, je nutno tuto skutečnost posoudit tak, že nejsou
+                  splněny podmínky rozvodu podle ust. § 757 NOZ (§24a zákona o rodině) a soud tak musí dále
+                  postupovat jako v případě rozvodu se zjišťováním příčin rozvratu, přičemž společné jmění manželů,
+                  které rozvodem ex lege zaniká, se považuje za nevypořádané a je nutno jej vypořádat zákonem
+                  předvídaným způsobem, tedy uzavřít novou dohodu ohledně vypořádaní ohledně zaniklého
+                  společného jmění manželů, nebo podat k soudu návrh na vypořádání společného jmění.
+              </p>
+              <p class="service-modal-description">
+                  Nejvyšší soud ČR v rozsudku ve věci vedené pod 22 Cdo 2529/2019 ze dne 30.10.2019 jednoznačně
+                  dovodil, že „Pokud pak k rozvodu podle § 757 o. z. nedojde, bude mezi manžely platit majetkový
+                  režim, jako by daná dohoda vůbec nevznikla."
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 3 -->
+  <div id="result-modal-3" class="result-modal service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-file-invoice-dollar"></i>
+              </div>
+              <h3 class="service-modal-title">Zahájení insolvenčního řízení nebrání podání žaloby o nových pohledávkách, které vznikly teprve po zahájení insolvenčního řízení dlužníka/žalovaného</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <p class="service-modal-description">
+                  Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli
+                  vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek a
+                  žádným způsobem nesouvisí s insolvenčním řízením. Nově vzniklé pohledávky věřitelů, které
+                  nemohly být uplatněny v insolvenčním řízení přihláškou, jelikož v té době neexistovaly, je možné
+                  uplatnit u soudu žalobou a o této žalobě je možné rozhodnout a přiznat věřiteli právo či pohledávku.
+                  Neuplatní se zde účinky spojené se zahájením insolvenčního řízení uvedené v § 109 odst. 1 písm. a)
+                  ani účinky zákazu zahájení nových řízení podle § 140c.
+              </p>
+              <p class="service-modal-description">
+                  K tomuto závěru dospěl Nejvyšší soud ČR ve svém rozhodnutí ze dne 31.07.2019, č.j. 29 Cdo
+                  3651/2017, kde jednoznačně vyložil: „Jestliže sporná pohledávka, jejíž úhrady se žalobkyně domáhá
+                  podanou žalobou, měla podle tvrzení obsažených v žalobě vzniknout až po rozhodnutí o úpadku
+                  žalovaného dlužníka (v posuzovaném případě šlo o dlužné platby za dodávky elektřiny provedené v
+                  období od 16. září 2014 do 24. března 2015, přičemž o úpadku dlužníka bylo rozhodnuto dne 16. září
+                  2014) a současně taková pohledávka není zahrnuta v taxativním výčtu pohledávek za majetkovou
+                  podstatou a pohledávek postavených jim na roveň, obsaženém v § 168 a § 169 insolvenčního zákona,
+                  jde o pohledávku, která se v insolvenčním řízení žádným způsobem z majetkové podstaty dlužníka
+                  neuspokojuje. Taková pohledávka nemusela být v insolvenčním řízení uplatněna přihláškou a režim
+                  ustanovení § 140c insolvenčního zákona se na ni zjevně nevztahuje.
+              </p>
+              <p class="service-modal-description">
+                  Jinak řečeno, jestliže ke dni rozhodnutí o úpadku dlužníka (žalovaného) neexistovala (byť dosud jako
+                  nesplatná či jako vázaná na podmínku) sporná pohledávka, nemohla ji žalobkyně ani přihlásit do
+                  insolvenčního řízení dlužníka. Podání žaloby o zaplacení takové pohledávky pak nemůže představovat
+                  ani porušení zákazu formulovaného v ustanovení § 140c insolvenčního zákona."
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Modal 4 -->
+  <div id="result-modal-4" class="result-modal service-modal">
+      <div class="service-modal-content">
+          <div class="service-modal-header">
+              <div class="service-modal-icon">
+                  <i class="fas fa-user-tie"></i>
+              </div>
+              <h3 class="service-modal-title">Rozhodnutí o organizační změně učiněné zástupcem zaměstnavatele, jenž překročil své zástupčí oprávnění, jako důvod výpovědi podle ust. § 52 písm. c) zákoníku práce</h3>
+              <button class="service-modal-close">&times;</button>
+          </div>
+          <div class="service-modal-body">
+              <p class="service-modal-description">
+                  V posuzované věci se jednalo o situaci, kdy byla zaměstnanci udělena výpověď podle ust. § 52 písm.
+                  c) zákoníku práce, přičemž předmětnou organizační změnu, která měla být hmotněprávním
+                  podkladem výpovědi, nepřijal statutární orgán společnosti, nýbrž zaměstnankyně na pozici HR
+                  managera jednající na základě plné moci, která ji opravňovala vést jednání ve všech
+                  pracovněprávních vztazích. Nejvyšší soud ČR ve svém rozhodnutí pod 21 Cdo 1011/2023 ze dne
+                  29.04.2024 dovodil, že zaměstnankyně překročila své zmocnění a žalovanému zaměstnavateli se
+                  nepodařilo prokázat, že by přijetí organizační změny dodatečně schválil. Ve světle sutkových
+                  okolností bylo tedy Nejvyšším soudem zamítnuto dovolání žalované a potvrzeno rozhodnutí
+                  krajského soudu, kterým bylo určeno, že výpověď z pracovního poměru zaměstnance, žalobce, je
+                  neplatná.
+              </p>
+              <p class="service-modal-description">
+                  Jak uvedl Nejvyšší soud: „Překročí-li tedy zástupce zaměstnavatele (jak zákonný zástupce,
+                  tak zástupce na základě dohody o plné moci) při rozhodnutí o organizační změně své zástupčí
+                  oprávnění, může zaměstnavatel překročení schválit nejpozději do doručení výpovědi z pracovního
+                  poměru dané zaměstnanci pro jeho nadbytečnost. Uzavřel-li odvolací soud, že nebylo prokázáno, že
+                  by organizační změnu schválil statutární orgán žalované ještě před „výpovědí z pracovního poměru",
+                  byl na místě jeho závěr, že organizační změnu nepřijala „k tomu kompetentní osoba."
+              </p>
+          </div>
+          <div class="service-modal-footer">
+              <a href="#contact" class="service-modal-cta">Kontaktujte nás</a>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Service Modal Overlay - Used for both service and result modals -->
+  <div class="service-modal-overlay"></div>
+  
 
     <script>
-
 /**
  * AK ŠORALOVÁ Law Firm Website JavaScript
  * Comprehensive script with translations and interactive features
@@ -6103,9 +6150,113 @@ function initializeWebsite() {
   initializeAnimations();
   initializeScrollEffects();
   initializeServiceModals();
+  initializeResultModals(); // New initialization for result modals
   initializeTestimonialSlider();
   initializeContactForm();
   initializeTouchOptimizations();
+}
+
+/**
+ * ==============================================
+ * RESULT MODALS - NEW FUNCTIONALITY
+ * ==============================================
+ */
+
+/**
+ * Initialize result modals functionality
+ */
+function initializeResultModals() {
+  const resultCards = document.querySelectorAll('.result-card');
+  const resultModals = document.querySelectorAll('.result-modal');
+  const closeButtons = document.querySelectorAll('.result-modal .service-modal-close');
+  const overlay = document.querySelector('.service-modal-overlay'); // Reuse the existing service modal overlay
+  
+  if (resultCards.length === 0 || resultModals.length === 0 || !overlay) return;
+  
+  // Make result cards clickable
+  resultCards.forEach(card => {
+    const resultLink = card.querySelector('.result-more-info');
+    if (resultLink) {
+      const resultId = resultLink.getAttribute('data-result');
+      
+      // Make entire card clickable
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function(e) {
+        // Only trigger if not clicking on the existing link
+        if (!e.target.classList.contains('result-more-info')) {
+          openResultModal(resultId);
+        }
+      });
+      
+      // Keep original link functionality
+      resultLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openResultModal(resultId);
+      });
+    }
+  });
+  
+  // Close modal functionality
+  closeButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAllResultModals();
+    });
+  });
+  
+  // Close on overlay click
+  overlay.addEventListener('click', closeAllResultModals);
+  
+  // Close on ESC key (add to existing listener if needed)
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeAllResultModals();
+    }
+  });
+  
+  /**
+   * Open result modal by ID
+   * @param {string} resultId - Result ID to open modal for
+   */
+  function openResultModal(resultId) {
+    // Close any open modals first
+    closeAllResultModals();
+    if (typeof closeAllServiceModals === 'function') {
+      closeAllServiceModals(); // Also close service modals if there are any open
+    }
+    
+    // Find and open the correct modal
+    const modal = document.getElementById(`result-modal-${resultId}`);
+    if (modal) {
+      modal.classList.add('active');
+      overlay.classList.add('active');
+      
+      // Prevent background scrolling
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  
+  /**
+   * Close all result modals
+   */
+  function closeAllResultModals() {
+    resultModals.forEach(modal => {
+      modal.classList.remove('active');
+    });
+    
+    overlay.classList.remove('active');
+    
+    // Re-enable scrolling (if no service modals are open)
+    if (!document.querySelector('.service-modal.active')) {
+      document.body.style.overflow = '';
+    }
+  }
+  
+  // Make functions globally available
+  window.openResultModal = openResultModal;
+  window.closeAllResultModals = closeAllResultModals;
 }
 
 /**
@@ -6523,68 +6674,36 @@ const translations = {
     'en': 'Take a look at some of our recent cases and results.'
   },
   'result-1-title': {
-    'cz': 'Úspěšná akvizice nemovitosti',
-    'en': 'Successful Real Estate Acquisition'
+    'cz': 'Výkon práva, který odpovídá zákonu, může být v rozporu s dobrými mravy',
+    'en': 'Exercise of rights in accordance with the law may be contrary to good morals'
   },
   'result-1-description': {
-    'cz': 'Zastupování klienta při komplexní akvizici komerční nemovitosti v hodnotě 150 milionů Kč včetně due diligence, přípravy smluvní dokumentace a úspěšného dokončení transakce.',
-    'en': 'Representing a client in a complex acquisition of a commercial property worth 150 million CZK, including due diligence, preparation of contractual documentation, and successful completion of the transaction.'
-  },
-  'result-1-metric-1-label': {
-    'cz': 'Hodnota transakce',
-    'en': 'Transaction Value'
-  },
-  'result-1-metric-2-label': {
-    'cz': 'Měsíce k dokončení',
-    'en': 'Months to Complete'
+    'cz': 'Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20 judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy.',
+    'en': 'By decision of May 11, 2021, the Constitutional Court of the Czech Republic in its judgment IV. ÚS 3542/20 ruled that even the exercise of a right that complies with the law may be found to be contrary to good morals.'
   },
   'result-2-title': {
-    'cz': 'Vyhraný soudní spor',
-    'en': 'Won Litigation Case'
+    'cz': 'Dohoda o vypořádání společného jmění manželů v režimu rozvodu podle ust. § 757 NOZ a odstoupení od ní',
+    'en': 'Agreement on the settlement of community property in divorce according to Section 757 of the Civil Code and withdrawal from it'
   },
   'result-2-description': {
-    'cz': 'Úspěšná obhajoba klienta v komplexním obchodněprávním sporu s potenciální škodou přes 20 milionů Kč. Dosažení zamítnutí žaloby a přiznání náhrady nákladů řízení.',
-    'en': 'Successful defense of a client in a complex commercial litigation with potential damages of over 20 million CZK. Achieved dismissal of the lawsuit and award of legal costs.'
-  },
-  'result-2-metric-1-label': {
-    'cz': 'Hodnota sporu',
-    'en': 'Dispute Value'
-  },
-  'result-2-metric-2-label': {
-    'cz': 'Úspěšnost',
-    'en': 'Success Rate'
+    'cz': 'Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. § 757 NOZ.',
+    'en': 'An interesting question concerning divorce without determining the causes of breakdown is whether an agreement concluded pursuant to Section 757(1)(c) of the Civil Code is valid only for divorce under Section 757 of the Civil Code.'
   },
   'result-3-title': {
-    'cz': 'Restrukturalizace společnosti',
-    'en': 'Company Restructuring'
+    'cz': 'Zahájení insolvenčního řízení nebrání podání žaloby o nových pohledávkách',
+    'en': 'Commencement of insolvency proceedings does not prevent filing a lawsuit for new claims'
   },
   'result-3-description': {
-    'cz': 'Komplexní právní poradenství při restrukturalizaci středně velké společnosti včetně změny vlastnické struktury, pracovněprávních vztahů a smluvní dokumentace.',
-    'en': 'Comprehensive legal advice on the restructuring of a medium-sized company, including changes in ownership structure, employment relationships, and contractual documentation.'
-  },
-  'result-3-metric-1-label': {
-    'cz': 'Obrat společnosti',
-    'en': 'Company Turnover'
-  },
-  'result-3-metric-2-label': {
-    'cz': 'Měsíců k implementaci',
-    'en': 'Months to Implement'
+    'cz': 'Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek.',
+    'en': 'The provisions of Section 140c of the Insolvency Act do not prohibit the commencement of proceedings in respect of a claim that arose for the creditor only after the debtor was declared bankrupt and the time limit for filing claims had expired.'
   },
   'result-4-title': {
-    'cz': 'Komplexní právní audit',
-    'en': 'Comprehensive Legal Audit'
+    'cz': 'Rozhodnutí o organizační změně učiněné zástupcem zaměstnavatele',
+    'en': 'Decision on organizational change made by an employer\'s representative'
   },
   'result-4-description': {
-    'cz': 'Provedení důkladného právního auditu pro mezinárodní společnost vstupující na český trh. Identifikace a eliminace potenciálních právních rizik a nastavení vhodné struktury pro působení v ČR.',
-    'en': 'Conducting a thorough legal audit for an international company entering the Czech market. Identification and elimination of potential legal risks and setting up an appropriate structure for operations in the Czech Republic.'
-  },
-  'result-4-metric-1-label': {
-    'cz': 'Prověřených dokumentů',
-    'en': 'Documents Reviewed'
-  },
-  'result-4-metric-2-label': {
-    'cz': 'Týdny k dokončení',
-    'en': 'Weeks to Complete'
+    'cz': 'V posuzované věci se jednalo o situaci, kdy byla zaměstnanci udělena výpověď podle ust. § 52 písm. c) zákoníku práce, přičemž předmětnou organizační změnu nepřijal statutární orgán společnosti.',
+    'en': 'The case concerned a situation where an employee was given notice under Section 52(c) of the Labor Code, but the organizational change in question was not adopted by the statutory body of the company.'
   },
 
   // Testimonials Section
@@ -6597,42 +6716,19 @@ const translations = {
     'en': 'What our clients say about us.'
   },
   'testimonial-1-text': {
-    'cz': 'Advokátní kancelář Šoralová mi poskytla vynikající právní služby při koupi nemovitosti. Oceňuji jejich profesionalitu, odbornost a osobní přístup. Vřele doporučuji.',
-    'en': 'Šoralová Law Firm provided me with excellent legal services when buying a property. I appreciate their professionalism, expertise, and personal approach. I highly recommend them.'
-  },
-  'testimonial-1-name': {
-    'cz': 'Jan Novák',
-    'en': 'Jan Novak'
-  },
-  'testimonial-1-position': {
-    'cz': 'Praha',
-    'en': 'Prague'
+    'cz': 'Lucia mi vylepšila dohodu o ukončení pracovního poměru, což mi přineslo značné výhody. Její komunikace byla skvělá – angličtina bezchybná a odpovídala vždy velmi rychle. Zastupovala mě i při jednáních se společností, což mi dodalo sebevědomí ohledně mého případu. Vřele ji doporučuji každému, kdo potřebuje právní pomoc.',
+    'en': 'Lucia improved my termination agreement, so that it benefited me greatly. Her communication was excellent, with perfect English, and she always responded quickly. She also represented me in discussions with the company, which gave me confidence in my case. I highly recommend her to anyone in need of legal support.'
   },
   'testimonial-2-text': {
-    'cz': 'S advokátní kanceláří Šoralová spolupracuji již několik let. Vždy mi poskytli kvalitní právní služby a poradenství. Jejich přístup je velmi profesionální a vstřícný.',
-    'en': 'I have been working with Šoralová Law Firm for several years. They have always provided me with quality legal services and advice. Their approach is very professional and accommodating.'
+    'cz': 'Lucia pro mě opravdu udělala maximum, když jsem nedávno kupoval byt a potřeboval jsem za rozumnou cenu zkontrolovat smlouvy. Kládala přesně ty otázky, které by se mi ani nenapadly, a upozornila mě na věci, na které jsem nevěděl, že je třeba se zeptat. Díky jejím hlubokým znalostem českého práva jsem se cítil naprosto v bezpečí. Určitě bych se na ni opět obrátil.',
+    'en': 'Lucia really went above and beyond for me when I recently bought a flat and needed someone to review the contracts at a reasonable price. She asked the right questions and thought of things I hadnt thought of or knew to ask. I felt completely covered through her knowledge and experience of Czech law. I would definitely use her services again.'
   },
-  'testimonial-2-name': {
-    'cz': 'Petr Svoboda',
-    'en': 'Petr Svoboda'
-  },
-  'testimonial-2-position': {
-    'cz': 'Jednatel společnosti',
-    'en': 'Company Director'
-  },
+ 
   'testimonial-3-text': {
     'cz': 'Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.',
-    'en': 'Mgr. Lucia Šoralová helped me resolve a complex employment dispute. Thanks to her experience and expertise, we achieved a very good result. I recommend her services.'
+    'en': 'Lucia mi pomohla vypovědět nájemní smlouvu, když můj pronajímatel trval na tom, že to není možné. Vysvětlila mi všechny podrobnosti smlouvy, které jsem potřeboval znát.'
   },
-  'testimonial-3-name': {
-    'cz': 'Michaela Dvořáková',
-    'en': 'Michaela Dvorakova'
-  },
-  'testimonial-3-position': {
-    'cz': 'HR manažerka',
-    'en': 'HR Manager'
-  },
-
+ 
   // Contact Section
   'contact-title': {
     'cz': 'Kontaktujte nás',
@@ -6948,9 +7044,10 @@ const translations = {
     'cz': 'Dopravní spojení',
     'en': 'Transportation'
   },
+
   'location-transport': {
-    'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B)<br><strong>Tramvaj:</strong> Zastávka Národní třída<br><strong>Parkování:</strong> Garážový dům Kotva (5 min chůze)',
-    'en': '<strong>Metro:</strong> Můstek Station (line A, B)<br><strong>Tram:</strong> Národní třída Stop<br><strong>Parking:</strong> Kotva Garage (5 min walk)'
+    'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B) / Náměstí Republiky (linka B) <br><strong>Tramvaj:</strong> Zastávka Náměstí Republiky <br><strong>Parkování:</strong> Garáže Palladium (10 min chůze)',
+    'en': '<strong>Metro:</strong> Můstek Station (line A, B) / Náměstí Republiky (line B) <br><strong>Tram:</strong> Náměstí Republiky Stop<br><strong>Parking:</strong> Palladium Garage (10 min walk)'
   },
   'location-hours-title': {
     'cz': 'Otevírací doba',
@@ -7856,55 +7953,57 @@ function initializeMetricCounters() {
       }
     });
     
-    // Animate metric values
+    // Animate metric values if they exist
     const metricValues = card.querySelectorAll('.metric-value');
-    metricValues.forEach((metric) => {
-      let originalText = metric.textContent;
-      let value = originalText;
-      let suffix = '';
-      
-      // Extract number and suffix
-      if (value.includes('M')) {
-        value = value.replace('M', '');
-        suffix = 'M';
-      } else if (value.includes('%')) {
-        value = value.replace('%', '');
-        suffix = '%';
-      } else if (value.includes('+')) {
-        value = value.replace('+', '');
-        suffix = '+';
-      }
-      
-      // Create counter animation
-      const duration = 1.5;
-      const ease = 'power2.out';
-      
-      // Set initial value to 0
-      metric.textContent = '0' + suffix;
-      
-      // Create scroll trigger for counter animation
-      ScrollTrigger.create({
-        trigger: card,
-        start: 'top 85%',
-        onEnter: () => {
-          const targetValue = parseFloat(value);
-          
-          gsap.to({value: 0}, {
-            value: targetValue,
-            duration: duration,
-            ease: ease,
-            onUpdate: function() {
-              const currentValue = Math.round(this.targets()[0].value);
-              metric.textContent = currentValue + suffix;
-            },
-            onComplete: function() {
-              metric.textContent = originalText;
-            }
-          });
-        },
-        once: true
+    if (metricValues.length > 0) {
+      metricValues.forEach((metric) => {
+        let originalText = metric.textContent;
+        let value = originalText;
+        let suffix = '';
+        
+        // Extract number and suffix
+        if (value.includes('M')) {
+          value = value.replace('M', '');
+          suffix = 'M';
+        } else if (value.includes('%')) {
+          value = value.replace('%', '');
+          suffix = '%';
+        } else if (value.includes('+')) {
+          value = value.replace('+', '');
+          suffix = '+';
+        }
+        
+        // Create counter animation
+        const duration = 1.5;
+        const ease = 'power2.out';
+        
+        // Set initial value to 0
+        metric.textContent = '0' + suffix;
+        
+        // Create scroll trigger for counter animation
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 85%',
+          onEnter: () => {
+            const targetValue = parseFloat(value);
+            
+            gsap.to({value: 0}, {
+              value: targetValue,
+              duration: duration,
+              ease: ease,
+              onUpdate: function() {
+                const currentValue = Math.round(this.targets()[0].value);
+                metric.textContent = currentValue + suffix;
+              },
+              onComplete: function() {
+                metric.textContent = originalText;
+              }
+            });
+          },
+          once: true
+        });
       });
-    });
+    }
   });
 }
 
@@ -8017,7 +8116,7 @@ function initializeCustomCursor() {
   });
   
   // Interactive element effects
-  const interactiveElements = document.querySelectorAll('a, button, .service-card, .feature-item, .result-card');
+  const interactiveElements = document.querySelectorAll('a, button, .service-card, .result-card, .feature-item');
   
   interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', () => {
@@ -8062,7 +8161,7 @@ function initializeCustomCursor() {
 function initializeServiceModals() {
   const serviceCards = document.querySelectorAll('.service-card');
   const modals = document.querySelectorAll('.service-modal');
-  const closeButtons = document.querySelectorAll('.service-modal-close');
+  const closeButtons = document.querySelectorAll('.service-modal .service-modal-close');
   const overlay = document.querySelector('.service-modal-overlay');
   
   if (serviceCards.length === 0 || modals.length === 0 || !overlay) return;
@@ -8121,6 +8220,9 @@ function initializeServiceModals() {
   function openServiceModal(serviceId) {
     // Close any open modals first
     closeAllServiceModals();
+    if (typeof closeAllResultModals === 'function') {
+      closeAllResultModals(); // Also close result modals if there are any open
+    }
     
     // Find and open the correct modal
     const modal = document.getElementById(`service-modal-${serviceId}`);
@@ -8143,8 +8245,10 @@ function initializeServiceModals() {
     
     overlay.classList.remove('active');
     
-    // Re-enable scrolling
-    document.body.style.overflow = '';
+    // Re-enable scrolling (if no result modals are open)
+    if (!document.querySelector('.result-modal.active')) {
+      document.body.style.overflow = '';
+    }
   }
 }
 
@@ -8237,8 +8341,10 @@ function initializeTestimonialSlider() {
  * ==============================================
  */
 
-// Form Animation Script with Redirect
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Initialize contact form functionality
+ */
+function initializeContactForm() {
   // Get the contact form
   const contactForm = document.querySelector('.contact-form form');
   
@@ -8280,10 +8386,13 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
           showSuccessAnimation();
           
-          // Redirect after showing success message for 2 seconds
+          // Reset form instead of redirecting
           setTimeout(() => {
-            // Redirect to the form's action URL or a specific thank you page
-            window.location.href = formAction;
+            contactForm.reset();
+            contactForm.innerHTML = originalFormHTML;
+            
+            // Re-add submit event listener
+            contactForm.addEventListener('submit', handleFormSubmit);
           }, 2000);
         }, 1000);
       } else {
@@ -8360,8 +8469,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <h3 class="animation-title">${currentLanguage === 'cz' ? 'Odesláno!' : 'Sent!'}</h3>
       <p class="animation-message">
         ${currentLanguage === 'cz' 
-          ? 'Děkujeme za Vaši zprávu. Přesměrováváme Vás...' 
-          : 'Thank you for your message. Redirecting...'}
+          ? 'Děkujeme za Vaši zprávu. Budeme Vás kontaktovat co nejdříve.' 
+          : 'Thank you for your message. We will contact you as soon as possible.'}
       </p>
     `;
     
@@ -8408,7 +8517,8 @@ document.addEventListener('DOMContentLoaded', function() {
       errorContainer.classList.add('animate');
     }, 100);
   }
-});
+}
+
 /**
  * ==============================================
  * TOUCH OPTIMIZATIONS
@@ -8444,8 +8554,28 @@ function initializeTouchOptimizations() {
     });
   });
   
+  // Remove hover effect from result cards
+  document.querySelectorAll('.result-card').forEach(card => {
+    card.addEventListener('touchstart', function() {
+      this.classList.add('touch-active');
+    });
+    
+    card.addEventListener('touchend', function() {
+      this.classList.remove('touch-active');
+      
+      // Get result ID and trigger modal open
+      const resultLink = this.querySelector('.result-more-info');
+      if (resultLink) {
+        const resultId = resultLink.getAttribute('data-result');
+        if (window.openResultModal) {
+          window.openResultModal(resultId);
+        }
+      }
+    });
+  });
+  
   // Add touch feedback for buttons
-  const touchElements = document.querySelectorAll('.btn, .footer-link, .nav-link, .about-cta, .service-more-info');
+  const touchElements = document.querySelectorAll('.btn, .footer-link, .nav-link, .about-cta, .service-more-info, .result-more-info');
   touchElements.forEach(element => {
     element.addEventListener('touchstart', function() {
       this.classList.add('touch-active');
@@ -8470,13 +8600,14 @@ function addTouchStyles() {
     .touch-device .btn:hover,
     .touch-device .about-cta:hover,
     .touch-device .service-card:hover,
-    .touch-device .feature-item:hover,
     .touch-device .result-card:hover,
+    .touch-device .feature-item:hover,
     .touch-device .testimonial-button:hover,
     .touch-device .contact-item:hover,
     .touch-device .footer-link:hover, 
     .touch-device .nav-link:hover::after,
     .touch-device .service-more-info:hover,
+    .touch-device .result-more-info:hover,
     .touch-device .footer-social-link:hover,
     .touch-device .form-submit:hover,
     .touch-device .service-modal-cta:hover,
@@ -8490,7 +8621,9 @@ function addTouchStyles() {
     .touch-device .btn:hover::before,
     .touch-device .about-cta:hover::before,
     .touch-device .service-card:hover::before,
+    .touch-device .result-card:hover::before,
     .touch-device .service-more-info:hover::after,
+    .touch-device .result-more-info:hover::after,
     .touch-device .form-submit:hover::before {
       transform: none !important;
       left: -100% !important; 
@@ -8498,8 +8631,9 @@ function addTouchStyles() {
       transition: none !important;
     }
     
-    /* Hide hover info text on service cards */
-    .touch-device .service-card::before {
+    /* Hide hover info text on service and result cards */
+    .touch-device .service-card::before,
+    .touch-device .result-card::before {
       display: none !important;
     }
     
@@ -8508,7 +8642,8 @@ function addTouchStyles() {
       opacity: 0.8 !important;
     }
     
-    .touch-device .service-card.touch-active {
+    .touch-device .service-card.touch-active,
+    .touch-device .result-card.touch-active {
       background-color: rgba(0, 0, 0, 0.02);
     }
     
@@ -8519,7 +8654,8 @@ function addTouchStyles() {
     }
     
     /* Larger touch targets */
-    .touch-device .service-modal-close {
+    .touch-device .service-modal-close,
+    .touch-device .result-modal-close {
       padding: 15px !important;
       font-size: 32px !important;
       width: 50px !important;
@@ -8575,11 +8711,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (isTouchDevice()) {
     document.body.classList.add('touch-device');
     
-    // Disable hover state on service cards and other interactive elements
+    // Disable hover state on service cards, result cards, and other interactive elements
     const interactiveElements = document.querySelectorAll(
-      '.btn, .about-cta, .service-card, .feature-item, .result-card, ' +
+      '.btn, .about-cta, .service-card, .result-card, .feature-item, ' +
       '.testimonial-button, .contact-item, .footer-link, .nav-link, ' +
-      '.service-more-info, .footer-social-link, .form-submit, ' +
+      '.service-more-info, .result-more-info, .footer-social-link, .form-submit, ' +
       '.service-modal-cta, .services-cta-button'
     );
     
@@ -8595,57 +8731,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
     
-    // Create a style element to add touch-specific CSS
-    const style = document.createElement('style');
-    style.textContent = `
-      /* Disable all hover effects on touch devices */
-      .touch-device .btn:hover,
-      .touch-device .about-cta:hover,
-      .touch-device .service-card:hover,
-      .touch-device .feature-item:hover,
-      .touch-device .result-card:hover,
-      .touch-device .testimonial-button:hover,
-      .touch-device .contact-item:hover,
-      .touch-device .footer-link:hover,
-      .touch-device .nav-link:hover::after,
-      .touch-device .service-more-info:hover,
-      .touch-device .footer-social-link:hover,
-      .touch-device .form-submit:hover,
-      .touch-device .service-modal-cta:hover,
-      .touch-device .services-cta-button:hover {
-        transform: none !important;
-        box-shadow: none !important;
-        transition: none !important;
-      }
-      
-      /* Disable pseudo-element hover effects */
-      .touch-device .btn:hover::before,
-      .touch-device .about-cta:hover::before,
-      .touch-device .service-card:hover::before,
-      .touch-device .service-more-info:hover::after,
-      .touch-device .form-submit:hover::before {
-        transform: none !important;
-        left: -100% !important; 
-        width: 0 !important;
-        transition: none !important;
-      }
-      
-      /* Hide hover info text on service cards */
-      .touch-device .service-card::before {
-        display: none !important;
-      }
-      
-      /* Touch active state styling */
-      .touch-device .touch-active {
-        opacity: 0.8 !important;
-      }
-    `;
-    
-    // Add the style element to the head
-    document.head.appendChild(style);
-    
-    // Add visual feedback for touch on service cards
-    document.querySelectorAll('.service-card').forEach(card => {
+    // Add visual feedback for touch on service and result cards
+    document.querySelectorAll('.service-card, .result-card').forEach(card => {
       card.addEventListener('touchstart', function() {
         this.style.backgroundColor = 'rgba(0, 0, 0, 0.02)';
       });
@@ -8659,7 +8746,460 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
- 
+
+// Enhanced Form Validation
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  let isValid = true;
+  
+  // Reset error messages
+  document.querySelectorAll('.form-error').forEach(el => el.remove());
+  
+  // Validate name
+  if (name === '') {
+    isValid = false;
+    showError('name', 'Prosím vyplňte vaše jméno');
+  }
+  
+  // Validate email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email === '' || !emailRegex.test(email)) {
+    isValid = false;
+    showError('email', 'Prosím vyplňte platný email');
+  }
+  
+  // Validate message
+  if (message === '') {
+    isValid = false;
+    showError('message', 'Prosím vyplňte vaši zprávu');
+  }
+  
+  if (!isValid) {
+    event.preventDefault();
+  }
+  
+  function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'form-error';
+    errorDiv.textContent = message;
+    errorDiv.style.color = '#e74c3c';
+    errorDiv.style.fontSize = '0.85rem';
+    errorDiv.style.marginTop = '5px';
+    field.parentNode.appendChild(errorDiv);
+    field.style.borderColor = '#e74c3c';
+  }
+});
+
+
+
+/**
+ * LEGAL CASE TRANSLATIONS
+ * Complete translation object for legal case modals
+ */
+ const legalCaseTranslations = {
+  // Case 1: Exercise of rights
+  'exercise-of-rights': {
+    'cz': {
+      'title': 'Výkon práva, který odpovídá zákonu, může být v rozporu s dobrými mravy',
+      'content': `
+        <p>Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20 judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy. Senát Ústavního soudu v této věci uzavřel, že:</p>
+        <p>„Korektiv dobrých mravů považuje za souhrn etických, obecně uznávaných a zachovávaných zásad, jejichž dodržování je mnohdy zajišťováno i právními normami tak, aby každé jednání bylo v souladu s obecnými morálními zásadami demokratické společnosti.</p>
+        <p>Přitom není vyloučeno, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy a že mu proto bude soudem odepřena právní ochrana, a to zejména tehdy, je-li zřejmé, že výkon práva vede k nepřijatelným důsledkům projevujícím se jak mezi účastníky, tak na postavení některého z nich navenek."</p>
+        <p>Podstatou posuzované věci bylo odstoupení od kupní smlouvy, to však po více něž šesti letech od data jejího uzavření, ze strany prodávající a domáhání se určení vlastnického práva k převedené jednotce, a to z důvodu údajné neplatnosti smlouvy o nájmu bytu (uzavřené v návaznosti na předmětnou kupní smlouvu, kdy se prodávající dostala do finančních problémů, exekucí a hrozilo, že přijde i o byt, přičemž stěžovatelka od ní byt odkoupila za cenu stanovenou znaleckým posudkem s tím, že uhradila dluhy prodávající a na zbytek kupní ceny sjednala s prodávající jakožto nájemcem smlouvu o nájmu k předmětnému bytu).</p>
+        <p>Ústavní soud ČR na rozdíl od obecných soudů shledal toto jednání prodávající, v předmětné věci žalobkyně, účelovým a odporujícím dobrým mravům. Odstoupení od kupní smlouvy, i když jinak splňující požadavky zákona, tak dle názoru Ústavního soudu představuje výkon práva, který vede k nepřijatelným důsledkům projevujícím se jak mezi účastníky, tak v postavení některého z nich navenek a je tedy v rozporu s dobrými mravy.</p>
+      `,
+      'button': 'Kontaktujte nás'
+    },
+    'en': {
+      'title': 'Exercise of rights in accordance with the law may be contrary to good morals',
+      'content': `
+        <p>By decision of May 11, 2021, the Constitutional Court of the Czech Republic in its judgment IV. ÚS 3542/20 ruled that even the exercise of a right that complies with the law may be found to be contrary to good morals. The Senate of the Constitutional Court concluded that:</p>
+        <p>"The corrective of good morals is considered to be a set of ethical, generally recognized and observed principles, the adherence to which is often ensured by legal norms so that every action is in accordance with the general moral principles of a democratic society.</p>
+        <p>It is not excluded that even the exercise of a right that complies with the law may be found contrary to good morals, and therefore legal protection may be denied by a court, especially if it is evident that the exercise of the right leads to unacceptable consequences manifested both between the parties and in the position of one of them externally."</p>
+        <p>The essence of the case was withdrawal from a purchase contract, but after more than six years from the date of its conclusion, by the seller and seeking determination of ownership rights to the transferred unit, due to the alleged invalidity of the apartment lease agreement (concluded following the purchase contract in question, when the seller got into financial problems, executions and was at risk of losing the apartment, while the complainant bought the apartment from her for a price determined by an expert opinion, paying the seller's debts and agreeing with the seller as a tenant on a lease agreement for the apartment for the remainder of the purchase price).</p>
+        <p>The Constitutional Court of the Czech Republic, unlike the general courts, found this conduct of the seller, in the case in question the plaintiff, to be purposeful and contrary to good morals. Withdrawal from the purchase contract, even if otherwise meeting the requirements of the law, thus according to the Constitutional Court represents the exercise of a right that leads to unacceptable consequences manifested both between the parties and in the position of one of them externally and is therefore contrary to good morals.</p>
+      `,
+      'button': 'Contact Us'
+    }
+  },
+  
+  // Case 2: Insolvency proceedings
+  'insolvency-proceedings': {
+    'cz': {
+      'title': 'Zahájení insolvenčního řízení nebrání podání žaloby o nových pohledávkách, které vznikly teprve po zahájení insolvenčního řízení dlužníka/žalovaného',
+      'content': `
+        <p>Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek a žádným způsobem nesouvisí s insolvenčním řízením. Nově vzniklé pohledávky věřitelů, které nemohly být uplatněny v insolvenčním řízení přihláškou, jelikož v té době neexistovaly, je možné uplatnit u soudu žalobou a o této žalobě je možné rozhodnout a přiznat věřiteli právo či pohledávku. Neuplatní se zde účinky spojené se zahájením insolvenčního řízení uvedené v § 109 odst. 1 písm. a) ani účinky zákazu zahájení nových řízení podle § 140c.</p>
+        <p>K tomuto závěru dospěl Nejvyšší soud ČR ve svém rozhodnutí ze dne 31.07.2019, č.j. 29 Cdo 3651/2017, kde jednoznačně vyložil: „Jestliže sporná pohledávka, jejíž úhrady se žalobkyně domáhá podanou žalobou, měla podle tvrzení obsažených v žalobě vzniknout až po rozhodnutí o úpadku žalovaného dlužníka (v posuzovaném případě šlo o dlužné platby za dodávky elektřiny provedené v období od 16. září 2014 do 24. března 2015, přičemž o úpadku dlužníka bylo rozhodnuto dne 16. září 2014) a současně taková pohledávka není zahrnuta v taxativním výčtu pohledávek za majetkovou podstatou a pohledávek postavených jim na roveň, obsaženém v § 168 a § 169 insolvenčního zákona, jde o pohledávku, která se v insolvenčním řízení žádným způsobem z majetkové podstaty dlužníka neuspokojuje.</p>
+        <p>Jinak řečeno, jestliže ke dni rozhodnutí o úpadku dlužníka (žalovaného) neexistovala (byť dosud jako nesplatná či jako vázaná na podmínku) sporná pohledávka, nemohla ji žalobkyně ani přihlásit do insolvenčního řízení dlužníka. Podání žaloby o zaplacení takové pohledávky pak nemůže představovat ani porušení zákazu formulovaného v ustanovení § 140c insolvenčního zákona."</p>
+      `,
+      'button': 'Kontaktujte nás'
+    },
+    'en': {
+      'title': 'Commencement of insolvency proceedings does not prevent filing a lawsuit for new claims that arose only after the commencement of the debtor\'s/defendant\'s insolvency proceedings',
+      'content': `
+        <p>The provisions of Section 140c of the Insolvency Act do not prohibit the commencement of proceedings in respect of a claim that arose for the creditor only after the debtor was declared bankrupt and the time limit for filing claims had expired and is in no way related to the insolvency proceedings. Newly arisen creditor claims that could not be filed in the insolvency proceedings because they did not exist at that time can be filed with the court by an action, and this action can be decided upon and the creditor can be granted a right or claim. The effects associated with the commencement of insolvency proceedings set out in Section 109(1)(a) and the effects of the prohibition on the commencement of new proceedings under Section 140c do not apply here.</p>
+        <p>The Supreme Court of the Czech Republic came to this conclusion in its decision of July 31, 2019, ref. no. 29 Cdo 3651/2017, where it clearly stated: "If the disputed claim, the payment of which the plaintiff seeks by the filed action, was to arise according to the claims contained in the action only after the decision on the debtor's bankruptcy (in the case in question, it concerned outstanding payments for electricity supplies made in the period from September 16, 2014 to March 24, 2015, while the debtor's bankruptcy was decided on September 16, 2014) and at the same time such a claim is not included in the exhaustive list of claims against the estate and claims equal to them, contained in § 168 and § 169 of the Insolvency Act, it is a claim that is not satisfied from the debtor's assets in insolvency proceedings in any way.</p>
+        <p>In other words, if on the date of the decision on the debtor's (defendant's) bankruptcy, the disputed claim did not exist (even as not yet due or conditional), the plaintiff could not even register it in the debtor's insolvency proceedings. Filing an action for payment of such a claim then cannot constitute a violation of the prohibition formulated in the provision of § 140c of the Insolvency Act."</p>
+      `,
+      'button': 'Contact Us'
+    }
+  },
+  
+  // Case 3: Marital property settlement
+  'marital-property': {
+    'cz': {
+      'title': 'Dohoda o vypořádání společného jmění manželů v režimu rozvodu podle ust. § 757 NOZ a odstoupení od ní',
+      'content': `
+        <p>Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. § 757 NOZ.</p>
+        <p>Již judikatura v režimu zákona o rodině se ustálila na závěru, že pokud je v dohodě podle ust. § 24a již zrušeného zákona o rodině (nyní § 757 NOZ) uvedeno, že se jedná o dohodu podle ust. § 24a ZOR, je nutno z tohoto vycházet a dohodu považovat za platnou a účinnou pouze v případě rozvodu bez zjišťování příčin rozvratu manželství. Jinými slovy, pokud by z jakéhokoliv důvodu došlo k odstoupení od dohody upravující pro dobu po rozvodu jejich majetkové poměry, bydlení a případně výživné jedním z manželů, případně oběma manžely, je nutno tuto skutečnost posoudit tak, že nejsou splněny podmínky rozvodu podle ust. § 757 NOZ (§24a zákona o rodině) a soud tak musí dále postupovat jako v případě rozvodu se zjišťováním příčin rozvratu, přičemž společné jmění manželů, které rozvodem ex lege zaniká, se považuje za nevypořádané a je nutno jej vypořádat zákonem předvídaným způsobem, tedy uzavřít novou dohodu ohledně vypořádaní ohledně zaniklého společného jmění manželů, nebo podat k soudu návrh na vypořádání společného jmění.</p>
+        <p>Nejvyšší soud ČR v rozsudku ve věci vedené pod 22 Cdo 2529/2019 ze dne 30.10.2019 jednoznačně dovodil, že „Pokud pak k rozvodu podle § 757 o. z. nedojde, bude mezi manžely platit majetkový režim, jako by daná dohoda vůbec nevznikla."</p>
+      `,
+      'button': 'Kontaktujte nás'
+    },
+    'en': {
+      'title': 'Agreement on the settlement of community property in divorce according to Section 757 of the Civil Code and withdrawal from it',
+      'content': `
+        <p>An interesting question concerning divorce without determining the causes of breakdown in general is whether an agreement concluded by spouses pursuant to Section 757(1)(c) of the Civil Code is valid only for divorce under Section 757 of the Civil Code.</p>
+        <p>Case law under the Family Act has already settled on the conclusion that if an agreement under Section 24a of the already repealed Family Act (now Section 757 of the Civil Code) states that it is an agreement under Section 24a of the Family Act, it is necessary to proceed from this and consider the agreement valid and effective only in the case of divorce without determining the causes of the breakdown of the marriage. In other words, if for any reason there is a withdrawal from the agreement regulating their property relations, housing, and possibly maintenance for the period after divorce by one of the spouses, or by both spouses, it is necessary to assess this fact as meaning that the conditions for divorce under Section 757 of the Civil Code (Section 24a of the Family Act) are not met and the court must proceed as in the case of divorce with determining the causes of breakdown, while the community property of the spouses, which terminates ex lege upon divorce, is considered unsettled and must be settled in the manner foreseen by law, i.e., conclude a new agreement regarding the settlement of the terminated community property of the spouses, or file a proposal for the settlement of community property with the court.</p>
+        <p>The Supreme Court of the Czech Republic in its judgment in case 22 Cdo 2529/2019 of October 30, 2019 clearly concluded that "If the divorce according to § 757 of the Civil Code does not take place, the property regime between the spouses will apply as if the agreement had never arisen."</p>
+      `,
+      'button': 'Contact Us'
+    }
+  },
+  
+  // Case 4: Organizational change decision
+  'organizational-change': {
+    'cz': {
+      'title': 'Rozhodnutí o organizační změně učiněné zástupcem zaměstnavatele, jenž překročil své zástupčí oprávnění, jako důvod výpovědi podle ust. § 52 písm. c) zákoníku práce',
+      'content': `
+        <p>V posuzované věci se jednalo o situaci, kdy byla zaměstnanci udělena výpověď podle ust. § 52 písm. c) zákoníku práce, přičemž předmětnou organizační změnu, která měla být hmotněprávním podkladem výpovědi, nepřijal statutární orgán společnosti, nýbrž zaměstnankyně na pozici HR managera jednající na základě plné moci, která ji opravňovala vést jednání ve všech pracovněprávních vztazích. Nejvyšší soud ČR ve svém rozhodnutí pod 21 Cdo 1011/2023 ze dne 29.04.2024 dovodil, že zaměstnankyně překročila své zmocnění a žalovanému zaměstnavateli se nepodařilo prokázat, že by přijetí organizační změny dodatečně schválil. Ve světle sutkových okolností bylo tedy Nejvyšším soudem zamítnuto dovolání žalované a potvrzeno rozhodnutí krajského soudu, kterým bylo určeno, že výpověď z pracovního poměru zaměstnance, žalobce, je neplatná.</p>
+        <p>Jak uvedl Nejvyšší soud: „Překročí-li tedy zástupce zaměstnavatele (jak zákonný zástupce, tak zástupce na základě dohody o plné moci) při rozhodnutí o organizační změně své zástupčí oprávnění, může zaměstnavatel překročení schválit nejpozději do doručení výpovědi z pracovního poměru dané zaměstnanci pro jeho nadbytečnost. Uzavřel-li odvolací soud, že nebylo prokázáno, že by organizační změnu schválil statutární orgán žalované ještě před „výpovědí z pracovního poměru", byl na místě jeho závěr, že organizační změnu nepřijala „k tomu kompetentní osoba."</p>
+      `,
+      'button': 'Kontaktujte nás'
+    },
+    'en': {
+      'title': 'Decision on organizational change made by an employer\'s representative who exceeded their authority, as grounds for termination under Section 52(c) of the Labor Code',
+      'content': `
+        <p>The case concerned a situation where an employee was given notice under Section 52(c) of the Labor Code, but the organizational change in question, which was to be the substantive legal basis for the notice, was not adopted by the statutory body of the company, but by an employee in the position of HR manager acting on the basis of a power of attorney, which authorized her to conduct negotiations in all labor-law relationships. The Supreme Court of the Czech Republic in its decision under 21 Cdo 1011/2023 of April 29, 2024 concluded that the employee exceeded her authorization and the defendant employer failed to prove that it had subsequently approved the adoption of the organizational change. In light of the factual circumstances, the Supreme Court therefore dismissed the defendant's appeal and confirmed the decision of the regional court, which determined that the termination of the employee's employment, the plaintiff, was invalid.</p>
+        <p>As the Supreme Court stated: "If, therefore, a representative of the employer (both the legal representative and the representative on the basis of a power of attorney agreement) exceeds their representative authority when deciding on an organizational change, the employer may approve the exceeding at the latest until the delivery of the notice of termination given to the employee for their redundancy. If the appellate court concluded that it was not proven that the organizational change had been approved by the statutory body of the defendant before the 'termination of employment', its conclusion that the organizational change had not been adopted by 'a person competent to do so' was appropriate."</p>
+      `,
+      'button': 'Contact Us'
+    }
+  }
+};
+
+/**
+ * Add this function to your existing code to update modal content based on language
+ * Call this when initializing and when language changes
+ */
+function updateLegalCaseModals(language) {
+  // Get all service modal elements
+  const serviceModals = document.querySelectorAll('.service-modal');
+  const resultModals = document.querySelectorAll('.result-modal');
+  
+  // Update service modals (if needed)
+  serviceModals.forEach(modal => {
+    // Get modal ID to identify which case it belongs to
+    const modalId = modal.id;
+    let caseKey = '';
+    
+    // Determine which case key to use based on modal ID
+    if (modalId.includes('service-modal-1')) {
+      caseKey = 'exercise-of-rights';
+    } else if (modalId.includes('service-modal-2')) {
+      caseKey = 'insolvency-proceedings';
+    } else if (modalId.includes('service-modal-3')) {
+      caseKey = 'marital-property';
+    } else if (modalId.includes('service-modal-4')) {
+      caseKey = 'organizational-change';
+    }
+    
+    // Update content if we have translations for this case
+    if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
+      const translation = legalCaseTranslations[caseKey][language];
+      
+      // Update title
+      const titleElement = modal.querySelector('.service-modal-title');
+      if (titleElement) {
+        titleElement.textContent = translation.title;
+      }
+      
+      // Update content (HTML)
+      const descriptionElement = modal.querySelector('.service-modal-description');
+      if (descriptionElement) {
+        // If it's a simple paragraph, update text, otherwise use innerHTML for complex content
+        if (descriptionElement.tagName === 'P') {
+          // Extract first paragraph from the HTML content
+          const firstParagraph = translation.content.split('</p>')[0].replace(/<p>/g, '');
+          descriptionElement.textContent = firstParagraph;
+        } else {
+          descriptionElement.innerHTML = translation.content;
+        }
+      }
+      
+      // Update button text
+      const buttonElement = modal.querySelector('.service-modal-cta');
+      if (buttonElement) {
+        buttonElement.textContent = translation.button;
+      }
+    }
+  });
+  
+  // Update result modals
+  resultModals.forEach(modal => {
+    // Get modal ID to identify which case it belongs to
+    const modalId = modal.id;
+    let caseKey = '';
+    
+    // Determine which case key to use based on modal ID
+    if (modalId.includes('result-modal-1')) {
+      caseKey = 'exercise-of-rights';
+    } else if (modalId.includes('result-modal-2')) {
+      caseKey = 'marital-property';
+    } else if (modalId.includes('result-modal-3')) {
+      caseKey = 'insolvency-proceedings';
+    } else if (modalId.includes('result-modal-4')) {
+      caseKey = 'organizational-change';
+    }
+    
+    // Update content if we have translations for this case
+    if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
+      const translation = legalCaseTranslations[caseKey][language];
+      
+      // Update title
+      const titleElement = modal.querySelector('.service-modal-title');
+      if (titleElement) {
+        titleElement.textContent = translation.title;
+      }
+      
+      // Update content (HTML)
+      const descriptionElement = modal.querySelector('.service-modal-description');
+      if (descriptionElement) {
+        // If it's a simple paragraph, update text, otherwise use innerHTML for complex content
+        if (descriptionElement.tagName === 'P') {
+          // Extract first paragraph from the HTML content
+          const firstParagraph = translation.content.split('</p>')[0].replace(/<p>/g, '');
+          descriptionElement.textContent = firstParagraph;
+        } else {
+          descriptionElement.innerHTML = translation.content;
+        }
+      }
+      
+      // Update button text
+      const buttonElement = modal.querySelector('.service-modal-cta');
+      if (buttonElement) {
+        buttonElement.textContent = translation.button;
+      }
+    }
+  });
+}
+
+/**
+ * Modify your existing language switcher functionality to call the modal updater
+ */
+function setLanguage(language) {
+  try {
+    // Your existing language switching code...
+    
+    // Apply translations to all elements with data-lang-key
+    document.querySelectorAll('[data-lang-key]').forEach(element => {
+      const key = element.getAttribute('data-lang-key');
+      if (translations[key] && translations[key][language]) {
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          if (element.placeholder) {
+            element.placeholder = translations[key][language];
+          } else {
+            element.value = translations[key][language];
+          }
+        } else {
+          element.innerHTML = translations[key][language];
+        }
+      }
+    });
+    
+    // Update modal content based on current language
+    updateLegalCaseModals(language);
+    
+    // Update service card hover text
+    if (translations['service-hover-text'] && translations['service-hover-text'][language]) {
+      const hoverText = translations['service-hover-text'][language];
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.setAttribute('data-info-text', hoverText);
+      });
+    }
+    
+    // The rest of your language switching code...
+    
+    // Update window.siteConfig.currentLanguage
+    window.siteConfig.currentLanguage = language;
+    
+    console.log('Language switched to:', language);
+  } catch (error) {
+    console.error('Error switching language:', error);
+  }
+}
+
+/**
+ * Make sure to call updateLegalCaseModals on initial page load
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // All your existing initialization code...
+  
+  // Initialize modals with current language
+  const currentLanguage = window.siteConfig && window.siteConfig.currentLanguage ? 
+    window.siteConfig.currentLanguage : 'cz';
+  updateLegalCaseModals(currentLanguage);
+});
+
+/**
+ * Additional improvements: Add direct language selection on result modals
+ */
+function addLanguageToggleToModals() {
+  const modals = document.querySelectorAll('.service-modal, .result-modal');
+  
+  modals.forEach(modal => {
+    // Create language toggle element
+    const languageToggle = document.createElement('div');
+    languageToggle.className = 'modal-language-toggle';
+    languageToggle.innerHTML = `
+    
+    `;
+    
+    // Style the toggle
+    const style = document.createElement('style');
+    style.textContent = `
+      .modal-language-toggle {
+        position: absolute;
+        top: 15px;
+        right: 60px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 10;
+      }
+      
+      .modal-lang-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 2px 5px;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
+      
+      .modal-lang-btn:hover, .modal-lang-btn.active {
+        opacity: 1;
+      }
+      
+      .modal-lang-btn.active {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Find the header to append the toggle
+    const modalHeader = modal.querySelector('.service-modal-header');
+    if (modalHeader) {
+      modalHeader.style.position = 'relative';
+      modalHeader.appendChild(languageToggle);
+      
+      // Add event listeners to the language toggle buttons
+      const langButtons = languageToggle.querySelectorAll('.modal-lang-btn');
+      langButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          
+          // Update active state
+          langButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Update modal content with selected language
+          updateModalContent(modal, lang);
+        });
+      });
+    }
+  });
+  
+  /**
+   * Update a specific modal's content with the selected language
+   */
+  function updateModalContent(modal, language) {
+    const modalId = modal.id;
+    let caseKey = '';
+    
+    // Map modal ID to case key
+    if (modalId.includes('result-modal-1') || modalId.includes('service-modal-1')) {
+      caseKey = 'exercise-of-rights';
+    } else if (modalId.includes('result-modal-2') || modalId.includes('service-modal-2')) {
+      caseKey = 'insolvency-proceedings';
+    } else if (modalId.includes('result-modal-3') || modalId.includes('service-modal-3')) {
+      caseKey = 'marital-property';
+    } else if (modalId.includes('result-modal-4') || modalId.includes('service-modal-4')) {
+      caseKey = 'organizational-change';
+    }
+    
+    // Update content if we have translations for this case
+    if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
+      const translation = legalCaseTranslations[caseKey][language];
+      
+      // Update title
+      const titleElement = modal.querySelector('.service-modal-title');
+      if (titleElement) {
+        titleElement.textContent = translation.title;
+      }
+      
+      // Update content (HTML)
+      const descriptionElement = modal.querySelector('.service-modal-description');
+      if (descriptionElement) {
+        descriptionElement.innerHTML = translation.content;
+      }
+      
+      // Update button text
+      const buttonElement = modal.querySelector('.service-modal-cta');
+      if (buttonElement) {
+        buttonElement.textContent = translation.button;
+      }
+    }
+  }
+}
+
+// Call this function after initial page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Call after a short delay to ensure all modals are loaded
+  setTimeout(addLanguageToggleToModals, 500);
+});
+
+// Add this code to make "Kontaktujte nás" buttons close the modals
+
+// Find all modal contact buttons
+document.querySelectorAll('.service-modal-cta, .result-modal .service-modal-cta').forEach(button => {
+  // Add click event listener
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Find the parent modal
+    const modal = this.closest('.service-modal, .result-modal');
+    
+    // Close the modal
+    if (modal) {
+      modal.classList.remove('active');
+      document.querySelector('.service-modal-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
     </script>
     <script src="language-toggle.js"></script>
 </body>
