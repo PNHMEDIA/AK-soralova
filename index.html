@@ -6156,6 +6156,263 @@ h3:contains("Rozhodnutí o organizační změně"),
 .services-image::before {
     display: none; /* Remove any pseudo-element background */
 }
+
+
+/* Modern Services Section - Improved Layout */
+.modern-services {
+  background-color: var(--white);
+  padding: 100px 0 80px;
+  position: relative;
+}
+
+/* Services Layout - Better Grid Structure */
+.services-layout {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+/* Services Image - Better Positioning */
+.services-image {
+  position: relative;
+  height: 700px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.services-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* Position focus higher on the image */
+}
+
+/* Services Grid - Improved Card Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Service Card - Enhanced Styling */
+.service-card {
+  background-color: var(--off-white, #f9f9f9);
+  border-radius: 6px;
+  padding: 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  border-bottom: 3px solid transparent;
+  height: calc(100% - 6px); /* Account for bottom border space */
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border-bottom: 3px solid var(--gold, #6db26c);
+}
+
+/* Feature Icon - Better Styling */
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(109, 178, 108, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.service-card:hover .feature-icon {
+  background-color: var(--gold, #6db26c);
+}
+
+.feature-icon i {
+  color: var(--navy, #174f12);
+  font-size: 24px;
+  transition: var(--transition);
+}
+
+.service-card:hover .feature-icon i {
+  color: var(--white);
+}
+
+/* Feature Text - Improved Typography */
+.feature-text {
+  flex-grow: 1;
+}
+
+.feature-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--navy, #174f12);
+  font-size: 1.1rem;
+}
+
+.feature-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text, #2c2c2c);
+  margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .services-layout {
+    grid-template-columns: 42% 58%;
+  }
+  
+  .services-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .services-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-image {
+    height: 500px;
+    margin-bottom: 20px;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-image {
+    height: 400px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    padding: 20px;
+  }
+}
+
+
+/* Modal Position Fixes */
+.service-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 85%;
+  max-width: 850px;
+  max-height: 90vh;
+  z-index: 2001; /* Higher than other elements */
+  background-color: #fff;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+}
+
+.service-modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Make sure content is scrollable, not the whole modal */
+.service-modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 90vh;
+}
+
+.service-modal-body {
+  padding: 30px;
+  overflow-y: auto;
+  flex-grow: 1;
+  max-height: calc(90vh - 150px); /* Subtract header and footer heights */
+}
+
+/* Ensure the overlay covers the entire viewport */
+.service-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 2000; /* High z-index but below modal */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.service-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close button positioning */
+.service-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.service-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service-modal {
+    width: 95%;
+    max-height: 80vh;
+  }
+  
+  .service-modal-body {
+    max-height: calc(80vh - 140px);
+    padding: 20px;
+  }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .service-modal {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  
+  .service-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
 /* No need to change the size of your elements or their horizontal layout */
     </style>
 </head>
@@ -6376,6 +6633,7 @@ h3:contains("Rozhodnutí o organizační změně"),
   <!-- Services Section -->
  <!-- Services Section -->
 <!-- Services Section -->
+<!-- Services Section - Improved Layout -->
 <section class="services modern-services" id="services">
   <div class="container">
       <div class="services-container">
@@ -6384,19 +6642,17 @@ h3:contains("Rozhodnutí o organizační změně"),
               <h2 class="section-title" data-lang-key="services-title">Naše služby</h2>
           </div>
           
-          <div class="services-layout" >
-              <!-- Left column - Image -->
-              <div class="services-image fade-up" >
+          <div class="services-layout">
+              <!-- Left column - Image with improved positioning -->
+              <div class="services-image fade-up">
                   <img src="https://i.postimg.cc/tCHKVP0b/pexels-karolina-grabowska-7876036.jpg" class="services-image-main" alt="Právní služby">
               </div>
               
-              <!-- Right column - Service cards -->
+              <!-- Right column - Service cards with improved grid -->
               <div class="services-content">
-                 
-                  
-                  <div class="services-grid" style="margin-top: 130px; margin-bottom: -80px;">
+                  <div class="services-grid">
                       <!-- Service 1 -->
-                      <div class="service-card fade-up feature-item" data-category="property" data-service="1" data-info-text="Klikněte pro více informací">
+                      <div class="service-card fade-up" data-category="property" data-service="1">
                           <div class="feature-icon">
                               <i class="fas fa-building"></i>
                           </div>
@@ -6408,7 +6664,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                       </div>
                       
                       <!-- Service 2 -->
-                      <div class="service-card fade-up feature-item" data-category="business" data-service="2" data-info-text="Klikněte pro více informací">
+                      <div class="service-card fade-up" data-category="business" data-service="2">
                           <div class="feature-icon">
                               <i class="fas fa-briefcase"></i>
                           </div>
@@ -6420,7 +6676,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                       </div>
                       
                       <!-- Service 3 -->
-                      <div class="service-card fade-up feature-item" data-category="business personal" data-info-text="Klikněte pro více informací">
+                      <div class="service-card fade-up" data-category="business personal">
                           <div class="feature-icon">
                               <i class="fas fa-user-tie"></i>
                           </div>
@@ -6432,7 +6688,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                       </div>
                       
                       <!-- Service 4 -->
-                      <div class="service-card fade-up feature-item" data-category="business personal property" data-info-text="Klikněte pro více informací"> 
+                      <div class="service-card fade-up" data-category="business personal property">
                           <div class="feature-icon">
                               <i class="fas fa-gavel"></i>
                           </div>
@@ -6444,7 +6700,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                       </div>
                       
                       <!-- Service 5 -->
-                      <div class="service-card fade-up feature-item" data-category="personal" data-info-text="Klikněte pro více informací">
+                      <div class="service-card fade-up" data-category="personal">
                           <div class="feature-icon">
                               <i class="fas fa-home"></i>
                           </div>
@@ -6456,7 +6712,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                       </div>
                       
                       <!-- Service 6 -->
-                      <div class="service-card fade-up feature-item" data-category="business personal" data-info-text="Klikněte pro více informací">
+                      <div class="service-card fade-up" data-category="business personal">
                           <div class="feature-icon">
                               <i class="fas fa-university"></i>
                           </div>
@@ -6467,8 +6723,6 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <a href="#service-modal-6" class="service-more-info" data-lang-key="service-more-info" data-service="6"></a>
                       </div>
                   </div>
-                  
-                  
               </div>
           </div>
       </div>
@@ -6499,7 +6753,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20 judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy.
                           </p>
-                          <a href="#result-modal-1" class="result-more-info" data-result="1">Více informací</a>
+                          <a href="#result-modal-1" class="result-more-info" data-result="1">(Více informací)</a>
                       </div>
                   </div>
                   
@@ -6513,7 +6767,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. § 757 NOZ.
                           </p>
-                          <a href="#result-modal-2" class="result-more-info" data-result="2">Více informací</a>
+                          <a href="#result-modal-2" class="result-more-info" data-result="2">(Více informací)</a>
                       </div>
                   </div>
                   
@@ -6527,7 +6781,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek.
                           </p>
-                          <a href="#result-modal-3" class="result-more-info" data-result="3">Více informací</a>
+                          <a href="#result-modal-3" class="result-more-info" data-result="3">(Více informací)</a>
                       </div>
                   </div>
                   
@@ -10311,6 +10565,188 @@ document.querySelectorAll('.service-modal-cta, .result-modal .service-modal-cta'
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   });
+});
+
+/**
+ * Fix for service blocks scrolling issue
+ * This prevents the default anchor behavior while still opening the modals
+ */
+ document.addEventListener('DOMContentLoaded', function() {
+  // Get all service-more-info links
+  const serviceLinks = document.querySelectorAll('.service-more-info');
+  
+  serviceLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Prevent default anchor behavior that causes scrolling
+      e.preventDefault();
+      
+      // Get the service ID from data attribute
+      const serviceId = this.getAttribute('data-service');
+      
+      // Open the modal using the existing function
+      if (typeof openServiceModal === 'function') {
+        openServiceModal(serviceId);
+      } else {
+        // Fallback if the function isn't available
+        const modalId = this.getAttribute('href').substring(1);
+        const modal = document.getElementById(modalId);
+        const overlay = document.querySelector('.service-modal-overlay');
+        
+        if (modal && overlay) {
+          modal.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+    });
+  });
+  
+  // Make entire service card clickable but prevent scrolling
+  const serviceCards = document.querySelectorAll('.service-card');
+  serviceCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't trigger if clicking on something interactive
+      if (e.target.classList.contains('service-more-info')) {
+        return; // Let the link handler above take care of it
+      }
+      
+      // Find the service link inside this card
+      const serviceLink = this.querySelector('.service-more-info');
+      if (serviceLink) {
+        // Prevent default behavior
+        e.preventDefault();
+        
+        // Get service ID and open modal
+        const serviceId = serviceLink.getAttribute('data-service');
+        if (typeof openServiceModal === 'function') {
+          openServiceModal(serviceId);
+        } else {
+          // Fallback
+          const modalId = serviceLink.getAttribute('href').substring(1);
+          const modal = document.getElementById(modalId);
+          const overlay = document.querySelector('.service-modal-overlay');
+          
+          if (modal && overlay) {
+            modal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      }
+    });
+  });
+});
+
+/**
+ * Comprehensive fix for modal scrolling issues
+ * This prevents any scrolling when modals are opened by saving and restoring position
+ */
+ document.addEventListener('DOMContentLoaded', function() {
+  // Track scroll position
+  let savedScrollPosition = 0;
+  
+  // Create our own modal opening function to have full control
+  function openModalWithoutScroll(modalId) {
+    // Save current scroll position
+    savedScrollPosition = window.scrollY;
+    
+    // Find the modal and overlay
+    const modal = document.getElementById(`service-modal-${modalId}`);
+    const overlay = document.querySelector('.service-modal-overlay');
+    
+    if (!modal || !overlay) return;
+    
+    // Style changes to prevent scrolling and ensure fixed positioning
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedScrollPosition}px`;
+    document.body.style.width = '100%';
+    
+    // Show the modal and overlay
+    modal.classList.add('active');
+    overlay.classList.add('active');
+    
+    // Add event listener to close button
+    const closeBtn = modal.querySelector('.service-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModalWithoutScroll);
+    }
+    
+    // Add event listener to overlay
+    overlay.addEventListener('click', closeModalWithoutScroll);
+  }
+  
+  // Close modal function
+  function closeModalWithoutScroll() {
+    // Hide all modals
+    document.querySelectorAll('.service-modal').forEach(modal => {
+      modal.classList.remove('active');
+    });
+    
+    // Hide overlay
+    const overlay = document.querySelector('.service-modal-overlay');
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+    
+    // Restore scrolling and position
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, savedScrollPosition);
+  }
+  
+  // Override the global openServiceModal function if it exists
+  if (window.openServiceModal) {
+    const originalOpenModal = window.openServiceModal;
+    window.openServiceModal = function(serviceId) {
+      openModalWithoutScroll(serviceId);
+    };
+  }
+  
+  // Add listeners to service links
+  document.querySelectorAll('.service-more-info').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // Prevent default anchor behavior
+      
+      // Get the service ID
+      const serviceId = this.getAttribute('data-service');
+      if (serviceId) {
+        openModalWithoutScroll(serviceId);
+      }
+    });
+  });
+  
+  // Make entire service card clickable
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Don't trigger if already clicking the link
+      if (e.target.classList.contains('service-more-info') || e.target.closest('.service-more-info')) {
+        return;
+      }
+      
+      // Get service ID and open modal
+      const serviceLink = this.querySelector('.service-more-info');
+      if (serviceLink) {
+        e.preventDefault();
+        const serviceId = serviceLink.getAttribute('data-service');
+        if (serviceId) {
+          openModalWithoutScroll(serviceId);
+        }
+      }
+    });
+  });
+  
+  // Listen for Escape key to close modals
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModalWithoutScroll();
+    }
+  });
+  
+  // Add this function to the global scope for other scripts
+  window.closeModalWithoutScroll = closeModalWithoutScroll;
 });
     </script>
     <script src="language-toggle.js"></script>
