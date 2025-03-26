@@ -3400,6 +3400,8 @@ textarea.form-control {
     display: none;
 }
 
+
+
 .mobile-menu.active .mobile-language {
     display: flex;
 }
@@ -3845,9 +3847,6 @@ textarea.form-control {
 }
 
 /* Pricing Content */
-.pricing-content {
-    display: none;
-}
 
 .pricing-content.active {
     display: block;
@@ -6548,6 +6547,287 @@ h3:contains("Rozhodnutí o organizační změně"),
   border-color: initial !important;
   transition: none !important;
 }
+
+/* Add this to your existing CSS styles section */
+
+/* Modal text size adjustments for mobile */
+@media (max-width: 768px) {
+  /* Make the modal title smaller */
+  .service-modal-title, 
+  .result-modal .service-modal-title {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* Make the modal body text smaller */
+  .service-modal-body p,
+  .result-modal .service-modal-body p,
+  .service-modal-description {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Make lists and features smaller */
+  .service-modal-features li,
+  .result-modal .service-modal-features li {
+    font-size: 0.85rem !important;
+  }
+  
+  /* Make the contact button smaller */
+  .service-modal-cta, 
+  .result-modal .service-modal-cta {
+    font-size: 0.9rem !important;
+    padding: 10px 20px !important;
+  }
+  
+  /* Make modal padding smaller to fit more content */
+  .service-modal-body,
+  .result-modal .service-modal-body {
+    padding: 15px !important;
+  }
+  
+  /* Make modal header more compact */
+  .service-modal-header,
+  .result-modal .service-modal-header {
+    padding: 15px !important;
+  }
+}
+
+/* For very small screens, make text even smaller */
+@media (max-width: 480px) {
+  .service-modal-title, 
+  .result-modal .service-modal-title {
+    font-size: 0.9rem !important;
+  }
+  
+  .service-modal-body p,
+  .result-modal .service-modal-body p,
+  .service-modal-description {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Add to your CSS */
+.btn-sm {
+  padding: 8px 15px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* Update service cards to handle the new button placement */
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  height: auto; /* Allow height to adjust to content */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Make sure the feature text has proper spacing for the button */
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Remove the hover text that was used before */
+.service-card::before {
+  display: none;
+}
+
+/* Make buttons mobile friendly */
+@media (max-width: 768px) {
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
+/* Make service cards equal height with flexbox */
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  height: 100%; /* Set height to 100% of parent grid cell */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Feature text should take up all available space in the card */
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  justify-content: space-between; /* This pushes the button to the bottom */
+}
+
+/* Creates space between the description and button */
+.feature-text p {
+  margin-bottom: 15px;
+}
+
+/* Button styling */
+.btn-sm {
+  padding: 8px 15px;
+  font-size: 0.8rem;
+  margin-top: auto; /* This helps push it to the bottom */
+  align-self: flex-start; /* Aligns the button to the left */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .btn-sm {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    align-self: center; /* Center the button on mobile */
+  }
+}
+/* Mobile-Friendly Modal Styles */
+
+/* Base modal improvements */
+.service-modal, .result-modal {
+  max-height: 90vh;
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollable content area */
+.service-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  max-height: calc(90vh - 130px); /* Subtract header and footer height */
+}
+
+/* Improved typography for readability */
+.service-modal-title {
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.service-modal-description {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Modal header adjustments */
+.service-modal-header {
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Modal footer adjustments */
+.service-modal-footer {
+  padding: 15px;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Smaller text on mobile */
+  .service-modal-title {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+  
+  .service-modal-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0;
+  }
+  
+  .service-modal-body {
+    padding: 15px;
+    max-height: calc(90vh - 110px);
+  }
+  
+  /* Smaller header and padding */
+  .service-modal-header {
+    padding: 12px 15px;
+  }
+  
+  /* Adjust the icon size */
+  .service-modal-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .service-modal-icon i {
+    font-size: 18px;
+  }
+  
+  /* Make sure there's some padding on the sides */
+  .service-modal-content {
+    padding: 0;
+  }
+  
+  /* Better close button for touch */
+  .service-modal-close {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+  
+  /* Ensure the button is well-sized */
+  .service-modal-footer .service-modal-cta {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Long text paragraph spacing */
+  .service-modal-description p {
+    margin-bottom: 12px;
+  }
+}
+
+/* Make modals fullscreen on very small devices */
+@media (max-width: 480px) {
+  .service-modal, .result-modal {
+    width: 96%;
+    max-width: none;
+    max-height: 92vh;
+    border-radius: 8px;
+  }
+  
+  .service-modal-body {
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+  
+  /* Ensure paragraph spacing for readability */
+  .service-modal-description p {
+    margin-bottom: 10px;
+  }
+}
+
+/* Smooth scrolling for modal content */
+.service-modal-body {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Visual indicator for scrollable content */
+.service-modal-body:after {
+  content: '';
+  display: block;
+  height: 20px;
+}
+
+/* Ensure proper z-index for overlay */
+.service-modal-overlay {
+  z-index: 1000;
+}
+
+.service-modal, .result-modal {
+  z-index: 1001;
+}
     </style>
 </head>
 <body>
@@ -6591,7 +6871,7 @@ h3:contains("Rozhodnutí o organizační změně"),
       
       <nav>
           <ul class="nav-list">
-              <li class="nav-item"><a href="#hero" class="nav-link active" data-lang-key="nav-home">Úvod</a></li>
+              <li class="nav-item"><a href="#hero" class="nav-link" data-lang-key="nav-home">Úvod</a></li>
               <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav-about">O nás</a></li>
               <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav-services">Služby</a></li>
               <li class="nav-item"><a href="#results" class="nav-link" data-lang-key="nav-results">Výsledky</a></li>
@@ -6601,14 +6881,14 @@ h3:contains("Rozhodnutí o organizační změně"),
           
           <!-- Desktop language switcher -->
           <div class="language-switcher">
-              <a href="#" class="language-option active" data-lang="cz" style="color: #000000;">CZ</a>
+              <a href="#" class="language-option" data-lang="cz" style="color: #000000;">CZ</a>
               <span>/</span>
               <a href="#" class="language-option" data-lang="en" style="color: #000000 !important;">EN</a>
           </div>
   
           <!-- Mobile language switcher -->
           <div class="mobile-language">
-              <a href="#" class="language-option active" data-lang="cz">CZ</a>
+              <a href="#" class="language-option " data-lang="cz">CZ</a>
               <span>/</span>
               <a href="#" class="language-option" data-lang="en">EN</a>
           </div>
@@ -6670,7 +6950,7 @@ h3:contains("Rozhodnutí o organizační změně"),
           </div>
           
           <div class="mobile-language">
-              <a href="#" class="language-option active" data-lang="cz">CZ</a>
+              <a href="#" class="language-option  " data-lang="cz">CZ</a>
               <span>/</span>
               <a href="#" class="language-option" data-lang="en">EN</a>
           </div>
@@ -6767,100 +7047,99 @@ h3:contains("Rozhodnutí o organizační změně"),
   <!-- Services Section -->
  <!-- Services Section -->
 <!-- Services Section -->
-<!-- Services Section - Improved Layout -->
-<section class="services modern-services" id="services">
+<!-- Services Section - Improved Layout --><section class="services modern-services" id="services">
   <div class="container">
-      <div class="services-container">
-          <div class="section-heading fade-up">
-              <div class="section-number">02</div>
-              <h2 class="section-title" data-lang-key="services-title">Naše služby</h2>
-          </div>
-          
-          <div class="services-layout">
-              <!-- Left column - Image with improved positioning -->
-              <div class="services-image fade-up">
-                  <img src="https://i.postimg.cc/tCHKVP0b/pexels-karolina-grabowska-7876036.jpg" class="services-image-main" alt="Právní služby">
-              </div>
-              
-              <!-- Right column - Service cards with improved grid -->
-              <div class="services-content">
-                  <div class="services-grid">
-                      <!-- Service 1 -->
-                      <div class="service-card fade-up" data-category="property" data-service="1">
-                          <div class="feature-icon">
-                              <i class="fas fa-building"></i>
-                          </div>
-                          <div class="feature-text">
-                              <div class="feature-title" data-lang-key="service-1-title">Nemovitosti</div>
-                              <p data-lang-key="service-1-description">Kompletní právní servis v oblasti nemovitostí.</p>
-                          </div>
-                          <a href="#service-modal-1" class="service-more-info" data-lang-key="service-more-info" data-service="1"> </a>
-                      </div>
-                      
-                      <!-- Service 2 -->
-                      <div class="service-card fade-up" data-category="business" data-service="2">
-                          <div class="feature-icon">
-                              <i class="fas fa-briefcase"></i>
-                          </div>
-                          <div class="feature-text">
-                              <div class="feature-title" data-lang-key="service-2-title">Obchodní právo</div>
-                              <p data-lang-key="service-2-description">Komplexní právní služby pro podnikatele a obchodní společnosti.</p>
-                          </div>
-                          <a href="#service-modal-2" class="service-more-info" data-lang-key="service-more-info" data-service="2"></a>
-                      </div>
-                      
-                      <!-- Service 3 -->
-                      <div class="service-card fade-up" data-category="business personal">
-                          <div class="feature-icon">
-                              <i class="fas fa-user-tie"></i>
-                          </div>
-                          <div class="feature-text">
-                              <div class="feature-title" data-lang-key="service-3-title">Pracovní právo</div>
-                              <p data-lang-key="service-3-description">Poradenství v oblasti pracovněprávních vztahů a sporů.</p>
-                          </div>
-                          <a href="#service-modal-3" class="service-more-info" data-lang-key="service-more-info" data-service="3"></a>
-                      </div>
-                      
-                      <!-- Service 4 -->
-                      <div class="service-card fade-up" data-category="business personal property">
-                          <div class="feature-icon">
-                              <i class="fas fa-gavel"></i>
-                          </div>
-                          <div class="feature-text">
-                              <div class="feature-title" data-lang-key="service-4-title">Soudní řízení</div>
-                              <p data-lang-key="service-4-description">Zastupování klientů v soudních a správních řízeních.</p>
-                          </div>
-                          <a href="#service-modal-4" class="service-more-info" data-lang-key="service-more-info" data-service="4"></a>
-                      </div>
-                      
-                      <!-- Service 5 -->
-                      <div class="service-card fade-up" data-category="personal">
-                          <div class="feature-icon">
-                              <i class="fas fa-home"></i>
-                          </div>
-                          <div class="feature-text">
-                              <div class="feature-title" data-lang-key="service-5-title">Rodinné právo</div>
-                              <p data-lang-key="service-5-description">Komplexní právní poradenství v rodinném právu.</p>
-                          </div>
-                          <a href="#service-modal-5" class="service-more-info" data-lang-key="service-more-info" data-service="5"></a>
-                      </div>
-                      
-                      <!-- Service 6 -->
-                      <div class="service-card fade-up" data-category="business personal">
-                          <div class="feature-icon">
-                              <i class="fas fa-university"></i>
-                          </div>
-                          <div class="feature-text">
-                              <div class="feature-title" data-lang-key="service-6-title">Správní právo</div>
-                              <p data-lang-key="service-6-description">Zastupování klientů ve správních řízeních.</p>
-                          </div>
-                          <a href="#service-modal-6" class="service-more-info" data-lang-key="service-more-info" data-service="6"></a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="services-container">
+        <div class="section-heading fade-up">
+            <div class="section-number">02</div>
+            <h2 class="section-title" data-lang-key="services-title">Naše služby</h2>
+        </div>
+        
+        <div class="services-layout">
+            <!-- Left column - Image with improved positioning -->
+            <div class="services-image fade-up">
+                <img src="https://i.postimg.cc/tCHKVP0b/pexels-karolina-grabowska-7876036.jpg" class="services-image-main" alt="Právní služby">
+            </div>
+            
+            <!-- Right column - Service cards with improved grid -->
+            <div class="services-content">
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card fade-up" data-category="property">
+                        <div class="feature-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="service-1-title">Nemovitosti</div>
+                            <p data-lang-key="service-1-description">Kompletní právní servis v oblasti nemovitostí.</p>
+                            <button class="btn btn-sm" onclick="openServiceModal('1')" data-lang-key="more-info-button">Více informací</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card fade-up" data-category="business">
+                        <div class="feature-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="service-2-title">Obchodní právo</div>
+                            <p data-lang-key="service-2-description">Komplexní právní služby pro podnikatele a obchodní společnosti.</p>
+                            <button class="btn btn-sm" onclick="openServiceModal('2')" data-lang-key="more-info-button">Více informací</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card fade-up" data-category="business personal">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="service-3-title">Pracovní právo</div>
+                            <p data-lang-key="service-3-description">Poradenství v oblasti pracovněprávních vztahů a sporů.</p>
+                            <button class="btn btn-sm" onclick="openServiceModal('3')" data-lang-key="more-info-button">Více informací</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    <div class="service-card fade-up" data-category="business personal property">
+                        <div class="feature-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="service-4-title">Soudní řízení</div>
+                            <p data-lang-key="service-4-description">Zastupování klientů v soudních a správních řízeních.</p>
+                            <button class="btn btn-sm" onclick="openServiceModal('4')" data-lang-key="more-info-button">Více informací</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 5 -->
+                    <div class="service-card fade-up" data-category="personal">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="service-5-title">Rodinné právo</div>
+                            <p data-lang-key="service-5-description">Komplexní právní poradenství v rodinném právu.</p>
+                            <button class="btn btn-sm" onclick="openServiceModal('5')" data-lang-key="more-info-button">Více informací</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 6 -->
+                    <div class="service-card fade-up" data-category="business personal">
+                        <div class="feature-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="feature-text">
+                            <div class="feature-title" data-lang-key="service-6-title">Správní právo</div>
+                            <p data-lang-key="service-6-description">Zastupování klientů ve správních řízeních.</p>
+                            <button class="btn btn-sm" onclick="openServiceModal('6')" data-lang-key="more-info-button">Více informací</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </section>
   
   <!-- Case Results Section - Updated Version -->
@@ -6887,7 +7166,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20 judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy.
                           </p>
-                          <button class="btn" onclick="openResultModal('1')">Více informací</button>
+                          <button class="btn" onclick="openResultModal('1')" data-lang-key="more-info-button" >Více informací</button>
                       </div>
                   </div>
                   
@@ -6901,7 +7180,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. § 757 NOZ.
                           </p>
-                          <button class="btn" onclick="openResultModal('2')">Více informací</button>
+                          <button class="btn" onclick="openResultModal('2')" data-lang-key="more-info-button" >Více informací</button>
                       </div>
                   </div>
                   
@@ -6915,7 +7194,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek.
                           </p>
-                          <button class="btn" onclick="openResultModal('3')">Více informací</button>
+                          <button class="btn" onclick="openResultModal('3')" data-lang-key="more-info-button" >Více informací</button>
                       </div>
                   </div>
                   
@@ -6929,7 +7208,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               V posuzované věci se jednalo o situaci, kdy byla zaměstnanci udělena výpověď podle ust. § 52 písm. c) zákoníku práce, přičemž předmětnou organizační změnu nepřijal statutární orgán společnosti.
                           </p>
-                          <button class="btn" onclick="openResultModal('4')">Více informací</button>
+                          <button class="btn" onclick="openResultModal('4')" data-lang-key="more-info-button" >Více informací</button>
                       </div>
                   </div>
               </div>
@@ -7006,7 +7285,7 @@ h3:contains("Rozhodnutí o organizační změně"),
           </div>
           
           <!-- Pricing Content -->
-          <div class="pricing-content active">
+          <div class="pricing-content  ">
               <!-- Basic Fees Card -->
               <div class="pricing-cards">
                   <!-- Initial Consultation Card -->
@@ -7749,7 +8028,7 @@ h3:contains("Rozhodnutí o organizační změně"),
     <script>
 /**
  * AK ŠORALOVÁ Law Firm Website JavaScript
- * Comprehensive script with translations and interactive features
+ * Comprehensive script with translations and inter  features
  * © 2025 AK Šoralová
  */
 
@@ -7937,6 +8216,11 @@ const translations = {
   'en': 'Administrative Law'
 },
 
+
+'more-info-button': {
+  'cz': 'Více informací',
+  'en': 'More Information'
+},
 // Footer copyright and links
 'footer-copyright': {
   'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma',
@@ -10824,6 +11108,9 @@ document.querySelectorAll('.service-modal-cta, .result-modal .service-modal-cta'
     }
   });
 });
+
+
+
 
 
     </script>
