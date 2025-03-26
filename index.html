@@ -2235,7 +2235,11 @@ header.scrolled {
 }
 
 /* Service Modal Content */
- 
+.service-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
 /* Service Modal Header */
 .service-modal-header {
@@ -2477,7 +2481,11 @@ header.scrolled {
 }
 
 /* Service Modal Content */
- 
+.service-modal-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+}
 
 /* Service Modal Header */
 .service-modal-header {
@@ -5883,7 +5891,12 @@ section {
 }
 
 /* Make sure content is scrollable, not the whole modal */
- 
+.service-modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 90vh;
+}
 
 .service-modal-body {
   padding: 30px;
@@ -6294,7 +6307,12 @@ section {
 }
 
 /* Modal content container */
- 
+.service-modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 90vh;
+}
 
 /* Modal header with smaller title */
 .service-modal-header {
@@ -6552,11 +6570,11 @@ section {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
+/* Modal Content */
 .service-modal-content {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  max-height: 90vh;
+  background-color: #fff;
 }
 
 /* Modal Header - More Professional Style */
@@ -7031,190 +7049,13 @@ section {
 .service-modal-close {
   background-color: #e74d3c00 !important; /* This makes the image white */
 }
-.service-modal-close:hover {
+.service-modal-close {
   background-color: #e74d3c00 !important; /* This makes the image white */
 }
 
 /* Add white filter to the logo image */
 
 
-
-/* For very small devices, ensure absolutely no hover effects */
-@media (max-width: 480px) {
-  /* Force hardware acceleration off for smoother performance */
-  * {
-    -webkit-transform: translateZ(0) !important;
-    transform: translateZ(0) !important;
-    will-change: auto !important;
-  }
-}
-
-/* CSS to control language display in modals */
-
-/* Hide all language content by default */
-.cz-content, .en-content {
-  display: none;
-}
-
-/* Show content based on the current language */
-html[lang="cz"] .cz-content,
-body.cz-lang .cz-content {
-  display: block;
-}
-
-html[lang="en"] .en-content,
-body.en-lang .en-content {
-  display: block;
-}
-
-/* Add data attribute approach as fallback */
-[data-current-lang="cz"] .cz-content {
-  display: block;
-}
-
-[data-current-lang="en"] .en-content {
-  display: block;
-}
-
-/* Add class for the entire modal body to ensure proper language display */
-.modal-content-cz,
-.modal-content-en {
-  display: none;
-}
-
-body.cz-lang .modal-content-cz,
-html[lang="cz"] .modal-content-cz,
-[data-current-lang="cz"] .modal-content-cz {
-  display: block;
-}
-
-body.en-lang .modal-content-en,
-html[lang="en"] .modal-content-en,
-[data-current-lang="en"] .modal-content-en {
-  display: block;
-}
-
-/* Make sure language visibility doesn't interfere with general modal visibility */
-.service-modal, .result-modal {
-  display: none;
-}
-
-.service-modal.active, .result-modal.active {
-  display: block;
-}
-
-/* Ensure language-specific display works within active modals */
-.service-modal.active .cz-content,
-.result-modal.active .cz-content {
-  display: none;
-}
-
-.service-modal.active .en-content,
-.result-modal.active .en-content {
-  display: none;
-}
-
-body.cz-lang .service-modal.active .cz-content,
-html[lang="cz"] .service-modal.active .cz-content,
-[data-current-lang="cz"] .service-modal.active .cz-content {
-  display: block;
-}
-
-body.en-lang .service-modal.active .en-content,
-html[lang="en"] .service-modal.active .en-content,
-[data-current-lang="en"] .service-modal.active .en-content {
-  display: block;
-}
-
-
-/* Modern Form Styling */
-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  font-family: 'Arial', sans-serif;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #333;
-}
-
-input, textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #9cc55a;
-  box-shadow: 0 0 0 3px rgba(156, 197, 90, 0.2);
-}
-
-textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-button[type="submit"] {
-  background-color: #9cc55a;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-  background-color: #8ab149;
-}
-
-button[type="submit"]:active {
-  transform: translateY(1px);
-}
-
-/* Optional: Add responsive adjustments */
-@media (max-width: 768px) {
-  form {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-}
-
-
-/* Fix modal positioning */
-.result-modal.active, 
-.service-modal.active {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2001;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-/* Fix modal content positioning */
-.service-modal-content {
-  position: relative !important;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
     </style>
 </head>
 <body>
@@ -7835,29 +7676,40 @@ button[type="submit"]:active {
               </div>
               
               <!-- Contact Form Section -->
+              <div class="contact-form fade-up">
+                <form action="https://submit-form.com/4mFZTeMSc">
+                   <!-- Keep user on same page after submission -->
+                   <input type="hidden" name="_redirect" value="false">
+                   
+                   <!-- Add this to show a thank you message -->
+                   <input type="hidden" name="_thank-you" value="Děkujeme za vaši zprávu!">
+                   
+                   <!-- Specify where to send the email (replace with your actual email) -->
+                   <input type="hidden" name="_email.to" value="your-email@example.com">
+                   
+                   <!-- Prevent spam -->
+                   <input type="hidden" name="_email.honeypot" value="">
+                   
+                   <div class="form-group">
+                       <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
+                       <input type="text" id="name" name="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
+                   </div>
+                   <div class="form-group">
+                       <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
+                       <input type="email" id="email" name="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
+                   </div>
+                   <div class="form-group">
+                       <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
+                       <input type="tel" id="phone" name="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
+                   </div>
+                   <div class="form-group">
+                       <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
+                       <textarea id="message" name="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
+                   </div>
+                   <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
+                </form>
+               </div>
                
-              <form action="https://submit-form.com/swIfPnXat" id="contact-form">
-                <label for="name" data-lang-key="form-name">Jméno a příjmení</label>
-                <input type="text" id="name" name="name" placeholder="Vaše jméno a příjmení" data-lang-key="form-name-placeholder" required="" />
-                
-                <label for="email" data-lang-key="form-email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Váš email" data-lang-key="form-email-placeholder" required="" />
-                
-                <label for="phone" data-lang-key="form-phone">Telefon</label>
-                <input type="tel" id="phone" name="phone" placeholder="Váš telefon" data-lang-key="form-phone-placeholder" />
-                
-                <label for="message" data-lang-key="form-message">Zpráva</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Vaše zpráva"
-                  data-lang-key="form-message-placeholder"
-                  required=""
-                ></textarea>
-                
-                <button type="submit" data-lang-key="form-submit">Odeslat</button>
-              </form>
-              
 
                
           </div>
@@ -8059,7 +7911,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-               
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
 
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-1-feature-1">Kupní smlouvy</span></li>
@@ -8090,7 +7942,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-2-feature-1">Zakládání společností</span></li>
                   <li> <span data-lang-key="modal-2-feature-2">Korporátní změny</span></li>
@@ -8120,7 +7972,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-            
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-3-feature-1">Pracovní smlouvy</span></li>
                   <li>  <span data-lang-key="modal-3-feature-2">Ukončení pracovního poměru</span></li>
@@ -8149,7 +8001,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-            
+              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-4-feature-1">Civilní spory</span></li>
                   <li>  <span data-lang-key="modal-4-feature-2">Obchodní spory</span></li>
@@ -8290,13 +8142,13 @@ button[type="submit"]:active {
               <h3 class="service-modal-title">Dohoda o vypořádání společného jmění manželů v režimu rozvodu podle ust. § 757 NOZ a odstoupení od ní</h3>
               <button class="service-modal-close">&times;</button>
           </div>
-          <div class="service-modal-body" data-lang-key="marital-property">
-              <p class="service-modal-description" data-lang-key="marital-property">
+          <div class="service-modal-body">
+              <p class="service-modal-description">
                   Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je
                   dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. §
                   757 NOZ.
               </p>
-              <p class="service-modal-description" data-lang-key="marital-property">
+              <p class="service-modal-description">
                   Již judikatura v režimu zákona o rodině se ustálila na závěru, že pokud je v dohodě podle ust. § 24a
                   již zrušeného zákona o rodině (nyní § 757 NOZ) uvedeno, že se jedná o dohodu podle ust. § 24a ZOR,
                   je nutno z tohoto vycházet a dohodu považovat za platnou a účinnou pouze v případě rozvodu bez
@@ -8309,7 +8161,7 @@ button[type="submit"]:active {
                   předvídaným způsobem, tedy uzavřít novou dohodu ohledně vypořádaní ohledně zaniklého
                   společného jmění manželů, nebo podat k soudu návrh na vypořádání společného jmění.
               </p>
-              <p class="service-modal-description" data-lang-key="marital-property">
+              <p class="service-modal-description">
                   Nejvyšší soud ČR v rozsudku ve věci vedené pod 22 Cdo 2529/2019 ze dne 30.10.2019 jednoznačně
                   dovodil, že „Pokud pak k rozvodu podle § 757 o. z. nedojde, bude mezi manžely platit majetkový
                   režim, jako by daná dohoda vůbec nevznikla."
@@ -8332,7 +8184,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              <p class="service-modal-description" data-lang-key="result-3-description">
+              <p class="service-modal-description">
                   Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli
                   vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek a
                   žádným způsobem nesouvisí s insolvenčním řízením. Nově vzniklé pohledávky věřitelů, které
@@ -8341,7 +8193,7 @@ button[type="submit"]:active {
                   Neuplatní se zde účinky spojené se zahájením insolvenčního řízení uvedené v § 109 odst. 1 písm. a)
                   ani účinky zákazu zahájení nových řízení podle § 140c.
               </p>
-              <p class="service-modal-description" data-lang-key="result-3-description">
+              <p class="service-modal-description">
                   K tomuto závěru dospěl Nejvyšší soud ČR ve svém rozhodnutí ze dne 31.07.2019, č.j. 29 Cdo
                   3651/2017, kde jednoznačně vyložil: „Jestliže sporná pohledávka, jejíž úhrady se žalobkyně domáhá
                   podanou žalobou, měla podle tvrzení obsažených v žalobě vzniknout až po rozhodnutí o úpadku
@@ -8353,7 +8205,7 @@ button[type="submit"]:active {
                   neuspokojuje. Taková pohledávka nemusela být v insolvenčním řízení uplatněna přihláškou a režim
                   ustanovení § 140c insolvenčního zákona se na ni zjevně nevztahuje.
               </p>
-              <p class="service-modal-description" data-lang-key="insolvency-proceedings">
+              <p class="service-modal-description">
                   Jinak řečeno, jestliže ke dni rozhodnutí o úpadku dlužníka (žalovaného) neexistovala (byť dosud jako
                   nesplatná či jako vázaná na podmínku) sporná pohledávka, nemohla ji žalobkyně ani přihlásit do
                   insolvenčního řízení dlužníka. Podání žaloby o zaplacení takové pohledávky pak nemůže představovat
@@ -10910,199 +10762,108 @@ function initializeContactForm() {
 /**
  * Add this function to your existing code to update modal content based on language
  * Call this when initializing and when language changes
- *//**
- * Improved function to properly update legal case modals when language changes
- * @param {string} language - The language code ('cz' or 'en')
  */
 function updateLegalCaseModals(language) {
-  // Get all service and result modals
-  const modals = document.querySelectorAll('.service-modal, .result-modal');
+  // Get all service modal elements
+  const serviceModals = document.querySelectorAll('.service-modal');
+  const resultModals = document.querySelectorAll('.result-modal');
   
-  modals.forEach(modal => {
+  // Update service modals (if needed)
+  serviceModals.forEach(modal => {
     // Get modal ID to identify which case it belongs to
     const modalId = modal.id;
     let caseKey = '';
     
     // Determine which case key to use based on modal ID
-    if (modalId.includes('result-modal-1') || modalId.includes('service-modal-1')) {
+    if (modalId.includes('service-modal-1')) {
       caseKey = 'exercise-of-rights';
-    } else if (modalId.includes('result-modal-2') || modalId.includes('service-modal-2')) {
-      caseKey = 'marital-property';
-    } else if (modalId.includes('result-modal-3') || modalId.includes('service-modal-3')) {
+    } else if (modalId.includes('service-modal-2')) {
       caseKey = 'insolvency-proceedings';
-    } else if (modalId.includes('result-modal-4') || modalId.includes('service-modal-4')) {
+    } else if (modalId.includes('service-modal-3')) {
+      caseKey = 'marital-property';
+    } else if (modalId.includes('service-modal-4')) {
       caseKey = 'organizational-change';
     }
     
-    // Skip if we don't have a matching case key or translation
-    if (!caseKey || !legalCaseTranslations[caseKey] || !legalCaseTranslations[caseKey][language]) {
-      return;
-    }
-    
-    // Get the translation data for the current case and language
-    const translation = legalCaseTranslations[caseKey][language];
-    
-    // Update title
-    const titleElement = modal.querySelector('.service-modal-title');
-    if (titleElement) {
-      titleElement.textContent = translation.title;
-    }
-    
-    // Handle the modal content - completely replace it instead of just updating parts
-    const modalBody = modal.querySelector('.service-modal-body');
-    if (modalBody) {
-      // First, preserve any existing structure elements like section headings
-      const sectionHeadings = modalBody.querySelectorAll('.modal-section-title, .service-modal-subtitle');
+    // Update content if we have translations for this case
+    if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
+      const translation = legalCaseTranslations[caseKey][language];
       
-      // Clear all paragraph content (completely remove existing content)
-      const contentParagraphs = modalBody.querySelectorAll('p');
-      contentParagraphs.forEach(p => p.remove());
-      
-      // Add the new content in the selected language
-      // First, create a temporary container to parse the HTML
-      const tempContainer = document.createElement('div');
-      tempContainer.innerHTML = translation.content;
-      
-      // Append all paragraphs to the modal body
-      const newParagraphs = tempContainer.querySelectorAll('p');
-      newParagraphs.forEach(p => {
-        // Create a new paragraph element to ensure clean insertion
-        const newP = document.createElement('p');
-        newP.className = 'service-modal-description';
-        newP.innerHTML = p.innerHTML;
-        modalBody.appendChild(newP);
-      });
-      
-      // Reinsert any section headings if they were removed
-      if (sectionHeadings.length > 0 && !modalBody.querySelector('.modal-section-title')) {
-        // Find the first paragraph to insert before
-        const firstP = modalBody.querySelector('p');
-        if (firstP && sectionHeadings[0]) {
-          modalBody.insertBefore(sectionHeadings[0].cloneNode(true), firstP);
-        }
-      }
-    }
-    
-    // Update button text
-    const buttonElement = modal.querySelector('.service-modal-cta');
-    if (buttonElement) {
-      buttonElement.textContent = translation.button;
-    }
-  });
-}
-
-/**
- * Enhanced language switcher function
- * This modified version ensures all content is properly updated
- */
-function setLanguage(language) {
-  try {
-    const languageLoader = document.querySelector('.language-loader');
-    
-    // Only show language loader if changing languages (not initial load)
-    if (window.siteConfig.currentLanguage !== language && window.siteConfig.initialized) {
-      if (languageLoader) {
-        languageLoader.classList.add('active');
-        
-        // Update loader text
-        const loaderText = languageLoader.querySelector('.language-loader-text');
-        if (loaderText) {
-          loaderText.textContent = language === 'cz' ? 'Přepínání jazyka...' : 'Changing language...';
-        }
-      }
-    }
-    
-    // Update current language in site configuration
-    window.siteConfig.currentLanguage = language;
-    
-    // Use a brief timeout to ensure the loader is visible before processing
-    setTimeout(function() {
-      // Apply translations to all elements with data-lang-key
-      document.querySelectorAll('[data-lang-key]').forEach(element => {
-        const key = element.getAttribute('data-lang-key');
-        if (translations[key] && translations[key][language]) {
-          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            if (element.placeholder) {
-              element.placeholder = translations[key][language];
-            } else {
-              element.value = translations[key][language];
-            }
-          } else {
-            element.innerHTML = translations[key][language];
-          }
-        }
-      });
-      
-      // Call the enhanced function to update legal case modals
-      updateLegalCaseModals(language);
-      
-      // Update service card hover text
-      if (translations['service-hover-text'] && translations['service-hover-text'][language]) {
-        const hoverText = translations['service-hover-text'][language];
-        document.querySelectorAll('.service-card').forEach(card => {
-          card.setAttribute('data-info-text', hoverText);
-        });
+      // Update title
+      const titleElement = modal.querySelector('.service-modal-title');
+      if (titleElement) {
+        titleElement.textContent = translation.title;
       }
       
-      // Update language switcher active states
-      document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
-        if (option.getAttribute('data-lang') === language) {
-          option.classList.add('active');
+      // Update content (HTML)
+      const descriptionElement = modal.querySelector('.service-modal-description');
+      if (descriptionElement) {
+        // If it's a simple paragraph, update text, otherwise use innerHTML for complex content
+        if (descriptionElement.tagName === 'P') {
+          // Extract first paragraph from the HTML content
+          const firstParagraph = translation.content.split('</p>')[0].replace(/<p>/g, '');
+          descriptionElement.textContent = firstParagraph;
         } else {
-          option.classList.remove('active');
+          descriptionElement.innerHTML = translation.content;
         }
-      });
-      
-      // Hide language loader after translation is complete
-      if (languageLoader && languageLoader.classList.contains('active')) {
-        setTimeout(function() {
-          languageLoader.classList.remove('active');
-        }, 300);
       }
       
-      // Set initialized flag
-      window.siteConfig.initialized = true;
-      
-      console.log('Language switched to:', language);
-    }, window.siteConfig.initialized ? 400 : 0);
-  } catch (error) {
-    console.error('Error switching language:', error);
-    
-    // Hide loader in case of error
-    const languageLoader = document.querySelector('.language-loader');
-    if (languageLoader) {
-      languageLoader.classList.remove('active');
+      // Update button text
+      const buttonElement = modal.querySelector('.service-modal-cta');
+      if (buttonElement) {
+        buttonElement.textContent = translation.button;
+      }
     }
-  }
+  });
+  
+  // Update result modals
+  resultModals.forEach(modal => {
+    // Get modal ID to identify which case it belongs to
+    const modalId = modal.id;
+    let caseKey = '';
+    
+    // Determine which case key to use based on modal ID
+    if (modalId.includes('result-modal-1')) {
+      caseKey = 'exercise-of-rights';
+    } else if (modalId.includes('result-modal-2')) {
+      caseKey = 'marital-property';
+    } else if (modalId.includes('result-modal-3')) {
+      caseKey = 'insolvency-proceedings';
+    } else if (modalId.includes('result-modal-4')) {
+      caseKey = 'organizational-change';
+    }
+    
+    // Update content if we have translations for this case
+    if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
+      const translation = legalCaseTranslations[caseKey][language];
+      
+      // Update title
+      const titleElement = modal.querySelector('.service-modal-title');
+      if (titleElement) {
+        titleElement.textContent = translation.title;
+      }
+      
+      // Update content (HTML)
+      const descriptionElement = modal.querySelector('.service-modal-description');
+      if (descriptionElement) {
+        // If it's a simple paragraph, update text, otherwise use innerHTML for complex content
+        if (descriptionElement.tagName === 'P') {
+          // Extract first paragraph from the HTML content
+          const firstParagraph = translation.content.split('</p>')[0].replace(/<p>/g, '');
+          descriptionElement.textContent = firstParagraph;
+        } else {
+          descriptionElement.innerHTML = translation.content;
+        }
+      }
+      
+      // Update button text
+      const buttonElement = modal.querySelector('.service-modal-cta');
+      if (buttonElement) {
+        buttonElement.textContent = translation.button;
+      }
+    }
+  });
 }
-
-// Add an event listener to ensure the modal translation is updated when a modal is opened
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize with current language
-  const currentLanguage = window.siteConfig && window.siteConfig.currentLanguage ? 
-    window.siteConfig.currentLanguage : 'cz';
-  
-  // Apply initial translations
-  updateLegalCaseModals(currentLanguage);
-  
-  // Add event listeners to service and result cards to update modal content on open
-  document.querySelectorAll('.service-card, .result-card').forEach(card => {
-    card.addEventListener('click', function() {
-      // Add a small delay to ensure the modal is visible
-      setTimeout(function() {
-        updateLegalCaseModals(window.siteConfig.currentLanguage);
-      }, 100);
-    });
-  });
-  
-  // Also add listeners to language switchers
-  document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
-    option.addEventListener('click', function() {
-      const lang = this.getAttribute('data-lang');
-      setLanguage(lang);
-    });
-  });
-});
 
 /**
  * Modify your existing language switcher functionality to call the modal updater
@@ -11350,38 +11111,93 @@ document.querySelectorAll('.service-modal-cta, .result-modal .service-modal-cta'
   });
 });
 
-
-
-// Get the form element
-const form = document.querySelector('form');
-
-// Add submit event listener
-form.addEventListener('submit', function(event) {
-  // Optional: If you want to handle the submission with JavaScript instead
-  // Uncomment the next line if you want to prevent the default form submission
-  // event.preventDefault();
-
-  // Store reference to the form for use in the timeout
-  const formElement = this;
+/**
+ * Restructure the modal content for a more professional look
+ */
+function restructureModalContent(modalBody, hasCheckList, paragraphs) {
+  // If the modal doesn't already have a section title for services
+  if (hasCheckList && !modalBody.querySelector('.modal-section-title')) {
+    // Find any existing title for the list or create one
+    let serviceTitle = modalBody.querySelector('h4, h5, h6');
+    
+    if (!serviceTitle) {
+      // Create a title based on language (Czech or English)
+      const isEnglish = document.documentElement.lang === 'en';
+      serviceTitle = document.createElement('h4');
+      serviceTitle.className = 'modal-section-title';
+      serviceTitle.textContent = isEnglish ? 'This service includes:' : 'Tato služba zahrnuje:';
+      
+      // Insert the title at the beginning of the checklist
+      const firstList = modalBody.querySelector('ul, ol');
+      if (firstList) {
+        firstList.parentNode.insertBefore(serviceTitle, firstList);
+      }
+    } else {
+      serviceTitle.classList.add('modal-section-title');
+    }
+    
+    // Convert any standard lists to our custom service list
+    const lists = modalBody.querySelectorAll('ul, ol');
+    lists.forEach(list => {
+      list.className = 'service-list';
+    });
+  }
   
-  // Get all input and textarea elements in the form
-  const inputs = formElement.querySelectorAll('input, textarea');
-  
-  // Set a short timeout to clear the form after submission is processed
-  // This gives time for the form submission to complete
-  setTimeout(function() {
-    // Clear each input and textarea
-    inputs.forEach(function(input) {
-      input.value = '';
+  // If there are multiple paragraphs, create a better text layout
+  if (paragraphs.length > 1) {
+    // Add proper class to paragraphs
+    paragraphs.forEach(p => {
+      if (!p.className) {
+        p.className = 'service-modal-paragraph';
+      }
     });
     
-    // Optional: Show a success message
-    alert('Form submitted successfully!');
-    
-    // If you prevented default form submission above, you might want to reset the form here
-    // formElement.reset();
-  }, 100);
+    // Create a case summary section for the key content if not present
+    const caseSummary = modalBody.querySelector('.case-summary');
+    if (!caseSummary && paragraphs.length >= 3) {
+      const summaryDiv = document.createElement('div');
+      summaryDiv.className = 'case-summary';
+      
+      // Get the first paragraph for the summary (or one that looks like a summary)
+      let summaryParagraph = null;
+      for (let i = 0; i < paragraphs.length; i++) {
+        const text = paragraphs[i].textContent.toLowerCase();
+        if (text.includes('summary') || text.includes('conclusion') || 
+            text.includes('souhrn') || text.includes('závěr') || i === 0) {
+          summaryParagraph = paragraphs[i].cloneNode(true);
+          break;
+        }
+      }
+      
+      if (summaryParagraph) {
+        summaryDiv.appendChild(summaryParagraph);
+        
+        // Insert after the title or first paragraph
+        const insertAfter = modalBody.querySelector('.modal-section-title') || 
+                            modalBody.querySelector('h4') || 
+                            paragraphs[0];
+        
+        if (insertAfter && insertAfter.nextSibling) {
+          modalBody.insertBefore(summaryDiv, insertAfter.nextSibling);
+        }
+      }
+    }
+  }
+}
+
+// Call this function on window resize and orientation change
+window.addEventListener('resize', adjustModalPositioning);
+window.addEventListener('orientationchange', adjustModalPositioning);
+
+// Initial call when modals are opened
+document.querySelectorAll('.result-card, .service-card').forEach(card => {
+  card.addEventListener('click', function() {
+    // Wait for modal to be visible
+    setTimeout(adjustModalPositioning, 100);
+  });
 });
+
+
     </script>
     <script src="language-toggle.js"></script>
 </body>
