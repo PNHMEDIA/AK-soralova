@@ -16,17 +16,17 @@
     <style>
         /* Base Styles */
         :root {
-            --navy: #6db26c;
-            --navy-light: #87bc80;
-            --charcoal: #000000;
-            --gold: #174f12;
-            --gold-light: #979797;
-            --white: #ffffff;
-            --off-white: #f8f8f8;
-            --light-gray: #8e3131;
-            --text: #2c2c2c;
-            --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
+  --navy: #48b046;           /* Main green from the logo */
+  --navy-light: #87bc80;     /* Lighter green shade */
+  --charcoal: #000000;       /* Black for "ŠORALOVÁ" text */
+  --gold: #174f12;           /* Darker green accent */
+  --gold-light: #979797;     /* Gray for "advokátní kancelář" */
+  --white: #ffffff;          /* White for "LŠ" in the square */
+  --off-white: #f8f8f8;      /* Keeping as is */
+  --text: #2c2c2c;           /* Keeping as is */
+  --light-gray: #979797;     /* Changed to match the gray text */
+  --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
 
         * {
             margin: 0;
@@ -3366,15 +3366,7 @@ textarea.form-control {
 }
 
 
-@media (max-width: 768px) {
-    .logo-name {
-        color: white !important; /* Makes the ŠORALOVÁ text white */
-    }
-    
-    .logo-tagline {
-        color: rgba(255, 255, 255, 0.8) !important; /* Makes ADVOKÁTNÍ KANCELÁŘ slightly transparent white */
-    }
-}
+
 
 
 @media (max-width: 768px) {
@@ -4889,35 +4881,9 @@ textarea.form-control {
   }
 }
 /* Add this to your CSS file or in the <style> section in the <head> */
-  @media (max-width: 768px) {
-    .logo img {
-        filter: brightness(0) invert(1);
-    }
-}
-@media (max-width: 768px) {
-    /* For SVG logo */
-    .logo svg path,
-    .logo svg text {
-        fill: #ffffff !important;
-    }
-    
-    /* For image-based logo */
-    .logo img {
-        filter: brightness(0) invert(1);
-    }
-}
-@media (max-width: 768px) {
-    /* For SVG logo */
-    .logo svg path,
-    .logo svg text {
-        fill: #ffffff !important;
-    }
-    
-    /* For image-based logo */
-    .logo img {
-        filter: brightness(0) invert(1);
-    }
-}
+
+
+
 /* Modern Contact Section Styles */
 .contact-section {
   padding: 60px 20px;
@@ -6400,6 +6366,12 @@ h3:contains("Rozhodnutí o organizační změně"),
     max-height: calc(80vh - 140px);
     padding: 20px;
   }
+
+  .hero-subtitle {
+    display: none;
+  }
+
+  
 }
 
 /* Fix for iOS Safari */
@@ -6477,7 +6449,105 @@ h3:contains("Rozhodnutí o organizační změně"),
     gap: 20px;
   }
 }
-/* No need to change the size of your elements or their horizontal layout */
+
+/* Comprehensive touch device detection */
+@media (hover: none), (pointer: coarse) {
+  /* Disable ALL hover effects */
+  *:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: initial !important;
+    color: initial !important;
+    border-color: initial !important;
+    opacity: 1 !important;
+    scale: 1 !important;
+    translate: 0 !important;
+    transition: none !important;
+  }
+  
+  /* Disable ALL animations */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Specifically target common hover elements on your site */
+  .btn:hover, 
+  .about-cta:hover, 
+  .service-card:hover, 
+  .feature-item:hover, 
+  .result-card:hover, 
+  .testimonial-button:hover,
+  .contact-item:hover, 
+  .footer-link:hover, 
+  .nav-link:hover::after,
+  .service-more-info:hover, 
+  .footer-social-link:hover,
+  .form-submit:hover,
+  .service-modal-cta:hover,
+  .services-cta-button:hover,
+  .animation-button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: initial !important;
+    color: initial !important;
+    border-color: initial !important;
+  }
+  
+  /* Disable all pseudo-element hover effects */
+  *:hover::before,
+  *:hover::after {
+    transform: none !important;
+    left: -100% !important; 
+    width: 0 !important;
+    opacity: 0 !important;
+    transition: none !important;
+  }
+  
+  /* Remove any hover-specific text or indicators */
+  .service-card::before,
+  .result-card::before {
+    display: none !important;
+  }
+  
+  /* Disable GSAP animations if present */
+  .gsap-anim, 
+  .fade-up, 
+  .fade-in, 
+  .fade-left, 
+  .fade-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Ensure no transforms are applied on active states */
+  .active, 
+  .hover, 
+  .touch-active,
+  .service-card.active,
+  .result-card.active {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* JavaScript touch detection backup - add this class via JS */
+.touch-device *:hover,
+.touch-device .btn:hover,
+.touch-device .service-card:hover,
+.touch-device .result-card:hover,
+.touch-device .feature-item:hover,
+.touch-device .nav-link:hover,
+.touch-device .form-submit:hover,
+.touch-device .animation-button:hover {
+  transform: none !important;
+  background-color: initial !important;
+  color: initial !important;
+  box-shadow: none !important;
+  border-color: initial !important;
+  transition: none !important;
+}
     </style>
 </head>
 <body>
@@ -6531,9 +6601,9 @@ h3:contains("Rozhodnutí o organizační změně"),
           
           <!-- Desktop language switcher -->
           <div class="language-switcher">
-              <a href="#" class="language-option active" data-lang="cz">CZ</a>
+              <a href="#" class="language-option active" data-lang="cz" style="color: #000000;">CZ</a>
               <span>/</span>
-              <a href="#" class="language-option" data-lang="en">EN</a>
+              <a href="#" class="language-option" data-lang="en" style="color: #000000 !important;">EN</a>
           </div>
   
           <!-- Mobile language switcher -->
@@ -6817,7 +6887,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Rozhodnutím ze dne 11. května 2021 Ústavní soud České republiky ve svém nálezu IV. ÚS 3542/20 judikoval, že i výkon práva, který odpovídá zákonu, může být shledán v rozporu s dobrými mravy.
                           </p>
-                          <a href="#result-modal-1" class="result-more-info" data-result="1">Více informací</a>
+                          <button class="btn" onclick="openResultModal('1')">Více informací</button>
                       </div>
                   </div>
                   
@@ -6831,7 +6901,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Zajímavou otázkou, která se týká rozvodu bez zjišťování příčin rozvratu obecně je otázka, zda je dohoda manželů uzavřená podle ust. § 757 odst. 1 písm. c) NOZ platná pouze pro rozvod podle ust. § 757 NOZ.
                           </p>
-                          <a href="#result-modal-2" class="result-more-info" data-result="2">Více informací</a>
+                          <button class="btn" onclick="openResultModal('2')">Více informací</button>
                       </div>
                   </div>
                   
@@ -6845,7 +6915,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek.
                           </p>
-                          <a href="#result-modal-3" class="result-more-info" data-result="3">Více informací</a>
+                          <button class="btn" onclick="openResultModal('3')">Více informací</button>
                       </div>
                   </div>
                   
@@ -6859,7 +6929,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                           <p class="result-description">
                               V posuzované věci se jednalo o situaci, kdy byla zaměstnanci udělena výpověď podle ust. § 52 písm. c) zákoníku práce, přičemž předmětnou organizační změnu nepřijal statutární orgán společnosti.
                           </p>
-                          <a href="#result-modal-4" class="result-more-info" data-result="4">(Více informací)</a>
+                          <button class="btn" onclick="openResultModal('4')">Více informací</button>
                       </div>
                   </div>
               </div>
@@ -6923,6 +6993,132 @@ h3:contains("Rozhodnutí o organizační změně"),
           </div>
       </div>
   </section>
+
+  <!-- Pricing/Fees Section -->
+<section class="section pricing" id="pricing">
+  <div class="section-line"></div>
+  <div class="container">
+      <div class="pricing-container">
+          <div class="section-heading fade-up">
+              <div class="section-number">05</div>
+              <h2 class="section-title" data-lang-key="pricing-title">Cenové podmínky</h2>
+             
+          </div>
+          
+          <!-- Pricing Content -->
+          <div class="pricing-content active">
+              <!-- Basic Fees Card -->
+              <div class="pricing-cards">
+                  <!-- Initial Consultation Card -->
+                  <div class="pricing-card">
+                      <div class="pricing-card-header">
+                          <div class="pricing-icon">
+                              <i class="fas fa-handshake"></i>
+                          </div>
+                          <h3 class="pricing-card-title" data-lang-key="pricing-consultation-title">První schůzka</h3>
+                      </div>
+                      <div class="pricing-card-body">
+                          <div class="pricing-value" data-lang-key="pricing-consultation-value">
+                              <span class="pricing-free">Zdarma</span>
+                          </div>
+                          <div class="pricing-duration" data-lang-key="pricing-consultation-duration">
+                              (30 minut)
+                          </div>
+                          <ul class="pricing-features">
+                              <li data-lang-key="pricing-consultation-feature-1"><i class="fas fa-check"></i> Seznámení s případem</li>
+                              <li data-lang-key="pricing-consultation-feature-2"><i class="fas fa-check"></i> Úvodní právní posouzení</li>
+                              <li data-lang-key="pricing-consultation-feature-3"><i class="fas fa-check"></i> Návrh dalšího postupu</li>
+                          </ul>
+                      </div>
+                      <div class="pricing-card-footer">
+                          <a href="#contact" class="pricing-btn btn" data-lang-key="pricing-consultation-btn">Rezervovat termín</a>
+                      </div>
+                  </div>
+                  
+                  <!-- Standard Hourly Rate Card -->
+                  <div class="pricing-card highlighted">
+                      
+                      <div class="pricing-card-header">
+                          <div class="pricing-icon">
+                              <i class="fas fa-clock"></i>
+                          </div>
+                          <h3 class="pricing-card-title" data-lang-key="pricing-standard-title">Standardní hodinová sazba</h3>
+                      </div>
+                      <div class="pricing-card-body">
+                          <div class="pricing-value" data-lang-key="pricing-standard-value">
+                              od <span class="pricing-amount">2 000 Kč</span>
+                          </div>
+                          <div class="pricing-duration" data-lang-key="pricing-standard-duration">
+                              za hodinu
+                          </div>
+                          <ul class="pricing-features">
+                              <li data-lang-key="pricing-standard-feature-1"><i class="fas fa-check"></i> Právní poradenství</li>
+                              <li data-lang-key="pricing-standard-feature-2"><i class="fas fa-check"></i> Příprava dokumentů</li>
+                              <li data-lang-key="pricing-standard-feature-3"><i class="fas fa-check"></i> Zastupování před úřady</li>
+                              <li data-lang-key="pricing-standard-feature-4"><i class="fas fa-check"></i> Individuální přístup</li>
+                          </ul>
+                      </div>
+                      <div class="pricing-card-footer">
+                          <a href="#contact" class="pricing-btn btn-reversed" data-lang-key="pricing-standard-btn">Kontaktujte nás</a>
+                      </div>
+                  </div>
+                  
+                  <!-- Complex Cases Card -->
+                  <div class="pricing-card">
+                      <div class="pricing-card-header">
+                          <div class="pricing-icon">
+                              <i class="fas fa-balance-scale"></i>
+                          </div>
+                          <h3 class="pricing-card-title" data-lang-key="pricing-complex-title">Složitější případy</h3>
+                      </div>
+                      <div class="pricing-card-body">
+                          <div class="pricing-value" data-lang-key="pricing-complex-value">
+                              <span class="pricing-custom">Individuální cena</span>
+                          </div>
+                          <div class="pricing-duration" data-lang-key="pricing-complex-duration">
+                              dle náročnosti
+                          </div>
+                          <ul class="pricing-features">
+                              <li data-lang-key="pricing-complex-feature-1"><i class="fas fa-check"></i> Složité právní případy</li>
+                              <li data-lang-key="pricing-complex-feature-2"><i class="fas fa-check"></i> Rozsáhlá dokumentace</li>
+                              <li data-lang-key="pricing-complex-feature-3"><i class="fas fa-check"></i> Dlouhodobá spolupráce</li>
+                              <li data-lang-key="pricing-complex-feature-4"><i class="fas fa-check"></i> Transparentní kalkulace</li>
+                          </ul>
+                      </div>
+                      <div class="pricing-card-footer">
+                          <a href="#contact" class="pricing-btn btn" data-lang-key="pricing-complex-btn">Vyžádat nabídku</a>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Flat Rate Packages -->
+            
+              
+              <!-- Pricing Disclaimer -->
+              <div class="pricing-disclaimer fade-up">
+                  <p data-lang-key="pricing-disclaimer">
+                      <i class="fas fa-info-circle"></i> Všechny uvedené ceny jsou bez DPH. Konečná cena se může lišit v závislosti na konkrétních požadavcích a rozsahu poskytnutých služeb.
+                  </p>
+              </div>
+              
+              <!-- Bar Association Certification -->
+              <div class="bar-certification fade-up">
+                  <div class="bar-logo">
+                      <img src="https://i.postimg.cc/DwQVsXwz/cak-logo.png" alt="Czech Bar Association Logo" height="80">
+                  </div>
+                  <div class="bar-text">
+                      <p data-lang-key="bar-certification-text">
+                          Česká advokátní komora byla dne 5.2.2016 pověřena Ministerstvem průmyslu a obchodu ČR mimosoudním řešením spotřebitelských sporů pro oblast sporů mezi advokátem a spotřebitelem ze Smluv o poskytování právních služeb (na základě zákona č. 634/1992 Sb., o ochraně spotřebitele ve znění pozdějších předpisů).
+                      </p>
+                      <p data-lang-key="bar-website">
+                          Internetová stránka tohoto pověřeného subjektu je <a href="https://www.cak.cz" target="_blank" rel="noopener">www.cak.cz</a>.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
   
   <!-- Contact Section -->
   <section class="section contact" id="contact" style="background-color: #fff;">
@@ -6931,7 +7127,7 @@ h3:contains("Rozhodnutí o organizační změně"),
           <div class="contact-container">
               <div class="contact-content">
                   <div class="section-heading fade-up">
-                      <div class="section-number" style="color: #a5a5a54b !important;">05</div>
+                      <div class="section-number" style="color: #a5a5a54b !important;">06</div>
                       <h2 class="section-title" data-lang-key="contact-heading">Kontaktujte nás</h2>
                   </div>
                   
@@ -7013,7 +7209,7 @@ h3:contains("Rozhodnutí o organizační změně"),
       <div class="container">
           <div class="location-container">
               <div class="section-heading fade-up">
-                  <div class="section-number">06</div>
+                  <div class="section-number">07</div>
                   <h2 class="section-title" data-lang-key="location-title">Kde nás najdete</h2>
                   <p class="section-subtitle fade-up" data-lang-key="location-subtitle">
                       Sídlíme v centru Prahy v historické budově na Ovocném trhu, nedaleko Staroměstského náměstí.
@@ -7058,7 +7254,7 @@ h3:contains("Rozhodnutí o organizační změně"),
                               <div class="location-detail">
                                   <h3 class="location-info-title" data-lang-key="location-transport-title">Dopravní spojení</h3>
                                   <p class="location-text" data-lang-key="location-transport">
-                                      <strong>Metro:</strong> Stanice Můstek (linka A, B) / Náměstí Republiky (linka B)<br>
+                                      <strong>Metro:</strong> Stanice Můstek (linka A, B) <br>
                                       <strong>Tramvaj:</strong> Zastávka Náměstí Republiky<br>
                                       <strong>Parkování:</strong> Garáže Palladium (7 min chůze)
                                   </p>
@@ -7366,6 +7562,10 @@ h3:contains("Rozhodnutí o organizační změně"),
           </div>
       </div>
   </div>
+
+
+
+  
   
   <!-- Case Results Modals -->
   <!-- Modal 1 -->
@@ -8156,7 +8356,7 @@ const translations = {
  
   'testimonial-3-text': {
     'cz': 'Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.',
-    'en': 'Lucia mi pomohla vypovědět nájemní smlouvu, když můj pronajímatel trval na tom, že to není možné. Vysvětlila mi všechny podrobnosti smlouvy, které jsem potřeboval znát.'
+    'en': 'Mgr. Lucia Šoralová helped me resolve a complicated employment law dispute. Thanks to her experience and expertise, we achieved a very good outcome. Highly recommended.'
   },
  
   // Contact Section
@@ -8476,8 +8676,8 @@ const translations = {
   },
 
   'location-transport': {
-    'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B) / Náměstí Republiky (linka B) <br><strong>Tramvaj:</strong> Zastávka Náměstí Republiky <br><strong>Parkování:</strong> Garáže Palladium (10 min chůze)',
-    'en': '<strong>Metro:</strong> Můstek Station (line A, B) / Náměstí Republiky (line B) <br><strong>Tram:</strong> Náměstí Republiky Stop<br><strong>Parking:</strong> Palladium Garage (10 min walk)'
+    'cz': '<strong>Metro:</strong> Stanice Můstek (linka A, B)  <br><strong>Tramvaj:</strong> Zastávka Náměstí Republiky <br><strong>Parkování:</strong> Garáže Palladium (10 min chůze)',
+    'en': '<strong>Metro:</strong> Můstek Station (line A, B) <br><strong>Tram:</strong> Náměstí Republiky Stop<br><strong>Parking:</strong> Palladium Garage (10 min walk)'
   },
   'location-hours-title': {
     'cz': 'Otevírací doba',
@@ -8501,10 +8701,7 @@ const translations = {
     'cz': 'Cenové podmínky',
     'en': 'Pricing'
   },
-  'pricing-subtitle': {
-    'cz': 'Naše služby poskytujeme transparentně s jasnými cenovými podmínkami. Pro konkrétní cenovou kalkulaci nás neváhejte kontaktovat.',
-    'en': 'We provide our services transparently with clear pricing conditions. Do not hesitate to contact us for a specific price calculation.'
-  },
+
   
   // Pricing tabs
   'pricing-tab-hourly': {
@@ -8547,10 +8744,7 @@ const translations = {
   },
   
   // Standard hourly rate card
-  'pricing-standard-ribbon': {
-    'cz': 'Nejžádanější',
-    'en': 'Most Popular'
-  },
+ 
   'pricing-standard-title': {
     'cz': 'Standardní hodinová sazba',
     'en': 'Standard Hourly Rate'
