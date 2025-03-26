@@ -3665,30 +3665,7 @@ textarea.form-control {
     }
 }
 
-/* Touch device optimizations */
-@media (hover: none) {
-    .location-info:hover,
-    .location-map-container:hover {
-        transform: none;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-    }
-    
-    .location-info:hover::after {
-        width: 0;
-    }
-    
-    .location-info-item:hover .location-icon {
-        background-color: var(--navy);
-    }
-    
-    .location-info-item:hover .location-icon i {
-        color: var(--gold);
-    }
-    
-    .location-btn {
-        padding: 15px 25px;
-    }
-}
+
 
 /* Pricing Section Styles */
 .pricing {
@@ -4163,9 +4140,7 @@ textarea.form-control {
     transition: var(--transition);
 }
 
-.bar-text a:hover {
-    text-decoration: underline;
-}
+
 
 /* Responsive styles */
 @media (max-width: 1200px) {
@@ -4265,68 +4240,6 @@ textarea.form-control {
     }
 }
 
-/* Touch device optimizations */
-@media (hover: none) {
-    .pricing-card:hover,
-    .package-info:hover,
-    .example-item:hover {
-        transform: none;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-    }
-    
-    .pricing-card.highlighted:hover {
-        transform: scale(1.03);
-    }
-    
-    .pricing-card:hover::after {
-        width: 0;
-    }
-    
-    .pricing-card:hover .pricing-icon,
-    .package-info:hover .package-icon,
-    .example-item:hover .example-icon {
-        background-color: var(--navy);
-        transform: none;
-    }
-    
-    .pricing-card:hover .pricing-icon i,
-    .package-info:hover .package-icon i,
-    .example-item:hover .example-icon i {
-        color: var(--gold);
-        transform: none;
-    }
-    
-    /* Larger touch target for tabs on mobile */
-    .pricing-tab {
-        padding: 15px 25px;
-        font-size: 1.1rem;
-    }
-}
-
-
-/* Ensure touch-specific styles have higher specificity */
-@media (hover: none) and (max-width: 768px) {
-  .btn,
-  .about-cta,
-  .service-modal-cta,
-  .services-cta-button,
-  .form-submit {
-    /* Clear existing hover transitions for touch devices */
-    transition: background-color 0.3s ease !important;
-    margin-bottom: 15px;
-  }
-  
-  /* Provide clear visual feedback on tap */
-  .btn:active,
-  .about-cta:active,
-  .service-modal-cta:active,
-  .services-cta-button:active,
-  .form-submit:active {
-    background-color: var(--gold) !important;
-    color: var(--navy) !important;
-    transform: translateY(0) !important;
-  }
-}
 
 /* Add this to your existing CSS */
 @media (max-width: 768px) {
@@ -4526,13 +4439,7 @@ textarea.form-control {
   }
 }
 
-/* Touch optimizations */
-@media (hover: none) {
-  .animation-button {
-    padding: 15px 30px;
-    min-height: 44px;
-  }
-}
+ 
 /* Form Animation Styles */
 .form-animation {
   display: flex;
@@ -4705,13 +4612,7 @@ textarea.form-control {
   }
 }
 
-/* Touch optimizations */
-@media (hover: none) {
-  .animation-button {
-    padding: 15px 30px;
-    min-height: 44px;
-  }
-}
+ 
 
 /* Adjust the breakpoint to start showing hamburger menu at a larger size */
 @media (max-width: 1200px) { /* Increased from typical 992px to catch your current view size */
@@ -5089,67 +4990,6 @@ button[type="submit"] {
     transform: translateY(0);
 }
 
-/* ===== UNIFY TOUCH DEVICE OPTIMIZATIONS ===== */
-/* Consolidated touch device styles */
-@media (hover: none) {
-    /* Disable hover effects */
-    .btn:hover, 
-    .about-cta:hover, 
-    .service-card:hover, 
-    .feature-item:hover, 
-    .result-card:hover, 
-    .testimonial-button:hover,
-    .contact-item:hover, 
-    .footer-link:hover, 
-    .nav-link:hover::after,
-    .service-more-info:hover, 
-    .footer-social-link:hover,
-    .form-submit:hover,
-    .service-modal-cta:hover,
-    .services-cta-button:hover,
-    .animation-button:hover {
-        transform: none !important;
-        box-shadow: none !important;
-        transition: none !important;
-    }
-    
-    /* Disable pseudo-element hover effects */
-    .btn:hover::before, 
-    .about-cta:hover::before, 
-    .service-card:hover::before,
-    .service-more-info:hover::after, 
-    .form-submit:hover::before,
-    .animation-button:hover::before {
-        transform: none !important;
-        left: -100% !important; 
-        width: 0 !important;
-        transition: none !important;
-    }
-    
-    /* Hide hover info text on cards */
-    .service-card::before,
-    .result-card::before {
-        display: none !important;
-    }
-    
-    /* Larger touch targets */
-    .btn,
-    .about-cta,
-    .form-submit,
-    .service-modal-cta,
-    .services-cta-button,
-    .animation-button {
-        min-height: 44px;
-        padding: 15px 30px;
-    }
-    
-    .service-modal-close,
-    .result-modal-close {
-        padding: 15px !important;
-        width: 44px !important;
-        height: 44px !important;
-    }
-}
 
 /* ===== STANDARDIZE COLORS ===== */
 /* Replace direct color codes with variables */
@@ -10912,7 +10752,7 @@ function addLanguageToggleToModals() {
       
       .modal-lang-btn.active {
         font-weight: bold;
-        text-decoration: underline;
+        
       }
     `;
     document.head.appendChild(style);
