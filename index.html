@@ -7046,9 +7046,126 @@ section {
 }
 }
 
+.service-modal-close {
+  background-color: #e74d3c00 !important; /* This makes the image white */
+}
+.service-modal-close:hover {
+  background-color: #e74d3c00 !important; /* This makes the image white */
+}
+
 /* Add white filter to the logo image */
 
+/* Disable ALL hover effects on mobile devices */
+@media (max-width: 768px) {
+  /* Disable transitions */
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* Prevent transform effects on hover */
+  a:hover,
+  button:hover,
+  .btn:hover, 
+  .about-cta:hover, 
+  .form-submit:hover, 
+  .service-modal-cta:hover, 
+  .services-cta-button:hover, 
+  .testimonial-button:hover,
+  .service-more-info:hover,
+  .footer-social-link:hover,
+  .service-card:hover, 
+  .feature-item:hover, 
+  .result-card:hover,
+  .contact-item:hover,
+  .footer-link-item:hover,
+  .language-option:hover,
+  .mobile-nav-link:hover,
+  .pricing-card:hover,
+  .example-item:hover,
+  .location-info:hover,
+  .package-info:hover,
+  .contact-form:hover,
+  .about-cta:hover,
+  .location-btn:hover,
+  .service-card:hover .feature-icon,
+  .feature-item:hover .feature-icon,
+  .contact-item:hover .contact-icon,
+  .location-info-item:hover .location-icon {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: initial !important;
+    color: initial !important;
+    border-color: initial !important;
+  }
+  
+  /* Disable pseudo-element animations */
+  .btn:hover::before, 
+  .btn:hover::after,
+  .about-cta:hover::before, 
+  .about-cta:hover::after,
+  .service-card:hover::before,
+  .service-card:hover::after,
+  .result-card:hover::after,
+  .pricing-card:hover::after,
+  .nav-link:hover::after,
+  .service-more-info:hover::after,
+  .form-submit:hover::before,
+  .location-info:hover::after,
+  .contact-form:hover::after {
+    transform: none !important;
+    left: -100% !important;
+    width: 0 !important;
+    opacity: 0 !important;
+  }
+  
+  /* Prevent icon changes on hover */
+  .service-card:hover .feature-icon i,
+  .feature-item:hover .feature-icon i,
+  .contact-item:hover .contact-icon i,
+  .location-info-item:hover .location-icon i {
+    color: inherit !important;
+    transform: none !important;
+  }
+  
+  /* Disable background color changes on hover */
+  .feature-icon:hover,
+  .feature-item:hover .feature-icon,
+  .service-card:hover .feature-icon,
+  .btn-reversed:hover,
+  .form-submit:hover,
+  .service-modal-cta:hover,
+  .services-cta-button:hover,
+  .animation-button:hover {
+    background-color: initial !important;
+  }
+  
+  /* Prevent any hover-triggered visibility changes */
+  .service-card::before {
+    display: none !important;
+  }
+  
+  /* Disable pointer cursor on mobile since hover doesn't work */
+  .hover-elements {
+    cursor: default !important;
+  }
+  
+  /* Add a subtle tap effect instead of hover */
+  a:active, button:active, .btn:active {
+    opacity: 0.7;
+    transition: opacity 0.1s ease !important;
+  }
+}
 
+/* For very small devices, ensure absolutely no hover effects */
+@media (max-width: 480px) {
+  /* Force hardware acceleration off for smoother performance */
+  * {
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    will-change: auto !important;
+  }
+}
     </style>
 </head>
 <body>
