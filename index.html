@@ -6574,6 +6574,32 @@ h3:contains("Rozhodnutí o organizační změně"),
 .service-modal, .result-modal {
   z-index: 1001;
 }
+ 
+
+/* Fix for footer link colors on mobile */
+@media (max-width: 768px) {
+  .footer-contact-text a,
+  .footer-contact-item a {
+    color: inherit !important;  /* Use the parent container's color */
+    transition: color 0.3s ease;
+  }
+
+  .footer-contact-text a:active,
+  .footer-contact-item a:active {
+    color: var(--gold) !important;  /* Optional: Add a color change on tap */
+  }
+
+  .footer-contact-item {
+    color: rgba(255, 255, 255, 0.7);  /* Ensure consistent text color */
+  }
+}
+
+/* Remove any conflicting touch styles */
+.touch-device .footer-contact-text a,
+.touch-device .footer-contact-item a {
+  color: inherit !important;
+  -webkit-tap-highlight-color: transparent;
+}
     </style>
 </head>
 <body>
@@ -10178,275 +10204,6 @@ function initializeContactForm() {
  * TOUCH OPTIMIZATIONS
  * ==============================================
  */
-
-/**
- * Initialize optimizations for touch devices
- */
-function initializeTouchOptimizations() {
-  if (!window.siteConfig.isTouchDevice) return;
-  
-  // Add touch-device class to body
-  document.body.classList.add('touch-device');
-  
-  // Remove hover effect from service cards
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('touchstart', function() {
-      this.classList.add('touch-active');
-    });
-    
-    card.addEventListener('touchend', function() {
-      this.classList.remove('touch-active');
-      
-      // Get service ID and trigger modal open
-      const serviceLink = this.querySelector('.service-more-info');
-      if (serviceLink) {
-        const serviceId = serviceLink.getAttribute('data-service');
-        if (window.openServiceModal) {
-          window.openServiceModal(serviceId);
-        }
-      }
-    });
-  });
-  
-  // Remove hover effect from result cards
-  document.querySelectorAll('.result-card').forEach(card => {
-    card.addEventListener('touchstart', function() {
-      this.classList.add('touch-active');
-    });
-    
-    card.addEventListener('touchend', function() {
-      this.classList.remove('touch-active');
-      
-      // Get result ID and trigger modal open
-      const resultLink = this.querySelector('.result-more-info');
-      if (resultLink) {
-        const resultId = resultLink.getAttribute('data-result');
-        if (window.openResultModal) {
-          window.openResultModal(resultId);
-        }
-      }
-    });
-  });
-  
-  // Add touch feedback for buttons
-  const touchElements = document.querySelectorAll('.btn, .footer-link, .nav-link, .about-cta, .service-more-info, .result-more-info');
-  touchElements.forEach(element => {
-    element.addEventListener('touchstart', function() {
-      this.classList.add('touch-active');
-    });
-    
-    element.addEventListener('touchend', function() {
-      this.classList.remove('touch-active');
-    });
-  });
-  
-  // Add touch-specific styles
-  addTouchStyles();
-}
-
-/**
- * Add touch-specific styles to document
- */
-function addTouchStyles() {
-  const style = document.createElement('style');
-  style.textContent = `
-    /* Disable hover effects on touch devices */
-    .touch-device .btn:hover,
-    .touch-device .about-cta:hover,
-    .touch-device .service-card:hover,
-    .touch-device .result-card:hover,
-    .touch-device .feature-item:hover,
-    .touch-device .testimonial-button:hover,
-    .touch-device .contact-item:hover,
-    .touch-device .footer-link:hover, 
-    .touch-device .nav-link:hover::after,
-    .touch-device .service-more-info:hover,
-    .touch-device .result-more-info:hover,
-    .touch-device .footer-social-link:hover,
-    .touch-device .form-submit:hover,
-    .touch-device .service-modal-cta:hover,
-    .touch-device .services-cta-button:hover {
-      transform: none !important;
-      box-shadow: none !important;
-      transition: none !important;
-    }
-    
-    /* Disable pseudo-element hover effects */
-    .touch-device .btn:hover::before,
-    .touch-device .about-cta:hover::before,
-    .touch-device .service-card:hover::before,
-    .touch-device .result-card:hover::before,
-    .touch-device .service-more-info:hover::after,
-    .touch-device .result-more-info:hover::after,
-    .touch-device .form-submit:hover::before {
-      transform: none !important;
-      left: -100% !important; 
-      width: 0 !important;
-      transition: none !important;
-    }
-    
-    /* Hide hover info text on service and result cards */
-    .touch-device .service-card::before,
-    .touch-device .result-card::before {
-      display: none !important;
-    }
-    
-    /* Touch active state styling */
-    .touch-device .touch-active {
-      opacity: 0.8 !important;
-    }
-    
-    .touch-device .service-card.touch-active,
-    .touch-device .result-card.touch-active {
-      background-color: rgba(0, 0, 0, 0.02);
-    }
-    
-    .touch-device .btn.touch-active,
-    .touch-device .about-cta.touch-active {
-      background-color: var(--navy);
-      color: var(--white);
-    }
-    
-    /* Larger touch targets */
-    .touch-device .service-modal-close,
-    .touch-device .result-modal-close {
-      padding: 15px !important;
-      font-size: 32px !important;
-      width: 50px !important;
-      height: 50px !important;
-    }
-    
-    .touch-device .btn,
-    .touch-device .about-cta,
-    .touch-device .form-submit,
-    .touch-device .service-modal-cta,
-    .touch-device .services-cta-button {
-      min-height: 44px;
-      padding: 12px 30px;
-      font-size: 16px;
-    }
-    
-    /* Fix for hero buttons on mobile */
-    @media (max-width: 768px) {
-      .hero-cta-buttons {
-        width: 100%;
-      }
-      
-      .hero-cta-buttons .btn {
-        width: 100%;
-        margin-bottom: 10px;
-        display: block;
-        text-align: center;
-      }
-    }
-  `;
-  
-  document.head.appendChild(style);
-}
-
-/**
- * JavaScript solution to detect touch devices and disable hover effects
- * This provides a more dynamic approach and works even on browsers 
- * that might not fully support the CSS hover media query
- */
-
-// Execute when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Function to detect if device is touch-capable
-  function isTouchDevice() {
-    return (
-      ('ontouchstart' in window) ||
-      (navigator.maxTouchPoints > 0) ||
-      (navigator.msMaxTouchPoints > 0)
-    );
-  }
-
-  // Add a class to the body if it's a touch device
-  if (isTouchDevice()) {
-    document.body.classList.add('touch-device');
-    
-    // Disable hover state on service cards, result cards, and other interactive elements
-    const interactiveElements = document.querySelectorAll(
-      '.btn, .about-cta, .service-card, .result-card, .feature-item, ' +
-      '.testimonial-button, .contact-item, .footer-link, .nav-link, ' +
-      '.service-more-info, .result-more-info, .footer-social-link, .form-submit, ' +
-      '.service-modal-cta, .services-cta-button'
-    );
-    
-    // For each interactive element, prevent default hover behavior
-    interactiveElements.forEach(element => {
-      // Cancel hover state by adding and removing a dummy class
-      element.addEventListener('touchstart', function() {
-        this.classList.add('touch-active');
-      });
-      
-      element.addEventListener('touchend', function() {
-        this.classList.remove('touch-active');
-      });
-    });
-    
-    // Add visual feedback for touch on service and result cards
-    document.querySelectorAll('.service-card, .result-card').forEach(card => {
-      card.addEventListener('touchstart', function() {
-        this.style.backgroundColor = 'rgba(0, 0, 0, 0.02)';
-      });
-      
-      card.addEventListener('touchend', function() {
-        // Delay reset to provide visual feedback
-        setTimeout(() => {
-          this.style.backgroundColor = '';
-        }, 300);
-      });
-    });
-  }
-});
-
-// Enhanced Form Validation
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  let isValid = true;
-  
-  // Reset error messages
-  document.querySelectorAll('.form-error').forEach(el => el.remove());
-  
-  // Validate name
-  if (name === '') {
-    isValid = false;
-    showError('name', 'Prosím vyplňte vaše jméno');
-  }
-  
-  // Validate email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (email === '' || !emailRegex.test(email)) {
-    isValid = false;
-    showError('email', 'Prosím vyplňte platný email');
-  }
-  
-  // Validate message
-  if (message === '') {
-    isValid = false;
-    showError('message', 'Prosím vyplňte vaši zprávu');
-  }
-  
-  if (!isValid) {
-    event.preventDefault();
-  }
-  
-  function showError(fieldId, message) {
-    const field = document.getElementById(fieldId);
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'form-error';
-    errorDiv.textContent = message;
-    errorDiv.style.color = '#e74c3c';
-    errorDiv.style.fontSize = '0.85rem';
-    errorDiv.style.marginTop = '5px';
-    field.parentNode.appendChild(errorDiv);
-    field.style.borderColor = '#e74c3c';
-  }
-});
-
 
 
 /**
