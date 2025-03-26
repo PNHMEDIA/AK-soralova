@@ -4241,30 +4241,6 @@ textarea.form-control {
 }
 
 
-/* Add this to your existing CSS */
-@media (max-width: 768px) {
-  .btn,
-  .about-cta,
-  .form-submit,
-  .service-modal-cta,
-  .services-cta-button {
-    min-height: 44px; /* Recommended minimum touch target size */
-    padding: 12px 30px;
-    font-size: 16px; /* Larger text for better readability */
-  }
-  
-  /* Fix for hero buttons on mobile */
-  .hero-cta-buttons {
-    width: 100%;
-  }
-  
-  .hero-cta-buttons .btn {
-    width: 100%;
-    margin-bottom: 10px;
-    display: block;
-    text-align: center;
-  }
-}
 
 
 /* Form Animation Styles */
@@ -5380,133 +5356,6 @@ section {
   }
 }
 
-/* Remove push-up hover effect but keep green line */
-
-/* Target all service cards and elements with hover effects */
-.service-card,
-.result-card,
-.feature-item,
-.testimonial-card,
-.contact-form,
-.pricing-card {
-  /* Remove transform on hover */
-  transform: none !important;
-  transition: box-shadow 0.3s ease, border-bottom 0.3s ease !important;
-  position: relative;
-  border-bottom: 3px solid transparent;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Override hover effects with !important to ensure they're removed */
-.service-card:hover,
-.result-card:hover,
-.feature-item:hover,
-.testimonial-card:hover,
-.contact-form:hover,
-.pricing-card:hover {
-  transform: none !important;
-  /* Keep shadow consistent */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
-  /* Add green line at bottom only */
-  border-bottom: 3px solid var(--gold, #6db26c) !important;
-}
-
-/* Remove any ::before or ::after elements used for hover effects */
-.service-card::before,
-.result-card::before,
-.service-card::after,
-.result-card::after {
-  display: none !important;
-}
-
-/* If there are any hover classes being added via JS, override those too */
-.service-card.hover,
-.result-card.hover,
-.feature-item.hover {
-  transform: none !important;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Keep icon hover effect for subtle feedback */
-.service-card:hover .service-icon {
-  background-color: var(--gold, #6db26c) !important;
-}
-
-.service-card:hover .service-icon i {
-  color: var(--navy, #ffffff) !important;
-}
-
-/* Ensure we're not using any animations or keyframes for hovers */
-@media (hover: hover) {
-  .service-card, 
-  .result-card,
-  .feature-item {
-    animation: none !important;
-  }
-}
-
-/* For touch devices, completely disable all hover effects */
-@media (hover: none) {
-  .service-card:hover,
-  .result-card:hover,
-  .feature-item:hover {
-    border-bottom: 3px solid transparent !important;
-  }
-}
-
-
-/* Make the organizational change heading much smaller */
-
-/* Target the specific heading by content or common selectors */
-h1:contains("Rozhodnutí o organizační změně"),
-h2:contains("Rozhodnutí o organizační změně"),
-h3:contains("Rozhodnutí o organizační změně"),
-.result-modal-title,
-.service-modal-title,
-.result-title,
-.service-card-title {
-  font-size: 1.2rem !important; /* Much smaller font size */
-  line-height: 1.4 !important; /* Adjusted line height */
-  margin-bottom: 10px !important; /* Reduced bottom margin */
-  font-weight: 600 !important; /* Slightly less bold */
-  max-width: 90% !important; /* Prevent overflow */
-}
-
-/* If inside a modal, specifically target that */
-.result-modal .service-modal-title,
-.service-modal .service-modal-title,
-.result-modal .result-modal-title,
-#result-modal-4 .service-modal-title,
-#service-modal-4 .service-modal-title {
-  font-size: 1.2rem !important;
-  line-height: 1.4 !important;
-  margin-bottom: 10px !important;
-  font-weight: 600 !important;
-  max-width: 90% !important;
-}
-
-/* If the heading is in a card on the main page */
-.result-card .result-title,
-.service-card .service-card-title {
-  font-size: 1.1rem !important;
-  line-height: 1.3 !important;
-  margin-bottom: 8px !important;
-}
-
-/* For mobile view - make even smaller if needed */
-@media (max-width: 768px) {
-  h1:contains("Rozhodnutí o organizační změně"),
-  h2:contains("Rozhodnutí o organizační změně"),
-  h3:contains("Rozhodnutí o organizační změně"),
-  .result-modal-title,
-  .service-modal-title,
-  .result-title,
-  .service-card-title {
-    font-size: 1rem !important;
-    line-height: 1.3 !important;
-  }
-}
-
 
 /* Modern Services Section Styles */
 .modern-services {
@@ -6119,27 +5968,6 @@ h3:contains("Rozhodnutí o organizační změně"),
   
 }
 
-/* Fix for iOS Safari */
-@supports (-webkit-touch-callout: none) {
-  .service-modal {
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-  
-  .service-modal.active {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-/* Reduced Padding for Services Section */
-
-/* Main container padding reduction */
-.services-container {
-  padding: 0 2rem !important; /* Reduced from 5rem */
-  max-width: 1500px; /* Increased max-width */
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Container class if it's applying additional padding */
 .container {
   padding: 0 1rem !important;
 }
@@ -6195,117 +6023,6 @@ h3:contains("Rozhodnutí o organizační změně"),
   }
 }
 
-/* Comprehensive touch device detection */
-@media (hover: none), (pointer: coarse) {
-  /* Disable ALL hover effects */
-  *:hover {
-    transform: none !important;
-    box-shadow: none !important;
-    background-color: initial !important;
-    color: initial !important;
-    border-color: initial !important;
-    opacity: 1 !important;
-    scale: 1 !important;
-    translate: 0 !important;
-    transition: none !important;
-  }
-  
-  /* Disable ALL animations */
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-  
-  /* Specifically target common hover elements on your site */
-  .btn:hover, 
-  .about-cta:hover, 
-  .service-card:hover, 
-  .feature-item:hover, 
-  .result-card:hover, 
-  .testimonial-button:hover,
-  .contact-item:hover, 
-  .footer-link:hover, 
-  .nav-link:hover::after,
-  .service-more-info:hover, 
-  .footer-social-link:hover,
-  .form-submit:hover,
-  .service-modal-cta:hover,
-  .services-cta-button:hover,
-  .animation-button:hover {
-    transform: none !important;
-    box-shadow: none !important;
-    background-color: initial !important;
-    color: initial !important;
-    border-color: initial !important;
-  }
-  
-  /* Disable all pseudo-element hover effects */
-  *:hover::before,
-  *:hover::after {
-    transform: none !important;
-    left: -100% !important; 
-    width: 0 !important;
-    opacity: 0 !important;
-    transition: none !important;
-  }
-  
-  /* Remove any hover-specific text or indicators */
-  .service-card::before,
-  .result-card::before {
-    display: none !important;
-  }
-  
-  /* Disable GSAP animations if present */
-  .gsap-anim, 
-  .fade-up, 
-  .fade-in, 
-  .fade-left, 
-  .fade-right {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  
-  /* Ensure no transforms are applied on active states */
-  .active, 
-  .hover, 
-  .touch-active,
-  .service-card.active,
-  .result-card.active {
-    transform: none !important;
-    transition: none !important;
-  }
-}
-
-/* JavaScript touch detection backup - add this class via JS */
-.touch-device *:hover,
-.touch-device .btn:hover,
-.touch-device .service-card:hover,
-.touch-device .result-card:hover,
-.touch-device .feature-item:hover,
-.touch-device .nav-link:hover,
-.touch-device .form-submit:hover,
-.touch-device .animation-button:hover {
-  transform: none !important;
-  background-color: initial !important;
-  color: initial !important;
-  box-shadow: none !important;
-  border-color: initial !important;
-  transition: none !important;
-}
-
-/* Add this to your existing CSS styles section */
-
-/* Modal text size adjustments for mobile */
-@media (max-width: 768px) {
-  /* Make the modal title smaller */
-  .service-modal-title, 
-  .result-modal .service-modal-title {
-    font-size: 1rem !important;
-    line-height: 1.3 !important;
-    margin-bottom: 8px !important;
-  }
-  
   /* Make the modal body text smaller */
   .service-modal-body p,
   .result-modal .service-modal-body p,
@@ -6338,7 +6055,7 @@ h3:contains("Rozhodnutí o organizační změně"),
   .result-modal .service-modal-header {
     padding: 15px !important;
   }
-}
+
 
 /* For very small screens, make text even smaller */
 @media (max-width: 480px) {
@@ -6533,73 +6250,10 @@ h3:contains("Rozhodnutí o organizační změně"),
   }
 }
 
-/* Make modals fullscreen on very small devices */
-@media (max-width: 480px) {
-  .service-modal, .result-modal {
-    width: 96%;
-    max-width: none;
-    max-height: 92vh;
-    border-radius: 8px;
-  }
-  
-  .service-modal-body {
-    font-size: 0.85rem;
-    padding: 12px;
-  }
-  
-  /* Ensure paragraph spacing for readability */
-  .service-modal-description p {
-    margin-bottom: 10px;
-  }
-}
 
-/* Smooth scrolling for modal content */
-.service-modal-body {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
 
-/* Visual indicator for scrollable content */
-.service-modal-body:after {
-  content: '';
-  display: block;
-  height: 20px;
-}
 
-/* Ensure proper z-index for overlay */
-.service-modal-overlay {
-  z-index: 1000;
-}
 
-.service-modal, .result-modal {
-  z-index: 1001;
-}
- 
-
-/* Fix for footer link colors on mobile */
-@media (max-width: 768px) {
-  .footer-contact-text a,
-  .footer-contact-item a {
-    color: inherit !important;  /* Use the parent container's color */
-    transition: color 0.3s ease;
-  }
-
-  .footer-contact-text a:active,
-  .footer-contact-item a:active {
-    color: var(--gold) !important;  /* Optional: Add a color change on tap */
-  }
-
-  .footer-contact-item {
-    color: rgba(255, 255, 255, 0.7);  /* Ensure consistent text color */
-  }
-}
-
-/* Remove any conflicting touch styles */
-.touch-device .footer-contact-text a,
-.touch-device .footer-contact-item a {
-  color: inherit !important;
-  -webkit-tap-highlight-color: transparent;
-}
     </style>
 </head>
 <body>
@@ -10199,13 +9853,7 @@ function initializeContactForm() {
   }
 }
 
-/**
- * ==============================================
- * TOUCH OPTIMIZATIONS
- * ==============================================
- */
-
-
+ 
 /**
  * LEGAL CASE TRANSLATIONS
  * Complete translation object for legal case modals
