@@ -2235,11 +2235,7 @@ header.scrolled {
 }
 
 /* Service Modal Content */
-.service-modal-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
+ 
 
 /* Service Modal Header */
 .service-modal-header {
@@ -2481,11 +2477,7 @@ header.scrolled {
 }
 
 /* Service Modal Content */
-.service-modal-content {
-    display: flex;
-    flex-direction: column;
-    max-height: 85vh;
-}
+ 
 
 /* Service Modal Header */
 .service-modal-header {
@@ -5891,12 +5883,7 @@ section {
 }
 
 /* Make sure content is scrollable, not the whole modal */
-.service-modal-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  max-height: 90vh;
-}
+ 
 
 .service-modal-body {
   padding: 30px;
@@ -6307,12 +6294,7 @@ section {
 }
 
 /* Modal content container */
-.service-modal-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  max-height: 90vh;
-}
+ 
 
 /* Modal header with smaller title */
 .service-modal-header {
@@ -6570,11 +6552,11 @@ section {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal Content */
 .service-modal-content {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  height: 100%;
+  max-height: 90vh;
 }
 
 /* Modal Header - More Professional Style */
@@ -7055,107 +7037,7 @@ section {
 
 /* Add white filter to the logo image */
 
-/* Disable ALL hover effects on mobile devices */
-@media (max-width: 768px) {
-  /* Disable transitions */
-  *, *::before, *::after {
-    transition: none !important;
-    animation: none !important;
-  }
-  
-  /* Prevent transform effects on hover */
-  a:hover,
-  button:hover,
-  .btn:hover, 
-  .about-cta:hover, 
-  .form-submit:hover, 
-  .service-modal-cta:hover, 
-  .services-cta-button:hover, 
-  .testimonial-button:hover,
-  .service-more-info:hover,
-  .footer-social-link:hover,
-  .service-card:hover, 
-  .feature-item:hover, 
-  .result-card:hover,
-  .contact-item:hover,
-  .footer-link-item:hover,
-  .language-option:hover,
-  .mobile-nav-link:hover,
-  .pricing-card:hover,
-  .example-item:hover,
-  .location-info:hover,
-  .package-info:hover,
-  .contact-form:hover,
-  .about-cta:hover,
-  .location-btn:hover,
-  .service-card:hover .feature-icon,
-  .feature-item:hover .feature-icon,
-  .contact-item:hover .contact-icon,
-  .location-info-item:hover .location-icon {
-    transform: none !important;
-    box-shadow: none !important;
-    background-color: initial !important;
-    color: initial !important;
-    border-color: initial !important;
-  }
-  
-  /* Disable pseudo-element animations */
-  .btn:hover::before, 
-  .btn:hover::after,
-  .about-cta:hover::before, 
-  .about-cta:hover::after,
-  .service-card:hover::before,
-  .service-card:hover::after,
-  .result-card:hover::after,
-  .pricing-card:hover::after,
-  .nav-link:hover::after,
-  .service-more-info:hover::after,
-  .form-submit:hover::before,
-  .location-info:hover::after,
-  .contact-form:hover::after {
-    transform: none !important;
-    left: -100% !important;
-    width: 0 !important;
-    opacity: 0 !important;
-  }
-  
-  /* Prevent icon changes on hover */
-  .service-card:hover .feature-icon i,
-  .feature-item:hover .feature-icon i,
-  .contact-item:hover .contact-icon i,
-  .location-info-item:hover .location-icon i {
-    color: inherit !important;
-    transform: none !important;
-  }
-  
-  /* Disable background color changes on hover */
-  .feature-icon:hover,
-  .feature-item:hover .feature-icon,
-  .service-card:hover .feature-icon,
-  .btn-reversed:hover,
-  .form-submit:hover,
-  .service-modal-cta:hover,
-  .services-cta-button:hover,
-  .animation-button:hover {
-    background-color: initial !important;
-  }
-  
-  /* Prevent any hover-triggered visibility changes */
-  .service-card::before {
-    display: none !important;
-  }
-  
-  /* Disable pointer cursor on mobile since hover doesn't work */
-  .hover-elements {
-    cursor: default !important;
-  }
-  
-  /* Add a subtle tap effect instead of hover */
-  a:active, button:active, .btn:active {
-    opacity: 0.7;
-    transition: opacity 0.1s ease !important;
-  }
-}
+
 
 /* For very small devices, ensure absolutely no hover effects */
 @media (max-width: 480px) {
@@ -7310,6 +7192,28 @@ button[type="submit"]:active {
     padding: 1.5rem;
     margin: 1rem;
   }
+}
+
+
+/* Fix modal positioning */
+.result-modal.active, 
+.service-modal.active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2001;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix modal content positioning */
+.service-modal-content {
+  position: relative !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
     </style>
 </head>
@@ -7932,19 +7836,26 @@ button[type="submit"]:active {
               
               <!-- Contact Form Section -->
                
-              <form action="https://submit-form.com/swIfPnXat">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Name" required="" />
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" required="" />
-                <label for="message">Message</label>
+              <form action="https://submit-form.com/swIfPnXat" id="contact-form">
+                <label for="name" data-lang-key="form-name">Jméno a příjmení</label>
+                <input type="text" id="name" name="name" placeholder="Vaše jméno a příjmení" data-lang-key="form-name-placeholder" required="" />
+                
+                <label for="email" data-lang-key="form-email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Váš email" data-lang-key="form-email-placeholder" required="" />
+                
+                <label for="phone" data-lang-key="form-phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Váš telefon" data-lang-key="form-phone-placeholder" />
+                
+                <label for="message" data-lang-key="form-message">Zpráva</label>
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Message"
+                  placeholder="Vaše zpráva"
+                  data-lang-key="form-message-placeholder"
                   required=""
                 ></textarea>
-                <button type="submit">Send</button>
+                
+                <button type="submit" data-lang-key="form-submit">Odeslat</button>
               </form>
               
 
@@ -8148,7 +8059,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+               
 
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-1-feature-1">Kupní smlouvy</span></li>
@@ -8179,7 +8090,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+              
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-2-feature-1">Zakládání společností</span></li>
                   <li> <span data-lang-key="modal-2-feature-2">Korporátní změny</span></li>
@@ -8209,7 +8120,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+            
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-3-feature-1">Pracovní smlouvy</span></li>
                   <li>  <span data-lang-key="modal-3-feature-2">Ukončení pracovního poměru</span></li>
@@ -8238,7 +8149,7 @@ button[type="submit"]:active {
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
+            
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-4-feature-1">Civilní spory</span></li>
                   <li>  <span data-lang-key="modal-4-feature-2">Obchodní spory</span></li>
@@ -11439,91 +11350,6 @@ document.querySelectorAll('.service-modal-cta, .result-modal .service-modal-cta'
   });
 });
 
-/**
- * Restructure the modal content for a more professional look
- */
-function restructureModalContent(modalBody, hasCheckList, paragraphs) {
-  // If the modal doesn't already have a section title for services
-  if (hasCheckList && !modalBody.querySelector('.modal-section-title')) {
-    // Find any existing title for the list or create one
-    let serviceTitle = modalBody.querySelector('h4, h5, h6');
-    
-    if (!serviceTitle) {
-      // Create a title based on language (Czech or English)
-      const isEnglish = document.documentElement.lang === 'en';
-      serviceTitle = document.createElement('h4');
-      serviceTitle.className = 'modal-section-title';
-      serviceTitle.textContent = isEnglish ? 'This service includes:' : 'Tato služba zahrnuje:';
-      
-      // Insert the title at the beginning of the checklist
-      const firstList = modalBody.querySelector('ul, ol');
-      if (firstList) {
-        firstList.parentNode.insertBefore(serviceTitle, firstList);
-      }
-    } else {
-      serviceTitle.classList.add('modal-section-title');
-    }
-    
-    // Convert any standard lists to our custom service list
-    const lists = modalBody.querySelectorAll('ul, ol');
-    lists.forEach(list => {
-      list.className = 'service-list';
-    });
-  }
-  
-  // If there are multiple paragraphs, create a better text layout
-  if (paragraphs.length > 1) {
-    // Add proper class to paragraphs
-    paragraphs.forEach(p => {
-      if (!p.className) {
-        p.className = 'service-modal-paragraph';
-      }
-    });
-    
-    // Create a case summary section for the key content if not present
-    const caseSummary = modalBody.querySelector('.case-summary');
-    if (!caseSummary && paragraphs.length >= 3) {
-      const summaryDiv = document.createElement('div');
-      summaryDiv.className = 'case-summary';
-      
-      // Get the first paragraph for the summary (or one that looks like a summary)
-      let summaryParagraph = null;
-      for (let i = 0; i < paragraphs.length; i++) {
-        const text = paragraphs[i].textContent.toLowerCase();
-        if (text.includes('summary') || text.includes('conclusion') || 
-            text.includes('souhrn') || text.includes('závěr') || i === 0) {
-          summaryParagraph = paragraphs[i].cloneNode(true);
-          break;
-        }
-      }
-      
-      if (summaryParagraph) {
-        summaryDiv.appendChild(summaryParagraph);
-        
-        // Insert after the title or first paragraph
-        const insertAfter = modalBody.querySelector('.modal-section-title') || 
-                            modalBody.querySelector('h4') || 
-                            paragraphs[0];
-        
-        if (insertAfter && insertAfter.nextSibling) {
-          modalBody.insertBefore(summaryDiv, insertAfter.nextSibling);
-        }
-      }
-    }
-  }
-}
-
-// Call this function on window resize and orientation change
-window.addEventListener('resize', adjustModalPositioning);
-window.addEventListener('orientationchange', adjustModalPositioning);
-
-// Initial call when modals are opened
-document.querySelectorAll('.result-card, .service-card').forEach(card => {
-  card.addEventListener('click', function() {
-    // Wait for modal to be visible
-    setTimeout(adjustModalPositioning, 100);
-  });
-});
 
 
 // Get the form element
