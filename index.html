@@ -274,8 +274,8 @@ header.scrolled {
             color: var(--charcoal);
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 5px 0;
+            letter-spacing: 0.5px;
+            padding: 2px 0;
             position: relative;
         }
 
@@ -7059,7 +7059,78 @@ section {
 
 /* Add white filter to the logo image */
 
+.nav-link {
+  font-weight: bold;
+  color: #3c3c3c !important;
+}
 
+.testimonial-card {
+    position: relative; /* add this to position quotes absolutely */
+}
+
+.testimonial-quote,
+.testimonial-quote-end {
+    font-size: 100px;
+    color: rgba(126, 189, 63, 0.477);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    position: absolute; /* Important for positioning */
+}
+
+.testimonial-quote {
+    top: 10px;
+    left: 20px;
+}
+
+.testimonial-quote-end {
+    bottom: 10px;
+    right: 20px;
+}
+
+
+/* Disable hover animations only on touch screens */
+@media (pointer: coarse), (hover: none) {
+  /* Reset all hover animations */
+  .nav-link:hover::after,
+  .service-card:hover,
+  .feature-item:hover,
+  .btn:hover,
+  .about-cta:hover,
+  .result-card:hover,
+  .testimonial-button:hover,
+  .contact-item:hover,
+  .footer-link:hover,
+  .service-more-info:hover,
+  .footer-social-link:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Also disable any pseudo-element hover transitions */
+  .btn:hover::before,
+  .about-cta:hover::before,
+  .service-card:hover::before,
+  .service-more-info:hover::after,
+  .form-submit:hover::before {
+    transform: none !important;
+    left: -100% !important; 
+    width: 0 !important;
+  }
+  
+  /* Specifically cancel any other hover effects */
+  .service-card:hover .feature-icon,
+  .feature-item:hover .feature-icon,
+  .contact-item:hover .contact-icon {
+    background-color: inherit !important;
+    transform: none !important;
+  }
+  
+  /* Ensure color changes don't happen on touch */
+  *:hover {
+    color: inherit !important;
+    border-color: inherit !important;
+  }
+}
     </style>
 </head>
 <body>
@@ -7102,7 +7173,7 @@ section {
       </a>
       
       <nav>
-          <ul class="nav-list">
+          <ul class="nav-list" >
               <li class="nav-item"><a href="#hero" class="nav-link" data-lang-key="nav-home">Úvod</a></li>
               <li class="nav-item"><a href="#about" class="nav-link" data-lang-key="nav-about">O nás</a></li>
               <li class="nav-item"><a href="#services" class="nav-link" data-lang-key="nav-services">Služby</a></li>
@@ -7204,7 +7275,7 @@ section {
               </div>
           </div>
           <div class="hero-image">
-              <img src="hero-img.jpg" alt="Legal Services">
+              <img src="https://i.postimg.cc/FKzNhdMQ/pexels-branimir-cupar-2119899-9636151.jpg" alt="Legal Services">
           </div>
       </div>
   </section>
@@ -7261,7 +7332,7 @@ section {
                           </div>
                           <div class="feature-text">
                               <div class="feature-title" data-lang-key="about-feature-4-title">Vícejazyčné služby</div>
-                              <p data-lang-key="about-feature-4-text">Právní služby poskytujeme v českém a anglickém jazyce.</p>
+                              <p data-lang-key="about-feature-4-text">Právní služby poskytujeme v českém a anglickém jazyce     ---------------------.</p>
                           </div>
                       </div>
                   </div>
@@ -7308,6 +7379,18 @@ section {
                         </div>
                     </div>
                     
+                    <div class="service-card fade-up" data-category="personal">
+                      <div class="feature-icon">
+                          <i class="fas fa-home"></i>
+                      </div>
+                      <div class="feature-text">
+                          <div class="feature-title" data-lang-key="service-5-title">Rodinné právo</div>
+                          <p data-lang-key="service-5-description">Komplexní právní poradenství v rodinném právu.</p>
+                          <button class="btn btn-sm" onclick="openServiceModal('5')" data-lang-key="more-info-button">Více informací</button>
+                      </div>
+                  </div>
+
+                  
                     <!-- Service 2 -->
                     <div class="service-card fade-up" data-category="business">
                         <div class="feature-icon">
@@ -7345,16 +7428,7 @@ section {
                     </div>
                     
                     <!-- Service 5 -->
-                    <div class="service-card fade-up" data-category="personal">
-                        <div class="feature-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="feature-text">
-                            <div class="feature-title" data-lang-key="service-5-title">Rodinné právo</div>
-                            <p data-lang-key="service-5-description">Komplexní právní poradenství v rodinném právu.</p>
-                            <button class="btn btn-sm" onclick="openServiceModal('5')" data-lang-key="more-info-button">Více informací</button>
-                        </div>
-                    </div>
+                    
                     
                     <!-- Service 6 -->
                     <div class="service-card fade-up" data-category="business personal">
@@ -7381,7 +7455,7 @@ section {
           <div class="case-results-container">
               <div class="section-heading fade-up">
                   <div class="section-number">03</div>
-                  <h2 class="section-title">Výsledky případů</h2>
+                  <h2 class="section-title">Aktuality</h2>
                   <p style="max-width: 600px; margin-top: 20px;">
                       Podívejte se na některé z našich nedávných případů a výsledků.
                   </p>
@@ -7468,6 +7542,7 @@ section {
                           <p class="testimonial-text">
                             Lucia mi vylepšila dohodu o ukončení pracovního poměru, což mi přineslo značné výhody. Její komunikace byla skvělá – angličtina bezchybná a odpovídala vždy velmi rychle. Zastupovala mě i při jednáních se společností, což mi dodalo sebevědomí ohledně mého případu. Vřele ji doporučuji každému, kdo potřebuje právní pomoc.
                           </p>
+                          <div class="testimonial-quote-end">"</div>
                           
                       </div>
                   </div>
@@ -7478,7 +7553,7 @@ section {
                           <p class="testimonial-text">
                             Lucia pro mě opravdu udělala maximum, když jsem nedávno kupoval byt a potřeboval jsem za rozumnou cenu zkontrolovat smlouvy. Kládala přesně ty otázky, které by se mi ani nenapadly, a upozornila mě na věci, na které jsem nevěděl, že je třeba se zeptat. Díky jejím hlubokým znalostem českého práva jsem se cítil naprosto v bezpečí. Určitě bych se na ni opět obrátil.
                           </p>
-                          
+                          <div class="testimonial-quote-end">"</div>
                       </div>
                   </div>
                   
@@ -7488,7 +7563,7 @@ section {
                           <p class="testimonial-text">
                             Lucia mi pomohla vypovědět nájemní smlouvu, když můj pronajímatel trval na tom, že to není možné. Vysvětlila mi všechny podrobnosti smlouvy, které jsem potřeboval znát.
                           </p>
-                          
+                          <div class="testimonial-quote-end">"</div>
                       </div>
                   </div>
               </div>
@@ -7680,40 +7755,41 @@ section {
               </div>
               
               <!-- Contact Form Section -->
-              <div class="contact-form fade-up">
-                <form action="https://submit-form.com/4mFZTeMSc">
-                   <!-- Keep user on same page after submission -->
-                   <input type="hidden" name="_redirect" value="false">
-                   
-                   <!-- Add this to show a thank you message -->
-                   <input type="hidden" name="_thank-you" value="Děkujeme za vaši zprávu!">
-                   
-                   <!-- Specify where to send the email (replace with your actual email) -->
-                   <input type="hidden" name="_email.to" value="your-email@example.com">
-                   
-                   <!-- Prevent spam -->
-                   <input type="hidden" name="_email.honeypot" value="">
-                   
-                   <div class="form-group">
-                       <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
-                       <input type="text" id="name" name="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
-                   </div>
-                   <div class="form-group">
-                       <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
-                       <input type="email" id="email" name="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
-                   </div>
-                   <div class="form-group">
-                       <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
-                       <input type="tel" id="phone" name="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
-                   </div>
-                   <div class="form-group">
-                       <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
-                       <textarea id="message" name="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
-                   </div>
-                   <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
-                </form>
-               </div>
+             <!-- Contact Form Section -->
+             <div class="contact-form fade-up">
+              <form action="https://formsubmit.co/jakub.zitko08@gmail.com" method="POST">
+                <!-- FormSubmit.co configuration -->
+                <input type="hidden" name="_next" value="http://127.0.0.1:5505/next.html">
+                <input type="hidden" name="_subject" value="New contact form submission">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                  <label for="name" class="form-label" data-lang-key="contact-form-name">Jméno a příjmení</label>
+                  <input type="text" id="name" name="name" class="form-control" data-lang-key="contact-form-name-placeholder" placeholder="Vaše jméno a příjmení" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email" class="form-label" data-lang-key="contact-form-email">E-mail</label>
+                  <input type="email" id="email" name="email" class="form-control" data-lang-key="contact-form-email-placeholder" placeholder="Váš e-mail" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="phone" class="form-label" data-lang-key="contact-form-phone">Telefon</label>
+                  <input type="tel" id="phone" name="phone" class="form-control" data-lang-key="contact-form-phone-placeholder" placeholder="Váš telefon">
+                </div>
+                
+                <div class="form-group">
+                  <label for="message" class="form-label" data-lang-key="contact-form-message">Zpráva</label>
+                  <textarea id="message" name="message" class="form-control" data-lang-key="contact-form-message-placeholder" placeholder="Vaše zpráva" required></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit" data-lang-key="contact-form-submit">Odeslat</button>
+              </form>
+            </div>
                
+
+       
 
                
           </div>
@@ -7785,9 +7861,9 @@ section {
                               <div class="location-detail">
                                   <h3 class="location-info-title" data-lang-key="location-hours-title">Otevírací doba</h3>
                                   <p class="location-text" data-lang-key="location-hours">
-                                      <strong>Po-Pá:</strong> 8:00 - 18:00<br>
+                                      <strong>Po-Pá:</strong> 9:00 - 17:00<br>
                                       <strong>So-Ne:</strong> Zavřeno<br>
-                                      <em>(Schůzky mimo otevírací dobu dle dohody)</em>
+                                      
                                   </p>
                               </div>
                           </div>
@@ -7920,7 +7996,7 @@ section {
               <ul class="service-modal-features">
                   <li>  <span data-lang-key="modal-1-feature-1">Kupní smlouvy</span></li>
                   <li>  <span data-lang-key="modal-1-feature-2">Nájemní smlouvy</span></li>
-                  <li>  <span data-lang-key="modal-1-feature-3">Zástavní práva</span></li>
+                  <li>  <span data-lang-key="modal-1-feature-3"></span></li>
                   <li>  <span data-lang-key="modal-1-feature-4">Věcná břemena</span></li>
                   <li>  <span data-lang-key="modal-1-feature-5">Úschovu finančních prostředků</span></li>
                   <li>  <span data-lang-key="modal-1-feature-6">Zastupování před katastrem nemovitostí</span></li>
@@ -7951,9 +8027,9 @@ section {
                   <li>  <span data-lang-key="modal-2-feature-1">Zakládání společností</span></li>
                   <li> <span data-lang-key="modal-2-feature-2">Korporátní změny</span></li>
                   <li>  <span data-lang-key="modal-2-feature-3">Obchodní smlouvy</span></li>
-                  <li>  <span data-lang-key="modal-2-feature-4">Due diligence</span></li>
+                 <li>  <span data-lang-key="modal-2-feature-4">Insolvence a ragistrace ochraných známek</span></li> 
                   <li>  <span data-lang-key="modal-2-feature-5">Zastupování ve sporech</span></li>
-                  <li>  <span data-lang-key="modal-2-feature-6">Právní audity</span></li>
+                 <!-- <li>  <span data-lang-key="modal-2-feature-6">Právní audity</span></li> -->
               </ul>
               <p class="service-modal-description" data-lang-key="modal-2-description">
                   Komplexní právní služby pro podnikatele a obchodní společnosti včetně zakládání společností, smluvního práva a právního auditu.
@@ -7981,8 +8057,8 @@ section {
                   <li>  <span data-lang-key="modal-3-feature-1">Pracovní smlouvy</span></li>
                   <li>  <span data-lang-key="modal-3-feature-2">Ukončení pracovního poměru</span></li>
                   <li>  <span data-lang-key="modal-3-feature-3">Zaměstnanecké spory</span></li>
-                  <li>  <span data-lang-key="modal-3-feature-4">BOZP</span></li>
-                  <li>  <span data-lang-key="modal-3-feature-5">Změny pracovních podmínek</span></li>
+                 
+                  <li>  <span data-lang-key="modal-3-feature-5">Změny pracovních smluv</span></li>
               </ul>
               <p class="service-modal-description" data-lang-key="modal-3-description">
                   Poradenství v oblasti pracovněprávních vztahů, příprava pracovních smluv, řešení pracovněprávních sporů.
@@ -8039,8 +8115,9 @@ section {
                   <li>  <span data-lang-key="modal-5-feature-1">Rozvod manželství</span></li>
                   <li>  <span data-lang-key="modal-5-feature-2">Výživné</span></li>
                   <li>  <span data-lang-key="modal-5-feature-3">Péče o děti</span></li>
-                  <li>  <span data-lang-key="modal-5-feature-4">Majetkové vypořádání</span></li>
+                  <li>  <span data-lang-key="modal-5-feature-4">Vypořádání společného mnění manželů</span></li>
                   <li>  <span data-lang-key="modal-5-feature-5">Předmanželské smlouvy</span></li>
+                  <li>  <span data-lang-key="modal-5-feature-5">Popírání a určování rodičovství</span></li>
               </ul>
               <p class="service-modal-description" data-lang-key="modal-5-description">
                   Komplexní právní poradenství v rodinném právu včetně rozvodů, výživného, úpravy poměrů k nezletilým dětem.
@@ -8065,11 +8142,11 @@ section {
           <div class="service-modal-body">
               <h4 class="service-modal-subtitle" data-lang-key="modal-includes">Tato služba zahrnuje:</h4>
               <ul class="service-modal-features">
-                  <li>  <span data-lang-key="modal-6-feature-1">Stavební řízení</span></li>
+                  
                   <li>  <span data-lang-key="modal-6-feature-2">Přestupky</span></li>
                   <li>  <span data-lang-key="modal-6-feature-3">Správní žaloby</span></li>
-                  <li>  <span data-lang-key="modal-6-feature-4">Povolení a licence</span></li>
-                  <li>  <span data-lang-key="modal-6-feature-5">Zastupování před úřady</span></li>
+                 
+                  <li>  <span data-lang-key="modal-6-feature-5">Zastupování před soudy a úřady</span></li>
               </ul>
               <p class="service-modal-description" data-lang-key="modal-6-description">
                   Zastupování klientů ve správních řízeních, odvolání proti rozhodnutím správních orgánů, právní poradenství.
@@ -8140,7 +8217,7 @@ section {
   <div id="result-modal-2" class="result-modal service-modal">
       <div class="service-modal-content">
           <div class="service-modal-header">
-              <div class="service-modal-icon">
+              <div class="service-modal-icon" >
                   <i class="fas fa-balance-scale"></i>
               </div>
               <h3 class="service-modal-title">Dohoda o vypořádání společného jmění manželů v režimu rozvodu podle ust. § 757 NOZ a odstoupení od ní</h3>
@@ -8184,11 +8261,11 @@ section {
               <div class="service-modal-icon">
                   <i class="fas fa-file-invoice-dollar"></i>
               </div>
-              <h3 class="service-modal-title">Zahájení insolvenčního řízení nebrání podání žaloby o nových pohledávkách, které vznikly teprve po zahájení insolvenčního řízení dlužníka/žalovaného</h3>
+              <h3 class="service-modal-title" data-lang-key="insolvency-proceedings" >Zahájení insolvenčního řízení nebrání podání žaloby o nových pohledávkách, které vznikly teprve po zahájení insolvenčního řízení dlužníka/žalovaného</h3>
               <button class="service-modal-close">&times;</button>
           </div>
           <div class="service-modal-body">
-              <p class="service-modal-description">
+              <p class="service-modal-description" data-lang-key="insolvency-proceedings" >
                   Ustanovení § 140c insolvenčního zákona nezakazuje zahájení řízení ve věci pohledávky, která věřiteli
                   vznikla až poté, co bylo rozhodnuto o úpadku dlužníka a uplynula lhůta k podávání přihlášek a
                   žádným způsobem nesouvisí s insolvenčním řízením. Nově vzniklé pohledávky věřitelů, které
@@ -8197,7 +8274,7 @@ section {
                   Neuplatní se zde účinky spojené se zahájením insolvenčního řízení uvedené v § 109 odst. 1 písm. a)
                   ani účinky zákazu zahájení nových řízení podle § 140c.
               </p>
-              <p class="service-modal-description">
+              <p class="service-modal-description" data-lang-key="insolvency-proceedings" >
                   K tomuto závěru dospěl Nejvyšší soud ČR ve svém rozhodnutí ze dne 31.07.2019, č.j. 29 Cdo
                   3651/2017, kde jednoznačně vyložil: „Jestliže sporná pohledávka, jejíž úhrady se žalobkyně domáhá
                   podanou žalobou, měla podle tvrzení obsažených v žalobě vzniknout až po rozhodnutí o úpadku
@@ -8209,7 +8286,7 @@ section {
                   neuspokojuje. Taková pohledávka nemusela být v insolvenčním řízení uplatněna přihláškou a režim
                   ustanovení § 140c insolvenčního zákona se na ni zjevně nevztahuje.
               </p>
-              <p class="service-modal-description">
+              <p class="service-modal-description" data-lang-key="insolvency-proceedings" >
                   Jinak řečeno, jestliže ke dni rozhodnutí o úpadku dlužníka (žalovaného) neexistovala (byť dosud jako
                   nesplatná či jako vázaná na podmínku) sporná pohledávka, nemohla ji žalobkyně ani přihlásit do
                   insolvenčního řízení dlužníka. Podání žaloby o zaplacení takové pohledávky pak nemůže představovat
@@ -8484,8 +8561,8 @@ const translations = {
   'en': 'Opening Hours'
 },
 'location-mon-fri': {
-  'cz': 'Mon-Fri: 8:00 - 18:00',
-  'en': 'Mon-Fri: 8:00 - 18:00'
+  'cz': 'Mon-Fri: 9:00 - 17:00',
+  'en': 'Mon-Fri: 9:00 - 17:00'
 },
 'location-sat-sun': {
   'cz': 'Sat-Sun: Closed',
@@ -8658,8 +8735,8 @@ const translations = {
   'en': 'Your message'
 },
 'contact-hours': {
-  'cz': 'Po-Pá: 8:00 - 18:00<br>So-Ne: Zavřeno',
-  'en': 'Mon-Fri: 8:00 - 18:00<br>Sat-Sun: Closed'
+  'cz': 'Po-Pá: 9:00 - 17:00<br>So-Ne: Zavřeno',
+  'en': 'Mon-Fri: 9:00 - 17:00<br>Sat-Sun: Closed'
 },
   // Add these to your translations object
 'about-main-title': {
@@ -8667,7 +8744,7 @@ const translations = {
   'en': 'About Us'
 },
 'about-main-paragraph': {
-  'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost.',
+  'cz': 'V advokátní kanceláři Šoralová věříme, že právní služby mají být dostupné všem. Nabízíme profesionální služby za optimální cenu, osobní přístup, flexibilitu a snahu o nalezení nejlepšího řešení situace klienta. Klademe si za cíl maximální ochranu práv klienta a jeho spokojenost. A proto jsme skvělá volba.',
   'en': 'At Šoralová Law Firm, we believe that legal services should be accessible to everyone. We offer professional services at an optimal price, personal approach, flexibility, and an effort to find the best solution to the client\'s situation. We aim to maximize the protection of the client\'s rights and their satisfaction.'
 },
 'contact-title': {
@@ -8819,11 +8896,11 @@ const translations = {
 
   // Results Section
   'results-title': {
-    'cz': 'Výsledky případů',
+    'cz': 'Aktuality',
     'en': 'Case Results'
   },
   'results-subtitle': {
-    'cz': 'Podívejte se na některé z našich nedávných případů a výsledků.',
+    'cz': 'Aktuality  z pravní praxe.',
     'en': 'Take a look at some of our recent cases and results.'
   },
   'result-1-title': {
@@ -8878,8 +8955,8 @@ const translations = {
   },
  
   'testimonial-3-text': {
-    'cz': 'Mgr. Lucia Šoralová mi pomohla vyřešit složitý pracovněprávní spor. Díky jejím zkušenostem a odborným znalostem jsme dosáhli velmi dobrého výsledku. Doporučuji.',
-    'en': 'Mgr. Lucia Šoralová helped me resolve a complicated employment law dispute. Thanks to her experience and expertise, we achieved a very good outcome. Highly recommended.'
+    'cz': 'Měli jsme problémy s naším pronajímatelem, který nám na konci nájemní smlouvy nevrátil kauci. Lucia byla nesmírně nápomocná a informovaná. Správně posoudila situaci, dali jsme na její radu, podali žalobu a vyhráli jsme. Celý proces trval více než rok po našem odjezdu z České republiky a Lucia nám po celou dobu pomáhala se všemi právními záležitostmi. Jsme jí velmi vděční za její úsilí a vřele doporučujeme její služby.',
+    'en': 'We had problems with our landlord, who did not return our deposit at the end of the lease period. Lucia was extremely helpful and informative. After assessing correctly the situation, we followed her advise, went to court and won. The hall process took more then a year after we left Czech Republic and Lucia was there for of our legal needs. We are very grateful for Lucias efforts and highly recommend her services.'
   },
  
   // Contact Section
@@ -8896,8 +8973,8 @@ const translations = {
     'en': 'Ovocny trh 573/12<br>Prague 1, 110 00<br>Czech Republic'
   },
   'contact-hours-label': {
-    'cz': 'Po-Pá: 8:00 - 18:00<br>So-Ne: Zavřeno',
-    'en': 'Mon-Fri: 8:00 - 18:00<br>Sat-Sun: Closed'
+    'cz': 'Po-Pá: 9:00 - 17:00<br>So-Ne: Zavřeno',
+    'en': 'Mon-Fri: 9:00 - 17:00<br>Sat-Sun: Closed'
   },
   'contact-form-name': {
     'cz': 'Jméno a příjmení',
@@ -8950,7 +9027,7 @@ const translations = {
     'en': 'Contact Details'
   },
   'footer-copyright': {
-    'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.pnhmedia.com">PNH MEIDA</a>',
+    'cz': '© 2025 AK Šoralová. Všechna práva vyhrazena. Vytvořila firma <a href="https://www.pnhmedia.com">PNH MEDIA</a>',
     'en': '© 2025 AK Šoralová Law Firm. All rights reserved. Created by PNH MEDIA'
   },
   'footer-terms': {
@@ -9002,7 +9079,7 @@ const translations = {
     'en': 'Lease agreements'
   },
   'modal-1-feature-3': {
-    'cz': 'Zástavní práva',
+    'cz': 'Zástavní smlouvy',
     'en': 'Mortgages'
   },
   'modal-1-feature-4': {
@@ -9014,7 +9091,7 @@ const translations = {
     'en': 'Escrow services'
   },
   'modal-1-feature-6': {
-    'cz': 'Zastupování před katastrem nemovitostí',
+    'cz': 'Zastupování před katastrálním úřadem',
     'en': 'Representation before the land registry'
   },
   'modal-1-description': {
@@ -9206,10 +9283,7 @@ const translations = {
     'cz': 'Otevírací doba',
     'en': 'Opening Hours'
   },
-  'location-hours': {
-    'cz': '<strong>Po-Pá:</strong> 8:00 - 18:00<br><strong>So-Ne:</strong> Zavřeno<br><em>(Schůzky mimo otevírací dobu dle dohody)</em>',
-    'en': '<strong>Mon-Fri:</strong> 8:00 - 18:00<br><strong>Sat-Sun:</strong> Closed<br><em>(Appointments outside opening hours by arrangement)</em>'
-  },
+
   'location-directions-btn': {
     'cz': '<i class="fas fa-directions"></i> Navigovat sem',
     'en': '<i class="fas fa-directions"></i> Get Directions'
@@ -9581,91 +9655,6 @@ function addMissingLangKeys() {
  * Switch language for all translatable elements
  * @param {string} language - Language code ('cz' or 'en')
  */
-function setLanguage(language) {
-  try {
-    const languageLoader = document.querySelector('.language-loader');
-    
-    // Only show the language loader if we're changing languages, not on initial load
-    if (window.siteConfig.currentLanguage !== language && window.siteConfig.initialized) {
-      // Show language loader
-      if (languageLoader) {
-        languageLoader.classList.add('active');
-        
-        // Update loader text based on language
-        const loaderText = languageLoader.querySelector('.language-loader-text');
-        if (loaderText) {
-          loaderText.textContent = language === 'cz' ? 'Přepínání jazyka...' : 'Changing language...';
-        }
-      }
-    }
-    
-    // Update current language for next time
-    window.siteConfig.currentLanguage = language;
-    
-    // Use a brief timeout to ensure the loader is visible before processing
-    setTimeout(function() {
-      // Apply translations to all elements with data-lang-key
-      document.querySelectorAll('[data-lang-key]').forEach(element => {
-        const key = element.getAttribute('data-lang-key');
-        if (translations[key] && translations[key][language]) {
-          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            if (element.placeholder) {
-              element.placeholder = translations[key][language];
-            } else {
-              element.value = translations[key][language];
-            }
-          } else {
-            element.innerHTML = translations[key][language];
-          }
-        }
-      });
-      
-      // Update service card hover text
-      if (translations['service-hover-text'] && translations['service-hover-text'][language]) {
-        const hoverText = translations['service-hover-text'][language];
-        document.querySelectorAll('.service-card').forEach(card => {
-          card.setAttribute('data-info-text', hoverText);
-        });
-      }
-      
-      // Update language switcher active states
-      document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
-        if (option.getAttribute('data-lang') === language) {
-          option.classList.add('active');
-        } else {
-          option.classList.remove('active');
-        }
-      });
-      
-      // Hide language loader after translation is complete
-      if (languageLoader && languageLoader.classList.contains('active')) {
-        setTimeout(function() {
-          languageLoader.classList.remove('active');
-        }, 300);
-      }
-      
-      // Update page loader text if visible
-      const pageLoaderText = document.getElementById('loader-text');
-      if (pageLoaderText && translations['loader-text'] && translations['loader-text'][language]) {
-        pageLoaderText.textContent = translations['loader-text'][language];
-      }
-      
-      console.log('Language switched to:', language);
-    }, window.siteConfig.initialized ? 400 : 0);
-    
-    // Set initialized flag
-    window.siteConfig.initialized = true;
-  } catch (error) {
-    console.error('Error switching language:', error);
-    
-    // Hide loader in case of error
-    const languageLoader = document.querySelector('.language-loader');
-    if (languageLoader) {
-      languageLoader.classList.remove('active');
-    }
-  }
-}
-
 /**
  * Initialize language switcher functionality
  */
@@ -9694,6 +9683,99 @@ function initializeLanguageSwitcher() {
   });
 }
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  const contactForm = document.querySelector('.contact-form form');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const submitButton = this.querySelector('button[type="submit"]');
+      
+      // Disable the submit button and show loading state
+      if (submitButton) {
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = window.siteConfig.currentLanguage === 'cz' ? 'Odesílání...' : 'Sending...';
+      }
+      
+      // Submit the form using fetch
+      fetch('https://submit-form.com/4mFZTeMSc', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show success message
+          showSuccessMessage();
+          contactForm.reset();
+        } else {
+          // Show error message
+          showErrorMessage();
+        }
+      })
+      .catch(error => {
+        console.error('Form submission error:', error);
+        showErrorMessage();
+      })
+      .finally(() => {
+        // Re-enable the submit button
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = window.siteConfig.currentLanguage === 'cz' ? 'Odeslat' : 'Submit';
+        }
+      });
+    });
+  }
+  
+  function showSuccessMessage() {
+    // Get thank you message based on language
+    const thankyouMsg = window.siteConfig.currentLanguage === 'cz' 
+      ? "Děkujeme za vaši zprávu! Budeme vás kontaktovat co nejdříve."
+      : "Thank you for your message! We will contact you as soon as possible.";
+    
+    // Create and show success message
+    const successDiv = document.createElement('div');
+    successDiv.className = 'form-success-message';
+    successDiv.textContent = thankyouMsg;
+    
+    // Replace form with success message
+    const formContainer = document.querySelector('.contact-form');
+    if (formContainer) {
+      formContainer.innerHTML = '';
+      formContainer.appendChild(successDiv);
+    }
+  }
+  
+  function showErrorMessage() {
+    // Error message based on language
+    const errorMsg = window.siteConfig.currentLanguage === 'cz'
+      ? "Omlouváme se, ale při odesílání zprávy došlo k chybě. Zkuste to prosím později nebo nás kontaktujte přímo na email."
+      : "Sorry, there was an error submitting your message. Please try again later or contact us directly via email.";
+    
+    // Create and show error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'form-error-message';
+    errorDiv.textContent = errorMsg;
+    
+    // Add error message after the form
+    const formContainer = document.querySelector('.contact-form');
+    if (formContainer) {
+      // Remove any existing error messages
+      const existingError = formContainer.querySelector('.form-error-message');
+      if (existingError) {
+        existingError.remove();
+      }
+      
+      formContainer.appendChild(errorDiv);
+    }
+  }
+});
 /**
  * ==============================================
  * PAGE LOADER
@@ -10766,78 +10848,23 @@ function initializeContactForm() {
 /**
  * Add this function to your existing code to update modal content based on language
  * Call this when initializing and when language changes
- */
-function updateLegalCaseModals(language) {
-  // Get all service modal elements
-  const serviceModals = document.querySelectorAll('.service-modal');
+ */function updateLegalCaseModals(language) {
   const resultModals = document.querySelectorAll('.result-modal');
   
-  // Update service modals (if needed)
-  serviceModals.forEach(modal => {
-    // Get modal ID to identify which case it belongs to
-    const modalId = modal.id;
-    let caseKey = '';
-    
-    // Determine which case key to use based on modal ID
-    if (modalId.includes('service-modal-1')) {
-      caseKey = 'exercise-of-rights';
-    } else if (modalId.includes('service-modal-2')) {
-      caseKey = 'insolvency-proceedings';
-    } else if (modalId.includes('service-modal-3')) {
-      caseKey = 'marital-property';
-    } else if (modalId.includes('service-modal-4')) {
-      caseKey = 'organizational-change';
-    }
-    
-    // Update content if we have translations for this case
-    if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
-      const translation = legalCaseTranslations[caseKey][language];
-      
-      // Update title
-      const titleElement = modal.querySelector('.service-modal-title');
-      if (titleElement) {
-        titleElement.textContent = translation.title;
-      }
-      
-      // Update content (HTML)
-      const descriptionElement = modal.querySelector('.service-modal-description');
-      if (descriptionElement) {
-        // If it's a simple paragraph, update text, otherwise use innerHTML for complex content
-        if (descriptionElement.tagName === 'P') {
-          // Extract first paragraph from the HTML content
-          const firstParagraph = translation.content.split('</p>')[0].replace(/<p>/g, '');
-          descriptionElement.textContent = firstParagraph;
-        } else {
-          descriptionElement.innerHTML = translation.content;
-        }
-      }
-      
-      // Update button text
-      const buttonElement = modal.querySelector('.service-modal-cta');
-      if (buttonElement) {
-        buttonElement.textContent = translation.button;
-      }
-    }
-  });
-  
-  // Update result modals
   resultModals.forEach(modal => {
-    // Get modal ID to identify which case it belongs to
     const modalId = modal.id;
     let caseKey = '';
     
-    // Determine which case key to use based on modal ID
-    if (modalId.includes('result-modal-1')) {
+    if (modalId === 'result-modal-1') {
       caseKey = 'exercise-of-rights';
-    } else if (modalId.includes('result-modal-2')) {
+    } else if (modalId === 'result-modal-2') {
       caseKey = 'marital-property';
-    } else if (modalId.includes('result-modal-3')) {
+    } else if (modalId === 'result-modal-3') {
       caseKey = 'insolvency-proceedings';
-    } else if (modalId.includes('result-modal-4')) {
+    } else if (modalId === 'result-modal-4') {
       caseKey = 'organizational-change';
     }
     
-    // Update content if we have translations for this case
     if (caseKey && legalCaseTranslations[caseKey] && legalCaseTranslations[caseKey][language]) {
       const translation = legalCaseTranslations[caseKey][language];
       
@@ -10847,20 +10874,31 @@ function updateLegalCaseModals(language) {
         titleElement.textContent = translation.title;
       }
       
-      // Update content (HTML)
-      const descriptionElement = modal.querySelector('.service-modal-description');
-      if (descriptionElement) {
-        // If it's a simple paragraph, update text, otherwise use innerHTML for complex content
-        if (descriptionElement.tagName === 'P') {
-          // Extract first paragraph from the HTML content
-          const firstParagraph = translation.content.split('</p>')[0].replace(/<p>/g, '');
-          descriptionElement.textContent = firstParagraph;
-        } else {
-          descriptionElement.innerHTML = translation.content;
+      // Update all paragraphs in the modal body
+      const modalBody = modal.querySelector('.service-modal-body');
+      if (modalBody) {
+        // Clear existing content
+        modalBody.innerHTML = '';
+        
+        // Add translated paragraphs
+        const paragraphs = translation.content.match(/<p>(.*?)<\/p>/g) || [];
+        paragraphs.forEach(paragraph => {
+          const p = document.createElement('p');
+          p.className = 'service-modal-description';
+          p.innerHTML = paragraph.replace(/<p>|<\/p>/g, '');
+          modalBody.appendChild(p);
+        });
+        
+        // Add final Czech/English paragraph
+        if (translation.czech_quote) {
+          const p = document.createElement('p');
+          p.className = 'service-modal-description';
+          p.innerHTML = translation.czech_quote;
+          modalBody.appendChild(p);
         }
       }
       
-      // Update button text
+      // Update button
       const buttonElement = modal.querySelector('.service-modal-cta');
       if (buttonElement) {
         buttonElement.textContent = translation.button;
@@ -10869,48 +10907,107 @@ function updateLegalCaseModals(language) {
   });
 }
 
+// Update form thank-you message based on language
+function updateFormLanguage(language) {
+  const thankYouInput = document.getElementById('thank-you-message');
+  if (thankYouInput) {
+    if (language === 'cz') {
+      thankYouInput.value = "Děkujeme za vaši zprávu!";
+    } else {
+      thankYouInput.value = "Thank you for your message!";
+    }
+  }
+}
+
+
+
 /**
  * Modify your existing language switcher functionality to call the modal updater
- */
-function setLanguage(language) {
+ */function setLanguage(language) {
   try {
-    // Your existing language switching code...
+    const languageLoader = document.querySelector('.language-loader');
     
-    // Apply translations to all elements with data-lang-key
-    document.querySelectorAll('[data-lang-key]').forEach(element => {
-      const key = element.getAttribute('data-lang-key');
-      if (translations[key] && translations[key][language]) {
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-          if (element.placeholder) {
-            element.placeholder = translations[key][language];
-          } else {
-            element.value = translations[key][language];
-          }
-        } else {
-          element.innerHTML = translations[key][language];
+    // Only show the language loader if we're changing languages, not on initial load
+    if (window.siteConfig.currentLanguage !== language && window.siteConfig.initialized) {
+      // Show language loader
+      if (languageLoader) {
+        languageLoader.classList.add('active');
+        
+        // Update loader text based on language
+        const loaderText = languageLoader.querySelector('.language-loader-text');
+        if (loaderText) {
+          loaderText.textContent = language === 'cz' ? 'Přepínání jazyka...' : 'Changing language...';
         }
       }
-    });
-    
-    // Update modal content based on current language
-    updateLegalCaseModals(language);
-    
-    // Update service card hover text
-    if (translations['service-hover-text'] && translations['service-hover-text'][language]) {
-      const hoverText = translations['service-hover-text'][language];
-      document.querySelectorAll('.service-card').forEach(card => {
-        card.setAttribute('data-info-text', hoverText);
-      });
     }
     
-    // The rest of your language switching code...
-    
-    // Update window.siteConfig.currentLanguage
+    // Update current language for next time
     window.siteConfig.currentLanguage = language;
     
-    console.log('Language switched to:', language);
+    // Use a brief timeout to ensure the loader is visible before processing
+    setTimeout(function() {
+      // Apply translations to all elements with data-lang-key
+      document.querySelectorAll('[data-lang-key]').forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[key] && translations[key][language]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            if (element.placeholder) {
+              element.placeholder = translations[key][language];
+            } else {
+              element.value = translations[key][language];
+            }
+          } else {
+            element.innerHTML = translations[key][language];
+          }
+        }
+      });
+      
+      // Update service card hover text
+      if (translations['service-hover-text'] && translations['service-hover-text'][language]) {
+        const hoverText = translations['service-hover-text'][language];
+        document.querySelectorAll('.service-card').forEach(card => {
+          card.setAttribute('data-info-text', hoverText);
+        });
+      }
+      
+      // UPDATE RESULT MODALS - Add this line
+      updateLegalCaseModals(language);
+      
+      // Update language switcher active states
+      document.querySelectorAll('.language-option, .mobile-language-option').forEach(option => {
+        if (option.getAttribute('data-lang') === language) {
+          option.classList.add('active');
+        } else {
+          option.classList.remove('active');
+        }
+      });
+      
+      // Hide language loader after translation is complete
+      if (languageLoader && languageLoader.classList.contains('active')) {
+        setTimeout(function() {
+          languageLoader.classList.remove('active');
+        }, 300);
+      }
+      
+      // Update page loader text if visible
+      const pageLoaderText = document.getElementById('loader-text');
+      if (pageLoaderText && translations['loader-text'] && translations['loader-text'][language]) {
+        pageLoaderText.textContent = translations['loader-text'][language];
+      }
+      
+      console.log('Language switched to:', language);
+    }, window.siteConfig.initialized ? 400 : 0);
+    
+    // Set initialized flag
+    window.siteConfig.initialized = true;
   } catch (error) {
     console.error('Error switching language:', error);
+    
+    // Hide loader in case of error
+    const languageLoader = document.querySelector('.language-loader');
+    if (languageLoader) {
+      languageLoader.classList.remove('active');
+    }
   }
 }
 
@@ -11114,6 +11211,10 @@ document.querySelectorAll('.service-modal-cta, .result-modal .service-modal-cta'
     }
   });
 });
+
+
+
+
 
 /**
  * Restructure the modal content for a more professional look
