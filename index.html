@@ -7131,6 +7131,152 @@ section {
     border-color: inherit !important;
   }
 }
+/* Mobile-specific fixes for contact section */
+@media (max-width: 768px) {
+  /* Left align section heading and content */
+  #contact .section-title,
+  #contact .contact-text,
+  #contact .section-heading,
+  #contact p {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+  
+  /* Make section title smaller */
+  #contact .section-title {
+    font-size: 2rem !important;
+  }
+  
+  /* Reduce size of section number */
+  #contact .section-number {
+    font-size: 80px !important;
+    left: -10px !important;
+    opacity: 0.1 !important;
+  }
+  
+  /* Fix the green line under the title */
+  #contact .section-title::after {
+    left: 0 !important;
+    margin-left: 0 !important;
+  }
+  
+  /* Make contact icons and text smaller */
+  #contact .contact-icon {
+    width: 45px !important;
+    height: 45px !important;
+    margin-right: 15px !important;
+  }
+  
+  #contact .contact-icon i {
+    font-size: 18px !important;
+  }
+  
+  /* Adjust text size */
+  #contact .contact-detail,
+  #contact .contact-detail a {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Adjust container padding */
+  .contact-container {
+    padding: 0 15px !important;
+  }
+}
+
+/* Comprehensive Mobile Touch Fixes */
+@media (pointer: coarse), (hover: none) {
+  /* Prevent default tap highlight color */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  }
+  
+  /* Prevent any color changes on tap/touch */
+  *:hover, *:active, *:focus {
+    color: inherit !important;
+    opacity: 1 !important; /* Prevent transparency */
+    visibility: visible !important; /* Prevent disappearing */
+  }
+  
+  /* Prevent text color changes */
+  a:hover, a:active, a:focus,
+  button:hover, button:active, button:focus,
+  .nav-link:hover, .nav-link:active, .nav-link:focus,
+  .footer-link:hover, .footer-link:active, .footer-link:focus,
+  [class*="title"]:hover, [class*="title"]:active, [class*="title"]:focus,
+  [class*="heading"]:hover, [class*="heading"]:active, [class*="heading"]:focus,
+  [class*="text"]:hover, [class*="text"]:active, [class*="text"]:focus {
+    color: inherit !important;
+  }
+  
+  /* Prevent transformations and animations */
+  *:hover, *:active, *:focus {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Prevent background color changes */
+  *:hover, *:active, *:focus {
+    background-color: inherit !important;
+  }
+  
+  /* Specifically fix service cards */
+  .service-card::before {
+    display: none !important;
+  }
+  
+  /* Fix buttons to maintain visibility and color */
+  .btn, .btn-reversed, button[type="submit"], 
+  .form-submit, .service-modal-cta, .services-cta-button {
+    opacity: 1 !important;
+    transform: none !important;
+    background-color: var(--navy) !important;
+    color: white !important;
+  }
+  
+  /* Fix the primary (gold) buttons */
+  .btn-reversed, .form-submit, .service-modal-cta {
+    background-color: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+  
+  /* Prevent pseudo-elements from causing effects */
+  *:hover::before, *:active::before, *:focus::before,
+  *:hover::after, *:active::after, *:focus::after {
+    transform: none !important;
+    left: -100% !important;
+    width: 0 !important;
+    opacity: 0 !important;
+  }
+  
+  /* Fix footer links specifically */
+  .footer-link, .footer-social-link,
+  .footer-contact-item, .footer-contact-text a {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: rgba(255, 255, 255, 0.7) !important; /* Use your original footer text color */
+  }
+  
+  /* Prevent nav links from disappearing */
+  .nav-link::after {
+    transform: scaleX(0) !important;
+  }
+  
+  /* Prevent hover cards from moving */
+  .service-card:hover, .feature-item:hover, .result-card:hover {
+    transform: none !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  /* Fix feature icons color */
+  .feature-icon {
+    background-color: transparent !important;
+  }
+  
+  .feature-icon i {
+    color: var(--navy) !important;
+  }
+}
     </style>
 </head>
 <body>
@@ -7275,7 +7421,7 @@ section {
               </div>
           </div>
           <div class="hero-image">
-              <img src="https://i.postimg.cc/FKzNhdMQ/pexels-branimir-cupar-2119899-9636151.jpg" alt="Legal Services">
+              <img src="http://ak-soralova.cz/wp-content/uploads/2025/03/pexels-branimir-cupar-2119899-9636151.jpg" alt="Legal Services">
           </div>
       </div>
   </section>
@@ -7341,7 +7487,7 @@ section {
               </div>
               
               <div class="about-image fade-up"> 
-                <img src="https://i.postimg.cc/P59xJNVd/00008613.jpg" class="about-image-main" alt="O nás" >
+                <img src="http://ak-soralova.cz/wp-content/uploads/2025/03/00008613-scaled.jpg" class="about-image-main" alt="O nás" >
             </div>
           </div>
       </div>
@@ -7361,7 +7507,7 @@ section {
         <div class="services-layout">
             <!-- Left column - Image with improved positioning -->
             <div class="services-image fade-up">
-                <img src="https://i.postimg.cc/tCHKVP0b/pexels-karolina-grabowska-7876036.jpg" class="services-image-main" alt="Právní služby">
+                <img src="http://ak-soralova.cz/wp-content/uploads/2025/03/pexels-karolina-grabowska-7681239-scaled-e1743181831312.jpg" class="services-image-main" alt="Právní služby">
             </div>
             
             <!-- Right column - Service cards with improved grid -->
@@ -11302,6 +11448,43 @@ document.querySelectorAll('.result-card, .service-card').forEach(card => {
   });
 });
 
+
+
+
+/**
+ * Initialize touch-specific optimizations
+ */
+ function initializeTouchOptimizations() {
+  // Only apply on touch devices
+  if (!window.siteConfig.isTouchDevice) return;
+  
+  // Add a class to the html element for CSS targeting
+  document.documentElement.classList.add('touch-device');
+  
+  // Fix links and buttons with specific tap handling
+  document.querySelectorAll('a, button, .nav-link, .footer-link').forEach(element => {
+    element.addEventListener('touchstart', function() {
+      // Ensure this element stays visible during the tap
+      this.style.opacity = '1';
+      this.style.visibility = 'visible';
+    }, { passive: true });
+    
+    element.addEventListener('touchend', function() {
+      // Reset any temporary styles
+      this.style.opacity = '';
+      this.style.visibility = '';
+    }, { passive: true });
+  });
+  
+  // Remove service card hover text that can create problems
+  document.querySelectorAll('.service-card').forEach(card => {
+    if (card.hasAttribute('data-info-text')) {
+      card.removeAttribute('data-info-text');
+    }
+  });
+  
+  console.log('Touch optimizations initialized');
+}
 
     </script>
     <script src="language-toggle.js"></script>
